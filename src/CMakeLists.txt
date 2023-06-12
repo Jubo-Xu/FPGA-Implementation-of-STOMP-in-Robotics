@@ -1,6 +1,7 @@
 # Select between the USM and buffer variant of the
 # code to compile, depending on the value of USM 
-# given to cmake
+# given to cmake    message(STATUS "Using the USM variant.")
+
 # e.g. if cmake is called with -DUSM=1, the USM
 # source code will be compiled
 if(DEFINED USM AND (NOT(USM EQUAL 0)))
@@ -86,7 +87,7 @@ set(HARDWARE_LINK_FLAGS "-fsycl -fintelfpga -Xshardware -Xstarget=${FPGA_DEVICE}
 # CMake executes:
 #    [compile] icpx -fsycl -fintelfpga -DFPGA_EMULATOR -o <file>.cpp.o -c <file>.cpp
 #    [link]    icpx -fsycl -fintelfpga <file>.cpp.o -o <file>.fpga_emu
-add_executable(${EMULATOR_TARGET} ${SOURCE_FILE} ${ADDER_TREE} ${COST_FUNCTION})
+add_executable(${EMULATOR_TARGET} ${SOURCE_FILE} ${ADDER_TREE})
 set_target_properties(${EMULATOR_TARGET} PROPERTIES COMPILE_FLAGS "${EMULATOR_COMPILE_FLAGS}")
 set_target_properties(${EMULATOR_TARGET} PROPERTIES LINK_FLAGS "${EMULATOR_LINK_FLAGS}")
 add_custom_target(fpga_emu DEPENDS ${EMULATOR_TARGET})

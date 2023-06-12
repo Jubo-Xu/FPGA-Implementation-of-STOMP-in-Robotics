@@ -19,7 +19,7 @@
 //
 // SPDX-License-Identifier: MIT
 // =============================================================
-#include <sycl/sycl.hpp>
+/*#include <sycl/sycl.hpp>
 #include <vector>
 #include <iostream>
 #include <string>
@@ -177,4 +177,413 @@ int main(int argc, char* argv[]) {
 
   std::cout << "Vector add successfully completed on device.\n";
   return 0;
+}*/
+
+
+// Test for LOU
+// #include <sycl/sycl.hpp>
+
+// #include <sycl/ext/intel/fpga_extensions.hpp>
+
+// #include "autorun.hpp"
+
+
+
+
+#include <CL/sycl.hpp>
+
+#include <array>
+
+#include <iostream>
+
+#include <string>
+
+#include <algorithm>
+
+#include <vector>
+
+#if FPGA_HARDWARE || FPGA_EMULATOR || FPGA_SIMULATOR
+
+#include <sycl/ext/intel/fpga_extensions.hpp>
+
+#endif
+
+//#include <sycl/ext/intel/fpga_extensions.hpp>
+
+#include "autorun.hpp"
+
+#include "pipe_utils.hpp"
+
+#include "unrolled_loop.hpp"
+
+//#include "exception_handler.hpp"
+
+
+
+
+
+
+using namespace sycl;
+
+
+
+
+
+#if FPGA_SIMULATOR
+
+  auto selector = sycl::ext::intel::fpga_simulator_selector_v;
+
+#elif FPGA_HARDWARE
+
+  auto selector = sycl::ext::intel::fpga_selector_v;
+
+#else  // #if FPGA_EMULATOR
+
+  auto selector = sycl::ext::intel::fpga_emulator_selector_v;
+
+#endif
+
+//KernelID
+
+
+
+
+class ARConsumeID;
+
+class ARProduceID;
+
+class KsparseMulID;
+
+//PipeID
+
+class ARProducePipeID;
+
+class ARConsumeID;
+
+class ARMMulPipeOutID;
+
+class ARSparsePipeID;
+
+class ARInitThetaPipeID;
+
+
+
+
+using ARConsumePipe = sycl::ext::intel::pipe<ARConsumeID,float>;
+
+using ARProducePipe = sycl::ext::intel::pipe<ARProducePipeID, float>;
+
+using SparsePipe = sycl::ext::intel::pipe<ARSparsePipeID, float>;
+
+using InitThetaPipe = sycl::ext::intel::pipe<ARInitThetaPipeID, float>;
+
+
+static auto exception_handler = [](sycl::exception_list e_list) {
+  for (std::exception_ptr const &e : e_list) {
+    try {
+      std::rethrow_exception(e);
+    }
+    catch (std::exception const &e) {
+#if _DEBUG
+      std::cout << "Failure" << std::endl;
+#endif
+      std::terminate();
+    }
+  }
+};
+
+
+// struct ARSmooth{
+
+//     private:
+
+//         float Vec_Mul1 = 0 ;
+
+//         float Vec_Mul2 = 0 ;
+
+//         float smoothRes = 0;
+
+//         constexpr int Iter = 5 ;
+
+//     public:
+
+//     void operator()() {
+
+//         while(1){
+
+//             for(int i = 0; i < kSize; i++){
+
+//                 float delta = ARProducePipe::read();
+
+//                 float MulRes = ARMMulPipeOutID::read();
+
+//                  Vec_Mul1 += delta * MulRes;
+
+//                  Vec_Mul2 += delta * InitThethaPipe;
+
+//             }          
+
+//             if(counter == 0){              
+
+//                 smoothRes = SparsePipe::read() + Vec_Mul2 + Vec_Mul1 ;  
+
+//             }
+
+//             else{
+
+//                 smoothRes = 0.5 * smoothRes + Vec_Mul2 + Vec_Mul1;
+
+//             }          
+
+//             if(counter == Iter){
+
+//                 counter = 0;
+
+//             }            
+
+//             Vec_Mul1 = 0;
+
+//             Vec_Mul2 = 0;
+
+//             smoothRes = 0;            
+
+//         }
+
+//     }
+
+// }
+
+
+
+
+struct ARsparseMul{
+
+    void operator()() const
+
+      {
+
+     
+
+        [[intel::fpga_register]] float A[5] = {0, 0, 0, 0, 0};;
+
+       
+
+        while(1){
+
+            [[intel::fpga_register]] uint8_t count = 0 ;
+
+            float Out = 0;
+
+            A[0] = ARProducePipe::read();
+
+            for(int j = 0; j < 7; j++){
+
+                Out += A[2]*(A[0] +(-4) * A[1] + 6*A[2] + (-4)* A[3] + A[4]);
+
+                #pragma unroll
+
+                for(int i = 0; i < 4 ; i++ ){
+
+                    A[4-i] = ext::intel::fpga_reg(A[4-i-1]);
+
+                }
+
+                if(count < 4){
+
+                A[0] = ARProducePipe::read();
+
+                count++;
+
+                }
+
+                else{
+
+                 A[0] = 0.0f;
+
+                }
+
+            }
+
+            count = 0;
+
+            SparsePipe::write(Out);
+
+        }
+
+   
+
+    }
+
+};
+
+
+
+
+
+
+// struct ARMMul{
+
+//     private:
+
+//     constexpr float M_matrix[kSize*kSize] =
+
+//     {0.535714285714286,0.714285714285715,0.642857142857144,0.428571428571429,0.178571428571429,
+
+// 0.714285714285715,1.42857142857143,1.42857142857143,1,0.428571428571429,
+
+// 0.642857142857144,1.42857142857143,1.85714285714286,1.42857142857143,0.642857142857144,
+
+// 0.428571428571429,1,1.42857142857143,1.42857142857143,0.714285714285715,
+
+// 0.178571428571429,0.428571428571429,0.642857142857143,0.714285714285715,0.535714285714286};
+
+//     kSize = 5;
+
+//     public:
+
+//     void operator()() const {
+
+//         while(1){      
+
+//         [[intel::fpga_register]] float F_matrix[25];      
+
+//         for (size_t i = 0; i < kSize*kSize; i++) {
+
+//         F_matrix[i] = M_matrix[i];
+
+//         }
+
+//         for(int i = 0; i < kSize; i++){
+
+//             float  val = Pipe_in::read();
+
+//             #pragma unroll
+
+//             for(int j = 0; j < N; j++){
+
+//                 val = ext::intel::fpga_reg(val);
+
+//                 A_out[j] += val*F_matrix[i*5+j];
+
+//             }
+
+//         }      
+
+//         for(int i = 0; i < 5; i++){
+
+//             Pipe_out::write(A_out[i]);
+
+//             }
+
+//         }
+
+//     }
+
+// }
+
+// start the AutoRun Kernel
+
+fpga_tools::Autorun<KsparseMulID> ar_kernel{selector, ARsparseMul{}};
+
+
+
+
+template<typename KernelID, typename Pipe>
+
+event SubmitProducerKernel(queue& q, buffer<float, 1>& in_buf){
+
+    return q.submit([&](sycl::handler& h){
+
+        sycl::accessor in(in_buf, h, read_only );
+
+        int size = in_buf.size();
+
+        h.single_task<KernelID>([=](){
+
+            for(int i = 0 ; i < size; i++){
+
+                ARProducePipe::write(in[i]);
+
+            }
+
+
+
+
+        });
+
+    });
+
+}
+
+
+
+
+template<typename KernelID, typename Pipe>
+
+event SubmitConsumerKernel(queue& q, buffer<float, 1>& out_buf){
+
+    return q.submit([&](sycl::handler& h){
+
+        sycl::accessor out(out_buf, h, write_only, no_init );
+
+        int size = out_buf.size();
+
+        h.single_task<KernelID>([=](){
+
+            for(int i = 0 ; i < size; i++){
+
+                out[i] =  ARConsumePipe::read();
+
+            }
+
+
+
+
+        });
+
+    });
+
+}
+
+
+
+
+int main(){
+
+    std::vector<float> in_data(10);
+
+   
+
+    for(int i = 0; i < 10; i++){
+
+        in_data.push_back(i);
+
+    }
+
+   
+
+    in_data.push_back(14);
+
+    in_data.push_back(5);
+
+    in_data.push_back(15);
+
+    in_data.push_back(2);
+
+    in_data.push_back(9);  
+
+    sycl::buffer in_buf(in_data);
+
+    sycl::buffer<float, 1> out_buf{1};
+
+    queue q(selector, exception_handler);
+
+    SubmitProducerKernel<ARProduceID, ARProducePipe>(q, in_buf);
+
+    SubmitConsumerKernel<ARConsumeID, ARConsumePipe>(q, out_buf);
+
+    // sycl::host_allocator result{out_buf};
+
+    // std::cout<<result[0]<<std::endl;
+
 }

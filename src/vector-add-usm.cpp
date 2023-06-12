@@ -34,7 +34,7 @@
 #include "autorun.hpp"
 #include "pipe_utils.hpp"
 #include "unrolled_loop.hpp"
-
+#include "Delta_Theta_Block.hpp"
 
 
 constexpr int N_main = 8;
@@ -50,6 +50,7 @@ class ARKernel_inID;
 class ARKernel_outID;
 class ARConsumerID;
 class ARKernel_selfID;
+class AR_4_1_kernel_ID; //mainly for testing
 
 // declare the pipe names globally to reduce name mangling
 class ARProducePipeID;
@@ -57,14 +58,15 @@ class ARConsumePipeID;
 class ARKernel_self_inID;
 class ARKernel_self_outID;
 class PipeArray_1_ID;
+class PipeArray_2_ID;
 
 // pipes
 using ARProducePipe = sycl::ext::intel::pipe<ARProducePipeID, float>;
 using ARConsumePipe = sycl::ext::intel::pipe<ARConsumePipeID, float>;
 using ARKernel_self_inPipe = sycl::ext::intel::pipe<ARKernel_self_inID, float, 1>;
 using ARKernel_self_outPipe = sycl::ext::intel::pipe<ARKernel_self_outID, float>;
-using ARKernel_PipeArray =  fpga_tools::PipeArray<PipeArray_1_ID, float, 1, 5>;
-
+using ARKernel_PipeArray =  fpga_tools::PipeArray<PipeArray_1_ID, float, 1, 4>;
+using ARKernel_PipeArray_2 =  fpga_tools::PipeArray<PipeArray_2_ID, float, 1, 4>;
 
 // Create an exception handler for asynchronous SYCL exceptions
 static auto exception_handler = [](sycl::exception_list e_list) {
@@ -101,6 +103,7 @@ static auto exception_handler = [](sycl::exception_list e_list) {
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 ////////////////// DEFINE THE AUTORUN BLOCK //////////////////////////
+
 struct MyAutorun_in {
   void operator()() const {
     // notice that in this version, we explicitly add the while(1)-loop
@@ -121,13 +124,13 @@ struct MyAutorun_in {
     //   ARConsumePipe::write(out);
       //////////////////////////////////////////////////////////////////
       //////////// TEST FOR SERIAL TO PARALLEL SIMPLE //////////////////
-      [[intel::fpga_register]] float Coef[2];
+      [[intel::fpga_register]] float Coef[4];
       float out = 0;
-      for(int i=0; i<2; i++){
+      for(int i=0; i<4; i++){
           Coef[i] = ARProducePipe::read();
       }
       size_t index = 0;
-      fpga_tools::UnrolledLoop<2>([&index, &Coef](auto i) {
+      fpga_tools::UnrolledLoop<4>([&index, &Coef](auto i) {
       ARKernel_PipeArray::PipeAt<i>::write(Coef[index++]);
       });
       // for(int j=0; j<2; j++){
@@ -135,10 +138,53 @@ struct MyAutorun_in {
       // }
       //ARConsumePipe::write(out);
       #pragma unroll
-      for(int k=0; k<2; k++){
+      for(int k=0; k<4; k++){
         Coef[k] = 0;
       }
 
+    }
+  }
+}; 
+
+struct MyAutorun_out_new {
+  void operator()() const {
+    // notice that in this version, we explicitly add the while(1)-loop
+    
+    while (1) {
+      //////////// TEST FOR SERIAL TO PARALLEL SIMPLE //////////////////
+      [[intel::fpga_register]] float Coef[4];
+
+      size_t index = 0;
+      fpga_tools::UnrolledLoop<4>([&index, &Coef](auto i) {
+          Coef[index++] = ARKernel_PipeArray_2::PipeAt<i>::read();
+      });
+      for(int i=0; i<4; i++){
+        ARConsumePipe::write(Coef[i]);
+      }
+
+    }
+  }
+}; 
+
+template <typename Pipein, typename Pipeout>
+struct Autoout{
+  void operator()() const {
+    // notice that in this version, we explicitly add the while(1)-loop
+    
+    while (1) {
+      //[[intel::fpga_register]] float Coef[2];  
+      Delta_Theta_Block::Array_Num_k Coef;
+      Delta_Theta_Block::Array_Num_k OUT;
+      size_t index = 0;
+      fpga_tools::UnrolledLoop<4>([&index, &Coef](auto i) {
+      Coef.Array[index++] = Pipein::template PipeAt<i>::read();
+      });
+
+      OUT = Delta_Theta_Block::Find_MAX_and_MIN(Coef);
+      
+      for(int i=0; i<4; i++){
+        Pipeout::write(OUT.Array[i]);
+      }
     }
   }
 };
@@ -147,38 +193,80 @@ struct MyAutorun_out {
   void operator()() const {
     // notice that in this version, we explicitly add the while(1)-loop
     [[intel::fpga_register]] float Sphere_center[3] = {1.0f, 1.0f, 1.0f};
+    [[intel::fpga_register]] float last[3][2] = {
+      {0.0f, 0.0f},
+      {0.0f, 0.0f},
+      {0.0f, 0.0f}
+    };
+    Obstacle_CostFunction::Array_DIM_NB Cartesian_last;
+    #pragma unroll
+    for(int i=0; i<3; i++){
+      #pragma unroll
+      for(int j=0; j<2; j++){
+        Cartesian_last.Array[i][j] = 0.0f;
+      }
+    }
+    
     while (1) {
       [[intel::fpga_register]] float Coef[2];  
       [[intel::fpga_register]] float Cartesian_Pos[3][2]; 
       [[intel::fpga_register]] float Distance[2]; 
+      [[intel::fpga_register]] float Velocity[2];
+      Obstacle_CostFunction::Array_NB velocity_out;
+      Obstacle_CostFunction::Array_DIM_NB Cartesian_in;
       float Sphere_radius = 1.0f;
       float out = 0;
       size_t index = 0;
       fpga_tools::UnrolledLoop<2>([&index, &Coef](auto i) {
       Coef[index++] = ARKernel_PipeArray::PipeAt<i>::read();
       });
+      
       #pragma unroll
       for(int i=0; i<2; i++){
         Cartesian_Pos[0][i] = Coef[i];
         Cartesian_Pos[1][i] = Coef[i];
         Cartesian_Pos[2][i] = Coef[i];
       }
+
       #pragma unroll
-      for(int i=0; i<2; i++){
-        [[intel::fpga_register]] float square_term[3];
+      for(int i=0; i<3; i++){
         #pragma unroll
-        for(int j=0; j<3; j++){
-            square_term[j] = (Cartesian_Pos[j][i]-Sphere_center[j])*(Cartesian_Pos[j][i]-Sphere_center[j]);
+        for(int j=0; j<2; j++){
+          Cartesian_in.Array[i][j] = Cartesian_Pos[i][j];
         }
-        float square_add = square_term[0] + square_term[1] + square_term[2];
-        Distance[i] = sycl::sqrt(square_add) - Sphere_radius;
       }
+      //Test for distance
+      // #pragma unroll
+      // for(int i=0; i<2; i++){
+      //   [[intel::fpga_register]] float square_term[3];
+      //   #pragma unroll
+      //   for(int j=0; j<3; j++){
+      //       square_term[j] = (Cartesian_Pos[j][i]-Sphere_center[j])*(Cartesian_Pos[j][i]-Sphere_center[j]);
+      //   }
+      //   float square_add = square_term[0] + square_term[1] + square_term[2];
+      //   Distance[i] = sycl::sqrt(square_add) - Sphere_radius;
+      // }
+      ///////////////////////
+      /// Test for velocity
+    //    #pragma unroll
+    //   for(int i=0; i<2; i++){
+    //     [[intel::fpga_register]] float Diff_1st[3];
+    //     #pragma unroll
+    //     for(int j=0; j<3; j++){
+    //         Diff_1st[j] = Cartesian_Pos[j][i] - last[j][i];
+    //         last[j][i] = Cartesian_Pos[j][i];
+            
+    //     }
+    //     Velocity[i] = sycl::sqrt(Diff_1st[0]*Diff_1st[0] + Diff_1st[1]*Diff_1st[1] + Diff_1st[2]*Diff_1st[2]);
+    //  }
+    velocity_out = Obstacle_CostFunction::Calc_Velocity_AR(Cartesian_in, Cartesian_last);
+      ///////////////////////
       // for(int i=0; i<5; i++){
       //   out += Coef[i];
       // }
       //ARConsumePipe::write(out);
       for(int i=0; i<2; i++){
-        ARConsumePipe::write(Distance[i]);
+        ARConsumePipe::write(velocity_out.Array[i]);
       }
     }
   }
@@ -187,8 +275,12 @@ struct MyAutorun_out {
 // declaring a global instance of this class causes the constructor to be called
 // before main() starts, and the constructor launches the kernel.
 fpga_tools::Autorun<ARKernel_inID> ar_kernel_in{selector, MyAutorun_in{}};
-fpga_tools::Autorun<ARKernel_outID> ar_kernel_out{selector, MyAutorun_out{}};
-//////////////////////////////////////////////////////////////////////
+//fpga_tools::Autorun<ARKernel_outID> ar_kernel_out{selector, MyAutorun_out{}};
+//fpga_tools::Autorun<ARKernel_outID> ar_kernel_out{selector, Autoout<ARKernel_PipeArray, ARConsumePipe>{}};
+fpga_tools::Autorun<ARKernel_outID> ar_kernel_out{selector, Delta_Theta_Block::Theta_Calc_Kernel2<ARKernel_PipeArray, ARKernel_PipeArray_2>{}};
+fpga_tools::Autorun<AR_4_1_kernel_ID> ar_kernel_parallel_to_serial{selector, MyAutorun_out_new{}};
+
+////////////////////////////////////////////////////////////////////// 
 //////////////////////////////////////////////////////////////////////
 
 // Submit a kernel to read data from global memory and write to a pipe
@@ -213,7 +305,7 @@ sycl::event SubmitConsumerKernel(sycl::queue& q, sycl::buffer<float, 1>& out_buf
   return q.submit([&](sycl::handler& h) {
     sycl::accessor out(out_buf, h, write_only, no_init);
     //int size = out_buf.size();
-    int size = 10;
+    int size = 12;
     h.single_task<KernelID>([=] {
       for (int i = 0; i < size; i++) {
           out[i] = Pipe::read();
@@ -372,21 +464,24 @@ std::cout<<"un peu d'espoir\n";
 /////////////////////////////// TEST FOR AUTORUN //////////////////////////////////
 
 // Number of total numbers of input
-int count = 10;
+int count = 12;
 //bool passed = true;
 
 std::vector<float> in_data(count), out_data(count);
 // Clear the output buffer
 std::fill(out_data.begin(), out_data.end(), -1);
 // Initialize the input buffer
-for(int i=0; i<count; i++){
-  in_data[i] = i+1;
-}
+// for(int i=0; i<count; i++){
+//   in_data[i] = i+1;
+// }
+//in_data = {1.0f, 2.0f, 2.0f, 3.0f, 2.5f, 4.0f, 5.5f, 2.0f, 8.0f, 3.5f};
+in_data = {4.0f, 3.0f, 2.0f, 1.0f, 2.0f, 3.0f, 1.0f, 4.0f, 2.0f, 5.0f, 1.0f, 3.0f};
 std::cout<<"input data: \n";
 for(int i=0; i<count; i++){
   std::cout<<in_data[i];
 }
 std::cout<<"\n";
+
  try {
     // create the queue
     sycl::queue q(selector, exception_handler);
