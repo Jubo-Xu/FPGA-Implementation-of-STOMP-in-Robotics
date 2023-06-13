@@ -496,4 +496,5 @@ src/CMakeFiles/vector-add-buffers.fpga_emu.dir/main.cpp.o: \
   /home/lou/FPGA-Implementation-of-STOMP-in-Robotics/src/autorun.hpp \
   /home/lou/FPGA-Implementation-of-STOMP-in-Robotics/src/pipe_utils.hpp \
   /home/lou/FPGA-Implementation-of-STOMP-in-Robotics/src/unrolled_loop.hpp \
-  /home/lou/FPGA-Implementation-of-STOMP-in-Robotics/src/metaprogramming_utils.hpp
+  /home/lou/FPGA-Implementation-of-STOMP-in-Robotics/src/metaprogramming_utils.hpp \
+  /home/lou/FPGA-Implementation-of-STOMP-in-Robotics/src/CostSmooth.hpp
