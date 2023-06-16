@@ -4,17 +4,19 @@
 
 # e.g. if cmake is called with -DUSM=1, the USM
 # source code will be compiled
-if(DEFINED USM AND (NOT(USM EQUAL 0)))
-    message(STATUS "Using the USM variant.")
+if(DEFINED DOTEST AND (NOT(DOTEST EQUAL 0)))
+    message(STATUS "Using the TEST variant.")
     set(SOURCE_FILE vector-add-usm.cpp)
-    set(TARGET_NAME vector-add-usm)
+    set(TARGET_NAME do-test)
     set(ADDER_TREE  Adder_Tree.cpp)
     set(COST_FUNCTION CostFunction.cpp)
 else()    
     set(SOURCE_FILE main.cpp)
     set(ADDER_TREE  Adder_Tree.cpp)
     set(COST_FUNCTION CostFunction.cpp)
-    set(TARGET_NAME vector-add-buffers)
+    set(TARGET_NAME stomp)
+    #vector-add-buffers
+    #vector-add-usm
 endif()
 
 # This is a Windows-specific flag that enables exception handling in host code

@@ -12,6 +12,7 @@
 
 #define Num_k_Theta_Calc    4
 #define h_constant          8
+#define DoF_Theta_Calc      3
 
 namespace Delta_Theta_Block{
 
@@ -141,32 +142,41 @@ namespace Delta_Theta_Block{
     };
 
     // Define the third kernel ---> calculate the sum of p_i*epsilon_i
-    template <typename Pipe_in_1, typename Pipe_in_2, typename Pipe_out>
+    template <typename Pipe_in_1, typename Pipe_in_2, typename Pipe_out, typename Pipe_out2>
     struct Theta_Calc_Kernel3{
         void operator ()() const{
             while(1){
                 [[intel::fpga_register]] float INPUT_P[Num_k_Theta_Calc];
-                [[intel::fpga_register]] float INPUT_EPSILON[Num_k_Theta_Calc];
-                [[intel::fpga_register]] float Multi_OUT[Num_k_Theta_Calc];
-                float Adder_Tree_out = 0.0f;
+                [[intel::fpga_register]] float INPUT_EPSILON[DoF_Theta_Calc*Num_k_Theta_Calc];
+                [[intel::fpga_register]] float Multi_OUT[DoF_Theta_Calc][Num_k_Theta_Calc];
+                [[intel::fpga_register]] float Adder_Tree_out[DoF_Theta_Calc] = {0.0f, 0.0f, 0.0f};
                 size_t index_in_p = 0;
                 size_t index_in_epsilon = 0;
                 size_t index_out = 0;
+                size_t index_out_2 = 0;
                 fpga_tools::UnrolledLoop<Num_k_Theta_Calc>([&index_in_p, &INPUT_P](auto i) {
                     INPUT_P[index_in_p++] = Pipe_in_1::template PipeAt<i>::read();
                 });
-                fpga_tools::UnrolledLoop<Num_k_Theta_Calc>([&index_in_epsilon, &INPUT_EPSILON](auto i) {
+                fpga_tools::UnrolledLoop<DoF_Theta_Calc*Num_k_Theta_Calc>([&index_in_epsilon, &INPUT_EPSILON](auto i) {
                     INPUT_EPSILON[index_in_epsilon++] = Pipe_in_2::template PipeAt<i>::read();
                 });
                 #pragma unroll
-                for(int i=0; i<Num_k_Theta_Calc; i++){
-                    Multi_OUT[i] = INPUT_P[i]*INPUT_EPSILON[i];
-                }
+                for(int i=0; i<DoF_Theta_Calc; i++){
                 #pragma unroll
                 for(int j=0; j<Num_k_Theta_Calc; j++){
-                    Adder_Tree_out = sycl::ext::intel::fpga_reg(Adder_Tree_out) + sycl::ext::intel::fpga_reg(Multi_OUT[j]);
+                        Multi_OUT[i][j] = INPUT_P[j]*INPUT_EPSILON[(i*Num_k_Theta_Calc)+j];
                 }
-                Pipe_out::write(Adder_Tree_out);
+                    #pragma unroll
+                    for(int k=0; k<Num_k_Theta_Calc; k++){
+                        Adder_Tree_out[i] = sycl::ext::intel::fpga_reg(Adder_Tree_out[i]) + sycl::ext::intel::fpga_reg(Multi_OUT[i][k]);
+                    }
+                }
+                fpga_tools::UnrolledLoop<DoF_Theta_Calc>([&index_out, &Adder_Tree_out](auto i) {
+                    Pipe_out::template PipeAt<i>::write(Adder_Tree_out[index_out++]);
+                });
+                fpga_tools::UnrolledLoop<DoF_Theta_Calc>([&index_out_2, &Adder_Tree_out](auto idx_2) {
+                    Pipe_out2::template PipeAt<idx_2>::write(Adder_Tree_out[index_out_2++]);
+                });
             }
         }
     };
