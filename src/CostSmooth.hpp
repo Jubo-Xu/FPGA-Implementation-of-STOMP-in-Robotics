@@ -232,6 +232,10 @@ struct ARSparseMul{
             
           }
           COUNT = 0;
+          #pragma unroll
+          for(int i=0; i<DoF_smooth; i++){
+            Out[i] = 0.0f;
+          }
           size_t index_3 = 0;
           fpga_tools::UnrolledLoop<DoF_smooth>([&Out, &index_3](auto idx_4){
                     //A[k][0] =  PipeInInit::template PipeAt<idx_2>::read(); //get the theta_initial

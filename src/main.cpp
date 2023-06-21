@@ -26,6 +26,8 @@
 #define k_main          4
 #define DoF_main        3
 #define end_sig_main    2
+#define N_rng           1000
+#define N_stat          32
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
 ////////////////////// DECLARE THE ID ///////////////////////////////////
@@ -145,32 +147,107 @@ static auto exception_handler = [](sycl::exception_list e_list) {
 //////////////////////////////////////////////////////////////////////
 ////////////////// DEFINE THE AUTORUN BLOCK //////////////////////////
 // Define input kernel
-fpga_tools::Autorun<ARInput_block_ID> ar_kernel_input(selector, Determine_and_Connections::AR_input_block<pipe_host_2_input, pipearray_last_2_input, pipearray_end_sig, pipearray_input_2_noisy, pipearray_input_2_update, pipearray_input_2_sparse, pipearray_input_2_smooth>{});
-// Define input to noisy kernel
-fpga_tools::Autorun<ARInput_2_kNoisy_ID> ar_kernel_IN2noisy(selector, Determine_and_Connections::AR_Input_2_kNoisy<pipearray_input_2_noisy, pipearray_RNG_out1, pipearray_noisy_out>{});
-// Define obstacle cost kernel
-fpga_tools::Autorun<ARObstacle_cost_ID> ar_kernel_ObsCost(selector, Obstacle_CostFunction::CostFunction_Autorun_Kernel<pipearray_noisy_out, pipearray_obscost_out>{});
-// Define obstacle cost single kernel
-fpga_tools::Autorun<ARObstacle_cost_single_ID> ar_kernel_ObsCost_single(selector, Obstacle_CostFunction::CostFunction_Autorun_Kernel_Single<pipearray_update_out, pipe_obcost_single_cost, pipearray_obcost_single_theta>{});
-// Define Delta theta kernel 1
-fpga_tools::Autorun<ARDelta_theta_kernel1_ID> ar_kernel_DT1(selector, Delta_Theta_Block::Theta_Calc_Kernel1<pipearray_obscost_out, pipearray_DT_1_2>{});
-// Define Delta theta kernel 2
-fpga_tools::Autorun<ARDelta_theta_kernel2_ID> ar_kernel_DT2(selector, Delta_Theta_Block::Theta_Calc_Kernel2<pipearray_DT_1_2, pipearray_DT_2_3>{});
-// Define Delta theta kernel 3
-fpga_tools::Autorun<ARDelta_theta_kernel3_ID> ar_kernel_DT3(selector, Delta_Theta_Block::Theta_Calc_Kernel3<pipearray_DT_2_3, pipearray_RNG_out2_2_DT3, pipearray_DT_out_2_MMUL, pipearray_DT_out_2_smooth>{});
-// Define MMUL kernel
-fpga_tools::Autorun<ARMMUL_ID> ar_kernel_MMUL(selector, smooth::ARMMul<pipearray_DT_out_2_MMUL, pipearray_MMUL_out1, pipearray_MMUL_out2>{});
-// Define Update kernel
-fpga_tools::Autorun<ARTUpdate_ID> ar_kernel_Update(selector, smooth::ARTUpdate<pipearray_input_2_update, pipearray_MMUL_out1, pipearray_update_out>{});
-// Define Sparse MMUL kernel
-fpga_tools::Autorun<ARSparse_MMUL_ID> ar_kernel_Sparse(selector, smooth::ARSparseMul<pipearray_input_2_sparse, pipearray_sparse_2_smooth>{});
-// Define Smooth cost kernel
-fpga_tools::Autorun<ARSmooth_calc_ID> ar_kernel_Smooth(selector, smooth::ARSmooth<pipearray_end_sig, pipearray_MMUL_out2, pipearray_sparse_2_smooth, pipearray_input_2_smooth, pipearray_DT_out_2_smooth, pipe_smooth_2_determ>{});
-// Define Determine block kernel
-fpga_tools::Autorun<ARDetermine_block_ID> ar_kernel_determine(selector, Determine_and_Connections::AR_Determine_Block<pipe_obcost_single_cost, pipe_smooth_2_determ, pipearray_obcost_single_theta, pipearray_last_2_input, pipe_last_2_host, pipearray_end_sig>{});
-// Define RNG kernel
-fpga_tools::Autorun<AR_RNG_ID> ar_kernel_RNG(selector, RNG::AR_RNG<pipearray_RNG_out1, pipearray_RNG_out2_2_DT3>{});
+// fpga_tools::Autorun<ARInput_block_ID> ar_kernel_input(selector, Determine_and_Connections::AR_input_block<pipe_host_2_input, pipearray_last_2_input, pipearray_end_sig, pipearray_input_2_noisy, pipearray_input_2_update, pipearray_input_2_sparse, pipearray_input_2_smooth>{});
+// // Define input to noisy kernel
+// fpga_tools::Autorun<ARInput_2_kNoisy_ID> ar_kernel_IN2noisy(selector, Determine_and_Connections::AR_Input_2_kNoisy<pipearray_input_2_noisy, pipearray_RNG_out1, pipearray_noisy_out>{});
+// // Define obstacle cost kernel
+// fpga_tools::Autorun<ARObstacle_cost_ID> ar_kernel_ObsCost(selector, Obstacle_CostFunction::CostFunction_Autorun_Kernel<pipearray_noisy_out, pipearray_obscost_out>{});
+// // Define obstacle cost single kernel
+// fpga_tools::Autorun<ARObstacle_cost_single_ID> ar_kernel_ObsCost_single(selector, Obstacle_CostFunction::CostFunction_Autorun_Kernel_Single<pipearray_update_out, pipe_obcost_single_cost, pipearray_obcost_single_theta>{});
+// // Define Delta theta kernel 1
+// fpga_tools::Autorun<ARDelta_theta_kernel1_ID> ar_kernel_DT1(selector, Delta_Theta_Block::Theta_Calc_Kernel1<pipearray_obscost_out, pipearray_DT_1_2>{});
+// // Define Delta theta kernel 2
+// fpga_tools::Autorun<ARDelta_theta_kernel2_ID> ar_kernel_DT2(selector, Delta_Theta_Block::Theta_Calc_Kernel2<pipearray_DT_1_2, pipearray_DT_2_3>{});
+// // Define Delta theta kernel 3
+// fpga_tools::Autorun<ARDelta_theta_kernel3_ID> ar_kernel_DT3(selector, Delta_Theta_Block::Theta_Calc_Kernel3<pipearray_DT_2_3, pipearray_RNG_out2_2_DT3, pipearray_DT_out_2_MMUL, pipearray_DT_out_2_smooth>{});
+// // Define MMUL kernel
+// fpga_tools::Autorun<ARMMUL_ID> ar_kernel_MMUL(selector, smooth::ARMMul<pipearray_DT_out_2_MMUL, pipearray_MMUL_out1, pipearray_MMUL_out2>{});
+// // Define Update kernel
+// fpga_tools::Autorun<ARTUpdate_ID> ar_kernel_Update(selector, smooth::ARTUpdate<pipearray_input_2_update, pipearray_MMUL_out1, pipearray_update_out>{});
+// // Define Sparse MMUL kernel
+// fpga_tools::Autorun<ARSparse_MMUL_ID> ar_kernel_Sparse(selector, smooth::ARSparseMul<pipearray_input_2_sparse, pipearray_sparse_2_smooth>{});
+// // Define Smooth cost kernel
+// fpga_tools::Autorun<ARSmooth_calc_ID> ar_kernel_Smooth(selector, smooth::ARSmooth<pipearray_end_sig, pipearray_MMUL_out2, pipearray_sparse_2_smooth, pipearray_input_2_smooth, pipearray_DT_out_2_smooth, pipe_smooth_2_determ>{});
+// // Define Determine block kernel
+// fpga_tools::Autorun<ARDetermine_block_ID> ar_kernel_determine(selector, Determine_and_Connections::AR_Determine_Block<pipe_obcost_single_cost, pipe_smooth_2_determ, pipearray_obcost_single_theta, pipearray_last_2_input, pipe_last_2_host, pipearray_end_sig>{});
+// // Define RNG kernel
+// fpga_tools::Autorun<AR_RNG_ID> ar_kernel_RNG(selector, RNG::AR_RNG<pipearray_RNG_out1, pipearray_RNG_out2_2_DT3>{});
 ////////////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////
+////////////////////////// TEST FOR RNG //////////////////////////////
+// Declare the IDs
+class RNG_kernel_test_ID;
+class RNG_consume_kernel_test_ID;
+class Pipe_RNG_test_ID;
+
+using myint = ac_int<1, false>;
+using myint4 = ac_int<4, true>;
+using fixed_3_2 = ac_fixed<6, 4, true>;
+
+// test for uniform RNG 6 bit
+class uniform_rng_6_test_ID;
+class uniform_rng_6_consume_ID;
+class Pipe_uniform_rng_test_ID;
+using pipe_uniform_rng_6_test = sycl::ext::intel::pipe<Pipe_uniform_rng_test_ID, ac_int<5, false>, 2>;
+
+//using pipe_rng_test = sycl::ext::intel::pipe<Pipe_RNG_test_ID, myint, 1>;
+using pipe_rng_test = sycl::ext::intel::pipe<Pipe_RNG_test_ID, float, 2>;
+
+//Declare the IDs for RNG kernels
+class AR_Gaussian_rng_kernel_ID;
+class AR_alias_table_ID;
+class AR_uni_rng_r32_single_ID;
+class AR_uni_rng_r6_ID;
+class AR_tri_rng_ID;
+//Declare the IDs for pipes
+class Pipe_uni_rng_r32_ID;
+class Pipe_uni_rng_r6_ID;
+class Pipe_alias_2_grng_ID;
+class PipeArray_tri_rng_2_grng_ID;
+class Pipe_grng_out_ID;
+//Define the Pipes
+using pipe_uni_rng_r32 = sycl::ext::intel::pipe<Pipe_uni_rng_r32_ID, float, 2>;
+using pipe_uni_rng_r6 = sycl::ext::intel::pipe<Pipe_uni_rng_r6_ID, RNG::int_6_bit, 2>;
+using pipe_alias_2_grng = sycl::ext::intel::pipe<Pipe_alias_2_grng_ID, RNG::int_5_bit, 2>;
+using pipearray_tri_rng_2_grng = fpga_tools::PipeArray<Pipe_grng_out_ID, float, 5, 32>;
+using pipe_grng_out = sycl::ext::intel::pipe<Pipe_grng_out_ID, float, 2>;
+
+
+
+
+template <typename Pipe_out>
+struct RNG_test{
+  void operator()() const{
+    [[intel::fpga_register]] myint BUF[6];
+    #pragma unroll
+    for(int i=1; i<6; i++){
+      BUF[i] = 0;
+    }
+    BUF[0] = 1;
+    while(1){
+      // #pragma unroll
+      // for(int i=1; i<6; i++){
+      //   BUF[6-i] = ext::intel::fpga_reg(BUF[6-i-1]);
+      // }
+      RNG::FIFO_shift<myint, 6>(BUF);
+      Pipe_out::write(BUF[4]);
+    }
+  }   
+};
+
+//fpga_tools::Autorun<RNG_kernel_test_ID> ar_kernel_rng_test(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48<pipe_rng_test, RNG::fixed_point_4_28>{});
+//fpga_tools::Autorun<uniform_rng_6_test_ID> ar_kernel_uniform_rng_6_test(selector, RNG::AR_LUT_OP_r6_rng<pipe_uniform_rng_6_test>{});
+
+//Define the kernels for RNG
+fpga_tools::Autorun<AR_uni_rng_r32_single_ID> ar_kernel_unirng_r32_single(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48<pipe_uni_rng_r32, RNG::fixed_point_4_28>{});
+fpga_tools::Autorun<AR_uni_rng_r6_ID> ar_kernel_unirng_r6(selector, RNG::AR_LUT_OP_r6_rng<pipe_uni_rng_r6>{});
+fpga_tools::Autorun<AR_alias_table_ID> ar_kernel_aliastable(selector, RNG::AR_Walker_Alias_Table<pipe_uni_rng_r32, pipe_uni_rng_r6, pipe_alias_2_grng>{});
+fpga_tools::Autorun<AR_tri_rng_ID> ar_kernel_tri_rng(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25<pipearray_tri_rng_2_grng>{});
+fpga_tools::Autorun<AR_Gaussian_rng_kernel_ID> ar_kernel_gaussian_rng(selector, RNG::AR_Gaussian_RNG_single<pipe_alias_2_grng, pipearray_tri_rng_2_grng, pipe_grng_out>{});
+//////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 // Submit a kernel to read data from global memory and write to a pipe
@@ -204,6 +281,31 @@ sycl::event SubmitConsumerKernel(sycl::queue& q, sycl::buffer<float, 1>& out_buf
   });
 }
 
+// TEST FOR RNG
+template <typename KernelID, typename Pipe>
+sycl::event SubmitConsume_RNG(sycl::queue& q, sycl::buffer<float, 1>& out_buf){
+  return q.submit([&](sycl::handler& h){
+    sycl::accessor out(out_buf, h, write_only, no_init);
+    h.single_task<KernelID>([=] {
+      for(int i=0; i<N_rng; i++){
+        out[i] = Pipe::read();
+      }
+    });
+  });
+}
+
+template <typename KernelID, typename Pipe>
+sycl::event SubmitConsume_uniform_RNG_6_test(sycl::queue& q, sycl::buffer<ac_int<5, false>, 1>& out_buf){
+  return q.submit([&](sycl::handler& h){
+    sycl::accessor out(out_buf, h, write_only, no_init);
+    h.single_task<KernelID>([=] {
+      for(int i=0; i<100; i++){
+        out[i] = Pipe::read();
+      }
+    });
+  });
+}
+
 
 
 
@@ -223,16 +325,54 @@ std::cout<<"un peu d'espoir\n";
 
 // Number of total numbers of input
 int count = DoF_main*N_main;
+
 //bool passed = true;
 
 std::vector<float> in_data(count), out_data(count);
 // Clear the output buffer
 std::fill(out_data.begin(), out_data.end(), -1);
 
+RNG::fixed_point_delta_0_25 a = 0.125;
+RNG::fixed_point_delta_0_25 b = 0.125;
+ac_fixed<32+3, -1, true> c = a+b;
+std::cout<<"test of fixed point: \n";
+std::cout<<c<<std::endl;
+
+float prob[32];
+RNG::find_prob(prob);
+std::cout<<"find the probability for rng: \n";
+for(int i=0; i<32; i++){
+  std::cout<<prob[i]<<' ';
+}
+std::cout<<"\n";
+
+//test for statistic calc
+// float check_prob[10] = {-3.76, -3.15, -2.15, -1.85, -0.35, 0.35, 1.2, 1.2, 3.3, 4};
+// int COUNT_test[32] = {1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1};
+// int COUNT[32];
+// for(int i=0; i<32; i++){
+//   COUNT[i] = 0;
+// }
+// int N = sizeof(check_prob)/sizeof(float);
+// RNG::rng_analyze_delta_0_25(check_prob, COUNT, N);
+
+// std::cout<<"check the statistic calc: \n";
+// for(int i=0; i<32; i++){
+//   std::cout<<COUNT[i]<<' ';
+// }
+// std::cout<<"\n";
+
+
 //in_data = {4.0f, 3.0f, 2.0f, 1.0f, 2.0f, 3.0f, 1.0f, 4.0f, 2.0f, 5.0f, 1.0f, 3.0f};
 // Initialize input date ---> can be connected with ROS later to get the value
 
-try {
+// DATA FOR RNG TEST
+std::vector<float> OUT(N_rng);
+//OUT = {0, 0, 0, 0, 0, 0};
+// DATA FOR UNIFORM RNG 6 BIT TEST
+std::vector<ac_int<5, false>> OUT_uniform_rng_6(100);
+
+try { 
     // create the queue
     sycl::queue q(selector, exception_handler);
 
@@ -246,17 +386,63 @@ try {
     std::cout << "Running the Autorun kernel test\n";
     {
       // Create input and output buffers
-      sycl::buffer in_buf(in_data);
-      sycl::buffer out_buf(out_data);
-      // submit data to kernel
-      SubmitProducerKernel<ARProduceKernel_host_ID, pipe_host_2_input>(q, in_buf);
-      // get data from kernel
-      SubmitConsumerKernel<ARConsumeKernel_host_ID, pipe_last_2_host>(q, out_buf);
+      // sycl::buffer in_buf(in_data);
+      // sycl::buffer out_buf(out_data);
+      // // submit data to kernel
+      // SubmitProducerKernel<ARProduceKernel_host_ID, pipe_host_2_input>(q, in_buf);
+      // // get data from kernel
+      // SubmitConsumerKernel<ARConsumeKernel_host_ID, pipe_last_2_host>(q, out_buf);
+
+      // TEST FOR RNG
+      sycl::buffer out_buf(OUT);
+      SubmitConsume_RNG<RNG_consume_kernel_test_ID, pipe_grng_out>(q, out_buf);
+      // TEST FOR UNIFORM RNG 6 BIT 
+      // sycl::buffer out_buf_uniform_rng_6(OUT_uniform_rng_6);
+      // SubmitConsume_uniform_RNG_6_test<uniform_rng_6_consume_ID, pipe_uniform_rng_6_test>(q, out_buf_uniform_rng_6);
       
 
     }
     std::cout<<"submit finished\n";
     // Print the OUTPUT
+
+    // print the out for RNG test
+    std::cout<<"Output is: \n";
+    for(int i=0; i<N_rng; i++){
+      std::cout<<OUT[i]<<std::endl;
+    }
+    std::cout<<"\n";
+
+    int COUNT[N_stat];
+    float OUT_stat[N_rng];
+    for(int i=0; i<N_rng; i++){
+      OUT_stat[i] = OUT[i];
+    }
+    float STAT[N_stat];
+    int total = 0;
+    for(int i=0; i<N_stat; i++){
+      COUNT[i] = 0;
+    }
+    // analyze the rng
+    RNG::rng_analyze_delta_0_25(OUT_stat, COUNT, N_rng);
+    for(int i=0; i<N_stat; i++){
+      total += COUNT[i];
+    }
+    for(int i=0; i<N_stat; i++){
+      STAT[i] = COUNT[i]/total;
+    }
+    // print the statistical analysis
+    std::cout<<"print the statistical analysis: \n";
+    for(int i=0; i<N_stat; i++){
+      std::cout<<COUNT[i]<<' ';
+    }
+    std::cout<<"\n";
+
+    // print the out for uniform rng 6 bit test
+    // std::cout<<"Output is: \n";
+    // for(int i=0; i<100; i++){
+    //   std::cout<<OUT_uniform_rng_6[i]<<std::endl;
+    // }
+    // std::cout<<"\n";
  
 
   } catch (sycl::exception const& e) {
