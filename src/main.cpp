@@ -26,7 +26,7 @@
 #define k_main          4
 #define DoF_main        3
 #define end_sig_main    2
-#define N_rng           1000
+#define N_rng           200
 #define N_stat          32
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
@@ -202,18 +202,88 @@ class AR_alias_table_ID;
 class AR_uni_rng_r32_single_ID;
 class AR_uni_rng_r6_ID;
 class AR_tri_rng_ID;
+//IDs for multiple rngs test
+class AR_uni_rng_r32_1_ID;
+class AR_uni_rng_r32_2_ID;
+class AR_uni_rng_r32_3_ID;
+class AR_uni_rng_r32_4_ID;
+class AR_uni_rng_r32_5_ID;
+class AR_uni_rng_r32_6_ID;
+class AR_uni_rng_r32_7_ID;
+class AR_uni_rng_r32_8_ID;
+class AR_uni_rng_r32_9_ID;
+class AR_uni_rng_r32_10_ID;
+class AR_uni_rng_r32_11_ID;
+class AR_uni_rng_r32_12_ID;
+class AR_uni_rng_r32_13_ID;
+class AR_uni_rng_r32_14_ID;
+class AR_uni_rng_r32_15_ID;
+class AR_uni_rng_r32_16_ID;
+class AR_uni_rng_r32_17_ID;
+class AR_uni_rng_r32_18_ID;
+class AR_uni_rng_r32_19_ID;
+class AR_uni_rng_r32_20_ID;
+class AR_uni_rng_r32_21_ID;
+class AR_uni_rng_r32_22_ID;
+class AR_uni_rng_r32_23_ID;
+class AR_uni_rng_r32_24_ID;
+class AR_uni_rng_r32_25_ID;
+class AR_uni_rng_r32_26_ID;
+class AR_uni_rng_r32_27_ID;
+class AR_uni_rng_r32_28_ID;
+class AR_uni_rng_r32_29_ID;
+class AR_uni_rng_r32_30_ID;
+class AR_uni_rng_r32_31_ID;
+class AR_uni_rng_r32_32_ID;
+class AR_uni_rng_r32_33_ID;
+class AR_uni_rng_r32_34_ID;
+class AR_uni_rng_r32_35_ID;
+class AR_uni_rng_r32_36_ID;
+class AR_uni_rng_r32_37_ID;
+class AR_uni_rng_r32_38_ID;
+class AR_uni_rng_r32_39_ID;
+class AR_uni_rng_r32_40_ID;
+class AR_uni_rng_r32_41_ID;
+class AR_uni_rng_r32_42_ID;
+class AR_uni_rng_r32_43_ID;
+class AR_uni_rng_r32_44_ID;
+class AR_uni_rng_r32_45_ID;
+class AR_uni_rng_r32_46_ID;
+class AR_uni_rng_r32_47_ID;
+class AR_uni_rng_r32_48_ID;
+class AR_uni_rng_r32_49_ID;
+class AR_uni_rng_r32_50_ID;
+class AR_uni_rng_r32_51_ID;
+class AR_uni_rng_r32_52_ID;
+class AR_uni_rng_r32_53_ID;
+class AR_uni_rng_r32_54_ID;
+class AR_uni_rng_r32_55_ID;
+class AR_uni_rng_r32_56_ID;
+class AR_uni_rng_r32_57_ID;
+class AR_uni_rng_r32_58_ID;
+class AR_uni_rng_r32_59_ID;
+class AR_uni_rng_r32_60_ID;
+class AR_uni_rng_r32_61_ID;
+class AR_uni_rng_r32_62_ID;
+class AR_uni_rng_r32_63_ID;
+class AR_uni_rng_r32_64_ID;
+
+
 //Declare the IDs for pipes
 class Pipe_uni_rng_r32_ID;
 class Pipe_uni_rng_r6_ID;
 class Pipe_alias_2_grng_ID;
 class PipeArray_tri_rng_2_grng_ID;
 class Pipe_grng_out_ID;
+//IDs for pipe of delta rngs
+class PipeArray_delta_rng_ID;
 //Define the Pipes
 using pipe_uni_rng_r32 = sycl::ext::intel::pipe<Pipe_uni_rng_r32_ID, float, 2>;
 using pipe_uni_rng_r6 = sycl::ext::intel::pipe<Pipe_uni_rng_r6_ID, RNG::int_6_bit, 2>;
 using pipe_alias_2_grng = sycl::ext::intel::pipe<Pipe_alias_2_grng_ID, RNG::int_5_bit, 2>;
 using pipearray_tri_rng_2_grng = fpga_tools::PipeArray<Pipe_grng_out_ID, float, 5, 32>;
 using pipe_grng_out = sycl::ext::intel::pipe<Pipe_grng_out_ID, float, 2>;
+using pipearray_delta_rng = fpga_tools::PipeArray<PipeArray_delta_rng_ID, float, 5, 64>;
 
 
 
@@ -238,14 +308,87 @@ struct RNG_test{
   }   
 };
 
-//fpga_tools::Autorun<RNG_kernel_test_ID> ar_kernel_rng_test(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48<pipe_rng_test, RNG::fixed_point_4_28>{});
+//fpga_tools::Autorun<RNG_kernel_test_ID> ar_kernel_rng_test(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48<pipe_grng_out, RNG::fixed_point_4_28_unsigned>{});
 //fpga_tools::Autorun<uniform_rng_6_test_ID> ar_kernel_uniform_rng_6_test(selector, RNG::AR_LUT_OP_r6_rng<pipe_uniform_rng_6_test>{});
 
+//test for trianglular distribution
+//fpga_tools::Autorun<AR_tri_rng_ID> ar_kernel_tri_rng(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipe_grng_out>{});
 //Define the kernels for RNG
-fpga_tools::Autorun<AR_uni_rng_r32_single_ID> ar_kernel_unirng_r32_single(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48<pipe_uni_rng_r32, RNG::fixed_point_4_28>{});
+// fpga_tools::Autorun<AR_uni_rng_r32_single_ID> ar_kernel_unirng_r32_single(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48<pipe_uni_rng_r32, RNG::fixed_point_4_28_unsigned>{});
+// fpga_tools::Autorun<AR_uni_rng_r6_ID> ar_kernel_unirng_r6(selector, RNG::AR_LUT_OP_r6_rng<pipe_uni_rng_r6>{});
+// fpga_tools::Autorun<AR_alias_table_ID> ar_kernel_aliastable(selector, RNG::AR_Walker_Alias_Table<pipe_uni_rng_r32, pipe_uni_rng_r6, pipe_alias_2_grng>{});
+// fpga_tools::Autorun<AR_tri_rng_ID> ar_kernel_tri_rng(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_2nd<pipearray_tri_rng_2_grng>{});
+// fpga_tools::Autorun<AR_Gaussian_rng_kernel_ID> ar_kernel_gaussian_rng(selector, RNG::AR_Gaussian_RNG_single<pipe_alias_2_grng, pipearray_tri_rng_2_grng, pipe_grng_out>{});
+//Define the kernels for RNG_2nd
+fpga_tools::Autorun<AR_uni_rng_r32_single_ID> ar_kernel_unirng_r32_single(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48<pipe_uni_rng_r32, RNG::fixed_point_4_28_unsigned>{});
 fpga_tools::Autorun<AR_uni_rng_r6_ID> ar_kernel_unirng_r6(selector, RNG::AR_LUT_OP_r6_rng<pipe_uni_rng_r6>{});
 fpga_tools::Autorun<AR_alias_table_ID> ar_kernel_aliastable(selector, RNG::AR_Walker_Alias_Table<pipe_uni_rng_r32, pipe_uni_rng_r6, pipe_alias_2_grng>{});
-fpga_tools::Autorun<AR_tri_rng_ID> ar_kernel_tri_rng(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25<pipearray_tri_rng_2_grng>{});
+fpga_tools::Autorun<AR_uni_rng_r32_1_ID> ar_kernel_delta_rng_1(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 0, 0>{});
+fpga_tools::Autorun<AR_uni_rng_r32_2_ID> ar_kernel_delta_rng_2(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 1, 1>{});
+fpga_tools::Autorun<AR_uni_rng_r32_3_ID> ar_kernel_delta_rng_3(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 2, 2>{});
+fpga_tools::Autorun<AR_uni_rng_r32_4_ID> ar_kernel_delta_rng_4(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 3, 3>{});
+fpga_tools::Autorun<AR_uni_rng_r32_5_ID> ar_kernel_delta_rng_5(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 4, 4>{});
+fpga_tools::Autorun<AR_uni_rng_r32_6_ID> ar_kernel_delta_rng_6(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 5, 5>{});
+fpga_tools::Autorun<AR_uni_rng_r32_7_ID> ar_kernel_delta_rng_7(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 6, 6>{});
+fpga_tools::Autorun<AR_uni_rng_r32_8_ID> ar_kernel_delta_rng_8(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 7, 7>{});
+fpga_tools::Autorun<AR_uni_rng_r32_9_ID> ar_kernel_delta_rng_9(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 8, 8>{});
+fpga_tools::Autorun<AR_uni_rng_r32_10_ID> ar_kernel_delta_rng_10(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 9, 9>{});
+fpga_tools::Autorun<AR_uni_rng_r32_11_ID> ar_kernel_delta_rng_11(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 10, 10>{});
+fpga_tools::Autorun<AR_uni_rng_r32_12_ID> ar_kernel_delta_rng_12(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 11, 11>{});
+fpga_tools::Autorun<AR_uni_rng_r32_13_ID> ar_kernel_delta_rng_13(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 12, 12>{});
+fpga_tools::Autorun<AR_uni_rng_r32_14_ID> ar_kernel_delta_rng_14(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 13, 13>{});
+fpga_tools::Autorun<AR_uni_rng_r32_15_ID> ar_kernel_delta_rng_15(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 14, 14>{});
+fpga_tools::Autorun<AR_uni_rng_r32_16_ID> ar_kernel_delta_rng_16(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 15, 15>{});
+fpga_tools::Autorun<AR_uni_rng_r32_17_ID> ar_kernel_delta_rng_17(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 16, 16>{});
+fpga_tools::Autorun<AR_uni_rng_r32_18_ID> ar_kernel_delta_rng_18(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 17, 17>{});
+fpga_tools::Autorun<AR_uni_rng_r32_19_ID> ar_kernel_delta_rng_19(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 18, 18>{});
+fpga_tools::Autorun<AR_uni_rng_r32_20_ID> ar_kernel_delta_rng_20(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 19, 19>{});
+fpga_tools::Autorun<AR_uni_rng_r32_21_ID> ar_kernel_delta_rng_21(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 20, 20>{});
+fpga_tools::Autorun<AR_uni_rng_r32_22_ID> ar_kernel_delta_rng_22(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 21, 21>{});
+fpga_tools::Autorun<AR_uni_rng_r32_23_ID> ar_kernel_delta_rng_23(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 22, 22>{});
+fpga_tools::Autorun<AR_uni_rng_r32_24_ID> ar_kernel_delta_rng_24(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 23, 23>{});
+fpga_tools::Autorun<AR_uni_rng_r32_25_ID> ar_kernel_delta_rng_25(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 24, 24>{});
+fpga_tools::Autorun<AR_uni_rng_r32_26_ID> ar_kernel_delta_rng_26(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 25, 25>{});
+fpga_tools::Autorun<AR_uni_rng_r32_27_ID> ar_kernel_delta_rng_27(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 26, 26>{});
+fpga_tools::Autorun<AR_uni_rng_r32_28_ID> ar_kernel_delta_rng_28(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 27, 27>{});
+fpga_tools::Autorun<AR_uni_rng_r32_29_ID> ar_kernel_delta_rng_29(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 28, 28>{});
+fpga_tools::Autorun<AR_uni_rng_r32_30_ID> ar_kernel_delta_rng_30(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 29, 29>{});
+fpga_tools::Autorun<AR_uni_rng_r32_31_ID> ar_kernel_delta_rng_31(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 30, 30>{});
+fpga_tools::Autorun<AR_uni_rng_r32_32_ID> ar_kernel_delta_rng_32(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 31, 31>{});
+fpga_tools::Autorun<AR_uni_rng_r32_33_ID> ar_kernel_delta_rng_33(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 32, 32>{});
+fpga_tools::Autorun<AR_uni_rng_r32_34_ID> ar_kernel_delta_rng_34(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 33, 33>{});
+fpga_tools::Autorun<AR_uni_rng_r32_35_ID> ar_kernel_delta_rng_35(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 34, 34>{});
+fpga_tools::Autorun<AR_uni_rng_r32_36_ID> ar_kernel_delta_rng_36(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 35, 35>{});
+fpga_tools::Autorun<AR_uni_rng_r32_37_ID> ar_kernel_delta_rng_37(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 36, 36>{});
+fpga_tools::Autorun<AR_uni_rng_r32_38_ID> ar_kernel_delta_rng_38(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 37, 37>{});
+fpga_tools::Autorun<AR_uni_rng_r32_39_ID> ar_kernel_delta_rng_39(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 38, 38>{});
+fpga_tools::Autorun<AR_uni_rng_r32_40_ID> ar_kernel_delta_rng_40(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 39, 39>{});
+fpga_tools::Autorun<AR_uni_rng_r32_41_ID> ar_kernel_delta_rng_41(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 40, 40>{});
+fpga_tools::Autorun<AR_uni_rng_r32_42_ID> ar_kernel_delta_rng_42(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 41, 41>{});
+fpga_tools::Autorun<AR_uni_rng_r32_43_ID> ar_kernel_delta_rng_43(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 42, 42>{});
+fpga_tools::Autorun<AR_uni_rng_r32_44_ID> ar_kernel_delta_rng_44(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 43, 43>{});
+fpga_tools::Autorun<AR_uni_rng_r32_45_ID> ar_kernel_delta_rng_45(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 44, 44>{});
+fpga_tools::Autorun<AR_uni_rng_r32_46_ID> ar_kernel_delta_rng_46(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 45, 45>{});
+fpga_tools::Autorun<AR_uni_rng_r32_47_ID> ar_kernel_delta_rng_47(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 46, 46>{});
+fpga_tools::Autorun<AR_uni_rng_r32_48_ID> ar_kernel_delta_rng_48(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 47, 47>{});
+fpga_tools::Autorun<AR_uni_rng_r32_49_ID> ar_kernel_delta_rng_49(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 48, 48>{});
+fpga_tools::Autorun<AR_uni_rng_r32_50_ID> ar_kernel_delta_rng_50(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 49, 49>{});
+fpga_tools::Autorun<AR_uni_rng_r32_51_ID> ar_kernel_delta_rng_51(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 50, 50>{});
+fpga_tools::Autorun<AR_uni_rng_r32_52_ID> ar_kernel_delta_rng_52(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 51, 51>{});
+fpga_tools::Autorun<AR_uni_rng_r32_53_ID> ar_kernel_delta_rng_53(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 52, 52>{});
+fpga_tools::Autorun<AR_uni_rng_r32_54_ID> ar_kernel_delta_rng_54(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 53, 53>{});
+fpga_tools::Autorun<AR_uni_rng_r32_55_ID> ar_kernel_delta_rng_55(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 54, 54>{});
+fpga_tools::Autorun<AR_uni_rng_r32_56_ID> ar_kernel_delta_rng_56(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 55, 55>{});
+fpga_tools::Autorun<AR_uni_rng_r32_57_ID> ar_kernel_delta_rng_57(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 56, 56>{});
+fpga_tools::Autorun<AR_uni_rng_r32_58_ID> ar_kernel_delta_rng_58(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 57, 57>{});
+fpga_tools::Autorun<AR_uni_rng_r32_59_ID> ar_kernel_delta_rng_59(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 58, 58>{});
+fpga_tools::Autorun<AR_uni_rng_r32_60_ID> ar_kernel_delta_rng_60(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 59, 59>{});
+fpga_tools::Autorun<AR_uni_rng_r32_61_ID> ar_kernel_delta_rng_61(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 60, 60>{});
+fpga_tools::Autorun<AR_uni_rng_r32_62_ID> ar_kernel_delta_rng_62(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 61, 61>{});
+fpga_tools::Autorun<AR_uni_rng_r32_63_ID> ar_kernel_delta_rng_63(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 62, 62>{});
+fpga_tools::Autorun<AR_uni_rng_r32_64_ID> ar_kernel_delta_rng_64(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test<pipearray_delta_rng, 63, 63>{});
+
+fpga_tools::Autorun<AR_tri_rng_ID> ar_kernel_tri_rng(selector, RNG::AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_2nd<pipearray_delta_rng, pipearray_tri_rng_2_grng>{});
 fpga_tools::Autorun<AR_Gaussian_rng_kernel_ID> ar_kernel_gaussian_rng(selector, RNG::AR_Gaussian_RNG_single<pipe_alias_2_grng, pipearray_tri_rng_2_grng, pipe_grng_out>{});
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -332,19 +475,19 @@ std::vector<float> in_data(count), out_data(count);
 // Clear the output buffer
 std::fill(out_data.begin(), out_data.end(), -1);
 
-RNG::fixed_point_delta_0_25 a = 0.125;
-RNG::fixed_point_delta_0_25 b = 0.125;
-ac_fixed<32+3, -1, true> c = a+b;
-std::cout<<"test of fixed point: \n";
-std::cout<<c<<std::endl;
+// RNG::fixed_point_delta_0_25 a = 0.125;
+// RNG::fixed_point_delta_0_25 b = 0.125;
+// ac_fixed<32+3, -1, true> c = a+b;
+// std::cout<<"test of fixed point: \n";
+// std::cout<<c<<std::endl;
 
-float prob[32];
-RNG::find_prob(prob);
-std::cout<<"find the probability for rng: \n";
-for(int i=0; i<32; i++){
-  std::cout<<prob[i]<<' ';
-}
-std::cout<<"\n";
+// float prob[32];
+// RNG::find_prob(prob);
+// std::cout<<"find the probability for rng: \n";
+// for(int i=0; i<32; i++){
+//   std::cout<<prob[i]<<' ';
+// }
+// std::cout<<"\n";
 
 //test for statistic calc
 // float check_prob[10] = {-3.76, -3.15, -2.15, -1.85, -0.35, 0.35, 1.2, 1.2, 3.3, 4};
@@ -405,7 +548,7 @@ try {
     std::cout<<"submit finished\n";
     // Print the OUTPUT
 
-    // print the out for RNG test
+    //print the out for RNG test
     std::cout<<"Output is: \n";
     for(int i=0; i<N_rng; i++){
       std::cout<<OUT[i]<<std::endl;
@@ -437,7 +580,7 @@ try {
     }
     std::cout<<"\n";
 
-    // print the out for uniform rng 6 bit test
+    // //print the out for uniform rng 6 bit test
     // std::cout<<"Output is: \n";
     // for(int i=0; i<100; i++){
     //   std::cout<<OUT_uniform_rng_6[i]<<std::endl;
