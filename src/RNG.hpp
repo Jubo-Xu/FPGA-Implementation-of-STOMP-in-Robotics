@@ -18,10 +18,11 @@ namespace RNG{
     #define r      32
     #define n      1024
     #define INT    1
-    #define num_p  32
+    #define num_p  16
     #define delta  0.25
     #define sigma    0.6
     #define N_stat 32
+    #define N_had  16
 
     using int_1_bit = ac_int<1, false>;
     using int_6_bit = ac_int<5, false>;
@@ -65,15 +66,37 @@ namespace RNG{
     }
     //function to find the statistics for delta = 0.25 ---> this function is mainly used to analyze the rng, not for kernel
     void rng_analyze_delta_0_25(float *IN, int *COUNT, int N){
+        // float X[N_stat] = {
+        //     -4, -3.75, -3.5, -3.25, -3, -2.75, -2.5, -2.25,
+        //     -2, -1.75, -1.5, -1.25, -1, -0.75, -0.5, -0.25,
+        //      0,  0.25,  0.5,  0.75,  1,  1.25,  1.5,  1.75,
+        //      2,  2.25,  2.5,  2.75,  3,  3.25,  3.5,  3.75
+        // };
+        // float X[N_stat] = {
+        //     -0.2500,   -0.2339,   -0.2177,   -0.2016,   -0.1855,   -0.1694,   -0.1532,   -0.1371,   -0.1210,   -0.1048,
+        //     -0.0887,   -0.0726,   -0.0565,   -0.0403,   -0.0242,   -0.0081,    0.0081,    0.0242,    0.0403,    0.0565,
+        //      0.0726,    0.0887,    0.1048,    0.1210,    0.1371,    0.1532,    0.1694,    0.1855,    0.2016,    0.2177,
+        //      0.2339,    0.2500
+        // };
         float X[N_stat] = {
-            -4, -3.75, -3.5, -3.25, -3, -2.75, -2.5, -2.25,
-            -2, -1.75, -1.5, -1.25, -1, -0.75, -0.5, -0.25,
-             0,  0.25,  0.5,  0.75,  1,  1.25,  1.5,  1.75,
-             2,  2.25,  2.5,  2.75,  3,  3.25,  3.5,  3.75
+            -2.2500,   -2.1048,   -1.9597,   -1.8145,   -1.6694,   -1.5242,   -1.3790,   -1.2339,   -1.0887,   -0.9435,
+            -0.7984,   -0.6532,   -0.5081,   -0.3629,   -0.2177,   -0.0726,    0.0726,    0.2177,    0.3629,    0.5081,
+             0.6532,    0.7984,    0.9435,    1.0887,    1.2339,    1.3790,    1.5242,    1.6694,    1.8145,    1.9597,
+             2.1048,    2.2500
         };
+        // delta=0.25, N_stat = 64, 16 triag prob distr
+        // float X[N_stat] = {
+        //     -2.2500,   -2.1786,   -2.1071,   -2.0357,   -1.9643,   -1.8929,   -1.8214,   -1.7500,   -1.6786,   -1.6071,
+        //     -1.5357,   -1.4643,   -1.3929,   -1.3214,   -1.2500,   -1.1786,   -1.1071,   -1.0357,   -0.9643,   -0.8929,
+        //     -0.8214,   -0.7500,   -0.6786,   -0.6071,   -0.5357,   -0.4643,   -0.3929,   -0.3214,   -0.2500,   -0.1786,
+        //     -0.1071,   -0.0357,    0.0357,    0.1071,    0.1786,    0.2500,    0.3214,    0.3929,    0.4643,    0.5357,
+        //      0.6071,    0.6786,    0.7500,    0.8214,    0.8929,    0.9643,    1.0357,    1.1071,    1.1786,    1.2500,
+        //      1.3214,    1.3929,    1.4643,    1.5357,    1.6071,    1.6786,    1.7500,    1.8214,    1.8929,    1.9643,
+        //      2.0357,    2.1071,    2.1786,    2.2500
+        // };
+        
         for(int i=0; i<N; i++){
             statistic_calc(COUNT, X, IN[i], N_stat);
-            
         }
     }
 
@@ -609,26 +632,37 @@ namespace RNG{
     //     }
     // };
 
-    template <typename Pipe_out, int n_in, int idx>
+    template <typename Pipe_out, int n_in1, int n_in2, int idx>
     struct AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_test{
         void operator()() const{
-            STRUCT_of_LUT_SR_RNG_r32 REGs;
+            STRUCT_of_LUT_SR_RNG_r32 REGs1;
+            STRUCT_of_LUT_SR_RNG_r32 REGs2;
             STATE_regs_of_uniform_rng STATE;
-            STRUCT_initialization(REGs);
-            LUT_SR_RNG_r32_init_with_state_2nd(REGs, STATE, n_in);
+            STRUCT_initialization(REGs1);
+            LUT_SR_RNG_r32_init_with_state_2nd(REGs1, STATE, n_in1);
+            STRUCT_initialization(REGs2);
+            LUT_SR_RNG_r32_init_with_state_2nd(REGs2, STATE, n_in2);
             while(1){
-                fixed_point_delta_0_25 ac_fixed_out = 0.0f;
-                LUT_SR_rng_r32_XORs(REGs);
+                fixed_point_delta_0_25 ac_fixed_out1 = 0.0f;
+                fixed_point_delta_0_25 ac_fixed_out2 = 0.0f;
+                LUT_SR_rng_r32_XORs(REGs1);
                 //Permutation of the output
-                LUT_SR_rng_r32_permutation(REGs);
+                LUT_SR_rng_r32_permutation(REGs1);
+                LUT_SR_rng_r32_XORs(REGs2);
+                //Permutation of the output
+                LUT_SR_rng_r32_permutation(REGs2);
                 #pragma unroll
                 for(int i=0; i<r; i++){
-                    ac_fixed_out[i] = REGs.rng_out[i];
+                    ac_fixed_out1[i] = REGs1.rng_out[i];
+                    ac_fixed_out2[i] = REGs2.rng_out[i];
                 }
-                float output = ac_fixed_out.to_float();
-                //Pipe_out::write(output);
-                Pipe_out::template PipeAt<idx>::write(output);
-                SR_extension(REGs);
+                float output1 = ac_fixed_out1.to_float();
+                float output2 = ac_fixed_out2.to_float();
+                float output = output1 - output2 + delta*(idx-num_p/2);
+                Pipe_out::write(output);
+                //Pipe_out::template PipeAt<idx>::write(output);
+                SR_extension(REGs1);
+                SR_extension(REGs2);
             }
         }
     };
@@ -693,16 +727,96 @@ namespace RNG{
         }
     };
 
-    template <typename Pipe_in, typename Pipe_out>
+    template <typename Pipe_in1, typename Pipe_in2, typename Pipe_in3, typename Pipe_in4, typename Pipe_in5, typename Pipe_in6, typename Pipe_in7, typename Pipe_in8, typename Pipe_in9, typename Pipe_in10, typename Pipe_in11, typename Pipe_in12, typename Pipe_in13, typename Pipe_in14, typename Pipe_in15, typename Pipe_in16, typename Pipe_out>
+    struct AR_tri_rng_2_grng{
+        void operator()() const{
+            while(1){
+                [[intel::fpga_register]] float output[num_p];
+                output[0] = Pipe_in1::read();
+                output[1] = Pipe_in2::read();
+                output[2] = Pipe_in3::read();
+                output[3] = Pipe_in4::read();
+                output[4] = Pipe_in5::read();
+                output[5] = Pipe_in6::read();
+                output[6] = Pipe_in7::read();
+                output[7] = Pipe_in8::read();
+                output[8] = Pipe_in9::read();
+                output[9] = Pipe_in10::read();
+                output[10] = Pipe_in11::read();
+                output[11] = Pipe_in12::read();
+                output[12] = Pipe_in13::read();
+                output[13] = Pipe_in14::read();
+                output[14] = Pipe_in15::read();
+                output[15] = Pipe_in16::read();
+                //output[16] = Pipe_in17::read();
+                // output[17] = Pipe_in18::read();
+                // output[18] = Pipe_in19::read();
+                // output[19] = Pipe_in20::read();
+                // output[20] = Pipe_in21::read();
+                // output[21] = Pipe_in22::read();
+                // output[22] = Pipe_in23::read();
+                // output[23] = Pipe_in24::read();
+                // output[24] = Pipe_in25::read();
+                // output[25] = Pipe_in26::read();
+                // output[26] = Pipe_in27::read();
+                // output[27] = Pipe_in28::read();
+                // output[28] = Pipe_in29::read();
+                // output[29] = Pipe_in30::read();
+                // output[30] = Pipe_in31::read();
+                // output[31] = Pipe_in32::read();
+                 //pipe out
+                size_t index_out = 0;
+                fpga_tools::UnrolledLoop<num_p>([&output, &index_out](auto idx){
+                    Pipe_out::template PipeAt<idx>::write(output[index_out++]);
+                });
+
+            }
+        }
+    };
+
+    template <typename Pipe_in1, typename Pipe_in2, typename Pipe_in3, typename Pipe_in4, typename Pipe_in5, typename Pipe_in6, typename Pipe_in7, typename Pipe_in8, typename Pipe_in9, typename Pipe_in10, typename Pipe_in11, typename Pipe_in12, typename Pipe_in13, typename Pipe_in14, typename Pipe_in15, typename Pipe_in16, typename Pipe_in17, typename Pipe_in18, typename Pipe_in19, typename Pipe_in20, typename Pipe_in21, typename Pipe_in22, typename Pipe_in23, typename Pipe_in24, typename Pipe_in25, typename Pipe_in26, typename Pipe_in27, typename Pipe_in28, typename Pipe_in29, typename Pipe_in30, typename Pipe_in31, typename Pipe_in32, typename Pipe_out>
     struct AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_2nd{
         void operator()() const{
             while(1){
                 [[intel::fpga_register]] float output[2*num_p];
                  [[intel::fpga_register]] float tri_out_ini[num_p];
-                size_t index_in = 0;
-                fpga_tools::UnrolledLoop<2*num_p>([&output, &index_in](auto idx_in){
-                    output[index_in++] = Pipe_in::template PipeAt<idx_in>::read();
-                });
+                // size_t index_in = 0;
+                // fpga_tools::UnrolledLoop<2*num_p>([&output, &index_in](auto idx_in){
+                //     output[index_in++] = Pipe_in::template PipeAt<idx_in>::read();
+                // });
+                output[0] = Pipe_in1::read();
+                output[1] = Pipe_in2::read();
+                output[2] = Pipe_in3::read();
+                output[3] = Pipe_in4::read();
+                output[4] = Pipe_in5::read();
+                output[5] = Pipe_in6::read();
+                output[6] = Pipe_in7::read();
+                output[7] = Pipe_in8::read();
+                output[8] = Pipe_in9::read();
+                output[9] = Pipe_in10::read();
+                output[10] = Pipe_in11::read();
+                output[11] = Pipe_in12::read();
+                output[12] = Pipe_in13::read();
+                output[13] = Pipe_in14::read();
+                output[14] = Pipe_in15::read();
+                output[15] = Pipe_in16::read();
+                output[16] = Pipe_in17::read();
+                output[17] = Pipe_in18::read();
+                output[18] = Pipe_in19::read();
+                output[19] = Pipe_in20::read();
+                output[20] = Pipe_in21::read();
+                output[21] = Pipe_in22::read();
+                output[22] = Pipe_in23::read();
+                output[23] = Pipe_in24::read();
+                output[24] = Pipe_in25::read();
+                output[25] = Pipe_in26::read();
+                output[26] = Pipe_in27::read();
+                output[27] = Pipe_in28::read();
+                output[28] = Pipe_in29::read();
+                output[29] = Pipe_in30::read();
+                output[30] = Pipe_in31::read();
+                output[31] = Pipe_in32::read();
+
                  //using U1 - U2 to represent the triangle distribution with mean = 0, and delta = 0.25
                 #pragma unroll
                 for(int i=0; i<num_p; i++){
@@ -739,944 +853,6 @@ namespace RNG{
         }
     };
 
-    // template <typename Pipe_out>
-    // struct AR_rng_n1024_r32_t5_k32_s1c48_delta_0_25_2nd{
-    //     void operator()() const{
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs1;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs2;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs3;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs4;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs5;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs6;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs7;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs8;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs9;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs10;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs11;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs12;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs13;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs14;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs15;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs16;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs17;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs18;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs19;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs20;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs21;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs22;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs23;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs24;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs25;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs26;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs27;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs28;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs29;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs30;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs31;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs32;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs33;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs34;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs35;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs36;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs37;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs38;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs39;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs40;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs41;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs42;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs43;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs44;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs45;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs46;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs47;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs48;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs49;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs50;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs51;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs52;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs53;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs54;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs55;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs56;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs57;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs58;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs59;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs60;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs61;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs62;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs63;
-    //         STRUCT_of_LUT_SR_RNG_r32 REGs64;
-
-    //         STATE_regs_of_uniform_rng STATE;
-    //         // #pragma unroll
-    //         // for(int i=0; i<num_p; i++){
-    //         //     STRUCT_initialization(REGs[i]);
-    //         //     LUT_SR_RNG_r32_init_with_state_2nd(REGs[i], STATE, i);
-    //         // }
-    //         // for(int i=num_p; i<2*num_p; i++){
-    //         //     STRUCT_initialization(REGs[i]);
-    //         //     //LUT_SR_RNG_r32_init_with_state_2nd(REGs[i], STATE, (i+1)%(2*num_p));
-    //         //     LUT_SR_RNG_r32_init_with_state_2nd(REGs[i], STATE, i);
-    //         // }
-    //         STRUCT_initialization(REGs1);
-    //         STRUCT_initialization(REGs2);
-    //         STRUCT_initialization(REGs3);
-    //         STRUCT_initialization(REGs4);
-    //         STRUCT_initialization(REGs5);
-    //         STRUCT_initialization(REGs6);
-    //         STRUCT_initialization(REGs7);
-    //         STRUCT_initialization(REGs8);
-    //         STRUCT_initialization(REGs9);
-    //         STRUCT_initialization(REGs10);
-    //         STRUCT_initialization(REGs11);
-    //         STRUCT_initialization(REGs12);
-    //         STRUCT_initialization(REGs13);
-    //         STRUCT_initialization(REGs14);
-    //         STRUCT_initialization(REGs15);
-    //         STRUCT_initialization(REGs16);
-    //         STRUCT_initialization(REGs17);
-    //         STRUCT_initialization(REGs18);
-    //         STRUCT_initialization(REGs19);
-    //         STRUCT_initialization(REGs20);
-    //         STRUCT_initialization(REGs21);
-    //         STRUCT_initialization(REGs22);
-    //         STRUCT_initialization(REGs23);
-    //         STRUCT_initialization(REGs24);
-    //         STRUCT_initialization(REGs25);
-    //         STRUCT_initialization(REGs26);
-    //         STRUCT_initialization(REGs27);
-    //         STRUCT_initialization(REGs28);
-    //         STRUCT_initialization(REGs29);
-    //         STRUCT_initialization(REGs30);
-    //         STRUCT_initialization(REGs31);
-    //         STRUCT_initialization(REGs32);
-    //         STRUCT_initialization(REGs33);
-    //         STRUCT_initialization(REGs34);
-    //         STRUCT_initialization(REGs35);
-    //         STRUCT_initialization(REGs36);
-    //         STRUCT_initialization(REGs37);
-    //         STRUCT_initialization(REGs38);
-    //         STRUCT_initialization(REGs39);
-    //         STRUCT_initialization(REGs40);
-    //         STRUCT_initialization(REGs41);
-    //         STRUCT_initialization(REGs42);
-    //         STRUCT_initialization(REGs43);
-    //         STRUCT_initialization(REGs44);
-    //         STRUCT_initialization(REGs45);
-    //         STRUCT_initialization(REGs46);
-    //         STRUCT_initialization(REGs47);
-    //         STRUCT_initialization(REGs48);
-    //         STRUCT_initialization(REGs49);
-    //         STRUCT_initialization(REGs50);
-    //         STRUCT_initialization(REGs51);
-    //         STRUCT_initialization(REGs52);
-    //         STRUCT_initialization(REGs53);
-    //         STRUCT_initialization(REGs54);
-    //         STRUCT_initialization(REGs55);
-    //         STRUCT_initialization(REGs56);
-    //         STRUCT_initialization(REGs57);
-    //         STRUCT_initialization(REGs58);
-    //         STRUCT_initialization(REGs59);
-    //         STRUCT_initialization(REGs60);
-    //         STRUCT_initialization(REGs61);
-    //         STRUCT_initialization(REGs62);
-    //         STRUCT_initialization(REGs63);
-    //         STRUCT_initialization(REGs64);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs1, STATE, 1);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs2, STATE, 2);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs3, STATE, 3);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs4, STATE, 4);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs5, STATE, 5);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs6, STATE, 6);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs7, STATE, 7);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs8, STATE, 8);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs9, STATE, 9);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs10, STATE, 10);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs11, STATE, 11);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs12, STATE, 12);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs13, STATE, 13);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs14, STATE, 14);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs15, STATE, 15);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs16, STATE, 16);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs17, STATE, 17);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs18, STATE, 18);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs19, STATE, 19);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs20, STATE, 20);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs21, STATE, 21);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs22, STATE, 22);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs23, STATE, 23);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs24, STATE, 24);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs25, STATE, 25);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs26, STATE, 26);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs27, STATE, 27);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs28, STATE, 28);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs29, STATE, 29);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs30, STATE, 30);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs31, STATE, 31);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs32, STATE, 32);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs33, STATE, 0);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs34, STATE, 1);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs35, STATE, 2);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs36, STATE, 3);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs37, STATE, 4);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs38, STATE, 5);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs39, STATE, 6);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs40, STATE, 7);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs41, STATE, 8);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs42, STATE, 9);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs43, STATE, 10);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs44, STATE, 11);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs45, STATE, 12);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs46, STATE, 13);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs47, STATE, 14);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs48, STATE, 15);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs49, STATE, 16);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs50, STATE, 17);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs51, STATE, 18);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs52, STATE, 19);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs53, STATE, 20);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs54, STATE, 21);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs55, STATE, 22);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs56, STATE, 23);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs57, STATE, 24);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs58, STATE, 25);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs59, STATE, 26);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs60, STATE, 27);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs61, STATE, 28);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs62, STATE, 29);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs63, STATE, 30);
-    //         LUT_SR_RNG_r32_init_with_state_2nd(REGs64, STATE, 31);
-    //         while(1){
-    //             //[[intel::fpga_register]] fixed_point_delta_0_25 ac_fixed_out[2*num_p];
-    //             fixed_point_delta_0_25 ac_fixed_out1 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out2 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out3 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out4 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out5 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out6 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out7 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out8 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out9 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out10 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out11 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out12 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out13 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out14 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out15 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out16 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out17 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out18 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out19 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out20 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out21 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out22 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out23 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out24 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out25 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out26 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out27 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out28 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out29 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out30 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out31 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out32 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out33 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out34 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out35 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out36 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out37 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out38 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out39 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out40 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out41 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out42 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out43 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out44 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out45 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out46 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out47 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out48 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out49 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out50 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out51 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out52 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out53 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out54 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out55 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out56 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out57 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out58 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out59 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out60 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out61 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out62 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out63 = 0.0f;
-    //             fixed_point_delta_0_25 ac_fixed_out64 = 0.0f;
-
-    //             [[intel::fpga_register]] float output[2*num_p];
-    //             [[intel::fpga_register]] float tri_out_ini[num_p];
-
-    //             //for REGs1
-    //             LUT_SR_rng_r32_XORs(REGs1);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs1);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out1[i] = REGs1.rng_out[i];
-    //             }
-    //             output[0] = ac_fixed_out1.to_float();
-    //             SR_extension(REGs1);
-    //             //for REGs2
-    //             LUT_SR_rng_r32_XORs(REGs2);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs2);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out2[i] = REGs2.rng_out[i];
-    //             }
-    //             output[1] = ac_fixed_out2.to_float();
-    //             SR_extension(REGs2);
-    //             //for REGs3
-    //             LUT_SR_rng_r32_XORs(REGs3);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs3);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out3[i] = REGs3.rng_out[i];
-    //             }
-    //             output[2] = ac_fixed_out3.to_float();
-    //             SR_extension(REGs3);
-    //             //for REGs4
-    //             LUT_SR_rng_r32_XORs(REGs4);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs4);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out4[i] = REGs4.rng_out[i];
-    //             }
-    //             output[3] = ac_fixed_out4.to_float();
-    //             SR_extension(REGs4);
-    //             //for REGs5
-    //             LUT_SR_rng_r32_XORs(REGs5);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs5);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out5[i] = REGs5.rng_out[i];
-    //             }
-    //             output[4] = ac_fixed_out5.to_float();
-    //             SR_extension(REGs5);
-    //             //for REGs6
-    //             LUT_SR_rng_r32_XORs(REGs6);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs6);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out6[i] = REGs6.rng_out[i];
-    //             }
-    //             output[5] = ac_fixed_out6.to_float();
-    //             SR_extension(REGs6);
-    //             //for REGs7
-    //             LUT_SR_rng_r32_XORs(REGs7);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs7);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out7[i] = REGs7.rng_out[i];
-    //             }
-    //             output[6] = ac_fixed_out7.to_float();
-    //             SR_extension(REGs7);
-    //             //for REGs8
-    //             LUT_SR_rng_r32_XORs(REGs8);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs8);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out8[i] = REGs8.rng_out[i];
-    //             }
-    //             output[7] = ac_fixed_out8.to_float();
-    //             SR_extension(REGs8);
-    //             //for REGs9
-    //             LUT_SR_rng_r32_XORs(REGs9);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs9);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out9[i] = REGs9.rng_out[i];
-    //             }
-    //             output[8] = ac_fixed_out9.to_float();
-    //             SR_extension(REGs9);
-    //             //for REGs10
-    //             LUT_SR_rng_r32_XORs(REGs10);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs10);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out10[i] = REGs10.rng_out[i];
-    //             }
-    //             output[9] = ac_fixed_out10.to_float();
-    //             SR_extension(REGs10);
-    //             //for REGs11
-    //             LUT_SR_rng_r32_XORs(REGs11);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs11);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out11[i] = REGs11.rng_out[i];
-    //             }
-    //             output[10] = ac_fixed_out11.to_float();
-    //             SR_extension(REGs11);
-    //             //for REGs12
-    //             LUT_SR_rng_r32_XORs(REGs12);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs12);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out12[i] = REGs12.rng_out[i];
-    //             }
-    //             output[11] = ac_fixed_out12.to_float();
-    //             SR_extension(REGs12);
-    //             //for REGs13
-    //             LUT_SR_rng_r32_XORs(REGs13);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs13);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out13[i] = REGs13.rng_out[i];
-    //             }
-    //             output[12] = ac_fixed_out13.to_float();
-    //             SR_extension(REGs13);
-    //             //for REGs14
-    //             LUT_SR_rng_r32_XORs(REGs14);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs14);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out14[i] = REGs14.rng_out[i];
-    //             }
-    //             output[13] = ac_fixed_out14.to_float();
-    //             SR_extension(REGs14);
-    //             //for REGs15
-    //             LUT_SR_rng_r32_XORs(REGs15);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs15);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out15[i] = REGs15.rng_out[i];
-    //             }
-    //             output[14] = ac_fixed_out15.to_float();
-    //             SR_extension(REGs15);
-    //             //for REGs16
-    //             LUT_SR_rng_r32_XORs(REGs16);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs16);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out16[i] = REGs16.rng_out[i];
-    //             }
-    //             output[15] = ac_fixed_out16.to_float();
-    //             SR_extension(REGs16);
-    //             //for REGs17
-    //             LUT_SR_rng_r32_XORs(REGs17);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs17);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out17[i] = REGs17.rng_out[i];
-    //             }
-    //             output[16] = ac_fixed_out17.to_float();
-    //             SR_extension(REGs17);
-    //             //for REGs18
-    //             LUT_SR_rng_r32_XORs(REGs18);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs18);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out18[i] = REGs18.rng_out[i];
-    //             }
-    //             output[17] = ac_fixed_out18.to_float();
-    //             SR_extension(REGs18);
-    //             //for REGs19
-    //             LUT_SR_rng_r32_XORs(REGs19);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs19);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out19[i] = REGs19.rng_out[i];
-    //             }
-    //             output[18] = ac_fixed_out19.to_float();
-    //             SR_extension(REGs19);
-    //             //for REGs20
-    //             LUT_SR_rng_r32_XORs(REGs20);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs20);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out20[i] = REGs20.rng_out[i];
-    //             }
-    //             output[19] = ac_fixed_out20.to_float();
-    //             SR_extension(REGs20);
-    //             //for REGs21
-    //             LUT_SR_rng_r32_XORs(REGs21);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs21);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out21[i] = REGs21.rng_out[i];
-    //             }
-    //             output[20] = ac_fixed_out21.to_float();
-    //             SR_extension(REGs21);
-    //             //for REGs22
-    //             LUT_SR_rng_r32_XORs(REGs22);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs22);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out22[i] = REGs22.rng_out[i];
-    //             }
-    //             output[21] = ac_fixed_out22.to_float();
-    //             SR_extension(REGs22);
-    //             //for REGs23
-    //             LUT_SR_rng_r32_XORs(REGs23);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs23);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out23[i] = REGs23.rng_out[i];
-    //             }
-    //             output[22] = ac_fixed_out23.to_float();
-    //             SR_extension(REGs23);
-    //             //for REGs24
-    //             LUT_SR_rng_r32_XORs(REGs24);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs24);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out24[i] = REGs24.rng_out[i];
-    //             }
-    //             output[23] = ac_fixed_out24.to_float();
-    //             SR_extension(REGs24);
-    //             //for REGs25
-    //             LUT_SR_rng_r32_XORs(REGs25);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs25);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out25[i] = REGs25.rng_out[i];
-    //             }
-    //             output[24] = ac_fixed_out25.to_float();
-    //             SR_extension(REGs25);
-    //             //for REGs26
-    //             LUT_SR_rng_r32_XORs(REGs26);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs26);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out26[i] = REGs26.rng_out[i];
-    //             }
-    //             output[25] = ac_fixed_out26.to_float();
-    //             SR_extension(REGs26);
-    //             //for REGs27
-    //             LUT_SR_rng_r32_XORs(REGs27);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs27);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out27[i] = REGs27.rng_out[i];
-    //             }
-    //             output[26] = ac_fixed_out27.to_float();
-    //             SR_extension(REGs27);
-    //             //for REGs28
-    //             LUT_SR_rng_r32_XORs(REGs28);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs28);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out28[i] = REGs28.rng_out[i];
-    //             }
-    //             output[27] = ac_fixed_out28.to_float();
-    //             SR_extension(REGs28);
-    //             //for REGs29
-    //             LUT_SR_rng_r32_XORs(REGs29);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs29);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out29[i] = REGs29.rng_out[i];
-    //             }
-    //             output[28] = ac_fixed_out29.to_float();
-    //             SR_extension(REGs29);
-    //             //for REGs30
-    //             LUT_SR_rng_r32_XORs(REGs30);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs30);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out30[i] = REGs30.rng_out[i];
-    //             }
-    //             output[29] = ac_fixed_out30.to_float();
-    //             SR_extension(REGs30);
-    //             //for REGs31
-    //             LUT_SR_rng_r32_XORs(REGs31);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs31);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out31[i] = REGs31.rng_out[i];
-    //             }
-    //             output[30] = ac_fixed_out31.to_float();
-    //             SR_extension(REGs31);
-    //             //for REGs32
-    //             LUT_SR_rng_r32_XORs(REGs32);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs32);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out32[i] = REGs32.rng_out[i];
-    //             }
-    //             output[31] = ac_fixed_out32.to_float();
-    //             SR_extension(REGs32);
-    //             //for REGs33
-    //             LUT_SR_rng_r32_XORs(REGs33);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs33);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out33[i] = REGs33.rng_out[i];
-    //             }
-    //             output[32] = ac_fixed_out33.to_float();
-    //             SR_extension(REGs33);
-    //             //for REGs34
-    //             LUT_SR_rng_r32_XORs(REGs34);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs34);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out34[i] = REGs34.rng_out[i];
-    //             }
-    //             output[33] = ac_fixed_out34.to_float();
-    //             SR_extension(REGs34);
-    //             //for REGs35
-    //             LUT_SR_rng_r32_XORs(REGs35);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs35);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out35[i] = REGs35.rng_out[i];
-    //             }
-    //             output[34] = ac_fixed_out35.to_float();
-    //             SR_extension(REGs35);
-    //             //for REGs36
-    //             LUT_SR_rng_r32_XORs(REGs36);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs36);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out36[i] = REGs36.rng_out[i];
-    //             }
-    //             output[35] = ac_fixed_out36.to_float();
-    //             SR_extension(REGs36);
-    //             //for REGs37
-    //             LUT_SR_rng_r32_XORs(REGs37);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs37);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out37[i] = REGs37.rng_out[i];
-    //             }
-    //             output[36] = ac_fixed_out37.to_float();
-    //             SR_extension(REGs37);
-    //             //for REGs38
-    //             LUT_SR_rng_r32_XORs(REGs38);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs38);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out38[i] = REGs38.rng_out[i];
-    //             }
-    //             output[37] = ac_fixed_out38.to_float();
-    //             SR_extension(REGs38);
-    //             //for REGs39
-    //             LUT_SR_rng_r32_XORs(REGs39);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs39);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out39[i] = REGs39.rng_out[i];
-    //             }
-    //             output[38] = ac_fixed_out39.to_float();
-    //             SR_extension(REGs39);
-    //             //for REGs40
-    //             LUT_SR_rng_r32_XORs(REGs40);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs40);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out40[i] = REGs40.rng_out[i];
-    //             }
-    //             output[39] = ac_fixed_out40.to_float();
-    //             SR_extension(REGs40);
-    //             //for REGs41
-    //             LUT_SR_rng_r32_XORs(REGs41);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs41);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out41[i] = REGs41.rng_out[i];
-    //             }
-    //             output[40] = ac_fixed_out41.to_float();
-    //             SR_extension(REGs41);
-    //             //for REGs42
-    //             LUT_SR_rng_r32_XORs(REGs42);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs42);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out42[i] = REGs42.rng_out[i];
-    //             }
-    //             output[41] = ac_fixed_out42.to_float();
-    //             SR_extension(REGs42);
-    //             //for REGs43
-    //             LUT_SR_rng_r32_XORs(REGs43);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs43);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out43[i] = REGs43.rng_out[i];
-    //             }
-    //             output[42] = ac_fixed_out43.to_float();
-    //             SR_extension(REGs43);
-    //             //for REGs44
-    //             LUT_SR_rng_r32_XORs(REGs44);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs44);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out44[i] = REGs44.rng_out[i];
-    //             }
-    //             output[43] = ac_fixed_out44.to_float();
-    //             SR_extension(REGs44);
-    //             //for REGs45
-    //             LUT_SR_rng_r32_XORs(REGs45);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs45);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out45[i] = REGs45.rng_out[i];
-    //             }
-    //             output[44] = ac_fixed_out45.to_float();
-    //             SR_extension(REGs45);
-    //             //for REGs46
-    //             LUT_SR_rng_r32_XORs(REGs46);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs46);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out46[i] = REGs46.rng_out[i];
-    //             }
-    //             output[45] = ac_fixed_out46.to_float();
-    //             SR_extension(REGs46);
-    //             //for REGs47
-    //             LUT_SR_rng_r32_XORs(REGs47);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs47);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out47[i] = REGs47.rng_out[i];
-    //             }
-    //             output[46] = ac_fixed_out47.to_float();
-    //             SR_extension(REGs47);
-    //             //for REGs48
-    //             LUT_SR_rng_r32_XORs(REGs48);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs48);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out48[i] = REGs48.rng_out[i];
-    //             }
-    //             output[47] = ac_fixed_out48.to_float();
-    //             SR_extension(REGs48);
-    //             //for REGs49
-    //             LUT_SR_rng_r32_XORs(REGs49);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs49);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out49[i] = REGs49.rng_out[i];
-    //             }
-    //             output[48] = ac_fixed_out49.to_float();
-    //             SR_extension(REGs49);
-    //             //for REGs50
-    //             LUT_SR_rng_r32_XORs(REGs50);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs50);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out50[i] = REGs50.rng_out[i];
-    //             }
-    //             output[49] = ac_fixed_out50.to_float();
-    //             SR_extension(REGs50);
-    //             //for REGs51
-    //             LUT_SR_rng_r32_XORs(REGs51);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs51);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out51[i] = REGs51.rng_out[i];
-    //             }
-    //             output[50] = ac_fixed_out51.to_float();
-    //             SR_extension(REGs51);
-    //             //for REGs52
-    //             LUT_SR_rng_r32_XORs(REGs52);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs52);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out52[i] = REGs52.rng_out[i];
-    //             }
-    //             output[51] = ac_fixed_out52.to_float();
-    //             SR_extension(REGs52);
-    //             //for REGs53
-    //             LUT_SR_rng_r32_XORs(REGs53);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs53);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out53[i] = REGs53.rng_out[i];
-    //             }
-    //             output[52] = ac_fixed_out53.to_float();
-    //             SR_extension(REGs53);
-    //             //for REGs54
-    //             LUT_SR_rng_r32_XORs(REGs54);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs54);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out54[i] = REGs54.rng_out[i];
-    //             }
-    //             output[53] = ac_fixed_out54.to_float();
-    //             SR_extension(REGs54);
-    //             //for REGs55
-    //             LUT_SR_rng_r32_XORs(REGs55);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs55);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out55[i] = REGs55.rng_out[i];
-    //             }
-    //             output[54] = ac_fixed_out55.to_float();
-    //             SR_extension(REGs55);
-    //             //for REGs56
-    //             LUT_SR_rng_r32_XORs(REGs56);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs56);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out56[i] = REGs56.rng_out[i];
-    //             }
-    //             output[55] = ac_fixed_out56.to_float();
-    //             SR_extension(REGs56);
-    //             //for REGs57
-    //             LUT_SR_rng_r32_XORs(REGs57);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs57);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out57[i] = REGs57.rng_out[i];
-    //             }
-    //             output[56] = ac_fixed_out57.to_float();
-    //             SR_extension(REGs57);
-    //             //for REGs58
-    //             LUT_SR_rng_r32_XORs(REGs58);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs58);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out58[i] = REGs58.rng_out[i];
-    //             }
-    //             output[57] = ac_fixed_out58.to_float();
-    //             SR_extension(REGs58);
-    //             //for REGs59
-    //             LUT_SR_rng_r32_XORs(REGs59);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs59);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out59[i] = REGs59.rng_out[i];
-    //             }
-    //             output[58] = ac_fixed_out59.to_float();
-    //             SR_extension(REGs59);
-    //             //for REGs60
-    //             LUT_SR_rng_r32_XORs(REGs60);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs60);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out60[i] = REGs60.rng_out[i];
-    //             }
-    //             output[59] = ac_fixed_out60.to_float();
-    //             SR_extension(REGs60);
-    //             //for REGs61
-    //             LUT_SR_rng_r32_XORs(REGs61);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs61);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out61[i] = REGs61.rng_out[i];
-    //             }
-    //             output[60] = ac_fixed_out61.to_float();
-    //             SR_extension(REGs61);
-    //             //for REGs62
-    //             LUT_SR_rng_r32_XORs(REGs62);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs62);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out62[i] = REGs62.rng_out[i];
-    //             }
-    //             output[61] = ac_fixed_out62.to_float();
-    //             SR_extension(REGs62);
-    //             //for REGs63
-    //             LUT_SR_rng_r32_XORs(REGs63);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs63);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out63[i] = REGs63.rng_out[i];
-    //             }
-    //             output[62] = ac_fixed_out63.to_float();
-    //             SR_extension(REGs63);
-    //             //for REGs64
-    //             LUT_SR_rng_r32_XORs(REGs64);
-    //             //Permutation of the output
-    //             LUT_SR_rng_r32_permutation(REGs64);
-    //             #pragma unroll
-    //             for(int i=0; i<r; i++){
-    //                 ac_fixed_out64[i] = REGs64.rng_out[i];
-    //             }
-    //             output[63] = ac_fixed_out64.to_float();
-    //             SR_extension(REGs64);
-
-    //             //using U1 - U2 to represent the triangle distribution with mean = 0, and delta = 0.25
-    //             #pragma unroll
-    //             for(int i=0; i<num_p; i++){
-    //                 tri_out_ini[i] = output[2*i] - output[2*i+1];
-    //             }
-    //             //set different mean for these triangle distributions
-    //             #pragma unroll
-    //             for(int i=0; i<num_p; i++){
-    //                 tri_out_ini[i] = tri_out_ini[i] + delta*(i-num_p/2);
-    //             }
-    //             //pipe out
-    //             size_t index = 0;
-    //             fpga_tools::UnrolledLoop<num_p>([&tri_out_ini, &index](auto idx){
-    //                 Pipe_out::template PipeAt<idx>::write(tri_out_ini[index++]);
-    //             });
-                
-    //         }
-    //     }
-    // };
-
 
 
     // Pipe_in_rng_01: single pipe, float
@@ -1685,32 +861,39 @@ namespace RNG{
     template <typename Pipe_in_rng_01, typename Pipe_in_rng_0n, typename Pipe_out>
     struct AR_Walker_Alias_Table{
         void operator()() const{
-            [[intel::fpga_register]] float p_threshold[num_p] = {
-                0.00013383f, 0.000352596f, 0.000872683f, 0.00202905f,
-                0.00443185f, 0.009093560f, 0.017528300f, 0.03173970f,
-                0.05399100f, 0.086277300f, 0.129518000f, 0.18264900f,
-                0.24197100f, 0.301137000f, 0.352065000f, 0.38666800f,
-                0.39894200f, 0.386668000f, 0.352065000f, 0.30113700f,
-                0.24197100f, 0.182649000f, 0.129518000f, 0.08627730f,
-                0.05399100f, 0.031739700f, 0.017528300f, 0.00909356f,
-                0.00443185f, 0.002029050f, 0.000872683f, 0.000352596f
-            };
+            // [[intel::fpga_register]] float p_threshold[num_p] = {
+            //     0.00013383f, 0.000352596f, 0.000872683f, 0.00202905f,
+            //     0.00443185f, 0.009093560f, 0.017528300f, 0.03173970f,
+            //     0.05399100f, 0.086277300f, 0.129518000f, 0.18264900f,
+            //     0.24197100f, 0.301137000f, 0.352065000f, 0.38666800f,
+            //     0.39894200f, 0.386668000f, 0.352065000f, 0.30113700f,
+            //     0.24197100f, 0.182649000f, 0.129518000f, 0.08627730f,
+            //     0.05399100f, 0.031739700f, 0.017528300f, 0.00909356f,
+            //     0.00443185f, 0.002029050f, 0.000872683f, 0.000352596f
+            // };
+            // delta=0.25, sigma = 0.6, triangular probability distribution: 32
             // [[intel::fpga_register]] float p_threshold[num_p] = {
             //     1.48515e-10, 2.19e-09, 2.71469e-08, 2.82878e-07, 2.47787e-06, 1.82456e-05, 0.000112938, 0.000587659, 0.00257046, 0.00945147, 0.0292138, 0.0759066, 0.165795, 0.304415, 0.469853, 0.609621, 0.664904, 0.609621, 0.469853, 0.304415, 0.165795, 0.0759066, 0.0292138, 0.00945147, 0.00257046, 0.000587659, 0.000112938, 1.82456e-05, 2.47787e-06, 2.82878e-07, 2.71469e-08, 2.19e-09
             // };
-            [[intel::fpga_register]] int_5_bit a[num_p] = {
-                0,  1,  2,  3, 
-                4,  5,  6,  7,
-                8,  9,  10, 11,
-                12, 13, 14, 15, 
-                16, 17, 18, 19,
-                20, 21, 22, 23,
-                24, 25, 26, 27,
-                28, 29, 30, 31,
+            // [[intel::fpga_register]] float p_threshold[num_p] = {
+            //     0.00257046, 0.00945147, 0.0292138, 0.0759066, 0.165795, 0.304415, 0.469853, 0.609621, 0.664904, 0.609621, 0.469853, 0.304415, 0.165795, 0.0759066, 0.0292138, 0.00945147 
+            // };
+            [[intel::fpga_register]] float p_threshold[num_p] = {
+                0.00026766, 0.00174537, 0.0088637, 0.0350566, 0.107982, 0.259035, 0.483941, 0.704131, 0.797885, 0.704131, 0.483941, 0.259035, 0.107982, 0.0350566, 0.0088637, 0.00174537
             };
+            //[[intel::fpga_register]] float p_threshold[num_p] = {0.28345, 0.34578};
+            // [[intel::fpga_register]] float p_threshold[num_p] = {
+            //     1.48515e-10, 2.19e-09, 2.71469e-08, 2.82878e-07, 2.47787e-06, 1.82456e-05, 0.000112938, 0.000587659, 0.00257046, 0.00945147, 0.0292138, 0.0759066, 0.165795, 0.304415, 0.469853, 0.609621, 0.664904, 0.609621, 0.469853, 0.304415, 0.165795, 0.0759066, 0.0292138, 0.00945147, 0.00257046, 0.000587659, 0.000112938, 1.82456e-05, 2.47787e-06, 2.82878e-07, 2.71469e-08, 2.19e-09
+            // };
+            [[intel::fpga_register]] int_5_bit a[num_p];
+            #pragma unroll
+            for(int i=0; i<num_p; i++){
+                a[i] = i;
+            }
             //Initialize the two look up tables
             while(1){
                 int_5_bit idx = Pipe_in_rng_0n::read();
+                idx = idx%num_p;
                 int_5_bit out = 0;
                 float p_from_rng = Pipe_in_rng_01::read();
                 out = (p_from_rng > p_threshold[idx]) ? a[idx] : idx;
@@ -1734,6 +917,76 @@ namespace RNG{
             }
         }
 
+    };
+
+    //for now it's the naive way to write the hadmard network, mainly for quick test, later I would write it in a more generalized way
+    template <typename Pipe_in, typename Pipe_out>
+    struct Hadmard_Transform_16{
+        void operator()() const{
+            while(1){
+                [[intel::fpga_register]] float IN_2_HT[N_had];
+                [[intel::fpga_register]] float HT_1_to_2[N_had];
+                [[intel::fpga_register]] float HT_2_to_3[N_had];
+                [[intel::fpga_register]] float HT_3_to_4[N_had];
+                [[intel::fpga_register]] float OUT[N_had];
+                for(int i=0; i<N_had; i++){
+                    IN_2_HT[i] = Pipe_in::read();
+                }
+                //first layer of hadmard gates
+                #pragma unroll
+                for(int i=0; i<N_had/2; i++){
+                    HT_1_to_2[2*i] = IN_2_HT[2*i] + IN_2_HT[2*i+1];
+                    HT_1_to_2[2*i+1] = IN_2_HT[2*i] - IN_2_HT[2*i+1];
+                }
+                //second layer of hadmard gates
+                #pragma unroll
+                for(int i=0; i<N_had/4; i++){
+                    HT_2_to_3[4*i] = HT_1_to_2[4*i] + HT_1_to_2[4*i+2];
+                    HT_2_to_3[4*i+1] = HT_1_to_2[4*i] - HT_1_to_2[4*i+2];
+                    HT_2_to_3[4*i+2] = HT_1_to_2[4*i+1] + HT_1_to_2[4*i+3];
+                    HT_2_to_3[4*i+3] = HT_1_to_2[4*i+1] - HT_1_to_2[4*i+3];
+                }
+                //third layer of hadmard gates
+                #pragma unroll
+                for(int i=0; i<N_had/8; i++){
+                    HT_3_to_4[8*i] = HT_2_to_3[8*i] + HT_2_to_3[8*i+4];
+                    HT_3_to_4[8*i+1] = HT_2_to_3[8*i] - HT_2_to_3[8*i+4];
+                    HT_3_to_4[8*i+2] = HT_2_to_3[8*i+2] + HT_2_to_3[8*i+6];
+                    HT_3_to_4[8*i+3] = HT_2_to_3[8*i+2] - HT_2_to_3[8*i+6];
+                    HT_3_to_4[8*i+4] = HT_2_to_3[8*i+1] + HT_2_to_3[8*i+5];
+                    HT_3_to_4[8*i+5] = HT_2_to_3[8*i+1] - HT_2_to_3[8*i+5];
+                    HT_3_to_4[8*i+6] = HT_2_to_3[8*i+3] + HT_2_to_3[8*i+7];
+                    HT_3_to_4[8*i+7] = HT_2_to_3[8*i+3] - HT_2_to_3[8*i+7];
+                }
+                //last layer of hadmard gates
+                OUT[0] = HT_3_to_4[0] + HT_3_to_4[8];
+                OUT[1] = HT_3_to_4[0] - HT_3_to_4[8];
+                OUT[2] = HT_3_to_4[2] + HT_3_to_4[10];
+                OUT[3] = HT_3_to_4[2] - HT_3_to_4[10];
+                OUT[4] = HT_3_to_4[4] + HT_3_to_4[12];
+                OUT[5] = HT_3_to_4[4] - HT_3_to_4[12];
+                OUT[6] = HT_3_to_4[6] + HT_3_to_4[14];
+                OUT[7] = HT_3_to_4[6] - HT_3_to_4[14];
+                OUT[8] = HT_3_to_4[1] + HT_3_to_4[9];
+                OUT[9] = HT_3_to_4[1] - HT_3_to_4[9];
+                OUT[10] = HT_3_to_4[3] + HT_3_to_4[11];
+                OUT[11] = HT_3_to_4[3] - HT_3_to_4[11];
+                OUT[12] = HT_3_to_4[5] + HT_3_to_4[13];
+                OUT[13] = HT_3_to_4[5] - HT_3_to_4[13];
+                OUT[14] = HT_3_to_4[7] + HT_3_to_4[15];
+                OUT[15] = HT_3_to_4[7] - HT_3_to_4[15];
+                //normalize the output
+                #pragma unroll
+                for(int i=0; i<N_had; i++){
+                    OUT[i] = OUT[i]/4.0f;
+                }
+                //Pipe out
+                for(int i=0; i<N_had; i++){
+                    Pipe_out::write(OUT[i]);
+                }
+
+            }
+        }
     };
 
     template <typename Pipe_out1, typename Pipe_out2>
