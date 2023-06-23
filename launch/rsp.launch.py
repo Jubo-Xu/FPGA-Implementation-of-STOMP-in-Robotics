@@ -6,9 +6,13 @@ from launch import LaunchDescription
 from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.actions import IncludeLaunchDescription
+
 
 import xacro
-
+import launch_ros
+import launch
 
 def generate_launch_description():
 
@@ -28,14 +32,34 @@ def generate_launch_description():
         output='screen',
         parameters=[params]
     )
-
-
+    
+    joint_state_publisher_gui_node = launch_ros.actions.Node(
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        name='joint_state_publisher_gui',
+        condition=launch.conditions.IfCondition(LaunchConfiguration('gui'))
+    )
+    
+    rviz_node = launch_ros.actions.Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        arguments=['-d', LaunchConfiguration('rvizconfig')],
+    )
+    
     # Launch!
     return LaunchDescription([
         DeclareLaunchArgument(
             'use_sim_time',
             default_value='false',
             description='Use sim time if true'),
-
-        node_robot_state_publisher
+        DeclareLaunchArgument(name='gui', default_value= 'true',
+                             description='Flag to enable joint_state_publisher_gui'),
+        DeclareLaunchArgument(name='rvizconfig', default_value = 'true',
+                                            description='Absolute path to rviz config file'),
+        # joint_state_publisher_gui_node,
+        node_robot_state_publisher,  
+        # rviz_node
+        
     ])
