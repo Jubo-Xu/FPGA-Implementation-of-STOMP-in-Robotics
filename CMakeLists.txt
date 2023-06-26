@@ -20,6 +20,11 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(control_msgs REQUIRED)
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIRS})
+
+
+
 
 # add_library(action_client SHARED src/joint_command.cpp)
 # target_include_directories(action_client PRIVATE
@@ -31,6 +36,10 @@ ament_target_dependencies(joint_command
 rclcpp
 rclcpp_action
 control_msgs)
+
+add_library(my_librairies src/stomp.cpp src/utils.cpp)
+target_include_directories(my_librairies PUBLIC include)
+target_link_libraries(joint_command my_librairies)
 
 
 

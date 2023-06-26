@@ -1,22 +1,51 @@
+/**
+ * @file stomp_example.cpp
+ * @brief Demonstrates how to optimize a trajectory using STOMP
+ *
+ * @author Jorge Nicho
+ * @date Dec 14, 2016
+ * @version TODO
+ * @bug No known bugs
+ *
+ * @copyright Copyright (c) 2016, Southwest Research Institute
+ *
+ * @par License
+ * Software License Agreement (Apache License)
+ * @par
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * @par
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-#include <rclcpp/rclcpp.hpp>
-#include <control_msgs/action/follow_joint_trajectory.hpp>
 #include <iostream>
-#include <rclcpp_action/rclcpp_action.hpp>
-#include <chrono>  
 #include <Eigen/Dense>
 #include <stomp/stomp.h>
-#include "stomp/simple_optimization_task.h"
+#include "simple_optimization_task.h"
 
-using Trajectory = Eigen::MatrixXd; 
+using Trajectory = Eigen::MatrixXd; /**< Assign Type Trajectory to Eigen::MatrixXd Type */
+
+/**< Declaring optimization variables */
 static const std::size_t NUM_DIMENSIONS = 3;                               /**< Number of parameters to optimize */
 static const std::size_t NUM_TIMESTEPS = 3;                               /**< Number of timesteps */
 static const double DELTA_T = 0.1;                                         /**< Timestep in seconds */
-static const std::vector<double> START_POS = { 1.4, 1.4, 1.4};            /**< Trajectory starting position */
-static const std::vector<double> END_POS = { 1.0, 1.0, 1.0 };          /**< Trajectory ending posiiton */
+static const std::vector<double> START_POS = { 0 ,0, 0};            /**< Trajectory starting position */
+static const std::vector<double> END_POS = { 1, 1, 1};          /**< Trajectory ending posiiton */
 static const std::vector<double> BIAS_THRESHOLD = { 0.050, 0.050, 0.050 }; /**< Threshold to determine whether two
                                                                               trajectories are equal */
-static const std::vector<double> STD_DEV = { 1.0, 1.0, 1.0 }; 
+static const std::vector<double> STD_DEV = { 1.0, 1.0, 1.0 }; /**< Standard deviation used for generating noisy
+                                                                 parameters */
+
+/**
+ * @brief Creates a STOMP configuration object with default parameters.
+ * @return A STOMP configuration object
+ */
 stomp::StompConfiguration create3DOFConfiguration()
 {
   //! [Create Config]
@@ -37,6 +66,13 @@ stomp::StompConfiguration create3DOFConfiguration()
   return c;
 }
 
+/**
+ * @brief Compares whether two trajectories are close to each other within a threshold.
+ * @param optimized optimized trajectory
+ * @param desired desired trajectory
+ * @param thresholds used to determine if two values are equal
+ * @return True if the difference between the two is less than the threshold, otherwise false
+ */
 bool compareDiff(const Trajectory& optimized, const Trajectory& desired, const std::vector<double>& thresholds)
 {
   auto num_dimensions = optimized.rows();
@@ -54,6 +90,14 @@ bool compareDiff(const Trajectory& optimized, const Trajectory& desired, const s
   return true;
 }
 
+
+/**
+ * @brief Compute a linear interpolated trajectory given a start and end state
+ * @param start start position
+ * @param end last position
+ * @param num_timesteps number of timesteps
+ * @param traj returned linear interpolated trajectory
+ */
 void interpolate(const std::vector<double>& start,
                  const std::vector<double>& end,
                  std::size_t num_timesteps,
@@ -71,9 +115,9 @@ void interpolate(const std::vector<double>& start,
   }
 }
 
-
-int main(int argc, char** argv){
-    using namespace stomp_examples;
+int main(int argc, char** argv)
+{
+  using namespace stomp_examples;
   using namespace stomp;
 
   /**< Creating a Task with a trajectory bias **/
@@ -96,7 +140,6 @@ int main(int argc, char** argv){
   Trajectory optimized;
   if (stomp.solve(START_POS, END_POS, optimized))
   {
-    std::cout <<"number of cols "<<optimized.cols()<<std::endl;
     std::cout << "STOMP succeeded" << std::endl;
     std::cout << "optimized path" << std::endl << optimized <<std::endl; 
   }
@@ -117,64 +160,6 @@ int main(int argc, char** argv){
     std::cout << "The solution exceeded the required thresholds" << std::endl;
     return -1;
   }
-  std::vector<std::vector<double>> vec_traj(optimized.cols()); 
-  std::vector<double> temp_vec(optimized.rows()); 
-  for(int i = 0; i < optimized.cols(); ++i){
-    for(int j = 0; j < optimized.rows() ; ++j){
-        temp_vec[j] = (optimized(j,i)); 
-    }
-    vec_traj[i] = temp_vec; 
 
-  }
-
-
-    
-    rclcpp::init(argc, argv);
-    auto node = rclcpp::Node::make_shared("arm_action_client"); 
-    auto action_client = rclcpp_action::create_client<control_msgs::action::FollowJointTrajectory>(node,"/joint_trajectory_controller/follow_joint_trajectory");
-    
-
-    while(!action_client->wait_for_action_server()){
-        RCLCPP_ERROR(node->get_logger(),"Action server not available after WAITING"); 
-            rclcpp::shutdown(); 
-        }
-
-    auto goal_msg = control_msgs::action::FollowJointTrajectory::Goal();
-
-    std::vector<std::string> joint_names; 
-    joint_names.push_back("joint_1"); 
-    joint_names.push_back("joint_2"); 
-    joint_names.push_back("joint_3"); 
-    goal_msg.trajectory.joint_names = joint_names;
-    goal_msg.trajectory.points.resize(optimized.cols()); 
-    
-    // std::vector<double> position1(3); 
-    // position1[0] = 0.0; 
-    // position1[1] = 0.0; 
-    // position1[2] = 0.0;
-
-    // std::vector<double> position2(3); 
-    // position2[0] = 1.0; 
-    // position2[1] = 1.0; 
-    // position2[2] = 1.0; 
-
-    for(int i = 0; i < optimized.cols(); i++){
-        goal_msg.trajectory.points[i].positions = vec_traj[i]; 
-        goal_msg.trajectory.points[i].time_from_start = rclcpp::Duration(i,0);
-
-    }
-
-    
-    // goal_msg.trajectory.points[0].positions = position1; 
-    // goal_msg.trajectory.points[0].time_from_start = rclcpp::Duration(1,0);
-    // goal_msg.trajectory.points[1].positions = position2; 
-    // goal_msg.trajectory.points[1].time_from_start = rclcpp::Duration(2,0);
-
-    //sending the goal
-    RCLCPP_INFO(node->get_logger(),"Sending the goal message"); 
-
-    action_client->async_send_goal(goal_msg); 
-
-    
-
+  return 0;
 }

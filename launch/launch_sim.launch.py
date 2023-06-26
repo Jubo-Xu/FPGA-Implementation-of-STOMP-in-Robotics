@@ -39,7 +39,7 @@ def generate_launch_description():
                         output='screen')
     
     load_controller_cmd = ExecuteProcess(
-        cmd=['ros2','control','load_controller','--set-state','active','joint_state_controller'],
+        cmd=['ros2','control','load_controller','--set-state','active','joint_state_broadcaster'],
         output = 'screen'
     )
 
