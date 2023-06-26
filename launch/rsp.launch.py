@@ -58,8 +58,8 @@ def generate_launch_description():
                              description='Flag to enable joint_state_publisher_gui'),
         DeclareLaunchArgument(name='rvizconfig', default_value = 'true',
                                             description='Absolute path to rviz config file'),
-        joint_state_publisher_gui_node,
+        # joint_state_publisher_gui_node,
         node_robot_state_publisher,  
-        rviz_node
+        # rviz_node
         
     ])

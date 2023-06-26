@@ -39,12 +39,12 @@ def generate_launch_description():
                         output='screen')
     
     load_controller_cmd = ExecuteProcess(
-        cmd=['ros2','--set-state','active','--set-state','active','joint_state_controller'],
+        cmd=['ros2','load_controller','--set-state','active','--set-state','active','joint_state_controller'],
         output = 'screen'
     )
 
     launch_traj_controller= ExecuteProcess(
-        cmd=['ros2','--set-state','active','--set-state','active','joint_trajectory_controller'],
+        cmd=['ros2','load_controller', '--set-state','active','--set-state','active','joint_trajectory_controller'],
         output = 'screen'
     )
     
@@ -56,6 +56,6 @@ def generate_launch_description():
         rsp,
         gazebo,
         spawn_entity,
-        load_controller_cmd,
-        launch_traj_controller
+        # load_controller_cmd,
+        # launch_traj_controller
     ])
