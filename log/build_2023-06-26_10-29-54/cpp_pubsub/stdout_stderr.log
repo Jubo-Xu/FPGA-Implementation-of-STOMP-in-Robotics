@@ -1,0 +1,10 @@
+[35m[1mConsolidate compiler generated dependencies of target listener.fpga_emu[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o[0m
+[ 75%] Built target talker
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:15:10: [0m[0;1;31mfatal error: [0m[1m'autorun.hpp' file not found[0m
+#include "autorun.hpp"
+[0;1;32m         ^~~~~~~~~~~~~
+[0m1 error generated.
+gmake[2]: *** [CMakeFiles/listener.fpga_emu.dir/build.make:76: CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/listener.fpga_emu.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

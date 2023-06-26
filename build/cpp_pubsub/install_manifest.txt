@@ -1,0 +1,15 @@
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/lib/cpp_pubsub/talker
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/lib/cpp_pubsub/listener.fpga_emu
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/ament_index/resource_index/package_run_dependencies/cpp_pubsub
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/ament_index/resource_index/parent_prefix_path/cpp_pubsub
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.dsv
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/environment/path.dsv
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.bash
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.sh
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.zsh
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.dsv
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/package.dsv
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/ament_index/resource_index/packages/cpp_pubsub
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig.cmake
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig-version.cmake
+/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/package.xml

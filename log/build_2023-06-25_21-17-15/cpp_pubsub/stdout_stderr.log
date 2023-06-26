@@ -1,0 +1,88 @@
+-- The C compiler identification is GNU 11.3.0
+-- The CXX compiler identification is IntelLLVM 2023.1.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.4 (/home/bobxu/ros2_humble/install/ament_cmake/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+-- Found rclcpp: 16.0.4 (/home/bobxu/ros2_humble/install/rclcpp/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.4 (/home/bobxu/ros2_humble/install/rosidl_generator_c/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.4 (/home/bobxu/ros2_humble/install/rosidl_adapter/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.4 (/home/bobxu/ros2_humble/install/rosidl_generator_cpp/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_introspection_c;rosidl_typesupport_fastrtps_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_introspection_cpp;rosidl_typesupport_fastrtps_cpp
+-- Found rmw_implementation_cmake: 6.1.1 (/home/bobxu/ros2_humble/install/rmw_implementation_cmake/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.2 (/home/bobxu/ros2_humble/install/rmw_fastrtps_cpp/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /home/bobxu/ros2_humble/install/fastrtps/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found tutorial_interfaces: 0.0.0 (/home/bobxu/ros_sycl_ws/install/tutorial_interfaces/share/tutorial_interfaces/cmake)
+-- FPGA_DEVICE was not specified.                
+Configuring the design to target the default FPGA family (Intel Agilex®).                 
+Please refer to the README for information on board selection.
+-- Found ament_lint_auto: 0.12.6 (/home/bobxu/ros2_humble/install/ament_lint_auto/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/bobxu/ros_sycl_ws/build/cpp_pubsub
+[ 25%] [32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o[0m
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:118:19: [0m[0;1;31merror: [0m[1mcannot assign to return value because function 'operator[]' returns a const value[0m
+            IN[i] = IN[i] + 1;
+[0;1;32m            ~~~~~ ^
+[0m[1m/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/stl_vector.h:1060:7: [0m[0;1;30mnote: [0mfunction 'operator[]' which returns const-qualified type 'const_reference' (aka 'const float &') declared here[0m
+      const_reference
+[0;1;32m      ^~~~~~~~~~~~~~~
+[ 75%] [32m[1mLinking CXX executable talker[0m
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:6:
+In file included from /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/sycl.hpp:11:
+In file included from /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp:28:
+In file included from /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/image.hpp:18:
+[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/types.hpp:2443:3: [0m[0;1;31merror: [0m[1mstatic assertion failed due to requirement 'is_device_copyable<std::vector<float, std::allocator<float>>, void>::value || detail::IsDeprecatedDeviceCopyable<std::vector<float, std::allocator<float>>, void>::value': The specified type is not device copyable[0m
+  static_assert(is_device_copyable<FieldT>::value ||
+[0;1;32m  ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/types.hpp:2476:7: [0m[0;1;30mnote: [0min instantiation of template class 'sycl::detail::CheckFieldsAreDeviceCopyable<(lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23), 1>' requested here[0m
+    : CheckFieldsAreDeviceCopyable<FuncT, __builtin_num_fields(FuncT)>,
+[0;1;32m      ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp:1319:5: [0m[0;1;30mnote: [0min instantiation of template class 'sycl::detail::CheckDeviceCopyable<(lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23)>' requested here[0m
+    detail::CheckDeviceCopyable<KernelType>();
+[0;1;32m    ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp:1340:5: [0m[0;1;30mnote: [0min instantiation of function template specialization 'sycl::handler::unpack<(lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23), sycl::ext::oneapi::experimental::properties<std::tuple<>>, false, (lambda at /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp:1342:21)>' requested here[0m
+    unpack<KernelType, PropertiesT,
+[0;1;32m    ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp:1391:5: [0m[0;1;30mnote: [0min instantiation of function template specialization 'sycl::handler::kernel_single_task_wrapper<(lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23), (lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23), sycl::ext::oneapi::experimental::properties<std::tuple<>>>' requested here[0m
+    kernel_single_task_wrapper<NameT, KernelType, PropertiesT>(KernelFunc);
+[0;1;32m    ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp:1558:5: [0m[0;1;30mnote: [0min instantiation of function template specialization 'sycl::handler::single_task_lambda_impl<sycl::detail::auto_name, (lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23), sycl::ext::oneapi::experimental::properties<std::tuple<>>>' requested here[0m
+    single_task_lambda_impl<KernelName>(KernelFunc);
+[0;1;32m    ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:11: [0m[0;1;30mnote: [0min instantiation of function template specialization 'sycl::handler::single_task<sycl::detail::auto_name, (lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23)>' requested here[0m
+        h.single_task([=] {
+[0;1;32m          ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/types.hpp:2443:51: [0m[0;1;30mnote: [0mexpression evaluates to 'false || false'[0m
+  static_assert(is_device_copyable<FieldT>::value ||
+[0;1;32m                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[0m2 errors generated.
+gmake[2]: *** [CMakeFiles/listener.fpga_emu.dir/build.make:76: CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/listener.fpga_emu.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 75%] Built target talker
+gmake: *** [Makefile:146: all] Error 2

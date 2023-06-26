@@ -1,0 +1,36 @@
+-- The C compiler identification is GNU 11.3.0
+-- The CXX compiler identification is GNU 11.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.4 (/home/bobxu/ros2_humble/install/ament_cmake/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+-- Found ament_lint_auto: 0.12.6 (/home/bobxu/ros2_humble/install/ament_lint_auto/share/ament_lint_auto/cmake)
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/bobxu/ros_sycl_ws/build/ros-sycl-test
+-- Install configuration: ""
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ament_index/resource_index/package_run_dependencies/ros-sycl-test
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ament_index/resource_index/parent_prefix_path/ros-sycl-test
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/environment/ament_prefix_path.sh
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/environment/ament_prefix_path.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/environment/path.sh
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/environment/path.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/local_setup.bash
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/local_setup.sh
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/local_setup.zsh
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/local_setup.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/package.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ament_index/resource_index/packages/ros-sycl-test
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/cmake/ros-sycl-testConfig.cmake
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/cmake/ros-sycl-testConfig-version.cmake
+-- Installing: /home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/package.xml

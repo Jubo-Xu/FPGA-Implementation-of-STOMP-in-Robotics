@@ -1,0 +1,3 @@
+[35m[1mConsolidate compiler generated dependencies of target listener.fpga_emu[0m
+[ 50%] Built target talker
+[ 75%] [32mBuilding CXX object CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o[0m

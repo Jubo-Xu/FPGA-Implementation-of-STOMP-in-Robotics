@@ -1,0 +1,8 @@
+source;share/ros-sycl-test/hook/cmake_prefix_path.ps1
+source;share/ros-sycl-test/hook/cmake_prefix_path.dsv
+source;share/ros-sycl-test/hook/cmake_prefix_path.sh
+source;share/ros-sycl-test/local_setup.bash
+source;share/ros-sycl-test/local_setup.dsv
+source;share/ros-sycl-test/local_setup.ps1
+source;share/ros-sycl-test/local_setup.sh
+source;share/ros-sycl-test/local_setup.zsh

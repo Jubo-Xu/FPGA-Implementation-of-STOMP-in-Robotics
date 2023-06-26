@@ -1,0 +1,13 @@
+[31mCMake Error at CMakeLists.txt:29 (find_package):
+  Found package configuration file:
+
+    /opt/intel/oneapi/compiler/2023.1.0/linux/IntelSYCL/IntelSYCLConfig.cmake
+
+  but it set IntelSYCL_FOUND to FALSE so package "IntelSYCL" is considered to
+  be NOT FOUND.  Reason given by package:
+
+  Unsupported compiler family GNU and compiler /usr/bin/c++!!
+
+
+[0m
+gmake: *** [Makefile:308: cmake_check_build_system] Error 1

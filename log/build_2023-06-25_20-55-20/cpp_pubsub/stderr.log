@@ -1,0 +1,8 @@
+[01m[Kc++:[m[K [01;31m[Kerror: [m[Kunrecognized command-line option ‘[01m[K-fsycl[m[K’
+[01m[Kc++:[m[K [01;31m[Kerror: [m[Kunrecognized command-line option ‘[01m[K-fintelfpga[m[K’
+[01m[Kc++:[m[K [01;31m[Kerror: [m[Kunrecognized command-line option ‘[01m[K-qactypes[m[K’
+[01m[Kc++:[m[K [01;31m[Kerror: [m[Kunrecognized command-line option ‘[01m[K-fp-model=precise[m[K’
+gmake[2]: *** [CMakeFiles/listener.fpga_emu.dir/build.make:76: CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/listener.fpga_emu.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

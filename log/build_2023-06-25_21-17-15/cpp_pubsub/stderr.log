@@ -1,0 +1,39 @@
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:118:19: [0m[0;1;31merror: [0m[1mcannot assign to return value because function 'operator[]' returns a const value[0m
+            IN[i] = IN[i] + 1;
+[0;1;32m            ~~~~~ ^
+[0m[1m/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/stl_vector.h:1060:7: [0m[0;1;30mnote: [0mfunction 'operator[]' which returns const-qualified type 'const_reference' (aka 'const float &') declared here[0m
+      const_reference
+[0;1;32m      ^~~~~~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:6:
+In file included from /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/sycl.hpp:11:
+In file included from /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp:28:
+In file included from /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/image.hpp:18:
+[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/types.hpp:2443:3: [0m[0;1;31merror: [0m[1mstatic assertion failed due to requirement 'is_device_copyable<std::vector<float, std::allocator<float>>, void>::value || detail::IsDeprecatedDeviceCopyable<std::vector<float, std::allocator<float>>, void>::value': The specified type is not device copyable[0m
+  static_assert(is_device_copyable<FieldT>::value ||
+[0;1;32m  ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/types.hpp:2476:7: [0m[0;1;30mnote: [0min instantiation of template class 'sycl::detail::CheckFieldsAreDeviceCopyable<(lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23), 1>' requested here[0m
+    : CheckFieldsAreDeviceCopyable<FuncT, __builtin_num_fields(FuncT)>,
+[0;1;32m      ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp:1319:5: [0m[0;1;30mnote: [0min instantiation of template class 'sycl::detail::CheckDeviceCopyable<(lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23)>' requested here[0m
+    detail::CheckDeviceCopyable<KernelType>();
+[0;1;32m    ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp:1340:5: [0m[0;1;30mnote: [0min instantiation of function template specialization 'sycl::handler::unpack<(lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23), sycl::ext::oneapi::experimental::properties<std::tuple<>>, false, (lambda at /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp:1342:21)>' requested here[0m
+    unpack<KernelType, PropertiesT,
+[0;1;32m    ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp:1391:5: [0m[0;1;30mnote: [0min instantiation of function template specialization 'sycl::handler::kernel_single_task_wrapper<(lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23), (lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23), sycl::ext::oneapi::experimental::properties<std::tuple<>>>' requested here[0m
+    kernel_single_task_wrapper<NameT, KernelType, PropertiesT>(KernelFunc);
+[0;1;32m    ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp:1558:5: [0m[0;1;30mnote: [0min instantiation of function template specialization 'sycl::handler::single_task_lambda_impl<sycl::detail::auto_name, (lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23), sycl::ext::oneapi::experimental::properties<std::tuple<>>>' requested here[0m
+    single_task_lambda_impl<KernelName>(KernelFunc);
+[0;1;32m    ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:11: [0m[0;1;30mnote: [0min instantiation of function template specialization 'sycl::handler::single_task<sycl::detail::auto_name, (lambda at /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:115:23)>' requested here[0m
+        h.single_task([=] {
+[0;1;32m          ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/types.hpp:2443:51: [0m[0;1;30mnote: [0mexpression evaluates to 'false || false'[0m
+  static_assert(is_device_copyable<FieldT>::value ||
+[0;1;32m                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[0m2 errors generated.
+gmake[2]: *** [CMakeFiles/listener.fpga_emu.dir/build.make:76: CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/listener.fpga_emu.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,19 @@
+[33mCMake Warning at /opt/intel/oneapi/compiler/2023.1.0/linux/IntelDPCPP/IntelDPCPPConfig.cmake:80 (message):
+  IntelDPCPP Config will be deprecated soon.  Use IntelSYCL config instead!
+Call Stack (most recent call first):
+  CMakeLists.txt:28 (find_package)
+
+[0m
+[31mCMake Error at CMakeLists.txt:28 (find_package):
+  Found package configuration file:
+
+    /opt/intel/oneapi/compiler/2023.1.0/linux/IntelDPCPP/IntelDPCPPConfig.cmake
+
+  but it set IntelDPCPP_FOUND to FALSE so package "IntelDPCPP" is considered
+  to be NOT FOUND.  Reason given by package:
+
+  Unsupported compiler family GNU and compiler /usr/bin/c++!!
+
+
+[0m
+gmake: *** [Makefile:308: cmake_check_build_system] Error 1

@@ -1,1 +1,0 @@
-/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx -fsycl CMakeFiles/stomp.dir/main.cpp.o CMakeFiles/stomp.dir/Adder_Tree.cpp.o -o ../stomp 

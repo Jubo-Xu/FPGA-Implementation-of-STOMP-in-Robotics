@@ -1,0 +1,18 @@
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:77:36: [0m[0;1;31merror: [0m[1muse of undeclared identifier 'write_only'; did you mean 'sycl::write_only'?[0m
+    sycl::accessor out(out_buf, h, write_only, no_init);
+[0;1;32m                                   ^~~~~~~~~~
+[0m[0;32m                                   sycl::write_only
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/access/access.hpp:74:49: [0m[0;1;30mnote: [0m'sycl::write_only' declared here[0m
+inline constexpr mode_tag_t<access_mode::write> write_only{};
+[0;1;32m                                                ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:77:48: [0m[0;1;31merror: [0m[1muse of undeclared identifier 'no_init'; did you mean 'sycl::no_init'?[0m
+    sycl::accessor out(out_buf, h, write_only, no_init);
+[0;1;32m                                               ^~~~~~~
+[0m[0;32m                                               sycl::no_init
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/properties/accessor_properties.hpp:28:36: [0m[0;1;30mnote: [0m'sycl::no_init' declared here[0m
+inline constexpr property::no_init no_init;
+[0;1;32m                                   ^
+[0m2 errors generated.
+gmake[2]: *** [CMakeFiles/listener.fpga_emu.dir/build.make:76: CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/listener.fpga_emu.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

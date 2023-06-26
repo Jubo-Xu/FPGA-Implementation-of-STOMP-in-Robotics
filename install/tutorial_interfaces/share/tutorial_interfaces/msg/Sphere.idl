@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from tutorial_interfaces/msg/Sphere.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+
+module tutorial_interfaces {
+  module msg {
+    struct Sphere {
+      geometry_msgs::msg::Point center;
+
+      double radius;
+    };
+  };
+};

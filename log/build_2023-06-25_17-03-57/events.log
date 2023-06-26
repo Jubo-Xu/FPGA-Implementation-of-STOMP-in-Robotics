@@ -1,0 +1,10 @@
+[0.000000] (-) TimerEvent: {}
+[0.000135] (-) JobUnselected: {'identifier': 'cpp_srvcli'}
+[0.000157] (-) JobUnselected: {'identifier': 'ros-sycl-test'}
+[0.000168] (-) JobUnselected: {'identifier': 'tutorial_interfaces'}
+[0.000180] (cpp_pubsub) JobQueued: {'identifier': 'cpp_pubsub', 'dependencies': OrderedDict([('tutorial_interfaces', '/home/bobxu/ros_sycl_ws/install')])}
+[0.000195] (cpp_pubsub) JobStarted: {'identifier': 'cpp_pubsub'}
+[0.092305] (-) TimerEvent: {}
+[0.193867] (-) TimerEvent: {}
+[0.259260] (cpp_pubsub) JobEnded: {'identifier': 'cpp_pubsub', 'rc': 1}
+[0.259995] (-) EventReactorShutdown: {}
