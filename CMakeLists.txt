@@ -17,12 +17,25 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(control_msgs REQUIRED)
+
+# add_library(action_client SHARED src/joint_command.cpp)
+# target_include_directories(action_client PRIVATE
+# $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/INCLUDE>
+# $<INSTALL_INTERFACE:include>)
+
+add_executable(joint_command /home/lou/ROS_workspaces/bot_test/src/joint_command.cpp)
+ament_target_dependencies(joint_command
+rclcpp
+rclcpp_action
+control_msgs)
 
 
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
-add_executable(joint_command /home/lou/ROS_workspaces/bot_test/src/joint_command.cpp)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

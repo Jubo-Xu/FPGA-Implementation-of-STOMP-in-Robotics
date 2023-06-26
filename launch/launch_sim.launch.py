@@ -5,6 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
+from launch.actions import ExecuteProcess
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 from launch_ros.actions import Node
@@ -36,6 +37,17 @@ def generate_launch_description():
                         arguments=['-topic', 'robot_description',
                                    '-entity', 'bot'],
                         output='screen')
+    
+    load_controller_cmd = ExecuteProcess(
+        cmd=['ros2','--set-state','active','--set-state','active','joint_state_controller'],
+        output = 'screen'
+    )
+
+    launch_traj_controller= ExecuteProcess(
+        cmd=['ros2','--set-state','active','--set-state','active','joint_trajectory_controller'],
+        output = 'screen'
+    )
+    
 
 
 
@@ -44,4 +56,6 @@ def generate_launch_description():
         rsp,
         gazebo,
         spawn_entity,
+        load_controller_cmd,
+        launch_traj_controller
     ])

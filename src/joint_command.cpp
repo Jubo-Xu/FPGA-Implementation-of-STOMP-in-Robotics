@@ -1,29 +1,20 @@
 
-#include </opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp>
-#include <control_msgs/action/follow_joint_trajectory.hpp>
-#include <trajectory_msgs/trajectory_msgs/msg/joint_trajectory.hpp>
-#include <iostream>
-#include <string>
 #include <rclcpp/rclcpp.hpp>
-#include <chrono>
+#include <control_msgs/action/follow_joint_trajectory.hpp>
+#include <iostream>
+#include <rclcpp_action/rclcpp_action.hpp>
+#include <chrono>   
 
 int main(int argc, char** argv){
     rclcpp::init(argc, argv);
-    int Way_point = 2;  
     auto node = rclcpp::Node::make_shared("arm_action_client"); 
-    auto action_client = rclcpp_action::create_client<control_msgs::action::FollowJointTrajectory>(node,"trajectory_controllet");
+    auto action_client = rclcpp_action::create_client<control_msgs::action::FollowJointTrajectory>(node,"/joint_trajectory_controller/follow_joint_trajectory");
     
 
     while(!action_client->wait_for_action_server()){
         RCLCPP_ERROR(node->get_logger(),"Action server not available after WAITING"); 
-        rclcpp::shutdown(); 
-    }
-
-
-    std::vector<std::string> joint_names; 
-    joint_names.push_back("joint_1"); 
-    joint_names.push_back("joint_2"); 
-    joint_names.push_back("joint_3"); 
+            rclcpp::shutdown(); 
+        }
 
     auto goal_msg = control_msgs::action::FollowJointTrajectory::Goal();
 
