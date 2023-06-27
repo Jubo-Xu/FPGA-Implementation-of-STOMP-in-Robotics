@@ -28,10 +28,10 @@ The CXX compiler identification is IntelLLVM, found in "/home/bobxu/ros_sycl_ws/
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8ee0c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8ee0c.dir/build.make CMakeFiles/cmTC_8ee0c.dir/build
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1a1e0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1a1e0.dir/build.make CMakeFiles/cmTC_1a1e0.dir/build
 gmake[1]: Entering directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc   -v -o CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Building C object CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -v -o CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
@@ -41,8 +41,8 @@ Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~2
 Thread model: posix
 Supported LTO compression algorithms: zlib zstd
 gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8ee0c.dir/'
- /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_8ee0c.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccot6WPJ.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1a1e0.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_1a1e0.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccYPU4o4.s
 GNU C17 (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
 	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
 
@@ -74,15 +74,15 @@ GNU C17 (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: e13e2dc98bfa673227c4000e476a9388
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8ee0c.dir/'
- as -v --64 -o CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o /tmp/ccot6WPJ.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1a1e0.dir/'
+ as -v --64 -o CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o /tmp/ccYPU4o4.s
 GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/../lib/:/opt/intel/oneapi/mpi/2021.9.0//lib/../lib/:/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/../lib/:/opt/intel/oneapi/compiler/2023.1.0/linux/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8/:/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/:/opt/intel/oneapi/mpi/2021.9.0//lib/release/:/opt/intel/oneapi/mpi/2021.9.0//lib/:/opt/intel/oneapi/mkl/2023.1.0/lib/intel64/:/opt/intel/oneapi/ipp/2021.8.0/lib/intel64/:/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64/:/opt/intel/oneapi/ipp/2021.8.0/lib/intel64/:/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/:/opt/intel/oneapi/dal/2023.1.0/lib/intel64/:/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin/:/opt/intel/oneapi/compiler/2023.1.0/linux/lib/:/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.'
-Linking C executable cmTC_8ee0c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8ee0c.dir/link.txt --verbose=1
-/usr/bin/cc  -v CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o -o cmTC_8ee0c 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.'
+Linking C executable cmTC_1a1e0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1a1e0.dir/link.txt --verbose=1
+/usr/bin/cc  -v CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o -o cmTC_1a1e0 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
@@ -95,9 +95,9 @@ Supported LTO compression algorithms: zlib zstd
 gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/../lib/:/opt/intel/oneapi/mpi/2021.9.0//lib/../lib/:/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/../lib/:/opt/intel/oneapi/compiler/2023.1.0/linux/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8/:/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/:/opt/intel/oneapi/mpi/2021.9.0//lib/release/:/opt/intel/oneapi/mpi/2021.9.0//lib/:/opt/intel/oneapi/mkl/2023.1.0/lib/intel64/:/opt/intel/oneapi/ipp/2021.8.0/lib/intel64/:/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64/:/opt/intel/oneapi/ipp/2021.8.0/lib/intel64/:/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/:/opt/intel/oneapi/dal/2023.1.0/lib/intel64/:/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin/:/opt/intel/oneapi/compiler/2023.1.0/linux/lib/:/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_8ee0c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_8ee0c.'
- /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9zMHlM.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_8ee0c /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/../lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/../lib -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/../lib -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/release -L/opt/intel/oneapi/mpi/2021.9.0//lib -L/opt/intel/oneapi/mkl/2023.1.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib -L/opt/intel/oneapi/dal/2023.1.0/lib/intel64 -L/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib -L/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_8ee0c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_8ee0c.'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1a1e0' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_1a1e0.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOBRaYY.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_1a1e0 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/../lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/../lib -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/../lib -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/release -L/opt/intel/oneapi/mpi/2021.9.0//lib -L/opt/intel/oneapi/mkl/2023.1.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib -L/opt/intel/oneapi/dal/2023.1.0/lib/intel64 -L/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib -L/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1a1e0' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_1a1e0.'
 gmake[1]: Leaving directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp'
 
 
@@ -143,10 +143,10 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8ee0c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8ee0c.dir/build.make CMakeFiles/cmTC_8ee0c.dir/build]
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1a1e0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1a1e0.dir/build.make CMakeFiles/cmTC_1a1e0.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
+  ignore line: [Building C object CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
@@ -156,8 +156,8 @@ Parsed C implicit link information from above output:
   ignore line: [Thread model: posix]
   ignore line: [Supported LTO compression algorithms: zlib zstd]
   ignore line: [gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8ee0c.dir/']
-  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_8ee0c.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccot6WPJ.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1a1e0.dir/']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_1a1e0.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccYPU4o4.s]
   ignore line: [GNU C17 (Ubuntu 11.3.0-1ubuntu1~22.04.1) version 11.3.0 (x86_64-linux-gnu)]
   ignore line: [	compiled by GNU C version 11.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
   ignore line: []
@@ -189,15 +189,15 @@ Parsed C implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: e13e2dc98bfa673227c4000e476a9388]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8ee0c.dir/']
-  ignore line: [ as -v --64 -o CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o /tmp/ccot6WPJ.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1a1e0.dir/']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o /tmp/ccYPU4o4.s]
   ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/../lib/:/opt/intel/oneapi/mpi/2021.9.0//lib/../lib/:/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/../lib/:/opt/intel/oneapi/compiler/2023.1.0/linux/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8/:/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/:/opt/intel/oneapi/mpi/2021.9.0//lib/release/:/opt/intel/oneapi/mpi/2021.9.0//lib/:/opt/intel/oneapi/mkl/2023.1.0/lib/intel64/:/opt/intel/oneapi/ipp/2021.8.0/lib/intel64/:/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64/:/opt/intel/oneapi/ipp/2021.8.0/lib/intel64/:/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/:/opt/intel/oneapi/dal/2023.1.0/lib/intel64/:/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin/:/opt/intel/oneapi/compiler/2023.1.0/linux/lib/:/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.']
-  ignore line: [Linking C executable cmTC_8ee0c]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8ee0c.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o -o cmTC_8ee0c ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.']
+  ignore line: [Linking C executable cmTC_1a1e0]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1a1e0.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o -o cmTC_1a1e0 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
@@ -210,13 +210,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04.1) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/../lib/:/opt/intel/oneapi/mpi/2021.9.0//lib/../lib/:/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/../lib/:/opt/intel/oneapi/compiler/2023.1.0/linux/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8/:/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/:/opt/intel/oneapi/mpi/2021.9.0//lib/release/:/opt/intel/oneapi/mpi/2021.9.0//lib/:/opt/intel/oneapi/mkl/2023.1.0/lib/intel64/:/opt/intel/oneapi/ipp/2021.8.0/lib/intel64/:/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64/:/opt/intel/oneapi/ipp/2021.8.0/lib/intel64/:/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/:/opt/intel/oneapi/dal/2023.1.0/lib/intel64/:/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin/:/opt/intel/oneapi/compiler/2023.1.0/linux/lib/:/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_8ee0c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_8ee0c.']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9zMHlM.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_8ee0c /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/../lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/../lib -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/../lib -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/release -L/opt/intel/oneapi/mpi/2021.9.0//lib -L/opt/intel/oneapi/mkl/2023.1.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib -L/opt/intel/oneapi/dal/2023.1.0/lib/intel64 -L/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib -L/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1a1e0' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_1a1e0.']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOBRaYY.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_1a1e0 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib/../lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/../lib -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib/../lib -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/release -L/opt/intel/oneapi/mpi/2021.9.0//lib -L/opt/intel/oneapi/mkl/2023.1.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib -L/opt/intel/oneapi/dal/2023.1.0/lib/intel64 -L/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib -L/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc9zMHlM.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccOBRaYY.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -234,7 +234,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_8ee0c] ==> ignore
+    arg [cmTC_1a1e0] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
@@ -263,7 +263,7 @@ Parsed C implicit link information from above output:
     arg [-L/opt/intel/oneapi/compiler/2023.1.0/linux/lib] ==> dir [/opt/intel/oneapi/compiler/2023.1.0/linux/lib]
     arg [-L/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp] ==> dir [/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
-    arg [CMakeFiles/cmTC_8ee0c.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_1a1e0.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -314,10 +314,10 @@ Parsed C implicit link information from above output:
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_212a6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_212a6.dir/build.make CMakeFiles/cmTC_212a6.dir/build
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ae8dc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ae8dc.dir/build.make CMakeFiles/cmTC_ae8dc.dir/build
 gmake[1]: Entering directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o
-/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx   -v -MD -MT CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+Building CXX object CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o
+/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx   -v -MD -MT CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
 Intel(R) oneAPI DPC++/C++ Compiler 2023.1.0 (2023.1.0.20230320)
 Target: x86_64-unknown-linux-gnu
 Thread model: posix
@@ -328,7 +328,7 @@ Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
  (in-process)
- "/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/clang++" -cc1 -triple x86_64-unknown-linux-gnu -emit-obj --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -fveclib=SVML -mframe-pointer=none -menable-no-infs -menable-no-nans -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign,preserve-sign -ffp-contract=fast -fno-rounding-math -ffast-math -ffinite-math-only -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp -resource-dir /opt/intel/oneapi/compiler/2023.1.0/linux/lib/clang/16 -dependency-file CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -I/opt/intel/oneapi/tbb/2021.9.0/env/../include -I/opt/intel/oneapi/mpi/2021.9.0//include -I/opt/intel/oneapi/mkl/2023.1.0/include -I/opt/intel/oneapi/ipp/2021.8.0/include -I/opt/intel/oneapi/ippcp/2021.7.0/include -I/opt/intel/oneapi/ipp/2021.8.0/include -I/opt/intel/oneapi/dpl/2022.1.0/linux/include -I/opt/intel/oneapi/dpcpp-ct/2023.1.0/include -I/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/include -I/opt/intel/oneapi/dev-utilities/2021.9.0/include -I/opt/intel/oneapi/dal/2023.1.0/include -I/opt/intel/oneapi/ccl/2021.9.0/include/cpu_gpu_dpcpp -internal-isystem /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/backward -internal-isystem /opt/intel/oneapi/compiler/2023.1.0/linux/lib/clang/16/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -fdeprecated-macro -fdebug-compilation-dir=/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp -ferror-limit 19 -fheinous-gnu-extensions -fgnuc-version=4.2.1 -no-opaque-pointers -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -o CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+ "/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/clang++" -cc1 -triple x86_64-unknown-linux-gnu -emit-obj --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -fveclib=SVML -mframe-pointer=none -menable-no-infs -menable-no-nans -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign,preserve-sign -ffp-contract=fast -fno-rounding-math -ffast-math -ffinite-math-only -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp -resource-dir /opt/intel/oneapi/compiler/2023.1.0/linux/lib/clang/16 -dependency-file CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -I/opt/intel/oneapi/tbb/2021.9.0/env/../include -I/opt/intel/oneapi/mpi/2021.9.0//include -I/opt/intel/oneapi/mkl/2023.1.0/include -I/opt/intel/oneapi/ipp/2021.8.0/include -I/opt/intel/oneapi/ippcp/2021.7.0/include -I/opt/intel/oneapi/ipp/2021.8.0/include -I/opt/intel/oneapi/dpl/2022.1.0/linux/include -I/opt/intel/oneapi/dpcpp-ct/2023.1.0/include -I/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/include -I/opt/intel/oneapi/dev-utilities/2021.9.0/include -I/opt/intel/oneapi/dal/2023.1.0/include -I/opt/intel/oneapi/ccl/2021.9.0/include/cpu_gpu_dpcpp -internal-isystem /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/backward -internal-isystem /opt/intel/oneapi/compiler/2023.1.0/linux/lib/clang/16/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -fdeprecated-macro -fdebug-compilation-dir=/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp -ferror-limit 19 -fheinous-gnu-extensions -fgnuc-version=4.2.1 -no-opaque-pointers -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -o CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
 clang -cc1 version 16.0.0 based upon LLVM 16.0.0git default target x86_64-unknown-linux-gnu
 ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
 ignoring nonexistent directory "/include"
@@ -355,9 +355,9 @@ ignoring duplicate directory "/opt/intel/oneapi/ipp/2021.8.0/include"
  /usr/include/x86_64-linux-gnu
  /usr/include
 End of search list.
-Linking CXX executable cmTC_212a6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_212a6.dir/link.txt --verbose=1
-/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx  -v CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_212a6 
+Linking CXX executable cmTC_ae8dc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae8dc.dir/link.txt --verbose=1
+/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx  -v CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ae8dc 
 Intel(R) oneAPI DPC++/C++ Compiler 2023.1.0 (2023.1.0.20230320)
 Target: x86_64-unknown-linux-gnu
 Thread model: posix
@@ -367,7 +367,7 @@ Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
 Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "/usr/bin/ld" -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_212a6 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../lib -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/release -L/opt/intel/oneapi/mpi/2021.9.0//lib -L/opt/intel/oneapi/mkl/2023.1.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib -L/opt/intel/oneapi/dal/2023.1.0/lib/intel64 -L/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib -L/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -lstdc++ -Bstatic -limf -Bdynamic -lm -lgcc_s -lgcc -Bstatic -lirc -Bdynamic -ldl -lgcc_s -lgcc -lc -lgcc_s -lgcc -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+ "/usr/bin/ld" -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ae8dc /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../lib -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/release -L/opt/intel/oneapi/mpi/2021.9.0//lib -L/opt/intel/oneapi/mkl/2023.1.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib -L/opt/intel/oneapi/dal/2023.1.0/lib/intel64 -L/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib -L/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -lstdc++ -Bstatic -limf -Bdynamic -lm -lgcc_s -lgcc -Bstatic -lirc -Bdynamic -ldl -lgcc_s -lgcc -lc -lgcc_s -lgcc -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /lib/x86_64-linux-gnu/crtn.o
 gmake[1]: Leaving directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp'
 
 
@@ -421,10 +421,10 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_212a6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_212a6.dir/build.make CMakeFiles/cmTC_212a6.dir/build]
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ae8dc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ae8dc.dir/build.make CMakeFiles/cmTC_ae8dc.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx   -v -MD -MT CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Building CXX object CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx   -v -MD -MT CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [Intel(R) oneAPI DPC++/C++ Compiler 2023.1.0 (2023.1.0.20230320)]
   ignore line: [Target: x86_64-unknown-linux-gnu]
   ignore line: [Thread model: posix]
@@ -437,7 +437,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
   ignore line: [ (in-process)]
-  ignore line: [ "/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/clang++" -cc1 -triple x86_64-unknown-linux-gnu -emit-obj --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -fveclib=SVML -mframe-pointer=none -menable-no-infs -menable-no-nans -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign preserve-sign -ffp-contract=fast -fno-rounding-math -ffast-math -ffinite-math-only -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp -resource-dir /opt/intel/oneapi/compiler/2023.1.0/linux/lib/clang/16 -dependency-file CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -I/opt/intel/oneapi/tbb/2021.9.0/env/../include -I/opt/intel/oneapi/mpi/2021.9.0//include -I/opt/intel/oneapi/mkl/2023.1.0/include -I/opt/intel/oneapi/ipp/2021.8.0/include -I/opt/intel/oneapi/ippcp/2021.7.0/include -I/opt/intel/oneapi/ipp/2021.8.0/include -I/opt/intel/oneapi/dpl/2022.1.0/linux/include -I/opt/intel/oneapi/dpcpp-ct/2023.1.0/include -I/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/include -I/opt/intel/oneapi/dev-utilities/2021.9.0/include -I/opt/intel/oneapi/dal/2023.1.0/include -I/opt/intel/oneapi/ccl/2021.9.0/include/cpu_gpu_dpcpp -internal-isystem /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/backward -internal-isystem /opt/intel/oneapi/compiler/2023.1.0/linux/lib/clang/16/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -fdeprecated-macro -fdebug-compilation-dir=/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp -ferror-limit 19 -fheinous-gnu-extensions -fgnuc-version=4.2.1 -no-opaque-pointers -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -o CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [ "/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/clang++" -cc1 -triple x86_64-unknown-linux-gnu -emit-obj --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -fveclib=SVML -mframe-pointer=none -menable-no-infs -menable-no-nans -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign preserve-sign -ffp-contract=fast -fno-rounding-math -ffast-math -ffinite-math-only -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp -resource-dir /opt/intel/oneapi/compiler/2023.1.0/linux/lib/clang/16 -dependency-file CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -I/opt/intel/oneapi/tbb/2021.9.0/env/../include -I/opt/intel/oneapi/mpi/2021.9.0//include -I/opt/intel/oneapi/mkl/2023.1.0/include -I/opt/intel/oneapi/ipp/2021.8.0/include -I/opt/intel/oneapi/ippcp/2021.7.0/include -I/opt/intel/oneapi/ipp/2021.8.0/include -I/opt/intel/oneapi/dpl/2022.1.0/linux/include -I/opt/intel/oneapi/dpcpp-ct/2023.1.0/include -I/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/include -I/opt/intel/oneapi/dev-utilities/2021.9.0/include -I/opt/intel/oneapi/dal/2023.1.0/include -I/opt/intel/oneapi/ccl/2021.9.0/include/cpu_gpu_dpcpp -internal-isystem /opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/backward -internal-isystem /opt/intel/oneapi/compiler/2023.1.0/linux/lib/clang/16/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -fdeprecated-macro -fdebug-compilation-dir=/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp -ferror-limit 19 -fheinous-gnu-extensions -fgnuc-version=4.2.1 -no-opaque-pointers -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -o CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [clang -cc1 version 16.0.0 based upon LLVM 16.0.0git default target x86_64-unknown-linux-gnu]
   ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
   ignore line: [ignoring nonexistent directory "/include"]
@@ -464,9 +464,9 @@ Parsed CXX implicit link information from above output:
   ignore line: [ /usr/include/x86_64-linux-gnu]
   ignore line: [ /usr/include]
   ignore line: [End of search list.]
-  ignore line: [Linking CXX executable cmTC_212a6]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_212a6.dir/link.txt --verbose=1]
-  ignore line: [/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx  -v CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_212a6 ]
+  ignore line: [Linking CXX executable cmTC_ae8dc]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae8dc.dir/link.txt --verbose=1]
+  ignore line: [/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx  -v CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ae8dc ]
   ignore line: [Intel(R) oneAPI DPC++/C++ Compiler 2023.1.0 (2023.1.0.20230320)]
   ignore line: [Target: x86_64-unknown-linux-gnu]
   ignore line: [Thread model: posix]
@@ -478,7 +478,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/usr/bin/ld" -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_212a6 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../lib -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/release -L/opt/intel/oneapi/mpi/2021.9.0//lib -L/opt/intel/oneapi/mkl/2023.1.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib -L/opt/intel/oneapi/dal/2023.1.0/lib/intel64 -L/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib -L/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -lstdc++ -Bstatic -limf -Bdynamic -lm -lgcc_s -lgcc -Bstatic -lirc -Bdynamic -ldl -lgcc_s -lgcc -lc -lgcc_s -lgcc -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+  link line: [ "/usr/bin/ld" -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ae8dc /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../lib -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../compiler/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. -L/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tbb/2021.9.0/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/mpi/2021.9.0//libfabric/lib -L/opt/intel/oneapi/mpi/2021.9.0//lib/release -L/opt/intel/oneapi/mpi/2021.9.0//lib -L/opt/intel/oneapi/mkl/2023.1.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/ippcp/2021.7.0/lib/intel64 -L/opt/intel/oneapi/ipp/2021.8.0/lib/intel64 -L/opt/intel/oneapi/dnnl/2023.1.0/cpu_dpcpp_gpu_dpcpp/lib -L/opt/intel/oneapi/dal/2023.1.0/lib/intel64 -L/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin -L/opt/intel/oneapi/compiler/2023.1.0/linux/lib -L/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -lstdc++ -Bstatic -limf -Bdynamic -lm -lgcc_s -lgcc -Bstatic -lirc -Bdynamic -ldl -lgcc_s -lgcc -lc -lgcc_s -lgcc -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
     arg [/usr/bin/ld] ==> ignore
     arg [-zrelro] ==> ignore
     arg [--hash-style=gnu] ==> ignore
@@ -488,7 +488,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_212a6] ==> ignore
+    arg [cmTC_ae8dc] ==> ignore
     arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
     arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
@@ -518,7 +518,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin] ==> dir [/opt/intel/oneapi/compiler/2023.1.0/linux/compiler/lib/intel64_lin]
     arg [-L/opt/intel/oneapi/compiler/2023.1.0/linux/lib] ==> dir [/opt/intel/oneapi/compiler/2023.1.0/linux/lib]
     arg [-L/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp] ==> dir [/opt/intel/oneapi/ccl/2021.9.0/lib/cpu_gpu_dpcpp]
-    arg [CMakeFiles/cmTC_212a6.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_ae8dc.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-Bstatic] ==> search static
     arg [-lsvml] ==> lib [svml]
     arg [-Bdynamic] ==> search dynamic
@@ -581,13 +581,13 @@ Parsed CXX implicit link information from above output:
 Determining if the include file pthread.h exists passed with the following output:
 Change Dir: /home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7327b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7327b.dir/build.make CMakeFiles/cmTC_7327b.dir/build
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f1af4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f1af4.dir/build.make CMakeFiles/cmTC_f1af4.dir/build
 gmake[1]: Entering directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_7327b.dir/CheckIncludeFile.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_7327b.dir/CheckIncludeFile.c.o -c /home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTC_7327b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7327b.dir/link.txt --verbose=1
-/usr/bin/cc CMakeFiles/cmTC_7327b.dir/CheckIncludeFile.c.o -o cmTC_7327b 
+Building C object CMakeFiles/cmTC_f1af4.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_f1af4.dir/CheckIncludeFile.c.o -c /home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_f1af4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f1af4.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_f1af4.dir/CheckIncludeFile.c.o -o cmTC_f1af4 
 gmake[1]: Leaving directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp'
 
 
@@ -595,13 +595,13 @@ gmake[1]: Leaving directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
 Change Dir: /home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5a9f4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5a9f4.dir/build.make CMakeFiles/cmTC_5a9f4.dir/build
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_51afc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_51afc.dir/build.make CMakeFiles/cmTC_51afc.dir/build
 gmake[1]: Entering directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5a9f4.dir/src.c.o
-/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_5a9f4.dir/src.c.o -c /home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_5a9f4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5a9f4.dir/link.txt --verbose=1
-/usr/bin/cc CMakeFiles/cmTC_5a9f4.dir/src.c.o -o cmTC_5a9f4 
+Building C object CMakeFiles/cmTC_51afc.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_51afc.dir/src.c.o -c /home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_51afc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51afc.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_51afc.dir/src.c.o -o cmTC_51afc 
 gmake[1]: Leaving directory '/home/bobxu/ros_sycl_ws/build/cpp_pubsub/CMakeFiles/CMakeTmp'
 
 

@@ -1,0 +1,13 @@
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ament_index/resource_index/package_run_dependencies/ros-sycl-test
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ament_index/resource_index/parent_prefix_path/ros-sycl-test
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/environment/ament_prefix_path.dsv
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/environment/path.dsv
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/local_setup.bash
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/local_setup.sh
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/local_setup.zsh
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/local_setup.dsv
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/package.dsv
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ament_index/resource_index/packages/ros-sycl-test
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/cmake/ros-sycl-testConfig.cmake
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/cmake/ros-sycl-testConfig-version.cmake
+/home/bobxu/ros_sycl_ws/install/ros-sycl-test/share/ros-sycl-test/package.xml

@@ -23,6 +23,8 @@
 using std::placeholders::_1;
 using namespace std::chrono_literals;
 
+#define DoF     3
+#define N       1
 
 // Create an exception handler for asynchronous SYCL exceptions
 static auto exception_handler = [](sycl::exception_list e_list) {
@@ -59,14 +61,14 @@ class AR_test_kernel_ID;
 class AR_consume_ID;
 class Pipe_test_ID;
 class Pipe_out_ID;
-using pipe_host_2_kernel = sycl::ext::intel::prototype::pipe<Pipe_test_ID, int, 8>;
-using pipe_consume = sycl::ext::intel::prototype::pipe<Pipe_out_ID, int, 8>;
+using pipe_host_2_kernel = sycl::ext::intel::prototype::pipe<Pipe_test_ID, float, 8>;
+using pipe_consume = sycl::ext::intel::prototype::pipe<Pipe_out_ID, float, 8>;
 
 struct AR_test_kernel{
   void operator()() const{
     while(1){
       float out = pipe_host_2_kernel::read();
-      out = out+1;
+      out = out+0.3;
       pipe_consume::write(out);
     }
   }
@@ -75,7 +77,7 @@ struct AR_test_kernel{
 fpga_tools::Autorun<AR_test_kernel_ID> ar_kernel_test(selector, AR_test_kernel{});
 
 template <typename KernelID, typename Pipe>
-sycl::event SubmitConsumerKernel(sycl::queue& q, sycl::buffer<int, 1>& out_buf) {
+sycl::event SubmitConsumerKernel(sycl::queue& q, sycl::buffer<float, 1>& out_buf) {
   return q.submit([&](sycl::handler& h) {
     sycl::accessor out(out_buf, h, sycl::write_only, sycl::no_init);
     int size = out_buf.size();
@@ -97,7 +99,7 @@ public:
     subscription_ = this->create_subscription<tutorial_interfaces::msg::Num>(    // CHANGE
       "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
   }
-  mutable int receive[8];
+  mutable float receive[DoF*N];
 
 private:
   void topic_callback(const tutorial_interfaces::msg::Num & msg) const  // CHANGE
@@ -106,7 +108,7 @@ private:
     receive[index] = msg.num;
     Pipe::write(queue_, msg.num);
     index++;
-    if (index >= 8) {
+    if (index >= DoF*N) {
       RCLCPP_INFO(this->get_logger(), "Received all values. Stopping subscriber.");
       rclcpp::shutdown();
     }
@@ -122,7 +124,7 @@ class MinimalPublisher : public rclcpp::Node
 {
 public:
   MinimalPublisher(sycl::queue &q)
-  : Node("minimal_publisher"), count_(0), max_count_(8), queue_(q)
+  : Node("minimal_publisher"), count_(0), max_count_(DoF*N), queue_(q)
   {
     publisher_ = this->create_publisher<tutorial_interfaces::msg::Num>("sycl_kernel", 10);  // CHANGE
     timer_ = this->create_wall_timer(
@@ -160,19 +162,19 @@ int main(int argc, char * argv[])
   rclcpp::spin(node);
   
   std::cout<<"check the result: \n";
-  for(int i=0; i<8; i++){
+  for(int i=0; i<DoF*N; i++){
     std::cout<<node->receive[i]<<' ';
   }
   std::cout<<"\n";
 
 
   
-  std::vector<int> IN(8);
-  for(int i=0; i<8; i++){
+  std::vector<float> IN(DoF*N);
+  for(int i=0; i<DoF*N; i++){
     IN[i] = node->receive[i];
   }
 
-std::vector<int> out_data(8);
+std::vector<float> out_data(DoF*N);
 // Clear the output buffer
 std::fill(out_data.begin(), out_data.end(), -1);
 

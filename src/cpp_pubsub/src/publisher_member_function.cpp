@@ -9,17 +9,22 @@
 using namespace std::chrono_literals;
 using std::placeholders::_1;
 
+#define DoF   3
+#define N     1
+
 class MinimalPublisher : public rclcpp::Node
 {
 public:
   MinimalPublisher()
-  : Node("minimal_publisher"), count_(0), max_count_(8)
+  : Node("minimal_publisher"), count_(0), max_count_(DoF*N)
   {
     publisher_ = this->create_publisher<tutorial_interfaces::msg::Num>("topic", 10);  // CHANGE
     timer_ = this->create_wall_timer(
       500ms, std::bind(&MinimalPublisher::timer_callback, this));
   }
 
+// int send[DoF*N] = {1, 2, 3};
+float send[DoF*N] = {0.1, 0.2, 0.3};
 private:
   void timer_callback()
   {
@@ -30,7 +35,9 @@ private:
       return;
     }
     auto message = tutorial_interfaces::msg::Num();                                   // CHANGE
-    message.num = this->count_++;                                                     // CHANGE
+    //message.num = this->count_++;                                                     // CHANGE
+    message.num = send[count_];
+    count_++;
     RCLCPP_INFO_STREAM(this->get_logger(), "Publishing: '" << message.num << "'");    // CHANGE
     publisher_->publish(message);
   }
@@ -52,7 +59,7 @@ public:
     subscription_ = this->create_subscription<tutorial_interfaces::msg::Num>(    // CHANGE
       "sycl_kernel", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
   }
-  mutable int receive[8];
+  mutable float receive[DoF*N];
 
 private:
   void topic_callback(const tutorial_interfaces::msg::Num & msg) const  // CHANGE
@@ -60,7 +67,7 @@ private:
     //RCLCPP_INFO_STREAM(this->get_logger(), "I heard: '" << msg.num << "'");     // CHANGE
     receive[index] = msg.num;
     index++;
-    if (index >= 8) {
+    if (index >= DoF*N) {
       RCLCPP_INFO(this->get_logger(), "Received all values. Stopping subscriber.");
       rclcpp::shutdown();
     }
@@ -85,7 +92,7 @@ int main(int argc, char * argv[])
   std::thread thread_sub([&node_sub]() {
     rclcpp::spin(node_sub);
     std::cout<<"check the result: \n";
-    for(int i=0; i<8; i++){
+    for(int i=0; i<DoF*N; i++){
       std::cout<<node_sub->receive[i]<<' ';
     }
     std::cout<<"\n";

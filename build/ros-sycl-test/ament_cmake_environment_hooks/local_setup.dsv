@@ -1,0 +1,2 @@
+source;share/ros-sycl-test/environment/ament_prefix_path.sh
+source;share/ros-sycl-test/environment/path.sh

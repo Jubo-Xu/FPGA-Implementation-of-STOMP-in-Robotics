@@ -1,0 +1,33 @@
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_generator_c[0m
+[  2%] Built target tutorial_interfaces__cpp
+[ 12%] Built target tutorial_interfaces__rosidl_generator_c
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_typesupport_cpp[0m
+[ 12%] Built target ament_cmake_python_copy_tutorial_interfaces
+[ 23%] Built target tutorial_interfaces__rosidl_typesupport_cpp
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_typesupport_fastrtps_c[0m
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_typesupport_fastrtps_cpp[0m
+[ 34%] Built target tutorial_interfaces__rosidl_typesupport_fastrtps_c
+[ 44%] Built target tutorial_interfaces__rosidl_typesupport_fastrtps_cpp
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_typesupport_introspection_c[0m
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_typesupport_c[0m
+[ 55%] Built target tutorial_interfaces__rosidl_typesupport_c
+[ 65%] Built target tutorial_interfaces__rosidl_typesupport_introspection_c
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_typesupport_introspection_cpp[0m
+[ 76%] Built target tutorial_interfaces__rosidl_typesupport_introspection_cpp
+[ 76%] Built target tutorial_interfaces
+[ 78%] Built target tutorial_interfaces__py
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_generator_py[0m
+[ 87%] Built target tutorial_interfaces__rosidl_generator_py
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_typesupport_introspection_c__pyext[0m
+[ 91%] Built target tutorial_interfaces__rosidl_typesupport_introspection_c__pyext
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_typesupport_fastrtps_c__pyext[0m
+[ 95%] Built target tutorial_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[35m[1mConsolidate compiler generated dependencies of target tutorial_interfaces__rosidl_typesupport_c__pyext[0m
+[100%] Built target tutorial_interfaces__rosidl_typesupport_c__pyext
+running egg_info
+writing tutorial_interfaces.egg-info/PKG-INFO
+writing dependency_links to tutorial_interfaces.egg-info/dependency_links.txt
+writing top-level names to tutorial_interfaces.egg-info/top_level.txt
+reading manifest file 'tutorial_interfaces.egg-info/SOURCES.txt'
+writing manifest file 'tutorial_interfaces.egg-info/SOURCES.txt'
+[100%] Built target ament_cmake_python_build_tutorial_interfaces_egg

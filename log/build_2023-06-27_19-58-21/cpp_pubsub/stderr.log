@@ -1,0 +1,35 @@
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/publisher_member_function.cpp:39:13: [0m[0;1;31merror: [0m[1mno member named 'num' in 'tutorial_interfaces::msg::Num_<std::allocator<void>>'[0m
+    message.num = send[count_];
+[0;1;32m    ~~~~~~~ ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/publisher_member_function.cpp:41:71: [0m[0;1;31merror: [0m[1mno member named 'num' in 'tutorial_interfaces::msg::Num_<std::allocator<void>>'[0m
+    RCLCPP_INFO_STREAM(this->get_logger(), "Publishing: '" << message.num << "'");    // CHANGE
+[0;1;32m                                                              ~~~~~~~ ^
+[0m[1m/home/bobxu/ros2_humble/install/rclcpp/include/rclcpp/rclcpp/logging.hpp:730:26: [0m[0;1;30mnote: [0mexpanded from macro 'RCLCPP_INFO_STREAM'[0m
+    rclcpp_stream_ss_ << stream_arg; \
+[0;1;32m                         ^~~~~~~~~~
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/publisher_member_function.cpp:68:26: [0m[0;1;31merror: [0m[1mno member named 'num' in 'tutorial_interfaces::msg::Num_<std::allocator<void>>'[0m
+    receive[index] = msg.num;
+[0;1;32m                     ~~~ ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:108:26: [0m[0;1;31merror: [0m[1mno member named 'num' in 'tutorial_interfaces::msg::Num_<std::allocator<void>>'[0m
+    receive[index] = msg.num;
+[0;1;32m                     ~~~ ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:109:29: [0m[0;1;31merror: [0m[1mno member named 'num' in 'tutorial_interfaces::msg::Num_<std::allocator<void>>'[0m
+    Pipe::write(queue_, msg.num);
+[0;1;32m                        ~~~ ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:144:13: [0m[0;1;31merror: [0m[1mno member named 'num' in 'tutorial_interfaces::msg::Num_<std::allocator<void>>'[0m
+    message.num = Pipe::read(queue_);                                                    // CHANGE
+[0;1;32m    ~~~~~~~ ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:146:71: [0m[0;1;31merror: [0m[1mno member named 'num' in 'tutorial_interfaces::msg::Num_<std::allocator<void>>'[0m
+    RCLCPP_INFO_STREAM(this->get_logger(), "Publishing: '" << message.num << "'");    // CHANGE
+[0;1;32m                                                              ~~~~~~~ ^
+[0m[1m/home/bobxu/ros2_humble/install/rclcpp/include/rclcpp/rclcpp/logging.hpp:730:26: [0m[0;1;30mnote: [0mexpanded from macro 'RCLCPP_INFO_STREAM'[0m
+    rclcpp_stream_ss_ << stream_arg; \
+[0;1;32m                         ^~~~~~~~~~
+[0m3 errors generated.
+gmake[2]: *** [CMakeFiles/talker.dir/build.make:76: CMakeFiles/talker.dir/src/publisher_member_function.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:140: CMakeFiles/talker.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+4 errors generated.
+gmake[2]: *** [CMakeFiles/listener.fpga_emu.dir/build.make:76: CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/listener.fpga_emu.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

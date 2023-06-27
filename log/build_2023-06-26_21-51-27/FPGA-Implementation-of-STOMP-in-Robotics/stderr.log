@@ -1,0 +1,1 @@
+[0mCMake Error: The source "/home/bobxu/ros_sycl_ws/src/my_bot/CMakeLists.txt" does not match the source "/home/bobxu/ros_sycl_ws/src/FPGA-Implementation-of-STOMP-in-Robotics/CMakeLists.txt" used to generate cache.  Re-run cmake with a different source directory.[0m

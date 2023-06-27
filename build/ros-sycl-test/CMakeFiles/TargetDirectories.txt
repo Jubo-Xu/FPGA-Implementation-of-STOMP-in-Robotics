@@ -1,0 +1,9 @@
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/CMakeFiles/uninstall.dir
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/CMakeFiles/ros-sycl-test_uninstall.dir
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/CMakeFiles/test.dir
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/CMakeFiles/edit_cache.dir
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/CMakeFiles/rebuild_cache.dir
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/CMakeFiles/list_install_components.dir
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/CMakeFiles/install.dir
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/CMakeFiles/install/local.dir
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/CMakeFiles/install/strip.dir

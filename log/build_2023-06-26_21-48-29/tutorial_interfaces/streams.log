@@ -1,0 +1,38 @@
+[0.081s] Invoking command in '/home/bobxu/ros_sycl_ws/build/tutorial_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bobxu/ws_moveit2/install/moveit_configs_utils:/home/bobxu/ws_moveit2/install/launch_param_builder:/home/bobxu/ros2_humble/install/rqt_bag_plugins:/home/bobxu/ros2_humble/install/rqt_bag:/home/bobxu/ros2_humble/install/ros2bag:/home/bobxu/ros2_humble/install/tracetools_test:/home/bobxu/ros2_humble/install/tracetools_launch:/home/bobxu/ros2_humble/install/topic_monitor:/home/bobxu/ros2_humble/install/tf2_tools:/home/bobxu/ros2_humble/install/examples_tf2_py:/home/bobxu/ros2_humble/install/tf2_ros_py:/home/bobxu/ros2_humble/install/sros2:/home/bobxu/ros2_humble/install/rqt_topic:/home/bobxu/ros2_humble/install/rqt_srv:/home/bobxu/ros2_humble/install/rqt_shell:/home/bobxu/ros2_humble/install/rqt_service_caller:/home/bobxu/ros2_humble/install/rqt_reconfigure:/home/bobxu/ros2_humble/install/rqt_py_console:/home/bobxu/ros2_humble/install/rqt_publisher:/home/bobxu/ros2_humble/install/rqt_plot:/home/bobxu/ros2_humble/install/rqt_action:/home/bobxu/ros2_humble/install/rqt_msg:/home/bobxu/ros2_humble/install/rqt_console:/home/bobxu/ros2_humble/install/rqt:/home/bobxu/ros2_humble/install/rqt_graph:/home/bobxu/ros2_humble/install/rqt_gui_py:/home/bobxu/ros2_humble/install/rqt_gui:/home/bobxu/ros2_humble/install/ros2trace:/home/bobxu/ros2_humble/install/ros2topic:/home/bobxu/ros2_humble/install/ros2test:/home/bobxu/ros2_humble/install/ros2component:/home/bobxu/ros2_humble/install/ros2param:/home/bobxu/ros2_humble/install/ros2lifecycle:/home/bobxu/ros2_humble/install/ros2service:/home/bobxu/ros2_humble/install/ros2run:/home/bobxu/ros2_humble/install/ros2launch:/home/bobxu/ros2_humble/install/ros2pkg:/home/bobxu/ros2_humble/install/ros2node:/home/bobxu/ros2_humble/install/ros2multicast:/home/bobxu/ros2_humble/install/ros2interface:/home/bobxu/ros2_humble/install/ros2doctor:/home/bobxu/ros2_humble/install/ros2action:/home/bobxu/ros2_humble/install/ros2cli:/home/bobxu/ros2_humble/install/quality_of_service_demo_py:/home/bobxu/ros2_humble/install/lifecycle_py:/home/bobxu/ros2_humble/install/launch_testing_ros:/home/bobxu/ros2_humble/install/launch_ros:/home/bobxu/ros2_humble/install/examples_rclpy_pointcloud_publisher:/home/bobxu/ros2_humble/install/examples_rclpy_minimal_subscriber:/home/bobxu/ros2_humble/install/examples_rclpy_minimal_service:/home/bobxu/ros2_humble/install/examples_rclpy_minimal_publisher:/home/bobxu/ros2_humble/install/examples_rclpy_minimal_client:/home/bobxu/ros2_humble/install/examples_rclpy_minimal_action_server:/home/bobxu/ros2_humble/install/examples_rclpy_minimal_action_client:/home/bobxu/ros2_humble/install/examples_rclpy_guard_conditions:/home/bobxu/ros2_humble/install/examples_rclpy_executors:/home/bobxu/ros2_humble/install/demo_nodes_py:/home/bobxu/ros2_humble/install/action_tutorials_py:/home/bobxu/ros2_humble/install/ament_uncrustify:/home/bobxu/ros2_humble/install/tracetools_trace:/home/bobxu/ros2_humble/install/tracetools_read:/home/bobxu/ros2_humble/install/test_tracetools_launch:/home/bobxu/ros2_humble/install/test_launch_ros:/home/bobxu/ros2_humble/install/sensor_msgs_py:/home/bobxu/ros2_humble/install/rpyutils:/home/bobxu/ros2_humble/install/rosidl_runtime_py:/home/bobxu/ros2_humble/install/rosidl_cli:/home/bobxu/ros2_humble/install/launch_pytest:/home/bobxu/ros2_humble/install/launch_testing:/home/bobxu/ros2_humble/install/launch_yaml:/home/bobxu/ros2_humble/install/launch_xml:/home/bobxu/ros2_humble/install/launch:/home/bobxu/ros2_humble/install/osrf_pycommon:/home/bobxu/ros2_humble/install/launch_testing_examples:/home/bobxu/ros2_humble/install/domain_coordinator:/home/bobxu/ros2_humble/install/ament_xmllint:/home/bobxu/ros2_humble/install/ament_pyflakes:/home/bobxu/ros2_humble/install/ament_pycodestyle:/home/bobxu/ros2_humble/install/ament_pep257:/home/bobxu/ros2_humble/install/ament_pclint:/home/bobxu/ros2_humble/install/ament_package:/home/bobxu/ros2_humble/install/ament_mypy:/home/bobxu/ros2_humble/install/ament_lint_cmake:/home/bobxu/ros2_humble/install/ament_flake8:/home/bobxu/ros2_humble/install/ament_copyright:/home/bobxu/ros2_humble/install/ament_lint:/home/bobxu/ros2_humble/install/ament_index_python:/home/bobxu/ros2_humble/install/ament_cpplint:/home/bobxu/ros2_humble/install/ament_cppcheck:/home/bobxu/ros2_humble/install/ament_clang_tidy:/home/bobxu/ros2_humble/install/ament_clang_format:/opt/ros/humble /usr/bin/cmake /home/bobxu/ros_sycl_ws/src/tutorial_interfaces -DCMAKE_INSTALL_PREFIX=/home/bobxu/ros_sycl_ws/install/tutorial_interfaces
+[0.681s] -- The C compiler identification is GNU 11.3.0
+[0.960s] -- The CXX compiler identification is GNU 11.3.0
+[0.989s] -- Detecting C compiler ABI info
+[1.286s] -- Detecting C compiler ABI info - done
+[1.292s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.294s] -- Detecting C compile features
+[1.294s] -- Detecting C compile features - done
+[1.297s] -- Detecting CXX compiler ABI info
+[1.537s] -- Detecting CXX compiler ABI info - done
+[1.538s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.539s] -- Detecting CXX compile features
+[1.540s] -- Detecting CXX compile features - done
+[1.707s] -- Found ament_cmake: 1.3.4 (/home/bobxu/ros2_humble/install/ament_cmake/share/ament_cmake/cmake)
+[2.475s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+[3.166s] -- Found geometry_msgs: 4.2.3 (/home/bobxu/ros2_humble/install/geometry_msgs/share/geometry_msgs/cmake)
+[3.610s] -- Found rosidl_generator_c: 3.1.4 (/home/bobxu/ros2_humble/install/rosidl_generator_c/share/rosidl_generator_c/cmake)
+[3.675s] -- Found rosidl_adapter: 3.1.4 (/home/bobxu/ros2_humble/install/rosidl_adapter/share/rosidl_adapter/cmake)
+[3.749s] -- Found rosidl_generator_cpp: 3.1.4 (/home/bobxu/ros2_humble/install/rosidl_generator_cpp/share/rosidl_generator_cpp/cmake)
+[3.926s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_introspection_c;rosidl_typesupport_fastrtps_c
+[4.083s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_introspection_cpp;rosidl_typesupport_fastrtps_cpp
+[4.352s] -- Found rosidl_default_generators: 1.2.0 (/home/bobxu/ros2_humble/install/rosidl_default_generators/share/rosidl_default_generators/cmake)
+[5.293s] -- Found ament_cmake_ros: 0.10.0 (/home/bobxu/ros2_humble/install/ament_cmake_ros/share/ament_cmake_ros/cmake)
+[6.463s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_introspection_c;rosidl_typesupport_fastrtps_c
+[6.907s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_introspection_cpp;rosidl_typesupport_fastrtps_cpp
+[7.026s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.6", minimum required is "3.6") 
+[7.056s] -- Found python_cmake_module: 0.10.0 (/home/bobxu/ros2_humble/install/python_cmake_module/share/python_cmake_module/cmake)
+[7.166s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.6", minimum required is "3.5") 
+[7.166s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[7.166s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[7.166s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[7.257s] -- Found PythonExtra: .so  
+[7.813s] -- Found ament_lint_auto: 0.12.6 (/home/bobxu/ros2_humble/install/ament_lint_auto/share/ament_lint_auto/cmake)
+[8.007s] -- Added test 'lint_cmake' to check CMake code style
+[8.016s] -- Added test 'xmllint' to check XML markup files
+[8.040s] -- Configuring done
+[8.140s] -- Generating done
+[8.145s] -- Build files have been written to: /home/bobxu/ros_sycl_ws/build/tutorial_interfaces
