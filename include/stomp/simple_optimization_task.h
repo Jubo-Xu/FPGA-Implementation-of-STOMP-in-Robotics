@@ -111,79 +111,42 @@ public:
     return computeNoisyCosts(parameters, start_timestep, num_timesteps, iteration_number, -1, costs, validity);
   }
 
-  /**
-   * @brief computes the state costs as a function of the distance from the bias parameters
-   * @param parameters        A matrix [num_dimensions][num_parameters] of the policy parameters to execute
-   * @param start_timestep    The start index into the 'parameters' array, usually 0.
-   * @param num_timesteps     The number of elements to use from 'parameters' starting from 'start_timestep'
-   * @param iteration_number  The current iteration count in the optimization loop
-   * @param rollout_number    The index of the noisy trajectory.
-   * @param costs             A vector containing the state costs per timestep.
-   * @param validity          Whether or not the trajectory is valid
-   * @return True if cost were properly computed, otherwise false
-   */
+  
+  double cost_function(const double &theta1, const double &theta2,
+                     const double &theta3) 
+{
 
-  double cost_function(const double& theta1, const double& theta2, const double& theta3){
-    #include <iostream>
-double cost_function(const double &theta1, const double &theta2,
-                     const double &theta3) {
-
- 
-
-  constexpr double L1 = 0.4 + 0.15;
-
- 
-
-  constexpr double L2 = 0.5;
-
- 
-
-  constexpr double L3 = 0.25;
-
- 
-
-  constexpr double sphere_rad = 0.5;
-
- 
-
-  constexpr double joint1_width = 0.06;
-
- 
-
-  constexpr double joint2_width = 0.04;
-
- 
-
-  constexpr double center_x = 1;
-
- 
-
-  constexpr double center_y = 0.1;
-
- 
-
-  constexpr double center_z = 0;
-
- 
-
-  double x1;
-  double y1;
-  double z1;
-  double x2;
-  double y2;
-  double z2;
+    constexpr double L1 = 0.4 + 0.15;
+    constexpr double L2 = 0.5;
+    constexpr double L3 = 0.25;
+    constexpr double sphere_rad = 0.2;
+    constexpr double joint1_width = 0.06;
+    constexpr double joint2_width = 0.04;
+    constexpr double center_x = 0.87;
+    constexpr double center_y = -0.53; 
+    constexpr double center_z = 0.29;
+    double x1;
+    double y1;
+    double z1;
+    double x2;
+    double y2;
+    double z2;
   if (theta1 < M_PI / 2) {
     std::cout << "0\n";
     x1 = L2 * sin(theta2) * sin(theta1) + 0.05 * sin(theta1);
     y1 = -(L2 * sin(theta2) * cos(theta1) - 0.05 * cos(theta1));
     z1 = L1 + L2 * cos(theta2);
-    x2 = (L2 * sin(theta2) + L3 * sin(theta2 + theta3)) * sin(theta1);
-    y2 = (L2 * sin(theta2) + L3 * sin(theta2 + theta3)) * cos(theta1);
+    // x2 = (L2 * sin(theta2) + L3 * sin(theta2 + theta3)) * sin(theta1)+ 0.1 * sin(theta1 );
+    y2 = -(L2 * sin(theta2) + L3 * sin(theta2 + theta3)) * cos(theta1) +0.1*sin(theta1);
     z2 = z1 + L3 * cos(theta2 + theta3);
-  } else if (theta1 >= M_PI / 2) {
+    x2 =  (L2*sin(theta2)+L3*sin(theta2+theta3))*sin(theta1) + 0.1*sin(theta1); 
+    // y2 =  -((L2*sin(theta2)+L3*sin(theta2+theta3))*cos(theta1) - 0.1*cos(theta1)); 
+  } 
+  
+  else if (theta1 >= M_PI / 2) {
     std::cout << "1\n";
     x1 = L2 * sin(theta2) * sin(theta1) + 0.05 * sin(theta1 - M_PI);
-    y1 = -(L2 * sin(theta2) * cos(theta1) - 0.05 * cos(theta1 - M_PI));
+    y1 = -(L2 * sin(theta2) * cos(theta1) - 0.05 * cos(theta1 - M_PI)); 
     z1 = L1 + L2 * cos(theta2);
     x2 = (L2 * sin(theta2) + L3 * sin(theta2 + theta3)) * sin(theta1) +
          0.1 * sin(theta1 - M_PI);
@@ -197,15 +160,15 @@ double cost_function(const double &theta1, const double &theta2,
   double distance2 = sqrt(pow(x2 - center_x, 2) + pow(y2 - center_y, 2) +
                           pow(z2 - center_z, 2)) -
                      sphere_rad;
-  distance1 = std::max(0.5 + joint1_width - distance1, 0.0);
-  distance2 = std::max(0.5 + joint2_width - distance2, 0.0);
+  distance1 = std::max(0.1 + joint1_width - distance1, 0.0);
+  distance2 = std::max(0.1 + joint2_width - distance2, 0.0);
   std::cout << "cost distance2 " << distance2 << std::endl;
   std::cout << "x1= " << x1 << ", y1=" << y1 << ", z1= " << z1 << std::endl;
   std::cout << "x2= " << x2 << ", y2=" << y2 << ", z2= " << z2 << std::endl;
   double distance = distance1 + distance2;
   return distance;
 }
-  }
+  
   
   bool computeNoisyCosts(const Eigen::MatrixXd& parameters,
                          std::size_t start_timestep,
@@ -215,7 +178,6 @@ double cost_function(const double &theta1, const double &theta2,
                          Eigen::VectorXd& costs,
                          bool& validity) override
   {
-    
     costs.setZero(num_timesteps);
     double diff;
     double cost; 
@@ -228,6 +190,10 @@ double cost_function(const double &theta1, const double &theta2,
     }
     return true;
   }
+
+
+
+
 
   /**
    * @brief Filters the given parameters which is applied after the update. It could be used for clipping of joint
