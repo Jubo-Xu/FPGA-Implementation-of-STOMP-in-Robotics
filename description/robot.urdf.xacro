@@ -134,7 +134,7 @@
         <parent link="base_link"/>
         <child link="link_1"/>
         <axis xyz="0.0 0.0 1"/>
-        <limit lower="0.0" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
+        <limit lower="${-M_PI}" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
     </joint>
 
     <!--=============================================================================-->

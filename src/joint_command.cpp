@@ -13,7 +13,7 @@ static const std::size_t NUM_DIMENSIONS = 3;                               /**< 
 static const std::size_t NUM_TIMESTEPS = 6;                               /**< Number of timesteps */
 static const double DELTA_T = 0.1;                                         /**< Timestep in seconds */
 static const std::vector<double> START_POS =   {0.2, 1.6, 0.5} ;        /**< Trajectory starting position */
-static const std::vector<double> END_POS = {0.9, 1.6, 0.5} ;          /**< Trajectory ending posiiton {0.2, 1.6, 0.5} */
+static const std::vector<double> END_POS = {0.9, 1.6, 0.5} ;          /**< Trajectory ending posiiton  */
 static const std::vector<double> BIAS_THRESHOLD = {0.3, 1.6, 0.50}; /**< Threshold to determine whether two
                                                                               trajectories are equal */
 static const std::vector<double> STD_DEV = { 1.0, 1.0, 1.0 }; 
@@ -29,7 +29,7 @@ stomp::StompConfiguration create3DOFConfiguration()
   c.delta_t = DELTA_T;
   c.control_cost_weight = 0.0;
   c.initialization_method = TrajectoryInitializations::LINEAR_INTERPOLATION;
-  c.num_iterations_after_valid = 0;
+  c.num_iterations_after_valid = 40;
   c.num_rollouts = 20;
   c.max_rollouts = 20;
   //! [Create Config]

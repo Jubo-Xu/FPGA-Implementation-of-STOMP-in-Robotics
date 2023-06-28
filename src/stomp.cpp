@@ -30,6 +30,8 @@
 #include <Eigen/Cholesky>
 #include <math.h>
 #include <numeric>
+#include <iostream>
+#include <rclcpp/rclcpp.hpp>
 #include <stomp/utils.h>
 #include <stomp/stomp.h>
 
@@ -60,113 +62,11 @@ static void computeLinearInterpolation(const std::vector<double>& first,
   }
 }
 
-/**
- * @brief Compute a cubic interpolated trajectory given a start and end state
- * @param first             The start position
- * @param last              The final position
- * @param num_points        The number of points in the trajectory
- * @param dt                The timestep in seconds
- * @param trajectory_joints The returned cubic interpolated trajectory
- */
-static void computeCubicInterpolation(const std::vector<double>& first,
-                                      const std::vector<double>& last,
-                                      int num_points,
-                                      double dt,
-                                      Eigen::MatrixXd& trajectory_joints)
-{
-  std::vector<double> coeffs(4, 0);
-  double total_time = (num_points - 1) * dt;
-  for (int unsigned i = 0; i < first.size(); i++)
-  {
-    coeffs[0] = first[i];
-    coeffs[2] = (3 / (pow(total_time, 2))) * (last[i] - first[i]);
-    coeffs[3] = (-2 / (pow(total_time, 3))) * (last[i] - first[i]);
 
-    double t;
-    for (unsigned j = 0; j < num_points; j++)
-    {
-      t = j * dt;
-      trajectory_joints(i, j) = coeffs[0] + coeffs[2] * pow(t, 2) + coeffs[3] * pow(t, 3);
-    }
-  }
-}
 
-/**
- * @brief Compute a minimum cost trajectory given a start and end state
- * @param first                        The start position
- * @param last                         The final position
- * @param control_cost_matrix_R_padded The control cost matrix with padding
- * @param inv_control_cost_matrix_R    The inverse constrol cost matrix
- * @param trajectory_joints            The returned minimum cost trajectory
- * @return True if successful, otherwise false
- */
-bool computeMinCostTrajectory(const std::vector<double>& first,
-                              const std::vector<double>& last,
-                              const Eigen::MatrixXd& control_cost_matrix_R_padded,
-                              const Eigen::MatrixXd& inv_control_cost_matrix_R,
-                              Eigen::MatrixXd& trajectory_joints)
-{
-  using namespace stomp;
 
-  if (control_cost_matrix_R_padded.rows() != control_cost_matrix_R_padded.cols())
-  {
-    // CONSOLE_BRIDGE_logError("Control Cost Matrix is not square");
-    return false;
-  }
 
-  int timesteps = control_cost_matrix_R_padded.rows() - 2 * (FINITE_DIFF_RULE_LENGTH - 1);
-  int start_index_padded = FINITE_DIFF_RULE_LENGTH - 1;
-  int end_index_padded = start_index_padded + timesteps - 1;
-  std::vector<Eigen::VectorXd> linear_control_cost(first.size(), Eigen::VectorXd::Zero(timesteps));
-  trajectory_joints.setZero(first.size(), timesteps);
 
-  for (unsigned int d = 0; d < first.size(); d++)
-  {
-    linear_control_cost[d].transpose() =
-        first[d] * Eigen::VectorXd::Ones(FINITE_DIFF_RULE_LENGTH - 1).transpose() *
-        control_cost_matrix_R_padded.block(0, start_index_padded, FINITE_DIFF_RULE_LENGTH - 1, timesteps);
-
-    linear_control_cost[d].transpose() +=
-        last[d] * Eigen::VectorXd::Ones(FINITE_DIFF_RULE_LENGTH - 1).transpose() *
-        control_cost_matrix_R_padded.block(
-            end_index_padded + 1, start_index_padded, FINITE_DIFF_RULE_LENGTH - 1, timesteps);
-
-    linear_control_cost[d] *= 2;
-
-    trajectory_joints.row(d) = -0.5 * inv_control_cost_matrix_R * linear_control_cost[d];
-    trajectory_joints(d, 0) = first[d];
-    trajectory_joints(d, timesteps - 1) = last[d];
-  }
-
-  return true;
-}
-
-/**
- * @brief Compute the parameters control costs
- * @param parameters            The parameters used to compute the control cost
- * @param dt                    The timestep in seconds
- * @param control_cost_weight   The control cost weight
- * @param control_cost_matrix_R The control cost matrix
- * @param control_costs returns The parameters control costs
- */
-void computeParametersControlCosts(const Eigen::MatrixXd& parameters,
-                                   double dt,
-                                   double control_cost_weight,
-                                   const Eigen::MatrixXd& control_cost_matrix_R,
-                                   Eigen::MatrixXd& control_costs)
-{
-  std::size_t num_timesteps = parameters.cols();
-  double cost = 0;
-  for (auto d = 0u; d < parameters.rows(); d++)
-  {
-    cost = double(parameters.row(d) * (control_cost_matrix_R * parameters.row(d).transpose()));
-    control_costs.row(d).setConstant(0.5 * (1 / dt) * cost);
-  }
-
-  double max_coeff = control_costs.maxCoeff();
-  control_costs /= (max_coeff > 1e-8) ? max_coeff : 1;
-  control_costs *= control_cost_weight;
-}
 
 namespace stomp
 {
@@ -215,7 +115,8 @@ bool Stomp::solve(const Eigen::MatrixXd& initial_parameters, Eigen::MatrixXd& pa
   // check initial trajectory size
   if (initial_parameters.rows() != config_.num_dimensions || initial_parameters.cols() != config_.num_timesteps)
   {
-    // CONSOLE_BRIDGE_logError("Initial trajectory dimensions is incorrect");
+    
+    // RCLCPP_ERROR(node->get_logger(),"Initial trajectory dimensions is incorrect");
     return false;
   }
   else
@@ -237,11 +138,11 @@ bool Stomp::solve(const Eigen::MatrixXd& initial_parameters, Eigen::MatrixXd& pa
     // CONSOLE_BRIDGE_logError("Failed to calculate initial trajectory cost");
     return false;
   }
-
+  // in here.
   parameters_valid_prev_ = parameters_valid_;
   while (current_iteration_ <= config_.num_iterations && runSingleIteration())
   {
-    // CONSOLE_BRIDGE_logDebug("STOMP completed iteration %i with cost %f", current_iteration_, current_lowest_cost_);
+    // CONSOLE_BRIDGE_logDebug("STOMP c %i with cost %ompleted iterationf", current_iteration_, current_lowest_cost_);
 
     if (parameters_valid_)
     {
@@ -381,21 +282,12 @@ bool Stomp::resetVariables()
 bool Stomp::computeInitialTrajectory(const std::vector<double>& first, const std::vector<double>& last)
 {
   bool valid = true;
+  std::cout<<"hello I'm intitalising the Trajectory\n";
 
   switch (config_.initialization_method)
   {
-    case TrajectoryInitializations::CUBIC_POLYNOMIAL_INTERPOLATION:
-
-      computeCubicInterpolation(first, last, config_.num_timesteps, config_.delta_t, parameters_optimized_);
-      break;
     case TrajectoryInitializations::LINEAR_INTERPOLATION:
-
       computeLinearInterpolation(first, last, config_.num_timesteps, parameters_optimized_);
-      break;
-    case TrajectoryInitializations::MININUM_CONTROL_COST:
-
-      valid = computeMinCostTrajectory(
-          first, last, control_cost_matrix_R_padded_, inv_control_cost_matrix_R_, parameters_optimized_);
       break;
   }
 
@@ -550,34 +442,28 @@ bool Stomp::filterNoisyRollouts()
 bool Stomp::computeNoisyRolloutsCosts()
 {
   // computing state and control costs
-  bool valid = computeRolloutsStateCosts() && computeRolloutsControlCosts();
+  bool valid = computeRolloutsStateCosts();
 
   if (valid)
   {
     // compute total costs
     double total_state_cost;
     double total_control_cost;
-
     for (auto r = 0u; r < num_active_rollouts_; r++)
     {
       Rollout& rollout = noisy_rollouts_[r];
       total_state_cost = rollout.state_costs.sum();
-
       // Compute control + state cost for each joint
-      total_control_cost = 0;
-      double ccost = 0;
       for (auto d = 0u; d < config_.num_dimensions; d++)
       {
-        ccost = rollout.control_costs.row(d).sum();
-        total_control_cost += ccost;
-        rollout.full_costs[d] = ccost + total_state_cost;
+        rollout.full_costs[d] = total_state_cost;
       }
-      rollout.total_cost = total_state_cost + total_control_cost;
+      rollout.total_cost = total_state_cost ;
 
       // Compute total cost for each time step
       for (auto d = 0u; d < config_.num_dimensions; d++)
       {
-        rollout.total_costs.row(d) = rollout.state_costs.transpose() + rollout.control_costs.row(d);
+        rollout.total_costs.row(d) = rollout.state_costs.transpose();
       }
     }
   }
@@ -608,31 +494,6 @@ bool Stomp::computeRolloutsStateCosts()
   }
 
   return proceed;
-}
-bool Stomp::computeRolloutsControlCosts()
-{
-  Eigen::ArrayXXd Ax;  // accelerations
-  for (auto r = 0u; r < num_active_rollouts_; r++)
-  {
-    Rollout& rollout = noisy_rollouts_[r];
-
-    if (config_.control_cost_weight < MIN_CONTROL_COST_WEIGHT)
-    {
-      for (auto d = 0u; d < config_.num_dimensions; d++)
-      {
-        rollout.control_costs.row(d).setConstant(0);
-      }
-    }
-    else
-    {
-      computeParametersControlCosts(rollout.parameters_noise,
-                                    config_.delta_t,
-                                    config_.control_cost_weight,
-                                    control_cost_matrix_R_,
-                                    rollout.control_costs);
-    }
-  }
-  return true;
 }
 
 bool Stomp::computeProbabilities()
@@ -750,17 +611,17 @@ bool Stomp::computeOptimizedCost()
 {
   // control costs
   parameters_total_cost_ = 0;
-  if (config_.control_cost_weight > MIN_CONTROL_COST_WEIGHT)
-  {
-    computeParametersControlCosts(parameters_optimized_,
-                                  config_.delta_t,
-                                  config_.control_cost_weight,
-                                  control_cost_matrix_R_,
-                                  parameters_control_costs_);
+  // if (config_.control_cost_weight > MIN_CONTROL_COST_WEIGHT)
+  // {
+  //   computeParametersControlCosts(parameters_optimized_,
+  //                                 config_.delta_t,
+  //                                 config_.control_cost_weight,
+  //                                 control_cost_matrix_R_,
+  //                                 parameters_control_costs_);
 
-    // adding all costs
-    parameters_total_cost_ = parameters_control_costs_.rowwise().sum().sum();
-  }
+  //   // adding all costs
+  //   parameters_total_cost_ = parameters_control_costs_.rowwise().sum().sum();
+  // }
 
   // state costs
   if (task_->computeCosts(parameters_optimized_,

@@ -115,7 +115,8 @@ public:
   double cost_function(const double &theta1, const double &theta2,
                      const double &theta3) 
 {
-
+    static int counter; 
+    std::cout<<counter++<<std::endl; 
     constexpr double L1 = 0.4 + 0.15;
     constexpr double L2 = 0.5;
     constexpr double L3 = 0.25;

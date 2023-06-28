@@ -38,6 +38,9 @@ rclcpp_action
 control_msgs)
 
 add_library(my_librairies src/stomp.cpp src/utils.cpp)
+
+ament_target_dependencies(my_librairies
+rclcpp)
 target_include_directories(my_librairies PUBLIC include)
 target_link_libraries(joint_command my_librairies)
 
