@@ -19,6 +19,8 @@ def generate_launch_description():
     # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
 
     package_name='my_bot' #<--- CHANGE ME
+    world_file_path = 'bot_test/worlds/empty.world'
+    
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -27,7 +29,7 @@ def generate_launch_description():
     )
 
     # Include the Gazebo launch file, provided by the gazebo_ros package
-    gazebo = IncludeLaunchDescription(
+    gazebo =  IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
              )
@@ -47,6 +49,7 @@ def generate_launch_description():
         cmd=['ros2','control','load_controller', '--set-state','active','joint_trajectory_controller'],
         output = 'screen'
     )
+
     
 
 

@@ -12,8 +12,8 @@ using Trajectory = Eigen::MatrixXd;
 static const std::size_t NUM_DIMENSIONS = 3;                               /**< Number of parameters to optimize */
 static const std::size_t NUM_TIMESTEPS = 3;                               /**< Number of timesteps */
 static const double DELTA_T = 0.1;                                         /**< Timestep in seconds */
-static const std::vector<double> START_POS = { 1.4, 1.4, 1.4};            /**< Trajectory starting position */
-static const std::vector<double> END_POS = { 1.0, 1.0, 1.0 };          /**< Trajectory ending posiiton */
+static const std::vector<double> START_POS = { 0, 0, 0};            /**< Trajectory starting position */
+static const std::vector<double> END_POS = {2.6 , 1.6, 0.5};          /**< Trajectory ending posiiton */
 static const std::vector<double> BIAS_THRESHOLD = { 0.050, 0.050, 0.050 }; /**< Threshold to determine whether two
                                                                               trajectories are equal */
 static const std::vector<double> STD_DEV = { 1.0, 1.0, 1.0 }; 
@@ -103,7 +103,7 @@ int main(int argc, char** argv){
   else
   {
     std::cout << "A valid solution was not found" << std::endl;
-    return -1;
+    
   }
   //! [Solve]
 
@@ -148,15 +148,15 @@ int main(int argc, char** argv){
     goal_msg.trajectory.joint_names = joint_names;
     goal_msg.trajectory.points.resize(optimized.cols()); 
     
-    // std::vector<double> position1(3); 
-    // position1[0] = 0.0; 
-    // position1[1] = 0.0; 
-    // position1[2] = 0.0;
+    std::vector<double> position1(3); 
+    position1[0] = 0.0; 
+    position1[1] = 0.0; 
+    position1[2] = 0.0;
 
-    // std::vector<double> position2(3); 
-    // position2[0] = 1.0; 
-    // position2[1] = 1.0; 
-    // position2[2] = 1.0; 
+    std::vector<double> position2(3); 
+    position2[0] = 1.0; 
+    position2[1] = 1.0; 
+    position2[2] = 1.0; 
 
     for(int i = 0; i < optimized.cols(); i++){
         goal_msg.trajectory.points[i].positions = vec_traj[i]; 
