@@ -1,21 +1,30 @@
 
 # FPGA-Implementation-of-STOMP-in-Robotics
+## Introduction
 
 Welcome to our FPGA implementation of STOMP, 
-This repositary is part of Imperial College London and intel PSG Robotics Technology Group in which the goal was to study the suitability of 
-This repors
+This repositary is part consultancy Project with  intel  PSG Robotics Technology Group and Imperial College London. The goal of the project was to study the suitability of motion planning algorithm like STOMP or CHOMP when implemented into FPGA. This repositary contain a complete. 
 
-
-# FPGA-Implementation-of-STOMP-in-Robotics
-Welcome to our FPGA implementation of STOMP, 
-This repository is part of consultancy project made with  intel PSG Robotics Technology Group in which the goal was to study the suitability of motion planning algorithm into FPGA.
-
+For this project the  repositary a full FPGA devellopement testing the algorithm using ROS to 
 <center>
-<img src="image/STOMP" style="width:400px;" />
+<img src="image/STOMP_FPGA_architecture.png" " />
+<center>
+
+
+
+
+Stochastic Trajectory Optimization for Motion Planning (STOMP) is a probabilistic optimization framework (Kalakrishnan et al. 2011). STOMP produces smooth well behaved collision free paths within reasonable times. The approach relies on generating noisy trajectories to explore the space around an initial (possibly infeasible) trajectory which are then combined to produce an updated trajectory with lower cost. A cost function based on a combination of obstacle and smoothness cost is optimized in each iteration. No gradient information is required for the particular optimization algorithm that we use and so general costs for which derivatives may not be available (e.g. costs corresponding to constraints and motor torques) can be included in the cost function.
+
+## implementation 
+<center>
+<img src="image/STOMP_FPGA_architecture.png" " />
 <center>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+## How to run the code 
 
 Here is an example LaTeX equation: \(x^2 + y^2 = z^2\).
 
