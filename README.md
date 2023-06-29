@@ -38,7 +38,7 @@ Here is an example LaTeX equation: \(x^2 + y^2 = z^2\).
 Initially the smoothness cost function is given as $\frac{1}{2}\theta^TR\theta$ this matrix multiplication can be decompose to accelerate the computation.
 The equations can be represented as:
 
-
+$$
 \begin{align*}
 \theta^TR\theta &= ( \theta_0 + \delta\theta)^TR( \theta_0 + \delta\theta) \\
 &= \theta_o^TR\theta_o + \theta_o^TR\delta\theta \\
@@ -49,6 +49,7 @@ The equations can be represented as:
 \delta\theta^TR\theta &= \frac{1}{N}\delta\tilde{\theta}^T(R^-)^TR\theta_o =\frac{1}{N}\theta_o^T\delta\tilde{\theta} \\
 \delta\theta^TR\delta\theta &= \frac{1}{N^2}(R^-\delta\tilde{\theta})^TR(R^-\delta\tilde{\theta}) = \frac{1}{N^2}\delta\tilde{\theta}^TR^-\delta\tilde{\theta}
 \end{align*}
+$$
 
 
 and can be implemented in hardware as: 
