@@ -3,12 +3,12 @@
 ## Introduction
 
 Welcome to our FPGA implementation of [**STOMP**](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5980280&tag=1)(Stochastic Trajectory Optimization for Motion Planning), 
-This repositary is a part of consultancy Project with  intel  PSG Robotics Technology Group and Imperial College London. The goal of the project was to study the suitability of motion planning algorithm like STOMP or CHOMP when implemented into FPGA. This repositary contains a complete Implementation of STOMP on FPGA based on [**OneAPI**](https://www.intel.com/content/www/us/en/developer/tools/oneapi/data-parallel-c-plus-plus.html) of Intel, which is based on [SYCL](https://www.khronos.org/sycl/). 
+This repository is a part of consultancy Project with  intel  PSG Robotics Technology Group and Imperial College London. The goal of the project was to study the suitability of motion planning algorithm like STOMP or CHOMP when implemented into FPGA. This repositary contains a complete Implementation of STOMP on FPGA based on [**OneAPI**](https://www.intel.com/content/www/us/en/developer/tools/oneapi/data-parallel-c-plus-plus.html) of Intel, which is based on [SYCL](https://www.khronos.org/sycl/). 
 
 FPGA has lots of potential use in robotics field, like real-time and locally sensor fusion and data processing, as well as algorithm acceleration. This project mainly provides an example of this application. The full FPGA development testing is based on the following workflow: 
 ![FPGA-Robotics development workflow](https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics/blob/master/image/dev_flow.png)
 
-
+This workflow is the combination of standardized SYCL development flow in OneAPI and ROS2. The FPGA code is first tested seperately for optimization and modifications. In the mean time, all the 
 For this project the  repositary a full FPGA devellopement testing the algorithm using ROS to 
 <center>
 <img src="image/STOMP_FPGA_architecture.png" " />
