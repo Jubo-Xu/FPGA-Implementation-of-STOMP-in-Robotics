@@ -8,7 +8,9 @@ This repository is a part of consultancy Project with  intel  PSG Robotics Techn
 FPGA has lots of potential use in robotics field, like real-time and locally sensor fusion and data processing, as well as algorithm acceleration. This project mainly provides an example of this application. The full FPGA development testing is based on the following workflow: 
 ![FPGA-Robotics development workflow](https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics/blob/master/image/dev_flow.png)
 
-This workflow is the combination of standardized SYCL development flow in OneAPI and ROS2. The FPGA code is first tested seperately for optimization and modifications. In the mean time, all the 
+This workflow is the combination of standardized SYCL development flow in OneAPI and ROS2. The FPGA code is first tested seperately for optimization and modifications. In the mean time, all the robotics configuration would be setup and tested in ROS2, in our case, this includes 3D model of robotics arm and obstacle setting up as well as STOMP CPU version testing. After implementing and testing the robotics and FPGA seperately, we could combine the two together for the complete testing. The combination of these two things is possible because of the following points:
+* The icpx compiler provided by oneAPI is purelly C++ based but with lots of extra features for SYCL and fpga development, so it could compile any C++ program
+* The colcon build tool chain used in ROS2 provides 
 For this project the  repositary a full FPGA devellopement testing the algorithm using ROS to 
 <center>
 <img src="image/STOMP_FPGA_architecture.png" " />
