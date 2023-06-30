@@ -76,7 +76,7 @@ $$
 and can be implemented in hardware as: 
 
 <center>
-<img src="image/smoothness.svg" style="width:400px;" />
+<img src="image/smoothness.png" style="width:400px;" />
 <center>
   
 The decomposition presented in above equation decreases the number of operations to be computed. $\frac{1}{2}\theta_o^TR\theta_o $ is computed in the previous iteration and can be stored in a buffer, then  $\frac{1}{N}\delta\tilde{\theta}R^-\delta\tilde{\theta}$ can be rewritten as  $\delta\tilde{\theta}^TM\delta\tilde{\theta}$ where $M\delta\tilde{\theta}$ is also needed in updating the new trajectory. In the hardware architecture presented, the matrix multiplication $M\delta\tilde{\theta}$ is performed in N cycle and is parallel out  (all the elements are output at the same time). The vector multiplication  $\delta\tilde{\theta}^TM\delta\tilde{\theta}$ is performed in parallel in 1 cycle and then added by an adder tree in one cycle. The overall time complexity of this implementation is evaluated at $O(N)+O(logN)$.
@@ -113,7 +113,7 @@ It can be seen that the effect of Hadmard transform is quite significant, the pi
 
 ### SYCL Code Mapping
 <center>
-<img src="image/autorun.svg" style="width:400px;" />
+<img src="image/autorun.svg" style="width:700px;" />
 <center>
 
 The figure above shows the SYCL mapping of the hardware architecture, each hardware blocks are written or seperated into several autorun kernels in SYCL, and they are connected by single pipes or pipearrays. The numbers on the figure represent the pipes defined in the main file:
