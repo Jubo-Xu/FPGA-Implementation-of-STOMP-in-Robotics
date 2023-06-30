@@ -30,7 +30,7 @@ This section is mainly used to explain the hardware architecture we designed for
 ### Introduction to STOMP
 Stochastic Trajectory Optimization for Motion Planning (STOMP) is a probabilistic optimization framework (Kalakrishnan et al. 2011). STOMP produces smooth well behaved collision free paths within reasonable times. The approach relies on generating noisy trajectories to explore the space around an initial (possibly infeasible) trajectory which are then combined to produce an updated trajectory with lower cost. A cost function based on a combination of obstacle and smoothness cost is optimized in each iteration. No gradient information is required for the particular optimization algorithm that we use and so general costs for which derivatives may not be available (e.g. costs corresponding to constraints and motor torques) can be included in the cost function.
 <center>
-<img src="image/sparsemul.png" " />
+<img src="image/sparsemul.png"  width="32%" height="300"/>
 <center>
 
 ### General Architecture
