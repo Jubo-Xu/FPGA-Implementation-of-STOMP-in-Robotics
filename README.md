@@ -30,7 +30,7 @@ This section is mainly used to explain the hardware architecture we designed for
 ### Introduction to STOMP
 Stochastic Trajectory Optimization for Motion Planning (STOMP) is a probabilistic optimization framework (Kalakrishnan et al. 2011). STOMP produces smooth well behaved collision free paths within reasonable times. The approach relies on generating noisy trajectories to explore the space around an initial (possibly infeasible) trajectory which are then combined to produce an updated trajectory with lower cost. A cost function based on a combination of obstacle and smoothness cost is optimized in each iteration. No gradient information is required for the particular optimization algorithm that we use and so general costs for which derivatives may not be available (e.g. costs corresponding to constraints and motor torques) can be included in the cost function.
 <p align="middle">
-<img src="image/sparsemul.png" style="width:400px;"/>
+<img src="image/sparsemul.png" style="width:400px;" alt="Pseudo-code of STOMP"/>
 </p>
 
 ### General Architecture
@@ -75,17 +75,17 @@ $$
 
 and can be implemented in hardware as: 
 
-<center>
+<p align="middle">
 <img src="image/smooth_arch.svg" style="width:400px;" />
-<center>
+</p>
   
 The decomposition presented in above equation decreases the number of operations to be computed. $\frac{1}{2}\theta_o^TR\theta_o $ is computed in the previous iteration and can be stored in a buffer, then  $\frac{1}{N}\delta\tilde{\theta}R^-\delta\tilde{\theta}$ can be rewritten as  $\delta\tilde{\theta}^TM\delta\tilde{\theta}$ where $M\delta\tilde{\theta}$ is also needed in updating the new trajectory. In the hardware architecture presented, the matrix multiplication $M\delta\tilde{\theta}$ is performed in N cycle and is parallel out  (all the elements are output at the same time). The vector multiplication  $\delta\tilde{\theta}^TM\delta\tilde{\theta}$ is performed in parallel in 1 cycle and then added by an adder tree in one cycle. The overall time complexity of this implementation is evaluated at $O(N)+O(logN)$.
 
 #### 2. Sparse Matrix Multiplication and dot product
 After the decomposition of the smoothness cost function, we need to calculate the $\frac{1}{2}{\theta _0}^TR{\theta _0}$ in the first iteration, R is a sparse diagonal matrix, and our input is streaming in in the pipelined way, it's uneccessary to do the whole matrix multiplication for it using PE arrays. The way we design it is in this way:
-<center>
+<p align="middle">
 <img src="image/sparse.png" style="width:400px;" />
-<center>
+</p>
 
 For this architecture, we could do the whole matrix multiplication with only a little bit resources and considering about the boundery condition easily. Sparse diagonal matrix multiplication is quite common in robotics motion planning algorithms, like finite difference matrix representing velocity or acceleration. Therefore, this architecture can be generalized and good to use.
 
@@ -99,22 +99,22 @@ RNG itself is a big area and requires lots of research. Since STOMP itself is ma
 For the first one, again, since STOMP is a precomputing algorithm, if the iteration we use is a fixed number, then the total number of samples we need once is $N*k*DoF*Iterations$, and these samples can be reused for next computing. This way is easy to be implemented but the number of samples is too large to be implemented in registers, we have to use Memory blocks which would add additional complexity and latencies. 
 
 The second Picewise Linear approximations is mainly using multiple linear distributions to approximate Gaussian one based on certain probabilities and choosen by Walker Alias Table. Both Alias Table and linear distribution need Uniform RNG. The 32 bit Uniform RNG used in our case is based on [LUT-SR-RNG](https://cas.ee.ic.ac.uk/people/dt10/research/thomas-10-lut_sr_rngs.pdf), and the Linear Approximation(Triangular Distribution in our case) is based on the following [paper](https://ieeexplore.ieee.org/document/6861609). 
-<center>
+<p align="middle">
 <img src="image/hadmard.png" style="width:400px;" />
-<center>
+</p>
 The Hadmard Transformation network is good to use because after going through this network we could get multiple samples at the same time, these samples are still independent to each other and have the probability distribution closer to Gaussian due to Central Limit Theorem. The last one we tried is simply the triangular RNG which can be constructed by two uniform RNGs and Hadmard Transform network. 
 <p align="middle">
-  <img src="image/pwlonly.png" width="32%" height="300" />
-  <img src="image/pwlandht.png" width="32%" height="300" /> 
-  <img src="image/triandht.png" width="32%" height="300" />
+  <img src="image/pwlonly.png" width="32%" height="300" alt="Picewise Linear only" />
+  <img src="image/pwlandht.png" width="32%" height="300" alt="Picewise Linear with Hadmard Transform" /> 
+  <img src="image/triandht.png" width="32%" height="300" alt="Triangular distribution with Hadmard Transform" />
 </p>
 
 It can be seen that the effect of Hadmard transform is quite significant, the picewise linear + hadmard tranform case requires too much resources and even need several minutes to run for emulation. Since after testing, STOMP is not that sensitive to RNG, the RNG we finally used is the last case.
 
 ### SYCL Code Mapping
-<center>
-<img src="image/autorun.svg" style="width:700px;" />
-<center>
+<p align="middle">
+<img src="image/autorun.svg" style="width:800px;" />
+</p>
 
 The figure above shows the SYCL mapping of the hardware architecture, each hardware blocks are written or seperated into several autorun kernels in SYCL, and they are connected by single pipes or pipearrays. The numbers on the figure represent the pipes defined in the main file:
 1.  pipe_host_2_input
