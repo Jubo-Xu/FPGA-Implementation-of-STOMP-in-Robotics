@@ -68,7 +68,7 @@ $$
 The overall equation yields to: 
 
 $$
-\begin{equation}\label{eq:smooth_optimisation}
+\begin{equation}\label{eq:smooth_optimisation2}
    \frac{1}{2}\theta^TR\theta  =  \frac{1}{2}\theta_o^TR\theta_o + \frac{1}{N}\delta\tilde{\theta}^T\theta_o+\frac{1}{N^2}\delta\tilde{\theta}R^{-1}\delta\tilde{\theta}
 \end{equation}
 $$
