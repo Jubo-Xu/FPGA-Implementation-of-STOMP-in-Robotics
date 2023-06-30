@@ -51,6 +51,7 @@ This section mainly explains some important individual blocks.
 #### 1. Smoothness cost function
 Initially the smoothness cost function is given as $\frac{1}{2}\theta^TR\theta$ this matrix multiplication can be decompose to accelerate the computation.
 The equations can be represented as:
+
 $$
 \begin{align*}
 \theta^TR\theta &= ( \theta_0 + \delta\theta)^TR( \theta_0 + \delta\theta) \\
