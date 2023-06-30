@@ -334,3 +334,7 @@ output is:
 finished 
 ```
 > **Note**: The output is the final trajectory we generated, in our case, we tested that for a robotics arm with 3 DoF, and the number of timesteps for trajectory is 16, therefore the total number of output is 48.
+
+## License
+
+Code samples are licensed under the MIT license. See [LICENSE](https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics/blob/master/LICENSE) for details.
