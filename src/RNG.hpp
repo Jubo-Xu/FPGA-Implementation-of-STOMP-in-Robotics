@@ -23,6 +23,10 @@ namespace RNG{
     #define sigma    0.6
     #define N_stat 32
     #define N_had  16
+    #define DoF_RNG 3
+    #define N_RNG   16
+    #define k_RNG   4
+    #define itr_RNG 50
 
     using int_1_bit = ac_int<1, false>;
     using int_6_bit = ac_int<5, false>;
@@ -30,7 +34,8 @@ namespace RNG{
     using fixed_point_4_28 = ac_fixed<r, INT, true>;
     using fixed_point_4_28_unsigned = ac_fixed<r, 0, false>;
     //using fixed_point_delta_0_25 = ac_fixed<r+2, -2, true>;
-    using fixed_point_delta_0_25 = ac_fixed<r, -2, true>;
+    //using fixed_point_delta_0_25 = ac_fixed<r, -2, true>;
+    using fixed_point_delta_0_25 = ac_fixed<r, 0, true>;
 
     template <typename T, int k>
     void FIFO_shift(T *IN){
@@ -78,11 +83,18 @@ namespace RNG{
         //      0.0726,    0.0887,    0.1048,    0.1210,    0.1371,    0.1532,    0.1694,    0.1855,    0.2016,    0.2177,
         //      0.2339,    0.2500
         // };
+        // float X[N_stat] = {
+        //     -2.2500,   -2.1048,   -1.9597,   -1.8145,   -1.6694,   -1.5242,   -1.3790,   -1.2339,   -1.0887,   -0.9435,
+        //     -0.7984,   -0.6532,   -0.5081,   -0.3629,   -0.2177,   -0.0726,    0.0726,    0.2177,    0.3629,    0.5081,
+        //      0.6532,    0.7984,    0.9435,    1.0887,    1.2339,    1.3790,    1.5242,    1.6694,    1.8145,    1.9597,
+        //      2.1048,    2.2500
+        // };
+        //test for only connecting triangular with hadmard, with range of -1 to 1
         float X[N_stat] = {
-            -2.2500,   -2.1048,   -1.9597,   -1.8145,   -1.6694,   -1.5242,   -1.3790,   -1.2339,   -1.0887,   -0.9435,
-            -0.7984,   -0.6532,   -0.5081,   -0.3629,   -0.2177,   -0.0726,    0.0726,    0.2177,    0.3629,    0.5081,
-             0.6532,    0.7984,    0.9435,    1.0887,    1.2339,    1.3790,    1.5242,    1.6694,    1.8145,    1.9597,
-             2.1048,    2.2500
+            -1.0000,   -0.9355,   -0.8710,   -0.8065,   -0.7419,   -0.6774,   -0.6129,   -0.5484,   -0.4839,   -0.4194,
+            -0.3548,   -0.2903,   -0.2258,   -0.1613,   -0.0968,   -0.0323,    0.0323,    0.0968,    0.1613,    0.2258,
+             0.2903,    0.3548,    0.4194,    0.4839,    0.5484,    0.6129,    0.6774,    0.7419,    0.8065,    0.8710,
+             0.9355,    1.0000
         };
         // delta=0.25, N_stat = 64, 16 triag prob distr
         // float X[N_stat] = {
@@ -989,9 +1001,94 @@ namespace RNG{
         }
     };
 
-    template <typename Pipe_out1, typename Pipe_out2>
-    struct AR_RNG{
+    template <typename Pipe_in, typename Pipe_out1, typename Pipe_out2>
+    struct AR_RNG_final{
         void operator()() const{
+            while(1){
+                [[intel::fpga_register]] float IN_2_HT[N_had];
+                [[intel::fpga_register]] float HT_1_to_2[N_had];
+                [[intel::fpga_register]] float HT_2_to_3[N_had];
+                [[intel::fpga_register]] float HT_3_to_4[N_had];
+                [[intel::fpga_register]] float OUT[N_had];
+                [[intel::fpga_register]] float real_OUT[DoF_RNG*k_RNG];
+                for(int i=0; i<N_had; i++){
+                    IN_2_HT[i] = Pipe_in::read();
+                }
+                //first layer of hadmard gates
+                #pragma unroll
+                for(int i=0; i<N_had/2; i++){
+                    HT_1_to_2[2*i] = IN_2_HT[2*i] + IN_2_HT[2*i+1];
+                    HT_1_to_2[2*i+1] = IN_2_HT[2*i] - IN_2_HT[2*i+1];
+                }
+                //second layer of hadmard gates
+                #pragma unroll
+                for(int i=0; i<N_had/4; i++){
+                    HT_2_to_3[4*i] = HT_1_to_2[4*i] + HT_1_to_2[4*i+2];
+                    HT_2_to_3[4*i+1] = HT_1_to_2[4*i] - HT_1_to_2[4*i+2];
+                    HT_2_to_3[4*i+2] = HT_1_to_2[4*i+1] + HT_1_to_2[4*i+3];
+                    HT_2_to_3[4*i+3] = HT_1_to_2[4*i+1] - HT_1_to_2[4*i+3];
+                }
+                //third layer of hadmard gates
+                #pragma unroll
+                for(int i=0; i<N_had/8; i++){
+                    HT_3_to_4[8*i] = HT_2_to_3[8*i] + HT_2_to_3[8*i+4];
+                    HT_3_to_4[8*i+1] = HT_2_to_3[8*i] - HT_2_to_3[8*i+4];
+                    HT_3_to_4[8*i+2] = HT_2_to_3[8*i+2] + HT_2_to_3[8*i+6];
+                    HT_3_to_4[8*i+3] = HT_2_to_3[8*i+2] - HT_2_to_3[8*i+6];
+                    HT_3_to_4[8*i+4] = HT_2_to_3[8*i+1] + HT_2_to_3[8*i+5];
+                    HT_3_to_4[8*i+5] = HT_2_to_3[8*i+1] - HT_2_to_3[8*i+5];
+                    HT_3_to_4[8*i+6] = HT_2_to_3[8*i+3] + HT_2_to_3[8*i+7];
+                    HT_3_to_4[8*i+7] = HT_2_to_3[8*i+3] - HT_2_to_3[8*i+7];
+                }
+                //last layer of hadmard gates
+                OUT[0] = HT_3_to_4[0] + HT_3_to_4[8];
+                OUT[1] = HT_3_to_4[0] - HT_3_to_4[8];
+                OUT[2] = HT_3_to_4[2] + HT_3_to_4[10];
+                OUT[3] = HT_3_to_4[2] - HT_3_to_4[10];
+                OUT[4] = HT_3_to_4[4] + HT_3_to_4[12];
+                OUT[5] = HT_3_to_4[4] - HT_3_to_4[12];
+                OUT[6] = HT_3_to_4[6] + HT_3_to_4[14];
+                OUT[7] = HT_3_to_4[6] - HT_3_to_4[14];
+                OUT[8] = HT_3_to_4[1] + HT_3_to_4[9];
+                OUT[9] = HT_3_to_4[1] - HT_3_to_4[9];
+                OUT[10] = HT_3_to_4[3] + HT_3_to_4[11];
+                OUT[11] = HT_3_to_4[3] - HT_3_to_4[11];
+                OUT[12] = HT_3_to_4[5] + HT_3_to_4[13];
+                OUT[13] = HT_3_to_4[5] - HT_3_to_4[13];
+                OUT[14] = HT_3_to_4[7] + HT_3_to_4[15];
+                OUT[15] = HT_3_to_4[7] - HT_3_to_4[15];
+                //normalize the output
+                #pragma unroll
+                for(int i=0; i<N_had; i++){
+                    OUT[i] = OUT[i]/4.0f;
+                }
+                #pragma unroll
+                for(int i=0; i<DoF_RNG*k_RNG; i++){
+                    real_OUT[i] = OUT[i];
+                }
+                //Pipe out
+                // for(int i=0; i<N_had; i++){
+                //     Pipe_out::write(OUT[i]);
+                // }
+                size_t index_out1 = 0;
+                size_t index_out2 = 0;
+                fpga_tools::UnrolledLoop<DoF_RNG*k_RNG>([&real_OUT, &index_out1](auto idx_1){
+                    Pipe_out1::template PipeAt<idx_1>::write(real_OUT[index_out1++]);
+                });
+                fpga_tools::UnrolledLoop<DoF_RNG*k_RNG>([&real_OUT, &index_out2](auto idx_2){
+                    Pipe_out2::template PipeAt<idx_2>::write(real_OUT[index_out2++]);
+                });
+
+            }
+        }
+    };
+
+    template <typename Pipe_out1, typename Pipe_out2>
+    struct AR_RNG_table{
+        void operator()() const{
+            // [[intel::fpga_register]] float LUT[DoF_RNG*k_RNG*N_RNG*itr_RNG] = {
+                
+            // }
             while(1){
                 
             }

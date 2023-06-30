@@ -15,24 +15,26 @@
 #define SIGN_BIT  true
 #define Dimension 3
 #define N_B       2
-#define N_cost    5
+#define N_cost    16
 
 // Define the constants for autorun blocks
 #define DoF       3
 #define Num_k     4
 
 // Define the geometric configuration of robotics arm(would be changed later)
-#define L1        1
-#define L2        1
-#define L3        1
+#define L1        0.55
+#define L2        0.5
+#define L3        0.25
 
 // Define the parameters for obstacle sphere
-#define sphere_r             1.0f
-#define sphere_center_x      1.0f
-#define sphere_center_y      1.0f
-#define sphere_center_z      1.0f
-#define epsilon              1.0f
-#define rb                   1.0f
+#define sphere_r             0.2f
+#define sphere_center_x      0.87f
+#define sphere_center_y      -0.53f
+#define sphere_center_z      0.29f
+#define epsilon              0.1f
+#define rb                   0.06f
+#define offset_1             0.05f
+#define offset_2             0.1f
 
 using namespace sycl;
 using fixed_input = ac_fixed<TOTAL_BIT, INT_BIT, SIGN_BIT>;
@@ -41,7 +43,15 @@ using fixed_sqrt  = ac_fixed<2*TOTAL_BIT, 2*INT_BIT, SIGN_BIT>;
 
 class ConstructFromFloat;
 
+#ifdef __SYCL_DEVICE_ONLY__
+  #define CL_CONSTANT __attribute__((opencl_constant))
+#else
+  #define CL_CONSTANT
+#endif
 
+#define PRINTF(format, ...) { \
+            static const CL_CONSTANT char _format[] = format; \
+            sycl::ext::oneapi::experimental::printf(_format, ## __VA_ARGS__); }
 
 
 
@@ -74,9 +84,13 @@ struct Array_DoF{
 Array_DIM_NB Calc_Forward_Kinematics(Array_NUMk_DoF INPUT, int i)
 {
   Array_DIM_NB out;
+  Array_DIM_NB out2;
+  Array_DIM_NB real_out;
   // Define the basic cos and sin terms
   float COS_theta1 = sycl::cos(INPUT.Array[i][0]);
   float SIN_theta1 = sycl::sin(INPUT.Array[i][0]);
+  float SIN_theta1_pi = sycl::sin(INPUT.Array[i][0]-3.14159f);
+  float COS_theta1_pi = sycl::cos(INPUT.Array[i][0]-3.14159f);
   float COS_theta2 = sycl::cos(INPUT.Array[i][1]);
   float SIN_theta2 = sycl::sin(INPUT.Array[i][1]);
   float COS_theta23 = sycl::cos(INPUT.Array[i][1]+INPUT.Array[i][2]);
@@ -84,23 +98,46 @@ Array_DIM_NB Calc_Forward_Kinematics(Array_NUMk_DoF INPUT, int i)
 
   // Find the positions
   // point1
-  out.Array[0][0] = L2 * COS_theta2 * COS_theta1;
-  out.Array[1][0] = L2 * COS_theta2 * SIN_theta1;
-  out.Array[2][0] = L1 + L2 * SIN_theta2;
+  // out.Array[0][0] = L2 * COS_theta2 * COS_theta1;
+  // out.Array[1][0] = L2 * COS_theta2 * SIN_theta1;
+  // out.Array[2][0] = L1 + L2 * SIN_theta2;
+  out.Array[0][0] = L2*SIN_theta2*SIN_theta1+offset_1*SIN_theta1;
+  out.Array[1][0] = -(L2*SIN_theta2*COS_theta1-offset_1*COS_theta1);
+  out.Array[2][0] = L1+L2*COS_theta2;
   // point 2
-  out.Array[0][1] = (L2*COS_theta2 + L3*COS_theta23) * COS_theta1;
-  out.Array[1][1] = (L2*COS_theta2 + L3*COS_theta23) * SIN_theta1;
-  out.Array[2][1] = L1 + L2 * SIN_theta2 + L3 * SIN_theta23;
+  // out.Array[0][1] = (L2*COS_theta2 + L3*COS_theta23) * COS_theta1;
+  // out.Array[1][1] = (L2*COS_theta2 + L3*COS_theta23) * SIN_theta1;
+  // out.Array[2][1] = L1 + L2 * SIN_theta2 + L3 * SIN_theta23;
+  out.Array[0][1] = (L2*SIN_theta2+L3*SIN_theta23)*SIN_theta1+offset_2*SIN_theta1;
+  out.Array[1][1] = -(L2*SIN_theta2+L3*SIN_theta23)*COS_theta1-offset_2*COS_theta1;
+  out.Array[2][1] = L1+L2*COS_theta2+L3*COS_theta23;
 
-  return out;
+  out2.Array[0][0] = L2*SIN_theta2*SIN_theta1+offset_1*SIN_theta1_pi;
+  out2.Array[1][0] = -(L2*SIN_theta2*COS_theta1-offset_1*COS_theta1_pi);
+  out2.Array[2][0] = L1 + L2*COS_theta2;
+  out2.Array[0][1] = (L2*SIN_theta2+L3*SIN_theta23)*SIN_theta1 + offset_2*SIN_theta1_pi;
+  out2.Array[1][1] = -((L2*SIN_theta2 + L3*SIN_theta23)*COS_theta1 - offset_2*COS_theta1_pi);
+  out2.Array[2][1] = L1+L2*COS_theta2+L3*COS_theta23;
+
+  #pragma unroll
+  for(int j=0; j<3; j++){
+    real_out.Array[j][0] = (INPUT.Array[i][0] < 1.5708f) ? out.Array[j][0] : out2.Array[j][0];
+    real_out.Array[j][1] = (INPUT.Array[i][0] < 1.5708f) ? out.Array[j][1] : out2.Array[j][1];
+  }
+
+  return real_out;
 }
 
 Array_DIM_NB Calc_Forward_Kinematics_single(Array_DoF INPUT)
 {
   Array_DIM_NB out;
+  Array_DIM_NB out2;
+  Array_DIM_NB real_out;
   // Define the basic cos and sin terms
   float COS_theta1 = sycl::cos(INPUT.Array[0]);
   float SIN_theta1 = sycl::sin(INPUT.Array[0]);
+  float SIN_theta1_pi = sycl::sin(INPUT.Array[0] - 3.14159f);
+  float COS_theta1_pi = sycl::cos(INPUT.Array[0] - 3.14159f);
   float COS_theta2 = sycl::cos(INPUT.Array[1]);
   float SIN_theta2 = sycl::sin(INPUT.Array[1]);
   float COS_theta23 = sycl::cos(INPUT.Array[1]+INPUT.Array[2]);
@@ -108,15 +145,34 @@ Array_DIM_NB Calc_Forward_Kinematics_single(Array_DoF INPUT)
 
   // Find the positions
   // point1
-  out.Array[0][0] = L2 * COS_theta2 * COS_theta1;
-  out.Array[1][0] = L2 * COS_theta2 * SIN_theta1;
-  out.Array[2][0] = L1 + L2 * SIN_theta2;
+  // out.Array[0][0] = L2 * COS_theta2 * COS_theta1;
+  // out.Array[1][0] = L2 * COS_theta2 * SIN_theta1;
+  // out.Array[2][0] = L1 + L2 * SIN_theta2;
+  out.Array[0][0] = L2*SIN_theta2*SIN_theta1+offset_1*SIN_theta1;
+  out.Array[1][0] = -(L2*SIN_theta2*COS_theta1-offset_1*COS_theta1);
+  out.Array[2][0] = L1+L2*COS_theta2;
   // point 2
-  out.Array[0][1] = (L2*COS_theta2 + L3*COS_theta23) * COS_theta1;
-  out.Array[1][1] = (L2*COS_theta2 + L3*COS_theta23) * SIN_theta1;
-  out.Array[2][1] = L1 + L2 * SIN_theta2 + L3 * SIN_theta23;
+  // out.Array[0][1] = (L2*COS_theta2 + L3*COS_theta23) * COS_theta1;
+  // out.Array[1][1] = (L2*COS_theta2 + L3*COS_theta23) * SIN_theta1;
+  // out.Array[2][1] = L1 + L2 * SIN_theta2 + L3 * SIN_theta23;
+  out.Array[0][1] = (L2*SIN_theta2+L3*SIN_theta23)*SIN_theta1+offset_2*SIN_theta1;
+  out.Array[1][1] = -(L2*SIN_theta2+L3*SIN_theta23)*COS_theta1-offset_2*COS_theta1;
+  out.Array[2][1] = L1+L2*COS_theta2+L3*COS_theta23;
 
-  return out;
+  out2.Array[0][0] = L2*SIN_theta2*SIN_theta1+offset_1*SIN_theta1_pi;
+  out2.Array[1][0] = -(L2*SIN_theta2*COS_theta1-offset_1*COS_theta1_pi);
+  out2.Array[2][0] = L1 + L2*COS_theta2;
+  out2.Array[0][1] = (L2*SIN_theta2+L3*SIN_theta23)*SIN_theta1 + offset_2*SIN_theta1_pi;
+  out2.Array[1][1] = -((L2*SIN_theta2 + L3*SIN_theta23)*COS_theta1 - offset_2*COS_theta1_pi);
+  out2.Array[2][1] = L1+L2*COS_theta2+L3*COS_theta23;
+
+  #pragma unroll
+  for(int j=0; j<3; j++){
+    real_out.Array[j][0] = (INPUT.Array[0] < 1.5708f) ? out.Array[j][0] : out2.Array[j][0];
+    real_out.Array[j][1] = (INPUT.Array[0] < 1.5708f) ? out.Array[j][1] : out2.Array[j][1];
+  }
+
+  return real_out;
 }
 
 Array_NB Calc_Distance_AR(Array_DIM_NB Cartesian_input)
@@ -204,16 +260,28 @@ struct CostFunction_Autorun_Kernel{
         Cartesian = Calc_Forward_Kinematics(Input_to_Kernel, i);
         Distance = Calc_Distance_AR(Cartesian);
         Velocity = Calc_Velocity_AR(Cartesian, Cartesian_last);
-        #pragma unroll
+        // #pragma unroll
+        // for(size_t k=0; k<N_B; k++){
+        //     if(epsilon_float+r_b_float-sycl::ext::intel::fpga_reg(Distance.Array[k]) > 0){
+        //         Out_of_Kernel[i] = sycl::ext::intel::fpga_reg(Out_of_Kernel[i]) + (epsilon_float+r_b_float-sycl::ext::intel::fpga_reg(Distance.Array[k]))*sycl::ext::intel::fpga_reg(Velocity.Array[k]);
+        //     }
+        //     else{
+        //         Out_of_Kernel[i] = sycl::ext::intel::fpga_reg(Out_of_Kernel[i]);
+        //     }
+        // }
         for(size_t k=0; k<N_B; k++){
-            if(epsilon_float+r_b_float-sycl::ext::intel::fpga_reg(Distance.Array[k]) > 0){
-                Out_of_Kernel[i] = sycl::ext::intel::fpga_reg(Out_of_Kernel[i]) + (epsilon_float+r_b_float-sycl::ext::intel::fpga_reg(Distance.Array[k]))*sycl::ext::intel::fpga_reg(Velocity.Array[k]);
+            if((epsilon_float+r_b_float-Distance.Array[k]) > 0){
+                Out_of_Kernel[i] = Out_of_Kernel[i] + (epsilon_float+r_b_float-Distance.Array[k])*Velocity.Array[k];
             }
             else{
-                Out_of_Kernel[i] = sycl::ext::intel::fpga_reg(Out_of_Kernel[i]);
+                Out_of_Kernel[i] = Out_of_Kernel[i];
             }
         }
       }
+      // PRINTF("RESULT of costfunction: q1: %f\n", Out_of_Kernel[0]);
+      // PRINTF("RESULT of costfunction: q2: %f\n", Out_of_Kernel[1]);
+      // PRINTF("RESULT of costfunction: q3: %f\n", Out_of_Kernel[2]);
+      // PRINTF("RESULT of costfunction: q4: %f\n", Out_of_Kernel[3]);
 
       fpga_tools::UnrolledLoop<Num_k>([&index_out, &Out_of_Kernel](auto i) {
           Pipe_out::template PipeAt<i>::write(Out_of_Kernel[index_out++]);
@@ -271,13 +339,21 @@ struct CostFunction_Autorun_Kernel_Single{
         Cartesian = Calc_Forward_Kinematics_single(Input_to_Kernel);
         Distance = Calc_Distance_AR(Cartesian);
         Velocity = Calc_Velocity_AR(Cartesian, Cartesian_last);
-        #pragma unroll
+        // #pragma unroll
+        // for(size_t k=0; k<N_B; k++){
+        //     if(epsilon_float+r_b_float-sycl::ext::intel::fpga_reg(Distance.Array[k]) > 0){
+        //         Out_of_Kernel = sycl::ext::intel::fpga_reg(Out_of_Kernel) + (epsilon_float+r_b_float-sycl::ext::intel::fpga_reg(Distance.Array[k]))*sycl::ext::intel::fpga_reg(Velocity.Array[k]);
+        //     }
+        //     else{
+        //         Out_of_Kernel = sycl::ext::intel::fpga_reg(Out_of_Kernel);
+        //     }
+        // }
         for(size_t k=0; k<N_B; k++){
-            if(epsilon_float+r_b_float-sycl::ext::intel::fpga_reg(Distance.Array[k]) > 0){
-                Out_of_Kernel = sycl::ext::intel::fpga_reg(Out_of_Kernel) + (epsilon_float+r_b_float-sycl::ext::intel::fpga_reg(Distance.Array[k]))*sycl::ext::intel::fpga_reg(Velocity.Array[k]);
+            if(epsilon_float+r_b_float-Distance.Array[k] > 0){
+                Out_of_Kernel = Out_of_Kernel + (epsilon_float+r_b_float-Distance.Array[k])*Velocity.Array[k];
             }
             else{
-                Out_of_Kernel = sycl::ext::intel::fpga_reg(Out_of_Kernel);
+                Out_of_Kernel = Out_of_Kernel;
             }
         }
 

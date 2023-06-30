@@ -14,6 +14,17 @@
 #define h_constant          8
 #define DoF_Theta_Calc      3
 
+
+#ifdef __SYCL_DEVICE_ONLY__
+  #define CL_CONSTANT __attribute__((opencl_constant))
+#else
+  #define CL_CONSTANT
+#endif
+
+#define PRINTF(format, ...) { \
+            static const CL_CONSTANT char _format[] = format; \
+            sycl::ext::oneapi::experimental::printf(_format, ## __VA_ARGS__); }
+
 namespace Delta_Theta_Block{
 
     // Define the Find max and min block, which is based on bubble sort -->
@@ -87,17 +98,24 @@ namespace Delta_Theta_Block{
                     INPUT.Array[index_in++] = Pipe_in::template PipeAt<i>::read();
                 });
                 Max_Min_out = Find_MAX_and_MIN(INPUT);
+                
                 #pragma unroll
                 for(int i=0; i<Num_k_Theta_Calc; i++){
                     out_of_Subtraction[i] = INPUT.Array[i] - Max_Min_out.Array[0];
                 }
                 out_of_Subtraction[Num_k_Theta_Calc] = Max_Min_out.Array[Num_k_Theta_Calc-1] - Max_Min_out.Array[0];
-
+                // PRINTF("RESULT of delta theta kernel 1: 1: %f\n", out_of_Subtraction[0]);
+                // PRINTF("RESULT of delta theta kernel 1: 2: %f\n", out_of_Subtraction[1]);
+                // PRINTF("RESULT of delta theta kernel 1: 3: %f\n", out_of_Subtraction[2]);
+                // PRINTF("RESULT of delta theta kernel 1: 4: %f\n", out_of_Subtraction[3]);
+                // PRINTF("RESULT of delta theta kernel 1: 5: %f\n", out_of_Subtraction[4]);
                 // Now declare the dividers and multiplication of h, which should be left shift of some bits in hardware
                 #pragma unroll
                 for(int i=0; i<Num_k_Theta_Calc; i++){
-                    OUT[i] = (out_of_Subtraction[i]/out_of_Subtraction[Num_k_Theta_Calc])*h_constant;
+                    OUT[i] = (!out_of_Subtraction[Num_k_Theta_Calc]) ? 0: (-(out_of_Subtraction[i]/out_of_Subtraction[Num_k_Theta_Calc])*h_constant);
                 }
+
+
                 fpga_tools::UnrolledLoop<Num_k_Theta_Calc>([&index_out, &OUT](auto i) {
                     Pipe_out::template PipeAt<i>::write(OUT[index_out++]);
                 });

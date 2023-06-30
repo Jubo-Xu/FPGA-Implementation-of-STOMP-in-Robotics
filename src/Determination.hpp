@@ -7,12 +7,13 @@
 #include "pipe_utils.hpp"
 #include "unrolled_loop.hpp"
 
-#define N_determine     5
+#define N_determine     16
 #define DoF_determine   3
 #define k_determine     4
 #define Threshold       0.5
 #define Num_end_sig     2
 #define end_sig_idx     0
+#define itr_determine   50
 
 namespace Determine_and_Connections{
     
@@ -25,6 +26,7 @@ namespace Determine_and_Connections{
     template <typename Pipe_in_cost_obstacle, typename Pipe_in_cost_smooth, typename Pipe_in_theta, typename Pipe_out_new_theta, typename Pipe_out_final_theta, typename Pipe_out_end>
     struct AR_Determine_Block{
         void operator()() const{
+            int COUNT = 0;
             while(1){
                 [[intel::fpga_register]] float IN_theta[DoF_determine][N_determine];
                 [[intel::fpga_register]] float sum_obs_cost = 0.0f;
@@ -44,13 +46,16 @@ namespace Determine_and_Connections{
                 total_cost = sum_obs_cost + Pipe_in_cost_smooth::read();
             
                 // determine whether the iteration is finished
-                if((total_cost < Threshold) || (total_cost == Threshold)){
+                //(total_cost < Threshold) || (total_cost == Threshold)
+                //COUNT == itr_determine
+                if(COUNT == itr_determine){
                     fpga_tools::UnrolledLoop<Num_end_sig>([&](auto idx_3){
                         Pipe_out_end::template PipeAt<idx_3>::write(0);
                     });
                     for(int i=0; i<DoF_determine*N_determine; i++){
                         Pipe_out_final_theta::write(IN_theta[i%DoF_determine][i/DoF_determine]);
                     }
+                    COUNT = 0;
                 }
                 else{
                     fpga_tools::UnrolledLoop<Num_end_sig>([&](auto idx_4){
@@ -63,6 +68,7 @@ namespace Determine_and_Connections{
                             Pipe_out_new_theta::template PipeAt<idx_2>::write(IN_theta[index_out_theta1++][i]);
                         });
                     }
+                    COUNT++;
                 }
 
                 
