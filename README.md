@@ -96,7 +96,7 @@ RNG itself is a big area and requires lots of research. Since STOMP itself is ma
 3. Picewise Linear approximations + Hadmard Transform Network
 4. Triangular distribution RNG + Hadmard Transform Network
 
-For the first one, again, since STOMP is a precomputing algorithm, if the iteration we use is a fixed number, then the total number of samples we need once is $N*k*DoF*Iterations$, and these samples can be reused for next computing. This way is easy to be implemented but the number of samples is too large to be implemented in registers, we have to use Memory blocks which would add additional complexity and latencies. 
+For the first one, again, since STOMP is a precomputing algorithm, if the iteration we use is a fixed number, then the total number of samples we need once is $\(N \cdot k \cdot DoF \cdot Iteration\)$, and these samples can be reused for next computing. This way is easy to be implemented but the number of samples is too large to be implemented in registers, we have to use Memory blocks which would add additional complexity and latencies. 
 
 The second Picewise Linear approximations is mainly using multiple linear distributions to approximate Gaussian one based on certain probabilities and choosen by Walker Alias Table. Both Alias Table and linear distribution need Uniform RNG. The 32 bit Uniform RNG used in our case is based on [LUT-SR-RNG](https://cas.ee.ic.ac.uk/people/dt10/research/thomas-10-lut_sr_rngs.pdf), and the Linear Approximation(Triangular Distribution in our case) is based on the following [paper](https://ieeexplore.ieee.org/document/6861609). 
 <p align="middle">
