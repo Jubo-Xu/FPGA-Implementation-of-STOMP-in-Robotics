@@ -116,7 +116,7 @@ The leftmost figure is the probability distribution of picewise linear approxima
 <img src="image/autorun.svg" style="width:800px;" />
 </p>
 
-The figure above shows the SYCL mapping of the hardware architecture, each hardware blocks are written or seperated into several autorun kernels in SYCL, and they are connected by single pipes or pipearrays. The numbers on the figure represent the pipes defined in the main file:
+The figure above shows the SYCL mapping of the hardware architecture, each hardware blocks are written or seperated into several autorun kernels in SYCL, and they are connected by single pipes or pipearrays. The numbers on the figure represent the pipes defined in the main.cpp:
 1.  pipe_host_2_input
 2.  pipearray_last_2_input
 3.  pipearray_end_sig
