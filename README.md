@@ -109,7 +109,7 @@ The Hadmard Transformation network is good to use because after going through th
   <img src="image/triandht.png" width="32%" height="300" alt="Triangular distribution with Hadmard Transform" />
 </p>
 
-It can be seen that the effect of Hadmard transform is quite significant, the picewise linear + hadmard tranform case requires too much resources and even need several minutes to run for emulation. Since after testing, STOMP is not that sensitive to RNG, the RNG we finally used is the last case.
+The leftmost figure is the probability distribution of picewise linear approximation only, and the middle one is that of the picewise linear with Hadmard transform network, and the rightmost one is that of the triangular distribution with the Hadmard transform. It can be seen that the effect of Hadmard transform is quite significant, the picewise linear + hadmard tranform case requires too much resources and even need several minutes to run for emulation. Since after testing, STOMP is not that sensitive to RNG, the RNG we finally used is the last case.
 
 ### SYCL Code Mapping
 <p align="middle">
