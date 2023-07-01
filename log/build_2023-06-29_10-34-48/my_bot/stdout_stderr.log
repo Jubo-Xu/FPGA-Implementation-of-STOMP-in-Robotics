@@ -1,0 +1,29 @@
+[ 50%] Built target joint_command
+[100%] Built target do-test
+-- Install configuration: ""
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/config
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/config/joint_position_controller.yaml
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/config/my_bot.rviz
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/description
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/description/robot_core.xacro
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/description/robot.urdf.xacro
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/launch
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/launch/launch_sim.launch.py
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/launch/rsp.launch.py
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/worlds
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/worlds/empty.world
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/ament_index/resource_index/package_run_dependencies/my_bot
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/ament_index/resource_index/parent_prefix_path/my_bot
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.sh
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/environment/path.sh
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/environment/path.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/local_setup.bash
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/local_setup.sh
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/local_setup.zsh
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/local_setup.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/package.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/ament_index/resource_index/packages/my_bot
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/cmake/my_botConfig.cmake
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/cmake/my_botConfig-version.cmake
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/package.xml

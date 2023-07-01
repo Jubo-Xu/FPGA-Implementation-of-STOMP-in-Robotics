@@ -13,6 +13,7 @@ joint_trajectory_controller:
       - joint_1
       - joint_2
       - joint_3
+      # - gripper_joint_1
 
     command_interfaces:
       - position

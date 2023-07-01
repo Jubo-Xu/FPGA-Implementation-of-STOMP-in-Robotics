@@ -1,2 +1,1 @@
-source;share/cpp_srvcli/environment/ament_prefix_path.sh
-source;share/cpp_srvcli/environment/path.sh
+/home/bobxu/ros_sycl_ws/build/cpp_srvcli/ament_cmake_environment_hooks/local_setup.dsv

@@ -1,0 +1,7 @@
+[01m[K/home/bobxu/ros_sycl_ws/src/my_bot/src/joint_command.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/bobxu/ros_sycl_ws/src/my_bot/src/joint_command.cpp:99:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   99 | int main([01;35m[Kint argc[m[K, char** argv){
+      |          [01;35m[K~~~~^~~~[m[K
+[01m[K/home/bobxu/ros_sycl_ws/src/my_bot/src/joint_command.cpp:99:27:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   99 | int main(int argc, [01;35m[Kchar** argv[m[K){
+      |                    [01;35m[K~~~~~~~^~~~[m[K

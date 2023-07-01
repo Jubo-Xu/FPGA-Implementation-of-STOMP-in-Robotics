@@ -1,0 +1,19 @@
+[35m[1mConsolidate compiler generated dependencies of target fpga_kernel.fpga_emu[0m
+[ 50%] Built target talker
+[100%] Built target fpga_kernel.fpga_emu
+-- Install configuration: ""
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/lib/sycl_fpga_kernel/talker
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/lib/sycl_fpga_kernel/fpga_kernel.fpga_emu
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/ament_index/resource_index/package_run_dependencies/sycl_fpga_kernel
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/ament_index/resource_index/parent_prefix_path/sycl_fpga_kernel
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/environment/path.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/local_setup.bash
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/local_setup.sh
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/local_setup.zsh
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/local_setup.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/package.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/ament_index/resource_index/packages/sycl_fpga_kernel
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/cmake/sycl_fpga_kernelConfig.cmake
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/cmake/sycl_fpga_kernelConfig-version.cmake
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/package.xml

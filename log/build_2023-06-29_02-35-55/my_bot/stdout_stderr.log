@@ -1,0 +1,36 @@
+[35m[1mConsolidate compiler generated dependencies of target joint_command[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/joint_command.dir/src/joint_command.cpp.o[0m
+[01m[K/home/bobxu/ros_sycl_ws/src/my_bot/src/joint_command.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/bobxu/ros_sycl_ws/src/my_bot/src/joint_command.cpp:99:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   99 | int main([01;35m[Kint argc[m[K, char** argv){
+      |          [01;35m[K~~~~^~~~[m[K
+[01m[K/home/bobxu/ros_sycl_ws/src/my_bot/src/joint_command.cpp:99:27:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   99 | int main(int argc, [01;35m[Kchar** argv[m[K){
+      |                    [01;35m[K~~~~~~~^~~~[m[K
+[100%] [32m[1mLinking CXX executable joint_command[0m
+[100%] Built target joint_command
+-- Install configuration: ""
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/config
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/config/joint_position_controller.yaml
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/config/my_bot.rviz
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/description
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/description/robot_core.xacro
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/description/robot.urdf.xacro
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/launch
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/launch/launch_sim.launch.py
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/launch/rsp.launch.py
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/worlds
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/worlds/empty.world
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/ament_index/resource_index/package_run_dependencies/my_bot
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/ament_index/resource_index/parent_prefix_path/my_bot
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/environment/path.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/local_setup.bash
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/local_setup.sh
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/local_setup.zsh
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/local_setup.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/package.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/ament_index/resource_index/packages/my_bot
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/cmake/my_botConfig.cmake
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/cmake/my_botConfig-version.cmake
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/package.xml

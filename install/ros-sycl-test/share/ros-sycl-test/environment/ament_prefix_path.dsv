@@ -1,1 +1,1 @@
-prepend-non-duplicate;AMENT_PREFIX_PATH;
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/ament_cmake_environment_hooks/ament_prefix_path.dsv

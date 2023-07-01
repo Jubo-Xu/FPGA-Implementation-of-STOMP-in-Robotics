@@ -1,2 +1,1 @@
-source;share/ros-sycl-test/environment/ament_prefix_path.sh
-source;share/ros-sycl-test/environment/path.sh
+/home/bobxu/ros_sycl_ws/build/ros-sycl-test/ament_cmake_environment_hooks/local_setup.dsv

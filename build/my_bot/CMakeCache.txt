@@ -385,9 +385,6 @@ builtin_interfaces_DIR:PATH=/home/bobxu/ros2_humble/install/builtin_interfaces/s
 //The directory containing a CMake configuration file for control_msgs.
 control_msgs_DIR:PATH=/opt/ros/humble/share/control_msgs/cmake
 
-//The directory containing a CMake configuration file for cpp_pubsub.
-cpp_pubsub_DIR:PATH=/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/cmake
-
 //The directory containing a CMake configuration file for fastcdr.
 fastcdr_DIR:PATH=/home/bobxu/ros2_humble/install/fastcdr/lib/cmake/fastcdr
 
@@ -534,6 +531,9 @@ statistics_msgs_DIR:PATH=/home/bobxu/ros2_humble/install/statistics_msgs/share/s
 
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/home/bobxu/ros2_humble/install/std_msgs/share/std_msgs/cmake
+
+//The directory containing a CMake configuration file for sycl_fpga_kernel.
+sycl_fpga_kernel_DIR:PATH=/home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/cmake
 
 //The directory containing a CMake configuration file for tracetools.
 tracetools_DIR:PATH=/home/bobxu/ros2_humble/install/tracetools/share/tracetools/cmake

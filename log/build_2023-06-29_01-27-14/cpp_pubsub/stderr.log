@@ -1,0 +1,38 @@
+In file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:17:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostFunction.h:356:31: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+                Out_of_Kernel = Out_of_Kernel;
+[0;1;32m                ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:21:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:165:18: [0m[0;1;35mwarning: [0m[1munused variable 'index_out_2' [-Wunused-variable][0m
+          size_t index_out_2 = 0;
+[0;1;32m                 ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:334:23: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+        Buf_of_sparse = Buf_of_sparse;
+[0;1;32m        ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:335:20: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'int' to itself [-Wself-assign][0m
+        iterations = iterations;
+[0;1;32m        ~~~~~~~~~~ ^ ~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:22:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/Determination.hpp:33:48: [0m[0;1;35mwarning: [0m[1mvariable 'total_cost' set but not used [-Wunused-but-set-variable][0m
+                [[intel::fpga_register]] float total_cost = 0.0f;
+[0;1;32m                                               ^
+[0m5 warnings generated.
+In file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:17:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostFunction.h:356:31: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+                Out_of_Kernel = Out_of_Kernel;
+[0;1;32m                ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:21:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:165:18: [0m[0;1;35mwarning: [0m[1munused variable 'index_out_2' [-Wunused-variable][0m
+          size_t index_out_2 = 0;
+[0;1;32m                 ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:334:23: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+        Buf_of_sparse = Buf_of_sparse;
+[0;1;32m        ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:335:20: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'int' to itself [-Wself-assign][0m
+        iterations = iterations;
+[0;1;32m        ~~~~~~~~~~ ^ ~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:22:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/Determination.hpp:33:48: [0m[0;1;35mwarning: [0m[1mvariable 'total_cost' set but not used [-Wunused-but-set-variable][0m
+                [[intel::fpga_register]] float total_cost = 0.0f;
+[0;1;32m                                               ^
+[0m5 warnings generated.

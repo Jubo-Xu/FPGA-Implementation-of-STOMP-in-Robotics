@@ -1,0 +1,61 @@
+[35m[1mConsolidate compiler generated dependencies of target talker[0m
+[ 50%] Built target talker
+[35m[1mConsolidate compiler generated dependencies of target listener.fpga_emu[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o[0m
+In file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:17:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostFunction.h:356:31: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+                Out_of_Kernel = Out_of_Kernel;
+[0;1;32m                ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:21:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:165:18: [0m[0;1;35mwarning: [0m[1munused variable 'index_out_2' [-Wunused-variable][0m
+          size_t index_out_2 = 0;
+[0;1;32m                 ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:334:23: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+        Buf_of_sparse = Buf_of_sparse;
+[0;1;32m        ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:335:20: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'int' to itself [-Wself-assign][0m
+        iterations = iterations;
+[0;1;32m        ~~~~~~~~~~ ^ ~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:22:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/Determination.hpp:33:48: [0m[0;1;35mwarning: [0m[1mvariable 'total_cost' set but not used [-Wunused-but-set-variable][0m
+                [[intel::fpga_register]] float total_cost = 0.0f;
+[0;1;32m                                               ^
+[0m5 warnings generated.
+In file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:17:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostFunction.h:356:31: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+                Out_of_Kernel = Out_of_Kernel;
+[0;1;32m                ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:21:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:165:18: [0m[0;1;35mwarning: [0m[1munused variable 'index_out_2' [-Wunused-variable][0m
+          size_t index_out_2 = 0;
+[0;1;32m                 ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:334:23: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+        Buf_of_sparse = Buf_of_sparse;
+[0;1;32m        ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:335:20: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'int' to itself [-Wself-assign][0m
+        iterations = iterations;
+[0;1;32m        ~~~~~~~~~~ ^ ~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:22:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/Determination.hpp:33:48: [0m[0;1;35mwarning: [0m[1mvariable 'total_cost' set but not used [-Wunused-but-set-variable][0m
+                [[intel::fpga_register]] float total_cost = 0.0f;
+[0;1;32m                                               ^
+[0m5 warnings generated.
+[100%] [32m[1mLinking CXX executable listener.fpga_emu[0m
+[100%] Built target listener.fpga_emu
+-- Install configuration: ""
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/lib/cpp_pubsub/talker
+-- Installing: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/lib/cpp_pubsub/listener.fpga_emu
+-- Set runtime path of "/home/bobxu/ros_sycl_ws/install/cpp_pubsub/lib/cpp_pubsub/listener.fpga_emu" to ""
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/ament_index/resource_index/package_run_dependencies/cpp_pubsub
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/ament_index/resource_index/parent_prefix_path/cpp_pubsub
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/environment/path.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.bash
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.sh
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.zsh
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/local_setup.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/package.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/ament_index/resource_index/packages/cpp_pubsub
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig.cmake
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig-version.cmake
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/package.xml

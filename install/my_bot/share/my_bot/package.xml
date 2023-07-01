@@ -10,7 +10,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
   
   <depend>tutorial_interfaces</depend>
-  <depend>cpp_pubsub</depend>
+  <depend>sycl_fpga_kernel</depend>
   
   <exec_depend>ament_index_python</exec_depend>
   <exec_depend>control_msgs</exec_depend>

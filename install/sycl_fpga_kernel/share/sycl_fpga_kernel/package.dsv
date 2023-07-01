@@ -1,0 +1,8 @@
+source;share/sycl_fpga_kernel/hook/cmake_prefix_path.ps1
+source;share/sycl_fpga_kernel/hook/cmake_prefix_path.dsv
+source;share/sycl_fpga_kernel/hook/cmake_prefix_path.sh
+source;share/sycl_fpga_kernel/local_setup.bash
+source;share/sycl_fpga_kernel/local_setup.dsv
+source;share/sycl_fpga_kernel/local_setup.ps1
+source;share/sycl_fpga_kernel/local_setup.sh
+source;share/sycl_fpga_kernel/local_setup.zsh

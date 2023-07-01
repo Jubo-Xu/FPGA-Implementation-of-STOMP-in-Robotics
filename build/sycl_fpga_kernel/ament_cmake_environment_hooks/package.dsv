@@ -1,0 +1,4 @@
+source;share/sycl_fpga_kernel/local_setup.bash
+source;share/sycl_fpga_kernel/local_setup.dsv
+source;share/sycl_fpga_kernel/local_setup.sh
+source;share/sycl_fpga_kernel/local_setup.zsh

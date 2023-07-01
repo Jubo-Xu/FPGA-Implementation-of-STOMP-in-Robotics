@@ -1,0 +1,31 @@
+[35m[1mConsolidate compiler generated dependencies of target talker[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o[0m
+[ 50%] [32m[1mLinking CXX executable talker[0m
+[ 50%] Built target talker
+[35m[1mConsolidate compiler generated dependencies of target listener.fpga_emu[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o[0m
+In file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:17:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostFunction.h:356:31: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+                Out_of_Kernel = Out_of_Kernel;
+[0;1;32m                ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:21:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:165:18: [0m[0;1;35mwarning: [0m[1munused variable 'index_out_2' [-Wunused-variable][0m
+          size_t index_out_2 = 0;
+[0;1;32m                 ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:334:23: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+        Buf_of_sparse = Buf_of_sparse;
+[0;1;32m        ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:335:20: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'int' to itself [-Wself-assign][0m
+        iterations = iterations;
+[0;1;32m        ~~~~~~~~~~ ^ ~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:22:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/Determination.hpp:33:48: [0m[0;1;35mwarning: [0m[1mvariable 'total_cost' set but not used [-Wunused-but-set-variable][0m
+                [[intel::fpga_register]] float total_cost = 0.0f;
+[0;1;32m                                               ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:239:23: [0m[0;1;31merror: [0m[1mmember reference base type 'enum rmw_qos_history_policy_e' is not a structure or union[0m
+    custom_qos.history.depth = 20; 
+[0;1;32m    ~~~~~~~~~~~~~~~~~~^~~~~~
+[0m5 warnings and 1 error generated.
+gmake[2]: *** [CMakeFiles/listener.fpga_emu.dir/build.make:76: CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/listener.fpga_emu.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

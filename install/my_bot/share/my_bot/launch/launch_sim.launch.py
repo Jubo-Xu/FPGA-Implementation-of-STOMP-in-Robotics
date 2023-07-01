@@ -19,6 +19,7 @@ def generate_launch_description():
     # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
 
     package_name='my_bot' #<--- CHANGE ME
+    world_file_path = 'my_bot/worlds/empty.world'
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -39,13 +40,14 @@ def generate_launch_description():
                         output='screen')
     
     load_controller_cmd = ExecuteProcess(
-        cmd=['ros2','control','load_controller','--set-state','active','joint_state_controller'],
+        cmd=['ros2','control','load_controller','--set-state','active','joint_state_broadcaster'],
         output = 'screen'
     )
 
     launch_traj_controller= ExecuteProcess(
         cmd=['ros2','control','load_controller', '--set-state','active','joint_trajectory_controller'],
         output = 'screen'
+         
     )
     
 

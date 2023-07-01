@@ -727,8 +727,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.22.1/CMakeSystem.cmake"
   "ament_cmake_core/package.cmake"
   "ament_cmake_package_templates/templates.cmake"
-  "/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig-version.cmake"
-  "/home/bobxu/ros_sycl_ws/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig.cmake"
+  "/home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/cmake/sycl_fpga_kernelConfig-version.cmake"
+  "/home/bobxu/ros_sycl_ws/install/sycl_fpga_kernel/share/sycl_fpga_kernel/cmake/sycl_fpga_kernelConfig.cmake"
   "/home/bobxu/ros_sycl_ws/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake"
   "/home/bobxu/ros_sycl_ws/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake"
   "/home/bobxu/ros_sycl_ws/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_libraries-extras.cmake"
@@ -932,4 +932,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/uninstall.dir/DependInfo.cmake"
   "CMakeFiles/my_bot_uninstall.dir/DependInfo.cmake"
   "CMakeFiles/joint_command.dir/DependInfo.cmake"
+  "CMakeFiles/do-test.dir/DependInfo.cmake"
   )

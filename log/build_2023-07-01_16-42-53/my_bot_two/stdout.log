@@ -1,0 +1,29 @@
+[35m[1mConsolidate compiler generated dependencies of target joint_command[0m
+[35m[1mConsolidate compiler generated dependencies of target do-test[0m
+[ 50%] Built target joint_command
+[100%] Built target do-test
+-- Install configuration: ""
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/config
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/config/joint_position_controller.yaml
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/config/my_bot_two.rviz
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/description
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/description/robot_core.xacro
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/description/robot.urdf.xacro
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/launch
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/launch/launch_sim.launch.py
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/launch/rsp.launch.py
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/worlds
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/worlds/empty.world
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/ament_index/resource_index/package_run_dependencies/my_bot_two
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/ament_index/resource_index/parent_prefix_path/my_bot_two
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/environment/path.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/local_setup.bash
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/local_setup.sh
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/local_setup.zsh
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/local_setup.dsv
+-- Installing: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/package.dsv
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/ament_index/resource_index/packages/my_bot_two
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/cmake/my_bot_twoConfig.cmake
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/cmake/my_bot_twoConfig-version.cmake
+-- Up-to-date: /home/bobxu/ros_sycl_ws/install/my_bot_two/share/my_bot_two/package.xml

@@ -1,0 +1,81 @@
+-- The C compiler identification is GNU 11.3.0
+-- The CXX compiler identification is IntelLLVM 2023.1.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.4 (/home/bobxu/ros2_humble/install/ament_cmake/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+-- Found rclcpp: 16.0.4 (/home/bobxu/ros2_humble/install/rclcpp/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.4 (/home/bobxu/ros2_humble/install/rosidl_generator_c/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.4 (/home/bobxu/ros2_humble/install/rosidl_adapter/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.4 (/home/bobxu/ros2_humble/install/rosidl_generator_cpp/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_introspection_c;rosidl_typesupport_fastrtps_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_introspection_cpp;rosidl_typesupport_fastrtps_cpp
+-- Found rmw_implementation_cmake: 6.1.1 (/home/bobxu/ros2_humble/install/rmw_implementation_cmake/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.2 (/home/bobxu/ros2_humble/install/rmw_fastrtps_cpp/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /home/bobxu/ros2_humble/install/fastrtps/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found tutorial_interfaces: 0.0.0 (/home/bobxu/ros_sycl_ws/install/tutorial_interfaces/share/tutorial_interfaces/cmake)
+-- FPGA_DEVICE was not specified.                
+Configuring the design to target the default FPGA family (Intel Agilex®).                 
+Please refer to the README for information on board selection.
+-- Found ament_lint_auto: 0.12.6 (/home/bobxu/ros2_humble/install/ament_lint_auto/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/bobxu/ros_sycl_ws/build/cpp_pubsub
+[ 25%] [32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o[0m
+[ 50%] [32m[1mLinking CXX executable talker[0m
+[ 50%] Built target talker
+[ 75%] [32mBuilding CXX object CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o[0m
+In file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:17:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostFunction.h:356:31: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+                Out_of_Kernel = Out_of_Kernel;
+[0;1;32m                ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:21:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:165:18: [0m[0;1;35mwarning: [0m[1munused variable 'index_out_2' [-Wunused-variable][0m
+          size_t index_out_2 = 0;
+[0;1;32m                 ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:334:23: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+        Buf_of_sparse = Buf_of_sparse;
+[0;1;32m        ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:335:20: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'int' to itself [-Wself-assign][0m
+        iterations = iterations;
+[0;1;32m        ~~~~~~~~~~ ^ ~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:22:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/Determination.hpp:33:48: [0m[0;1;35mwarning: [0m[1mvariable 'total_cost' set but not used [-Wunused-but-set-variable][0m
+                [[intel::fpga_register]] float total_cost = 0.0f;
+[0;1;32m                                               ^
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:23:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/RNG.hpp:673:52: [0m[0;1;31merror: [0m[1muse of undeclared identifier 'delta'[0m
+                float output = output1 - output2 + delta*(idx-num_p/2);
+[0;1;32m                                                   ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/RNG.hpp:730:55: [0m[0;1;31merror: [0m[1muse of undeclared identifier 'delta'[0m
+                    tri_out_ini[i] = tri_out_ini[i] + delta*(i-num_p/2);
+[0;1;32m                                                      ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/RNG.hpp:840:55: [0m[0;1;31merror: [0m[1muse of undeclared identifier 'delta'[0m
+                    tri_out_ini[i] = tri_out_ini[i] + delta*(i-num_p/2);
+[0;1;32m                                                      ^
+[0m5 warnings and 3 errors generated.
+gmake[2]: *** [CMakeFiles/listener.fpga_emu.dir/build.make:76: CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/listener.fpga_emu.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

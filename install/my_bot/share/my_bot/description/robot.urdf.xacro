@@ -134,7 +134,7 @@
         <parent link="base_link"/>
         <child link="link_1"/>
         <axis xyz="0.0 0.0 1"/>
-        <limit lower="0.0" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
+        <limit lower="${-M_PI }" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
     </joint>
 
     <!--=============================================================================-->
@@ -200,7 +200,7 @@
         <parent link="link_1"/>
         <child link="link_2"/>
         <axis xyz="1.0 0.0 0.0"/>
-        <limit lower="0.0" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
+        <limit lower="${-M_PI }" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
     </joint>
 
     <!--=============================================================================-->
@@ -261,7 +261,7 @@
         <parent link="link_2"/>
         <child link="link_3"/>
         <axis xyz="1.0 0.0 0.0"/>
-        <limit lower="0.0" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
+        <limit lower="${-M_PI }" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
     </joint>
 
     <!--=============================================================================-->
@@ -291,7 +291,7 @@
         <parent link="link_3"/>
         <child link="link_4"/>
         <axis xyz="0.0 0.0 01.0"/>
-        <limit lower="0.0" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
+        <limit lower="${-M_PI}" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
     </joint>
 
     <!--=============================================================================-->
@@ -410,8 +410,8 @@
 
     <!-- ros_control plugin -->
         
-    <xacro:property name="steer_limlow" value="-1.5"/>
-    <xacro:property name="steer_limhigh" value="1.5"/>
+    <xacro:property name="steer_limlow" value="-3.14"/>
+    <xacro:property name="steer_limhigh" value="3.14"/>
 
     <ros2_control name="GazeboSimSystem" type="system">
         <hardware> 
@@ -419,8 +419,8 @@
         </hardware>
         <joint name="joint_1">
             <command_interface name = "position"> 
-                <param name="min">-1.5</param>
-                <param name="max">1.5</param>
+               <param name="min">${steer_limlow}</param>
+               <param name="min">${steer_limhigh}</param>
             </command_interface>
             <state_interface name="position"/>
             <state_interface name="velocity"/>
@@ -445,6 +445,16 @@
             <state_interface name="velocity"/>
             <state_interface name="effort"/> 
         </joint>
+            <!-- <joint name="gripper_joint_1">
+            <command_interface name = "position"> 
+                <param name="min">${steer_limlow}</param>
+                <param name="max">${steer_limhigh}</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/> 
+        </joint> -->
+        
         
     </ros2_control>
         <gazebo>

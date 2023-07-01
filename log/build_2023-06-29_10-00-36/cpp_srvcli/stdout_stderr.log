@@ -1,0 +1,6 @@
+[35m[1mConsolidate compiler generated dependencies of target server[0m
+[35m[1mConsolidate compiler generated dependencies of target client[0m
+[ 50%] Built target server
+[100%] Built target client
+-- Install configuration: ""
+-- Installing: /home/bobxu/ros_sycl_ws/install/cpp_srvcli/share/cpp_srvcli/package.dsv

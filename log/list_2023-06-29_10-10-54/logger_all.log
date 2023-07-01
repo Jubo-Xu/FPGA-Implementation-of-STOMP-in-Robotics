@@ -1,0 +1,96 @@
+[1.592s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/bobxu/ros_sycl_ws']
+[1.592s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='list', build_base='build', ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/home/bobxu/ros_sycl_ws'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], topological_order=False, names_only=False, paths_only=True, topological_graph=False, topological_graph_dot=False, topological_graph_density=False, topological_graph_legend=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7fbb10ff2b30>, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0x7fbb10fb03a0>, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0x7fbb10fb03a0>>, mixin_verb=('list',))
+[1.709s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.717s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.717s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.717s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.717s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.717s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/bobxu/ros_sycl_ws'
+[1.718s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extensions ['ignore', 'ignore_ament_install']
+[1.718s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extension 'ignore'
+[1.718s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extension 'ignore_ament_install'
+[1.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extensions ['colcon_pkg']
+[1.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extension 'colcon_pkg'
+[1.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extensions ['colcon_meta']
+[1.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extension 'colcon_meta'
+[1.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extensions ['ros']
+[1.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extension 'ros'
+[1.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extensions ['cmake', 'python']
+[1.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extension 'cmake'
+[1.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extension 'python'
+[1.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extensions ['python_setup_py']
+[1.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws) by extension 'python_setup_py'
+[1.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/build) by extensions ['ignore', 'ignore_ament_install']
+[1.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/build) by extension 'ignore'
+[1.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/build) ignored
+[1.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/install) by extensions ['ignore', 'ignore_ament_install']
+[1.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/install) by extension 'ignore'
+[1.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/install) ignored
+[1.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/log) by extensions ['ignore', 'ignore_ament_install']
+[1.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/log) by extension 'ignore'
+[1.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/log) ignored
+[1.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extensions ['ignore', 'ignore_ament_install']
+[1.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extension 'ignore'
+[1.767s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extension 'ignore_ament_install'
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extensions ['colcon_pkg']
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extension 'colcon_pkg'
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extensions ['colcon_meta']
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extension 'colcon_meta'
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extensions ['ros']
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extension 'ros'
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extensions ['cmake', 'python']
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extension 'cmake'
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extension 'python'
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extensions ['python_setup_py']
+[1.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src) by extension 'python_setup_py'
+[1.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_pubsub) by extensions ['ignore', 'ignore_ament_install']
+[1.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_pubsub) by extension 'ignore'
+[1.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_pubsub) by extension 'ignore_ament_install'
+[1.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_pubsub) by extensions ['colcon_pkg']
+[1.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_pubsub) by extension 'colcon_pkg'
+[1.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_pubsub) by extensions ['colcon_meta']
+[1.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_pubsub) by extension 'colcon_meta'
+[1.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_pubsub) by extensions ['ros']
+[1.769s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_pubsub) by extension 'ros'
+[1.772s] DEBUG:colcon.colcon_core.package_identification:Package '/home/bobxu/ros_sycl_ws/src/cpp_pubsub' with type 'ros.ament_cmake' and name 'cpp_pubsub'
+[1.776s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_srvcli) by extensions ['ignore', 'ignore_ament_install']
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_srvcli) by extension 'ignore'
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_srvcli) by extension 'ignore_ament_install'
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_srvcli) by extensions ['colcon_pkg']
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_srvcli) by extension 'colcon_pkg'
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_srvcli) by extensions ['colcon_meta']
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_srvcli) by extension 'colcon_meta'
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_srvcli) by extensions ['ros']
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/cpp_srvcli) by extension 'ros'
+[1.778s] DEBUG:colcon.colcon_core.package_identification:Package '/home/bobxu/ros_sycl_ws/src/cpp_srvcli' with type 'ros.ament_cmake' and name 'cpp_srvcli'
+[1.778s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/my_bot) by extensions ['ignore', 'ignore_ament_install']
+[1.778s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/my_bot) by extension 'ignore'
+[1.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/my_bot) by extension 'ignore_ament_install'
+[1.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/my_bot) by extensions ['colcon_pkg']
+[1.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/my_bot) by extension 'colcon_pkg'
+[1.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/my_bot) by extensions ['colcon_meta']
+[1.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/my_bot) by extension 'colcon_meta'
+[1.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/my_bot) by extensions ['ros']
+[1.779s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/my_bot) by extension 'ros'
+[1.780s] DEBUG:colcon.colcon_core.package_identification:Package '/home/bobxu/ros_sycl_ws/src/my_bot' with type 'ros.ament_cmake' and name 'my_bot'
+[1.780s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/ros-sycl-test) by extensions ['ignore', 'ignore_ament_install']
+[1.780s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/ros-sycl-test) by extension 'ignore'
+[1.780s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/ros-sycl-test) by extension 'ignore_ament_install'
+[1.781s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/ros-sycl-test) by extensions ['colcon_pkg']
+[1.781s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/ros-sycl-test) by extension 'colcon_pkg'
+[1.781s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/ros-sycl-test) by extensions ['colcon_meta']
+[1.781s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/ros-sycl-test) by extension 'colcon_meta'
+[1.781s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/ros-sycl-test) by extensions ['ros']
+[1.781s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/ros-sycl-test) by extension 'ros'
+[1.781s] DEBUG:colcon.colcon_core.package_identification:Package '/home/bobxu/ros_sycl_ws/src/ros-sycl-test' with type 'ros.ament_cmake' and name 'ros-sycl-test'
+[1.781s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/tutorial_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[1.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/tutorial_interfaces) by extension 'ignore'
+[1.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/tutorial_interfaces) by extension 'ignore_ament_install'
+[1.782s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/tutorial_interfaces) by extensions ['colcon_pkg']
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/tutorial_interfaces) by extension 'colcon_pkg'
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/tutorial_interfaces) by extensions ['colcon_meta']
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/tutorial_interfaces) by extension 'colcon_meta'
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/tutorial_interfaces) by extensions ['ros']
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bobxu/ros_sycl_ws/src/tutorial_interfaces) by extension 'ros'
+[1.783s] DEBUG:colcon.colcon_core.package_identification:Package '/home/bobxu/ros_sycl_ws/src/tutorial_interfaces' with type 'ros.ament_cmake' and name 'tutorial_interfaces'
+[1.787s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults

@@ -7,7 +7,9 @@
 /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/worlds/empty.world
 /home/bobxu/ros_sycl_ws/install/my_bot/share/ament_index/resource_index/package_run_dependencies/my_bot
 /home/bobxu/ros_sycl_ws/install/my_bot/share/ament_index/resource_index/parent_prefix_path/my_bot
+/home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.sh
 /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.dsv
+/home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/environment/path.sh
 /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/environment/path.dsv
 /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/local_setup.bash
 /home/bobxu/ros_sycl_ws/install/my_bot/share/my_bot/local_setup.sh

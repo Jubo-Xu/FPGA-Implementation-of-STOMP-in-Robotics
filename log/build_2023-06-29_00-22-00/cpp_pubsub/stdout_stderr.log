@@ -1,0 +1,39 @@
+[35m[1mConsolidate compiler generated dependencies of target talker[0m
+[ 50%] Built target talker
+[35m[1mConsolidate compiler generated dependencies of target listener.fpga_emu[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o[0m
+In file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:17:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostFunction.h:356:31: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+                Out_of_Kernel = Out_of_Kernel;
+[0;1;32m                ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:21:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:165:18: [0m[0;1;35mwarning: [0m[1munused variable 'index_out_2' [-Wunused-variable][0m
+          size_t index_out_2 = 0;
+[0;1;32m                 ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:334:23: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'float' to itself [-Wself-assign][0m
+        Buf_of_sparse = Buf_of_sparse;
+[0;1;32m        ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/CostSmooth.hpp:335:20: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'int' to itself [-Wself-assign][0m
+        iterations = iterations;
+[0;1;32m        ~~~~~~~~~~ ^ ~~~~~~~~~~
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:22:
+[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/Determination.hpp:33:48: [0m[0;1;35mwarning: [0m[1mvariable 'total_cost' set but not used [-Wunused-but-set-variable][0m
+                [[intel::fpga_register]] float total_cost = 0.0f;
+[0;1;32m                                               ^
+[0mIn file included from /home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/subscriber_member_function.cpp:27:
+[1m/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/include/sycl/ext/intel/prototype/host_pipes.hpp:109:62: [0m[0;1;31merror: [0m[1mexpected ')'[0m
+inline index_type buffer_next_idx(index_type idx, index_type delta) {
+[0;1;32m                                                             ^
+[0m[1m/home/bobxu/ros_sycl_ws/src/cpp_pubsub/src/RNG.hpp:22:20: [0m[0;1;30mnote: [0mexpanded from macro 'delta'[0m
+    #define delta  0.25
+[0;1;32m                   ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/include/sycl/ext/intel/prototype/host_pipes.hpp:109:34: [0m[0;1;30mnote: [0mto match this '('[0m
+inline index_type buffer_next_idx(index_type idx, index_type delta) {
+[0;1;32m                                 ^
+[0m[1m/opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/include/sycl/ext/intel/prototype/host_pipes.hpp:110:24: [0m[0;1;31merror: [0m[1minvalid operands to binary expression ('double' and 'const index_type' (aka 'const unsigned int'))[0m
+  return (idx + delta) & kIndexWrapMask;
+[0;1;32m         ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~
+[0m5 warnings and 2 errors generated.
+gmake[2]: *** [CMakeFiles/listener.fpga_emu.dir/build.make:76: CMakeFiles/listener.fpga_emu.dir/src/subscriber_member_function.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/listener.fpga_emu.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

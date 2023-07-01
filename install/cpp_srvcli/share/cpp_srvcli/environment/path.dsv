@@ -1,1 +1,1 @@
-prepend-non-duplicate-if-exists;PATH;bin
+/home/bobxu/ros_sycl_ws/build/cpp_srvcli/ament_cmake_environment_hooks/path.dsv

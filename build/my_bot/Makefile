@@ -210,6 +210,19 @@ joint_command/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joint_command.dir/build.make CMakeFiles/joint_command.dir/build
 .PHONY : joint_command/fast
 
+#=============================================================================
+# Target rules for targets named do-test
+
+# Build rule for target.
+do-test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 do-test
+.PHONY : do-test
+
+# fast build rule for target.
+do-test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/do-test.dir/build.make CMakeFiles/do-test.dir/build
+.PHONY : do-test/fast
+
 src/joint_command.o: src/joint_command.cpp.o
 .PHONY : src/joint_command.o
 
@@ -234,6 +247,30 @@ src/joint_command.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joint_command.dir/build.make CMakeFiles/joint_command.dir/src/joint_command.cpp.s
 .PHONY : src/joint_command.cpp.s
 
+src/test.o: src/test.cpp.o
+.PHONY : src/test.o
+
+# target to build an object file
+src/test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/do-test.dir/build.make CMakeFiles/do-test.dir/src/test.cpp.o
+.PHONY : src/test.cpp.o
+
+src/test.i: src/test.cpp.i
+.PHONY : src/test.i
+
+# target to preprocess a source file
+src/test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/do-test.dir/build.make CMakeFiles/do-test.dir/src/test.cpp.i
+.PHONY : src/test.cpp.i
+
+src/test.s: src/test.cpp.s
+.PHONY : src/test.s
+
+# target to generate assembly for a file
+src/test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/do-test.dir/build.make CMakeFiles/do-test.dir/src/test.cpp.s
+.PHONY : src/test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -249,10 +286,14 @@ help:
 	@echo "... test"
 	@echo "... my_bot_uninstall"
 	@echo "... uninstall"
+	@echo "... do-test"
 	@echo "... joint_command"
 	@echo "... src/joint_command.o"
 	@echo "... src/joint_command.i"
 	@echo "... src/joint_command.s"
+	@echo "... src/test.o"
+	@echo "... src/test.i"
+	@echo "... src/test.s"
 .PHONY : help
 
 
