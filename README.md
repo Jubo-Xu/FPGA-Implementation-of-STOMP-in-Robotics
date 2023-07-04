@@ -25,7 +25,7 @@ This repository is a part of consultancy Project with  intel  PSG Robotics Techn
 
 ## Project Organisation 
 ### WorkFlow
-Along with studying the suitability of motion planning algorith when implemented into FPGA, the project aimed to design a complete workflow to be able to develop, test and benchmark the fpga implemetentation. In that sense the following workflow has been develloped: 
+Along with studying the suitability of motion planning algorith when implemented into FPGA, the project aimed to design a complete workflow to be able to develop, test and benchmark the fpga implemetentation. In that sense the following workflow has been developed: 
 ![FPGA-Robotics development workflow](https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics/blob/master/image/dev_flow.png)
 
 This workflow is the combination of standardized SYCL development flow in OneAPI and ROS2. The FPGA code is first develloped using the emulation compilation and FPGA_early_report provided by OneAPI. The FPGA code can then be The code is then integrated into a ROS2 Workspace, in which simulation can be perform using gazebo (detailed explanation and code are provided in the  [sycl-ros-package branch](https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics/tree/sycl-ros-package) branch). The gazebo simulation is meanted for develloper to be able to visually approved their motion planning algorithm, different test cases can be design depending on the appliation needs. In this repo we have setup a simple simulation made of a [3DOF robotic arm](https://github.com/Robotawi/rrr-arm) and a sphere to represent an obstacle. The use of OneApi makes the SYCL code integration into ROS2 really easy for the following points:
