@@ -141,7 +141,7 @@ $$
 \end{equation}
 $$
 
-where B is equal to 2 in our case, and  $\|\dot{x_b}\|$  is calculated based on  $\sqrt{(x_p - {x_p}^{*})^2+(y_p - {y_p}^{*})^2+(z_p - {z_p}^{*})^2}$  , where  ${x_p}^{*}$, ${y_p}^{*}$, ${z_p}^{*}$  are x, y, z position at last timestep. 
+where B is equal to 2 in our case, and  $\|\dot{x_b}\|$  is calculated based on  $\sqrt{(x_p - {x_p}^{\*})^2+(y_p - {y_p}^{\*})^2+(z_p - {z_p}^{\*})^2}$  , where  ${x_p}^{\*}$, ${y_p}^{\*}$, ${z_p}^{\*}$  are x, y, z position at last timestep. 
 
 The cost function calculated used here is for the simplest case, later this can be changed to a more complex case. But since the costfunction in SYCL code is a completely seperate block, it can be changed and replaced easily without changing the following part of STOMP algorithm. 
 
