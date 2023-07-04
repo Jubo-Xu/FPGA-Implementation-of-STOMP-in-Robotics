@@ -151,40 +151,40 @@ The cost function calculated used here is for the simplest case, later this can 
 
 ## How to run the code
 1. clone the code:
-```bash
-    git clone -b sycl-ros-package https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics.git
-```
+  ```bash
+  git clone -b sycl-ros-package https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics.git
+  ```
 
 2. direct to the folder of the workspace, setting up the environment variables
-```bash
-    source install/setup.bash
-    source /opt/intel/oneapi/setvars.sh
-```
+  ```bash
+  source install/setup.bash
+  source /opt/intel/oneapi/setvars.sh
+  ```
 
 3. build the whole workspace
-```bash
-    colcon build
-```
+  ```bash
+  colcon build
+  ```
 >**Note**: after modifying the code, adding new packages, especially modify the CMakeLists.txt, it's better to remove the build folder under the root folder of the workspace, and maybe also need to remove the folder named after certain packages inside the install folder, and re-create a new build folder and re-build, otherwise, the old make files may be stored in the cache and cause errors
 
 4. under the root folder of workspace, launch the Gazebo
-```bash
-    ros2 launch my_bot launch_sim.launch.py world:=src/my_bot/worlds/empty.world
-```
+  ```bash
+  ros2 launch my_bot launch_sim.launch.py world:=src/my_bot/worlds/empty.world
+  ```
 
 5. open a new terminal, move to the root folder of the workspace, source both the ros and oneapi, and then move to the sycl_fpga_kernel under the build folder, and run the execution file
-```bash
-    cd build
-    cd sycl_fpga_kernel
-    ./fpga_kernel.fpga_emu
-```
+  ```bash
+  cd build
+  cd sycl_fpga_kernel
+  ./fpga_kernel.fpga_emu
+  ```
 
 6. open a new terminal, move to the root folder of the workspace, source both the ros and oneapi, and then move to the my_bot under the build folder, and run the execution file
-```bash
-    cd build
-    cd my_bot
-    ./joint_command
-```
+  ```bash
+  cd build
+  cd my_bot
+  ./joint_command
+  ```
 >**Note**: it's important to first run the fpga_kernel.fpga_emu first, wait for a while, if there's "Instantiation finished, let's go:" on the terminal, then run the join_command. This is because the instantiation of kernels and subscriber take time, we need to wait for the instantiation finished, otherwise the subscriber cannot get all the data being sent, and the pipe would be blocked, it will not run properly.
 
 7. after running the above commands, the terminal of joint command should first publish some numbers, and the fpga_kernel terminal would show these numbers at the same time, then it would go for the fpga execution, and then publish back, then the robotic arm in the Gazebo would move correspondingly. 
