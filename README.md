@@ -3,21 +3,57 @@
 ## Introduction
 
 Welcome to our FPGA implementation of [**STOMP**](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5980280&tag=1)(Stochastic Trajectory Optimization for Motion Planning), 
-This repository is a part of consultancy Project with  intel  PSG Robotics Technology Group and Imperial College London. The goal of the project was to study the suitability of motion planning algorithm like STOMP or CHOMP when implemented into FPGA. This repositary contains a complete Implementation of STOMP on FPGA based on [**OneAPI**](https://www.intel.com/content/www/us/en/developer/tools/oneapi/data-parallel-c-plus-plus.html) of Intel, which is based on [SYCL](https://www.khronos.org/sycl/). 
+This repository is a part of consultancy Project with  intel  PSG Robotics Technology Group and Imperial College London. The goal of the project was to study the suitability of motion planning algorithm like STOMP or CHOMP when implemented into FPGA. This repositary contains a complete Implementation of STOMP on FPGA based on [**OneAPI**](https://www.intel.com/content/www/us/en/developer/tools/oneapi/data-parallel-c-plus-plus.html) of Intel, which is based on [SYCL](https://www.khronos.org/sycl/). In this documentation you will learn everything there is to know about 
 
-## Work Flow
+- [Introduction](#introduction)
+- [WorkFlow](#workflow)
+  - [Prerequisites](#prerequisites)
+  - [Steps](#steps)
+- [Usage](#usage)
+  - [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
 
-FPGA has lots of potential use in robotics field, like real-time and locally sensor fusion and data processing, as well as algorithm acceleration. This project mainly provides an example of this application. The full FPGA development testing is based on the following workflow: 
+
+## WorkFlow
+Along with studying the suitability of motion planning algorith when implemented into FPGA, the project aimed to design a complete workflow to be able to develop, test and benchmark the fpga implemetentation. In that sense the following workflow has been develloped: 
 ![FPGA-Robotics development workflow](https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics/blob/master/image/dev_flow.png)
 
-This workflow is the combination of standardized SYCL development flow in OneAPI and ROS2. The FPGA code is first tested seperately for optimization and modifications. In the mean time, all the robotics configuration would be setup and tested in ROS2, in our case, this includes 3D model of robotics arm and obstacle setting up as well as STOMP CPU version testing. After implementing and testing the robotics and FPGA seperately, we could combine the two together for the complete testing. The combination of these two things is possible because of the following points:
+This workflow is the combination of standardized SYCL development flow in OneAPI and ROS2. The FPGA code is first develloped using the emulation compilation and FPGA_early_report provided by OneAPI. The FPGA code can then be The code is then integrated into a ROS2 Workspace, in which simulation can be perform using gazebo (detailed explanation and code are provided in the  [sycl-ros-package branch](https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics/tree/sycl-ros-package) branch). The gazebo simulation is meanted for develloper to be able to visually approved their motion planning algorithm, different test cases can be design depending on the appliation needs. In this repo we have setup a simple simulation made of a [3DOF robotic arm](https://github.com/Robotawi/rrr-arm) and a sphere to represent an obstacle. The use of OneApi makes the SYCL code integration into ROS2 really easy for the following points:
 * The icpx compiler provided by oneAPI is purelly C++ based but with lots of extra features for SYCL and fpga development, so it could compile any C++ program
 * oneAPI provides the cmake package configuration files for all the toolkits and required packages
 * The colcon build tool chain used in ROS2 is capable of managing the building process with different compilers for different packages
 * ament-cmake is purelly cmake based which means we only need to change the CmakeList to connect the two things
-In our case, we put all our SYCL code for FPGA into a ROS2 package that is seperated from all other packages but in the same workspace. The detailed explanation and code are in the sycl-ros-package branch of this repo. The good point of this workflow is that normally setting up the FPGA is hard because we need to setup all the interfaces and drivers which are complex and unrelated to algorithms, same for robotics setting up. Based on this workflow, all the FPGA developers, especially the personal developers, DIY developers, or any one who want to do something to using FPGA in robotics could do the pure simulation of both robotics and FPGA without setting up any hardware and focusing on the algorithm itself. After the simulation is good, then they could map the whole thing to hardware easily, both for robotics and FPGA based on the capability of ROS2 and oneAPI. Therefore, this whole workflow could be used as a pre-stage in the connection of these two fields.
 
-In general, our ambitious is to setup an opensource platform for the public to develop their own projects for the FPGA implementation in robotics.
+Note that for the remaining part of the workflow[ Quartus Prime Pro ](https://www.intel.co.uk/content/www/uk/en/products/details/fpga/development-tools/quartus-prime.html) is required (it is a license software).
+After emulation and ROS2 simulation the FPGA implementation can be simulated using Questa or modelsim. Simulation serve the same purpose as emulation however it give you  much more accurate data than the emulator, but it is much slower than the emulator. After the simulation, the design can be fully compile. The compilation will first enable you to take a look at the FPGA hardware image report which is analogous to early image report but contains much more precise information about resource utilization and fMAX numbers. From the compilation you will also be able to the bitstream into an actual FPGA. In our case this is done throught the [DevCloud](https://devcloud.intel.com/oneapi/home/) as all the setup is handle for us.  More information about accessing the devcloud in the next section. 
+
+Additionally a CPU version has also been develloped for Benchmarking purposes, the cpu version can be also simulatated in ROS2 and upload on the devcloud. Every information regarding the CPU_version is available  on the [STOMP_CPU_VERSION](https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics/tree/STOMP_CPU_VERSION) branch.
+
+On the long term, our ambition is to setup an opensource platform for the public to develop their own projects for the FPGA implementation in robotics.
+
+### Prerequisite
+As always with FPGA there is a lot of tooling involved, be ready to spend hours debuging them (especially to access the devcloud) but don't lose hope because in the end it will work. 
+
+First of all it is highly recommended to use this workflow within a Ubuntu operating system. Virtual Machine can work but it is important to be aware that at least 200Gb is required to download all the software (most of it is quartus).   
+
+#### Visual Studio Code (Vscode)
+Visual Studio Code is essential in our workflow as it centralized all the other software, this mean that theorically you will able to control every thing through Vscode such as ROS2, devcloud, emulation, simulation, compilation,... 
+If not done already here is the to download page for [Vscode](https://code.visualstudio.com/Download). 
+
+#### CMake
+Make sure to download [CMake](https://cmake.org/download/) as it use extensively in this project. Make sure also to add the Vscode extension called "CMake Tools". 
+
+#### OneApi
+
+In order to use OneApi in Visual Studio you will need to download [OneApi base toolkit](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#base-kit), this will download the icpx compiler which is use to compile sycl code. In order to used it within Vscode you will also need to add the extension in Visual studio code. The extension is called "Extension Pack for Intel(R) oneAPI Toolkits".
+
+If you are on windows you will also need to downloads Visual Studio which is not be confuse with Vscode. When you download Visual Studio make sure to download C++ devellopement desktop. 
+
+#### Quartus Prime Pro 
+As mention Quartus Prime 
+
+#### ROS2
 
 ## Functionality of branches 
 There are three main branches in our repo right now, each has different funcitonality and purpose with corresponding code, as explained below:
