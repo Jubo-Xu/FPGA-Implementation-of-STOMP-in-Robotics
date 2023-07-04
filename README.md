@@ -120,7 +120,7 @@ $$
 where  $x_p, y_p, z_p$  are coordinate of that point, and  $x_c, y_c, z_c$  are the x, y, z position of the center of the sphere, and  $r_o$  is the radius of sphere obstacle. The x, y, z position of the point are calculated by forward kinematics. In our case, since the robotic arm is 3 DoF, we calculate the distance for two points, one is the end effector, another point is at the third joint. The forward kinematics to calcualte the x, y, z position of these two points is:
 
 $$
-\begin{equation}
+\begin{align*}
 x_1 = L_2\sin(\theta _2)\sin(\theta _1)+M_1\sin(\theta _1)
 y_1 = -(L_2\sin(\theta _2)\cos(\theta _1)-M_1\cos(\theta _1))
 z_1 = L_1+L_2\cos(\theta _2)
@@ -128,7 +128,7 @@ z_1 = L_1+L_2\cos(\theta _2)
 x_2 = (L_2\sin(\theta _2)+L_3\sin(\theta _2+\theta _3))\sin(\theta _1)+M_2\sin(\theta _1)
 y_2 = -(L_2\sin(\theta _2)+L_3\sin(\theta _2+\theta _3))\cos(\theta _1)+M_2\sin(\theta _1)
 z_2 = L_1+L_2\cos(\theta _2)+L_3\cos(\theta _2+\theta _3)
-\end{equation}
+\end{align*}
 $$
 
 where  $L_1, L_2, L_3$  are the length of link1, link2, and link3, and  $M_1, M_2$  are the length of the first and second offset on the robotic arm. 
