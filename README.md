@@ -124,7 +124,6 @@ $$
 x_1 = L_2\sin(\theta _2)\sin(\theta _1)+M_1\sin(\theta _1)
 y_1 = -(L_2\sin(\theta _2)\cos(\theta _1)-M_1\cos(\theta _1))
 z_1 = L_1+L_2\cos(\theta _2)
-
 x_2 = (L_2\sin(\theta _2)+L_3\sin(\theta _2+\theta _3))\sin(\theta _1)+M_2\sin(\theta _1)
 y_2 = -(L_2\sin(\theta _2)+L_3\sin(\theta _2+\theta _3))\cos(\theta _1)+M_2\sin(\theta _1)
 z_2 = L_1+L_2\cos(\theta _2)+L_3\cos(\theta _2+\theta _3)
