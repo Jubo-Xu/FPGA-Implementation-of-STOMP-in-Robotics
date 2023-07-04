@@ -199,6 +199,7 @@ The figure above shows the SYCL mapping of the hardware architecture, each hardw
 > Set up your CLI environment by sourcing the `setvars` script located in the root of your oneAPI installation every time you open a new terminal window. 
 > This practice ensures that your compiler, libraries, and tools are ready for development.
 > All the following parts assuming oneAPI toolkits are installed locally, but for simulation and hardware compilation, devcloud should be connected, and Quartus prime pro is also needed.
+> 
 > Linux*:
 > - For system wide installations: `source /opt/intel/oneapi/setvars.sh`
 > - For private installations: ` . ~/intel/oneapi/setvars.sh`
