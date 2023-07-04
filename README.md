@@ -388,10 +388,11 @@ finished
 > **Note**: The output is the final trajectory we generated, in our case, we tested that for a robotics arm with 3 DoF, and the number of timesteps for trajectory is 16, therefore the total number of output is 48.
 
 ## Usefull material for Beginners 
+
 ### OneApi 
-For FPGA 
-Make sure to look [SYCL-FPGA documentation](https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/C++SYCL_FPGA)
+If you want [SYCL-FPGA documentation](https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/C++SYCL_FPGA)
 ### ROS2
+If you want to know more about how to setup a gazebo ros2 simulation refer to [articulated robotic](https://www.youtube.com/watch?v=4QKsDf1c4hc&t=1304s&ab_channel=ArticulatedRobotics) and [The Construct](https://www.youtube.com/watch?v=lo1bXm8Aoqc&t=529s&ab_channel=TheConstruct) on Youtube. ROS2 documentation is also well written and of great use.
 
 ## License
 
