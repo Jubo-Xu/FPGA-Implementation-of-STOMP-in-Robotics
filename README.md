@@ -1,6 +1,10 @@
 # Bridge between SYCL for FPGA and ROS2 for Robotics
 This branch contains the code that connect the SYCL code for FPGA design and ROS2 code for Robotics simulation together. Since SYCL is purely based on C++, and the compiler ICPX we used for oneAPI is also the C++ compiler with extra features mainly for accelerator design, it's possible to connect them together. 
 
+<p align="middle">
+<img src="image/running.png" style="width:800px;" />
+</p>
+
 ## Explaination of workflow
 This section mainly explains how we connect these two things together and how we use this connection to test our FPGA Implementation for Robotics.
 
