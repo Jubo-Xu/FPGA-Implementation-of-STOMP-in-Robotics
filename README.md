@@ -399,7 +399,7 @@ finished
 ## Usefull material for Beginners 
 
 ### OneApi 
-If you want [SYCL-FPGA documentation](https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/C++SYCL_FPGA)
+To start go through the [DPC++ book](https://link.springer.com/book/10.1007/978-1-4842-5574-2), this will teach all about memory, code structure, kernels, ... Then to get familiar with SYCL for targeting FPGA refer to the github page [SYCL-FPGA documentation](https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/C++SYCL_FPGA). Additionally you can also look at the intel video on OneAPI but they oftem miss important suptility.  
 ### ROS2
 If you want to know more about how to setup a gazebo ros2 simulation refer to [articulated robotic](https://www.youtube.com/watch?v=4QKsDf1c4hc&t=1304s&ab_channel=ArticulatedRobotics) and [The Construct](https://www.youtube.com/watch?v=lo1bXm8Aoqc&t=529s&ab_channel=TheConstruct) on Youtube. ROS2 documentation is also well written and of great use.
 
