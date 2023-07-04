@@ -6,16 +6,25 @@ Welcome to our FPGA implementation of [**STOMP**](https://ieeexplore.ieee.org/st
 This repository is a part of consultancy Project with  intel  PSG Robotics Technology Group and Imperial College London. The goal of the project was to study the suitability of motion planning algorithm like STOMP or CHOMP when implemented into FPGA. This repositary contains a complete Implementation of STOMP on FPGA based on [**OneAPI**](https://www.intel.com/content/www/us/en/developer/tools/oneapi/data-parallel-c-plus-plus.html) of Intel, which is based on [SYCL](https://www.khronos.org/sycl/). In this documentation you will learn everything there is to know about 
 
 - [Introduction](#introduction)
-- [WorkFlow](#workflow)
-  - [Prerequisites](#prerequisites)
-  - [Steps](#steps)
-- [Usage](#usage)
-  - [Examples](#examples)
-- [Contributing](#contributing)
+- [Project Organisation](#project-organisation)
+  - [Work Flow](#workflow)
+  - [Functionality of branches](#functionality-of-branches)
+  - [Prerequisite](#prerequisite)
+- [FPGA Architecture of STOMP](#fpga-architecture-of-stomp)
+  - [Introduction to STOMP](#introduction-to-stomp)
+  - [General Architecture](#general-architecture)
+  - [Some important individual blocks](#some-important-individual-blocks)
+      - [Smoothness cost function](#smoothness-cost-function)
+      - [Sparse Matrix Multiplication and dot product](#sparse-matrix-multiplication-and-dot-product)
+      - [Gaussian Random Number Generator](#gaussian-random-number-generator)
+  - [SYCL Code Mapping](#sycl-code-mapping)     
+- [How To Run The Code](#how-to-run-the-code)
+- [Usefull material for Beginners](#usefull-material-for-beginners)
 - [License](#license)
 
 
-## WorkFlow
+## Project Organisation 
+### WorkFlow
 Along with studying the suitability of motion planning algorith when implemented into FPGA, the project aimed to design a complete workflow to be able to develop, test and benchmark the fpga implemetentation. In that sense the following workflow has been develloped: 
 ![FPGA-Robotics development workflow](https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics/blob/master/image/dev_flow.png)
 
@@ -31,6 +40,15 @@ After emulation and ROS2 simulation the FPGA implementation can be simulated usi
 Additionally a CPU version has also been develloped for Benchmarking purposes, the cpu version can be also simulatated in ROS2 and upload on the devcloud. Every information regarding the CPU_version is available  on the [STOMP_CPU_VERSION](https://github.com/Jubo-Xu/FPGA-Implementation-of-STOMP-in-Robotics/tree/STOMP_CPU_VERSION) branch.
 
 On the long term, our ambition is to setup an opensource platform for the public to develop their own projects for the FPGA implementation in robotics.
+
+### Functionality of branches 
+There are three main branches in our repo right now, each has different funcitonality and purpose with corresponding code, as explained below:
+* master ---> contains the introduction and explanation for FPGA architecture and SYCL code independently
+* sycl-ros-package ---> contains the explanation of connection between ROS2 and SYCL and the code
+* STOMP_CPU_VERSION ---> contains the CPU version code of STOMP tested in our case
+* ros2_STOMP_pkg ---> contains the package of our ROS2 environment setup for our test case
+* test ---> contains the test code for all the FPGA kernels in SYCL and their corresponding static report
+
 
 ### Prerequisite
 As always with FPGA there is a lot of tooling involved, be ready to spend hours debuging them (especially to access the devcloud) but don't lose hope because in the end it will work. 
@@ -48,20 +66,15 @@ Make sure to download [CMake](https://cmake.org/download/) as it use extensively
 
 In order to use OneApi in Visual Studio you will need to download [OneApi base toolkit](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#base-kit), this will download the icpx compiler which is use to compile sycl code. In order to used it within Vscode you will also need to add the extension in Visual studio code. The extension is called "Extension Pack for Intel(R) oneAPI Toolkits".
 
-If you are on windows you will also need to downloads Visual Studio which is not be confuse with Vscode. When you download Visual Studio make sure to download C++ devellopement desktop. 
+> **Note**: If you are on windows you will also need to downloads Visual Studio which is not be confuse with Vscode. When you download Visual Studio make sure to download C++ devellopement desktop. 
 
-#### Quartus Prime Pro 
-As mention Quartus Prime 
+
+
+#### Quartus Prime Pro and Questa or ModelSim
+As mention Quartus Prime Pro is required to simulate and perform a hardware compilation of your code you can refer to [intel documention](https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/2023-0/evaluate-your-kernel-through-simulation.html) for 
 
 #### ROS2
-
-## Functionality of branches 
-There are three main branches in our repo right now, each has different funcitonality and purpose with corresponding code, as explained below:
-* master ---> contains the introduction and explanation for FPGA architecture and SYCL code independently
-* sycl-ros-package ---> contains the explanation of connection between ROS2 and SYCL and the code
-* STOMP_CPU_VERSION ---> contains the CPU version code of STOMP tested in our case
-* ros2_STOMP_pkg ---> contains the package of our ROS2 environment setup for our test case
-* test ---> contains the test code for all the FPGA kernels in SYCL and their corresponding static report
+ROS2 Humble was use througout the project  
 
 ## FPGA Architecture of STOMP
 This section is mainly used to explain the hardware architecture we designed for STOMP, and also how these different hardware blocks are mapped to SYCL code. 
@@ -372,6 +385,12 @@ output is:
 finished 
 ```
 > **Note**: The output is the final trajectory we generated, in our case, we tested that for a robotics arm with 3 DoF, and the number of timesteps for trajectory is 16, therefore the total number of output is 48.
+
+## Usefull material for Beginners 
+### OneApi 
+For FPGA 
+Make sure to look [SYCL-FPGA documentation](https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/C++SYCL_FPGA)
+### ROS2
 
 ## License
 
