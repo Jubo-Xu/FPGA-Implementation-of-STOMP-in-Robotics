@@ -74,7 +74,16 @@ In order to use OneApi in Visual Studio you will need to download [OneApi base t
 As mention Quartus Prime Pro is required to simulate and perform a hardware compilation of your code you can refer to [intel documention](https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/2023-0/evaluate-your-kernel-through-simulation.html) for 
 
 #### ROS2
-ROS2 Humble was use throughout the project  
+ROS2 Humble was use throughout the project. In order to download it you follow the instruction on the [ROS2 website](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). Additionally 2 package are also required: 
+- [ros2-control](#)
+- [ros2-gazebo-control](#)
+
+**Note**: You can change the default target by using the command:
+``` sudo apt install ros2-humble-package-name  ```
+    
+
+
+
 
 ## FPGA Architecture of STOMP
 This section is mainly used to explain the hardware architecture we designed for STOMP, and also how these different hardware blocks are mapped to SYCL code. 
