@@ -223,8 +223,41 @@ The figure above shows the SYCL mapping of the hardware architecture, each hardw
 > For more information on configuring environment variables, see [Use the setvars Script with Linux* or macOS*](https://www.intel.com/content/www/us/en/develop/documentation/oneapi-programming-guide/top/oneapi-development-environment-setup/use-the-setvars-script-with-linux-or-macos.html) or [Use the setvars Script with Windows*](https://www.intel.com/content/www/us/en/develop/documentation/oneapi-programming-guide/top/oneapi-development-environment-setup/use-the-setvars-script-with-windows.html).
 
 ### Building the STOMP sample
-#### On a Linux System(Recommended)
+#### On Intel® DevCloud using Batch Job Submission (Recommended)
+
+1. To connect to DevCloud, follow documentations for [connecting to DevCloud with OpenSSH (Windows)](https://devcloud.intel.com/oneapi/documentation/connect-with-ssh-windows-openssh/) or [connecting to DevCloud (Linux/MacOS)](https://devcloud.intel.com/oneapi/documentation/connect-with-ssh-linux-macos/).
+
+2. In the root directory, create a script file called build_fpga.sh, paste the following code and save.
+    ```
+    #!/bin/bash
+
+    echo "Set Quartus directory override"
+    source /opt/intel/oneapi/setvars.sh
+    export QUARTUS_ROOTDIR_OVERRIDE=/glob/development-tools/versions/intelFPGA_pro/19.2/quartus
+    
+    echo "Move into build folder"
+    cd EE3/FPGA-Implementation-of-STOMP-in-Robotics/build
+    
+    echo "Remove cache"
+    rm CMakeCache.txt
+    
+    echo "Clean and set target"
+    cmake clean ..
+    cmake -DFPGA_DEVICE=intel_s10sx_pac:pac_s10 ..
+    
+    echo "Start make"
+    make fpga
+    
+    echo "End of bash script"
+    ```
+    This script is used to compile for FPGA hardware. To compile for emulation, simulation, or generate optimisation report, replace `make fpga` with `make fpga_emu`, `make fpga_sim` and `make report` respectively.
+
+   3. Submi
+
+#### On a Linux System or with Intel® DevCloud's Interactive Mode (Recommended)
 > **Note**: This branch already contains the build folder with executable .fpga_emu file, for quick check you could directly go to the build folder and run `./stomp.fpga_emu` to see the result. For personal uses, you could delete the `build` folder and go through the following process.
+
+
 
 1. Generate the `Makefile` by running `cmake`.
     ```
