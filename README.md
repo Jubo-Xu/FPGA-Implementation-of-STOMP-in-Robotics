@@ -185,7 +185,7 @@ The cost function calculated used here is for the simplest case, later this can 
   cd my_bot
   ./joint_command
   ```
->**Note**: it's important to first run the fpga_kernel.fpga_emu first, wait for a while, if there's "Instantiation finished, let's go:" on the terminal, then run the join_command. This is because the instantiation of kernels and subscriber take time, we need to wait for the instantiation finished, otherwise the subscriber cannot get all the data being sent, and the pipe would be blocked, it will not run properly.
+>**Note**: it's important to run the fpga_kernel.fpga_emu first, wait for a while, if there's "Instantiation finished, let's go:" on the terminal, then run the joint_command. This is because the instantiation of kernels and subscriber take time, we need to wait for the instantiation finished, otherwise the subscriber cannot get all the data being sent, and the pipe would be blocked, it will not run properly.
 
 7. after running the above commands, the terminal of joint command should first publish some numbers, and the fpga_kernel terminal would show these numbers at the same time, then it would go for the fpga execution, and then publish back, then the robotic arm in the Gazebo would move correspondingly. 
 
