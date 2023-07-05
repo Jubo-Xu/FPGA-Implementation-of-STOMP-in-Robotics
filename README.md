@@ -443,7 +443,7 @@ finished
 ```
 > **Note**: The output is the final trajectory we generated, in our case, we tested that for a robotics arm with 3 DoF, and the number of timesteps for trajectory is 16, therefore the total number of output is 48.
 
-## Usefull material for Beginners 
+## Useful material for Beginners 
 
 ### OneApi 
 To start go through the [DPC++ book](https://link.springer.com/book/10.1007/978-1-4842-5574-2), this will teach all about memory, code structure, kernels, ... Then to get familiar with SYCL for targeting FPGA refer to the github page [SYCL-FPGA documentation](https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/C++SYCL_FPGA). Additionally you can also look at the intel video on OneAPI but they oftem miss important suptility.  
