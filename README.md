@@ -252,7 +252,7 @@ The figure above shows the SYCL mapping of the hardware architecture, each hardw
     echo "End of bash script"
     ```
    This script is used to compile for FPGA hardware. To compile for emulation, simulation, or generate optimisation report, replace `make fpga` with `make fpga_emu`, `make fpga_sim` and `make report` respectively.
-3. Modify script permissions to allow build_fpga.sh to be executed with:
+3. Grrant execute permissions to the script
     ```
     chmod +x build_fpga.sh
     ```
