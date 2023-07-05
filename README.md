@@ -261,7 +261,7 @@ The figure above shows the SYCL mapping of the hardware architecture, each hardw
    qsub -l walltime=23:59:59 -l nodes=1:fpga_runtime:stratix10:ppn=2 -d . build_fpga.sh -o build_fpga.o.log -e build_fpga.e.log
    ```
 
-#### On a Linux System or with Intel® DevCloud's Interactive Mode (Recommended)
+#### On a Linux System or with Intel® DevCloud's Interactive Mode
 > **Note**: This branch already contains the build folder with executable .fpga_emu file, for quick check you could directly go to the build folder and run `./stomp.fpga_emu` to see the result. For personal uses, you could delete the `build` folder and go through the following process.
 
 > **Note**: If using Intel® DevCloud's Interactive Mode, request a compute node using the command `qsub -I -l walltime=23:59:59 -l nodes=1:fpga_runtime:stratix10:ppn=2 -d .` and follow the rest of the instructions.
