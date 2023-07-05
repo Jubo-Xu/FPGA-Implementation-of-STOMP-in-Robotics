@@ -288,6 +288,7 @@ The figure above shows the SYCL mapping of the hardware architecture, each hardw
     >  ``` 
     >
     > You will only be able to run an executable on the FPGA if you specified a BSP.
+    > 
     > Using Stratix® 10 is highly recommended (`-DFPGA_DEVICE=intel_s10sx_pac:pac_s10`).
 
 2. Compile the design through the generated `Makefile`. The following build targets are provided, matching the recommended development flow:
@@ -332,6 +333,7 @@ The figure above shows the SYCL mapping of the hardware architecture, each hardw
     >  ``` 
     >
     > You will only be able to run an executable on the FPGA if you specified a BSP.
+    > 
     > Using Stratix® 10 is highly recommended (`-DFPGA_DEVICE=intel_s10sx_pac:pac_s10`).
 
 2. Compile the design through the generated `Makefile`. The following build targets are provided, matching the recommended development flow:
