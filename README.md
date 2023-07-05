@@ -252,8 +252,11 @@ The figure above shows the SYCL mapping of the hardware architecture, each hardw
     echo "End of bash script"
     ```
    This script is used to compile for FPGA hardware. To compile for emulation, simulation, or generate optimisation report, replace `make fpga` with `make fpga_emu`, `make fpga_sim` and `make report` respectively.
-
-3. To submit the script to DevCloud, use the command
+3. Modify script permissions to allow build_fpga.sh to be executed with:
+    ```
+    chmod +x build_fpga.sh
+    ```
+4. To submit the script to DevCloud, use the command
    ```
    qsub -l walltime=23:59:59 -l nodes=1:fpga_runtime:stratix10:ppn=2 -d . build_fpga.sh -o build_fpga.o.log -e build_fpga.e.log
    ```
