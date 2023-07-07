@@ -117,12 +117,12 @@ The equations can be represented as:
 $$
 \begin{align*}
 \theta^TR\theta &= ( \theta_0 + \delta\theta)^TR( \theta_0 + \delta\theta) \\
-&= \theta_o^TR\theta_o + \theta_o^TR\delta\theta \\
-&= (\theta_o^{T}+\delta\theta^T)R(\theta_o+\delta\theta) \\
-&= \theta_o^TR\theta_o+\theta_o^TR\delta\theta+\delta\theta^TR\theta_o+\delta\theta^T\delta\theta \\
+&= \theta_0^TR\theta_0 + \theta_0^TR\delta\theta \\
+&= (\theta_0^{T}+\delta\theta^T)R(\theta_0+\delta\theta) \\
+&= \theta_0^TR\theta_0+\theta_0^TR\delta\theta+\delta\theta^TR\theta_0+\delta\theta^TR\delta\theta \\
 \delta\theta &= M\delta\tilde{\theta} = \frac{1}{N}R^-\delta\tilde{\theta} \\
-\theta_o^TR\delta\theta &= \theta_o^TR(\frac{1}{N}R^-\delta\tilde{\theta})= \frac{1}{N}\theta_o^T\delta\tilde{\theta} \\
-\delta\theta^TR\theta &= \frac{1}{N}\delta\tilde{\theta}^T(R^-)^TR\theta_o =\frac{1}{N}\theta_o^T\delta\tilde{\theta} \\
+\theta_0^TR\delta\theta &= \theta_0^TR(\frac{1}{N}R^-\delta\tilde{\theta})= \frac{1}{N}\theta_0^T\delta\tilde{\theta} \\
+\delta\theta^TR\theta &= \frac{1}{N}\delta\tilde{\theta}^T(R^-)^TR\theta_0 =\frac{1}{N}\delta\tilde{\theta}^T\theta_0 \\
 \delta\theta^TR\delta\theta &= \frac{1}{N^2}(R^-\delta\tilde{\theta})^TR(R^-\delta\tilde{\theta}) = \frac{1}{N^2}\delta\tilde{\theta}^TR^{-1}\delta\tilde{\theta}
 \end{align*}
 $$
