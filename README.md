@@ -166,9 +166,9 @@ The second Picewise Linear approximations is mainly using multiple linear distri
 </p>
 The Hadmard Transformation network is good to use because after going through this network we could get multiple samples at the same time, these samples are still independent to each other and have the probability distribution closer to Gaussian due to Central Limit Theorem. The last one we tried is simply the triangular RNG which can be constructed by two uniform RNGs and Hadmard Transform network. 
 <p align="middle">
-  <img src="image/pwlonly.png" width="32%" height="300" alt="Picewise Linear only" />
-  <img src="image/pwlandht.png" width="32%" height="300" alt="Picewise Linear with Hadmard Transform" /> 
-  <img src="image/triandht.png" width="32%" height="300" alt="Triangular distribution with Hadmard Transform" />
+  <img src="image/pwlonly_2.png" width="32%" height="300" alt="Picewise Linear only" />
+  <img src="image/pwlandht_2.png" width="32%" height="300" alt="Picewise Linear with Hadmard Transform" /> 
+  <img src="image/triandht_2.png" width="32%" height="300" alt="Triangular distribution with Hadmard Transform" />
 </p>
 
 The leftmost figure is the probability distribution of picewise linear approximation only, and the middle one is that of the picewise linear with Hadmard transform network, and the rightmost one is that of the triangular distribution with the Hadmard transform. It can be seen that the effect of Hadmard transform is quite significant, the picewise linear + hadmard tranform case requires too much resources and even need several minutes to run for emulation. Since after testing, STOMP is not that sensitive to RNG, the RNG we finally used is the last case.
