@@ -146,7 +146,7 @@ The decomposition presented in above equation decreases the number of operations
 #### 2. Sparse Matrix Multiplication and dot product
 After the decomposition of the smoothness cost function, we need to calculate the $\frac{1}{2}{\theta _0}^TR{\theta _0}$ in the first iteration, R is a sparse diagonal matrix, and our input is streaming in in the pipelined way, it's uneccessary to do the whole matrix multiplication for it using PE arrays. The way we design it is in this way:
 <p align="middle">
-<img src="image/sparse.png" style="width:400px;" />
+<img src="image/sparse_2.png" style="width:400px;" />
 </p>
 
 For this architecture, we could do the whole matrix multiplication with only a little bit resources and considering about the boundery condition easily. Sparse diagonal matrix multiplication is quite common in robotics motion planning algorithms, like finite difference matrix representing velocity or acceleration. Therefore, this architecture can be generalized and good to use.
