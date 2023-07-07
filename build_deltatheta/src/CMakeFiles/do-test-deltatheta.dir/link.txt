@@ -1,0 +1,1 @@
+/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx -fsycl CMakeFiles/do-test-deltatheta.dir/test_delta_theta_block.cpp.o CMakeFiles/do-test-deltatheta.dir/Adder_Tree.cpp.o -o ../do-test-deltatheta 

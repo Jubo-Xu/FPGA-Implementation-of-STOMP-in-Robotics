@@ -328,7 +328,7 @@ struct MyAutorun_out {
 //fpga_tools::Autorun<AR_4_1_kernel_ID> ar_kernel_parallel_to_serial{selector, Delta_Theta_Block::Theta_Calc_Kernel3<pipe_array_p, pipe_array_epsilon, pipe_array_theta_out>{}};
 
 //Declare the kernel for MMUL
-//fpga_tools::Autorun<ARMMUL_kernel_ID> ar_kernel_test_MMUL(selector, smooth::ARMMul<pipe_array_in_MMUL, pipe_array_out1_MMUL, pipe_array_out2_MMUL>{})
+fpga_tools::Autorun<ARMMUL_kernel_ID> ar_kernel_test_MMUL(selector, smooth::ARMMul<pipe_array_in_MMUL, pipe_array_out1_MMUL, pipe_array_out2_MMUL>{});
 
 //Declare the kernel for ARTupdate
 //fpga_tools::Autorun<ARTupdate_kernel_ID> ar_kernel_test_ARTupdate(selector, smooth::ARTUpdate<pipe_array_state_ARTupdate, pipe_array_traj_ARTupdate, pipe_array_theta_ARTupdate, pipe_array_out1_ARTupdate, pipe_array_out2_ARTupdate>{});
@@ -337,7 +337,7 @@ struct MyAutorun_out {
 //fpga_tools::Autorun<SparseMMUL_kernel_ID> ar_kernel_test_SparseMMUL(selector, smooth::ARSparseMul<pipe_array_state_SparseMMUL, pipe_array_in_SparseMMUL, pipe_array_out_SparseMMUL>{});
 
 //Declare the kernel for Smooth
-fpga_tools::Autorun<Smooth_Kernel_ID> ar_kernel_test_Smooth(selector, smooth::ARSmooth<pipe_array_state_smooth, pipe_array_mul_smooth, pipe_array_sparse_smooth, pipe_array_theta_initial_smooth, pipe_array_delta_theta_smooth, pipe_array_out_smooth>{});
+//fpga_tools::Autorun<Smooth_Kernel_ID> ar_kernel_test_Smooth(selector, smooth::ARSmooth<pipe_array_state_smooth, pipe_array_mul_smooth, pipe_array_sparse_smooth, pipe_array_theta_initial_smooth, pipe_array_delta_theta_smooth, pipe_array_out_smooth>{});
 ////////////////////////////////////////////////////////////////////// 
 //////////////////////////////////////////////////////////////////////
 
@@ -948,11 +948,11 @@ std::vector<float> out_smooth = {-1, -1};
       //SubmitConsumerKernel_test<ARConsumerID, pipe_array_theta_out>(q, out_buf);
 
       ////////////////////// TEST FOR MMUL ////////////////////////////////
-      // sycl::buffer In_buf_MMUL(In_MMUL);
-      // sycl::buffer Out1_buf_MMUL(Out1_MMUL);
-      // sycl::buffer Out2_buf_MMUL(Out2_MMUL);
-      // SubmitProduce_test_MMUL<ARProduceKernel_MMUL_ID, pipe_array_in_MMUL>(q, In_buf_MMUL);
-      // SubmitConsume_test_MMUL<ARConsumeKernel_MMUL_ID, pipe_array_out1_MMUL, pipe_array_out2_MMUL>(q, Out1_buf_MMUL, Out2_buf_MMUL);
+      sycl::buffer In_buf_MMUL(In_MMUL);
+      sycl::buffer Out1_buf_MMUL(Out1_MMUL);
+      sycl::buffer Out2_buf_MMUL(Out2_MMUL);
+      SubmitProduce_test_MMUL<ARProduceKernel_MMUL_ID, pipe_array_in_MMUL>(q, In_buf_MMUL);
+      SubmitConsume_test_MMUL<ARConsumeKernel_MMUL_ID, pipe_array_out1_MMUL, pipe_array_out2_MMUL>(q, Out1_buf_MMUL, Out2_buf_MMUL);
 
       /////////////////////////////////////////////////////////////////////
       ////////////////////// TEST FOR ARTUPDATE ///////////////////////////
@@ -972,13 +972,13 @@ std::vector<float> out_smooth = {-1, -1};
 
       /////////////////////////////////////////////////////////////////////
       ////////////////////// TEST FOR SMOOTH //////////////////////////////
-      sycl::buffer In_buf_theta_initial_smooth(In_theta_initial_smooth);
-      sycl::buffer In_buf_delta_theta_smooth(In_delta_theta_smooth);
-      sycl::buffer In_buf_mul_smooth(In_mul_smooth);
-      sycl::buffer In_buf_sparse_smooth(In_sparse_smooth);
-      sycl::buffer out_buf_smooth(out_smooth);
-      SubmitProduce_Smooth<ARProduceKernel_smooth_ID, pipe_array_mul_smooth, pipe_array_sparse_smooth, pipe_array_theta_initial_smooth, pipe_array_delta_theta_smooth>(q, In_buf_mul_smooth, In_buf_sparse_smooth, In_buf_theta_initial_smooth, In_buf_delta_theta_smooth);
-      SubmitConsume_Smooth<ARConsumeKernel_smooth_ID, pipe_array_out_smooth>(q, out_buf_smooth);
+      // sycl::buffer In_buf_theta_initial_smooth(In_theta_initial_smooth);
+      // sycl::buffer In_buf_delta_theta_smooth(In_delta_theta_smooth);
+      // sycl::buffer In_buf_mul_smooth(In_mul_smooth);
+      // sycl::buffer In_buf_sparse_smooth(In_sparse_smooth);
+      // sycl::buffer out_buf_smooth(out_smooth);
+      // SubmitProduce_Smooth<ARProduceKernel_smooth_ID, pipe_array_mul_smooth, pipe_array_sparse_smooth, pipe_array_theta_initial_smooth, pipe_array_delta_theta_smooth>(q, In_buf_mul_smooth, In_buf_sparse_smooth, In_buf_theta_initial_smooth, In_buf_delta_theta_smooth);
+      // SubmitConsume_Smooth<ARConsumeKernel_smooth_ID, pipe_array_out_smooth>(q, out_buf_smooth);
 
     }
     std::cout<<"submit finished\n";
@@ -1000,20 +1000,20 @@ std::vector<float> out_smooth = {-1, -1};
     // std::cout<<"\n";
 
     ///////////// Print the out for MMUL //////////////
-    // std::cout<<"output is: \n";
-    // std::cout<<"matrix out1: \n";
-    // for(int i=0; i<3; i++){
-    //   for(int j=0; j<5; j++){
-    //     std::cout<<Out1_MMUL[i*5+j]<<' ';
-    //   }
-    //   std::cout << "\n";
-    // }
-    // std::cout<<"\n";
-    // std::cout<<"matrix out2: \n";
-    // for(int i=0; i<3; i++){
-    //   std::cout<< Out2_MMUL[i]<<std::endl;
-    // }
-    // std::cout<<"\n";
+    std::cout<<"output is: \n";
+    std::cout<<"matrix out1: \n";
+    for(int i=0; i<3; i++){
+      for(int j=0; j<5; j++){
+        std::cout<<Out1_MMUL[i*5+j]<<' ';
+      }
+      std::cout << "\n";
+    }
+    std::cout<<"\n";
+    std::cout<<"matrix out2: \n";
+    for(int i=0; i<3; i++){
+      std::cout<< Out2_MMUL[i]<<std::endl;
+    }
+    std::cout<<"\n";
 
     ///////////// Print the out for ARTupdate //////////
     // std::cout<<"output is: \n";
@@ -1048,12 +1048,12 @@ std::vector<float> out_smooth = {-1, -1};
     // std::cout<<"\n";
 
     ///////////// Print the out for Smooth //////////////
-    std::cout<<"output is: \n";
-    for(int i=0; i<2; i++){
-      std::cout<<"iteration: "<<i<<"\n";
-      std::cout<<out_smooth[i]<<std::endl;
-    }
-    std::cout<<"\n";
+    // std::cout<<"output is: \n";
+    // for(int i=0; i<2; i++){
+    //   std::cout<<"iteration: "<<i<<"\n";
+    //   std::cout<<out_smooth[i]<<std::endl;
+    // }
+    // std::cout<<"\n";
 
   } catch (sycl::exception const& e) {
     // Catches exceptions in the host code

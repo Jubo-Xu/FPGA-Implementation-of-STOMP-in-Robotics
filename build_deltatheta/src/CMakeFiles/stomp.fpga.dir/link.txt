@@ -1,0 +1,1 @@
+/opt/intel/oneapi/compiler/2023.1.0/linux/bin/icpx -fsycl -fintelfpga -Xshardware -Xstarget=Agilex  CMakeFiles/stomp.fpga.dir/main.cpp.o CMakeFiles/stomp.fpga.dir/Adder_Tree.cpp.o CMakeFiles/stomp.fpga.dir/CostFunction.cpp.o -o ../stomp.fpga 
