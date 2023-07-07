@@ -55,7 +55,7 @@ There are three main branches in our repo right now, each has different funciton
 ### Prerequisite
 As always with FPGA there is a lot of tooling involved, be ready to spend hours debuging them (especially to access the devcloud) but don't lose hope because in the end it will work. 
 
-First of all it is highly recommended to use this workflow within a Ubuntu operating system. Virtual Machine can work but it is important to be aware that at least 200Gb is required to download all the software (most of it is quartus).   
+First of all it is highly recommended to use this workflow within a Ubuntu operating system.   
 
 #### Visual Studio Code (Vscode)
 Visual Studio Code is essential in our workflow as it centralized all the other software, this mean that theorically you will able to control every thing through Vscode such as ROS2, devcloud, emulation, simulation, compilation,... 
@@ -68,7 +68,9 @@ Make sure to download [CMake](https://cmake.org/download/) as it use extensively
 
 In order to use OneApi in Visual Studio you will need to download [OneApi base toolkit](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#base-kit), this will download the icpx compiler which is use to compile sycl code. In order to used it within Vscode you will also need to add the extension in Visual studio code. The extension is called "Extension Pack for Intel(R) oneAPI Toolkits".
 
-> **Note**: If you are on windows you will also need to downloads Visual Studio which is not be confuse with Vscode. When you download Visual Studio make sure to download C++ developement desktop. 
+> **Note**: If you are on windows you will also need to downloads Visual Studio which is not be confuse with Vscode. When you download Visual Studio make sure to download C++ developement desktop.
+
+> **Note**: You don't need to install quartus as it is already taken care within the devcloud more information how to use it further in the documentation. 
 
 #### ROS2
 ROS2 Humble was use throughout the project. In order to download it you follow the instruction on the [ROS2 website](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). Additionally 2 package are also required: 
