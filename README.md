@@ -131,7 +131,7 @@ The overall equation yields to:
 
 $$
 \begin{equation}
-   \frac{1}{2}\theta^TR\theta  =  \frac{1}{2}\theta_0^TR\theta_0 + \frac{1}{N}\delta\tilde{\theta}^T\theta_0+\frac{1}{N^2}\delta\tilde{\theta}R^{-1}\delta\tilde{\theta}
+   \frac{1}{2}\theta^TR\theta  =  \frac{1}{2}\theta_0^TR\theta_0 + \frac{1}{N}\delta\tilde{\theta}^T\theta_0+\frac{1}{N^2}\delta\tilde{\theta}^TR^{-1}\delta\tilde{\theta}
 \end{equation}
 $$
 
