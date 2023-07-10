@@ -41,6 +41,6 @@ cd build/my_bot
 .\joint_command
 ```
 
-you should see the robot moove. 
+you should see the robot move. 
 
 
