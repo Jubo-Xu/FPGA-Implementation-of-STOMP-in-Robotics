@@ -1,5 +1,5 @@
 ## CPU Version
-For Benchmark purposes a CPU version of STOMP has been implemented. This code is base on the ROS_industrial [STOMP repositary](https://github.com/ros-industrial/stomp/tree/main). The STOMP code is integrated with in a ROS2 package which contain a gazebo simulation for testing purposes. 
+For Benchmark purposes a CPU version of STOMP has been implemented. This code is base on the ROS_industrial [STOMP repository](https://github.com/ros-industrial/stomp/tree/main). The STOMP code is integrated with in a ROS2 package which contain a gazebo simulation for testing purposes. 
 
 ## run the code
 This section aim to explain how to run the ros2 package. This section assume that you have install all the prerequisite.
