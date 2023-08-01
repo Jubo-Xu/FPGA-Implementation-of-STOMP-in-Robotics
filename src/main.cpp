@@ -8,7 +8,7 @@
 #include <sycl/ext/intel/fpga_extensions.hpp>
 #endif
 //#include <sycl/ext/intel/fpga_extensions.hpp>
-#include "Adder_Tree.h"
+//#include "Adder_Tree.h"
 #include "CostFunction.h"
 #include "autorun.hpp"
 #include "pipe_utils.hpp"
@@ -22,7 +22,7 @@
 
 
 // Define some constants
-#define N_main          16
+#define N_main          5
 #define k_main          4
 #define DoF_main        3
 #define end_sig_main    2

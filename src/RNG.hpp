@@ -24,7 +24,7 @@ namespace RNG{
     #define N_stat 32
     #define N_had  16
     #define DoF_RNG 3
-    #define N_RNG   16
+    #define N_RNG   5
     #define k_RNG   4
     #define itr_RNG 50
 

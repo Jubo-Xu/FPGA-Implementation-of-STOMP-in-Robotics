@@ -8,16 +8,66 @@ if(DEFINED DOTEST AND (NOT(DOTEST EQUAL 0)))
     message(STATUS "Using the TEST variant.")
     set(SOURCE_FILE vector-add-usm.cpp)
     set(TARGET_NAME do-test)
-    set(ADDER_TREE  Adder_Tree.cpp)
-    set(COST_FUNCTION CostFunction.cpp)
+    # set(COST_FUNCTION CostFunction.cpp)
 else()    
     set(SOURCE_FILE main.cpp)
-    set(ADDER_TREE  Adder_Tree.cpp)
-    set(COST_FUNCTION CostFunction.cpp)
+    # set(COST_FUNCTION CostFunction.cpp)
     set(TARGET_NAME stomp)
     #vector-add-buffers
     #vector-add-usm
 endif()
+
+# for testing
+# if(DEFINED DOTEST AND (DOTEST EQUAL 1))
+#     message(STATUS "Using the TEST variant.")
+#     set(SOURCE_FILE test_delta_theta_block.cpp)
+#     set(TARGET_NAME do-test-deltatheta)
+#     set(ADDER_TREE  Adder_Tree.cpp)
+#     set(COST_FUNCTION CostFunction.cpp)
+# elseif(DEFINED DOTEST AND (DOTEST EQUAL 2))
+#     message(STATUS "Using the TEST variant.")
+#     set(SOURCE_FILE test_cost_function.cpp)
+#     set(TARGET_NAME do-test-obstaclecost)
+#     set(ADDER_TREE  Adder_Tree.cpp)
+#     set(COST_FUNCTION CostFunction.cpp)
+# elseif(DEFINED DOTEST AND (DOTEST EQUAL 3))
+#     message(STATUS "Using the TEST variant.")
+#     set(SOURCE_FILE test_cost_delta_theta.cpp)
+#     set(TARGET_NAME do-test-obscostanddeltatheta)
+#     set(ADDER_TREE  Adder_Tree.cpp)
+#     set(COST_FUNCTION CostFunction.cpp)
+# elseif(DEFINED DOTEST AND (DOTEST EQUAL 4))
+#     message(STATUS "Using the TEST variant.")
+#     set(SOURCE_FILE test_cost_smooth.cpp)
+#     set(TARGET_NAME do-test-smoothcost)
+#     set(ADDER_TREE  Adder_Tree.cpp)
+#     set(COST_FUNCTION CostFunction.cpp)
+# elseif(DEFINED DOTEST AND (DOTEST EQUAL 5))
+#     message(STATUS "Using the TEST variant.")
+#     set(SOURCE_FILE test_determination.cpp)
+#     set(TARGET_NAME do-test-determination)
+#     set(ADDER_TREE  Adder_Tree.cpp)
+#     set(COST_FUNCTION CostFunction.cpp)
+# elseif(DEFINED DOTEST AND (DOTEST EQUAL 6))
+#     message(STATUS "Using the TEST variant.")
+#     set(SOURCE_FILE rng_test.cpp)
+#     set(TARGET_NAME do-test-rng)
+#     set(ADDER_TREE  Adder_Tree.cpp)
+#     set(COST_FUNCTION CostFunction.cpp)
+# elseif(DEFINED DOTEST AND (DOTEST EQUAL 7))
+#     message(STATUS "Using the TEST variant.")
+#     set(SOURCE_FILE test_whole_1_iteration.cpp)
+#     set(TARGET_NAME do-test-whole)
+#     set(ADDER_TREE  Adder_Tree.cpp)
+#     set(COST_FUNCTION CostFunction.cpp)
+# else()    
+#     set(SOURCE_FILE main.cpp)
+#     set(ADDER_TREE  Adder_Tree.cpp)
+#     set(COST_FUNCTION CostFunction.cpp)
+#     set(TARGET_NAME stomp)
+#     #vector-add-buffers
+#     #vector-add-usm
+# endif()
 
 # This is a Windows-specific flag that enables exception handling in host code
 if(WIN32)
@@ -41,7 +91,7 @@ set(LINK_FLAGS "-fsycl")
 # CMake executes:
 #    [compile] icpx -fsycl -o <file>.cpp.o -c <file>.cpp
 #    [link]    icpx -fsycl <file>.cpp.o -o <file>.fpga_emu
-add_executable(${TARGET_NAME} ${SOURCE_FILE} ${ADDER_TREE} )
+add_executable(${TARGET_NAME} ${SOURCE_FILE})
 set_target_properties(${TARGET_NAME} PROPERTIES COMPILE_FLAGS "${COMPILE_FLAGS}")
 set_target_properties(${TARGET_NAME} PROPERTIES LINK_FLAGS "${LINK_FLAGS}")
 add_custom_target(cpu-gpu DEPENDS ${TARGET_NAME})
@@ -91,7 +141,7 @@ set(HARDWARE_LINK_FLAGS "-fsycl -fintelfpga -Xshardware -Xstarget=${FPGA_DEVICE}
 # CMake executes:
 #    [compile] icpx -fsycl -fintelfpga -DFPGA_EMULATOR -o <file>.cpp.o -c <file>.cpp
 #    [link]    icpx -fsycl -fintelfpga <file>.cpp.o -o <file>.fpga_emu
-add_executable(${EMULATOR_TARGET} ${SOURCE_FILE} ${ADDER_TREE})
+add_executable(${EMULATOR_TARGET} ${SOURCE_FILE})
 set_target_properties(${EMULATOR_TARGET} PROPERTIES COMPILE_FLAGS "${EMULATOR_COMPILE_FLAGS}")
 set_target_properties(${EMULATOR_TARGET} PROPERTIES LINK_FLAGS "${EMULATOR_LINK_FLAGS}")
 add_custom_target(fpga_emu DEPENDS ${EMULATOR_TARGET})
@@ -104,7 +154,7 @@ add_custom_target(fpga_emu DEPENDS ${EMULATOR_TARGET})
 # CMake executes:
 #    [compile] icpx -fsycl -fintelfpga -Xssimulation -DFPGA_SIMULATOR -o <file>.cpp.o -c <file>.cpp
 #    [link]    icpx -fsycl -fintelfpga -Xssimulation -Xsghdl -Xstarget=<FPGA_DEVICE> <file>.cpp.o -o <file>.fpga_sim
-add_executable(${SIMULATOR_TARGET} ${SOURCE_FILE} ${ADDER_TREE} ${COST_FUNCTION})
+add_executable(${SIMULATOR_TARGET} ${SOURCE_FILE})
 set_target_properties(${SIMULATOR_TARGET} PROPERTIES COMPILE_FLAGS "${SIMULATOR_COMPILE_FLAGS}")
 set_target_properties(${SIMULATOR_TARGET} PROPERTIES LINK_FLAGS "${SIMULATOR_LINK_FLAGS}")
 add_custom_target(fpga_sim DEPENDS ${SIMULATOR_TARGET})
@@ -116,7 +166,7 @@ add_custom_target(fpga_sim DEPENDS ${SIMULATOR_TARGET})
 #   icpx -fsycl -fintelfpga -Xshardware -Xstarget=<FPGA_DEVICE> -fsycl-link=early <file>.cpp -o <file>_report.a
 set(FPGA_EARLY_IMAGE ${TARGET_NAME}_report.a)
 # The compile output is not an executable, but an intermediate compilation result unique to DPC++.
-add_executable(${FPGA_EARLY_IMAGE} ${SOURCE_FILE} ${ADDER_TREE} ${COST_FUNCTION})
+add_executable(${FPGA_EARLY_IMAGE} ${SOURCE_FILE})
 add_custom_target(report DEPENDS ${FPGA_EARLY_IMAGE})
 set_target_properties(${FPGA_EARLY_IMAGE} PROPERTIES COMPILE_FLAGS "${HARDWARE_COMPILE_FLAGS}")
 set_target_properties(${FPGA_EARLY_IMAGE} PROPERTIES LINK_FLAGS "${HARDWARE_LINK_FLAGS} -fsycl-link=early")
@@ -130,7 +180,7 @@ set_target_properties(${FPGA_EARLY_IMAGE} PROPERTIES LINK_FLAGS "${HARDWARE_LINK
 # CMake executes:
 #   [compile] icpx -fsycl -fintelfpga -o <file>.cpp.o -c <file>.cpp
 #   [link]    icpx -fsycl -fintelfpga -Xshardware -Xstarget=<FPGA_DEVICE> <file>.cpp.o -o <file>.fpga
-add_executable(${FPGA_TARGET} EXCLUDE_FROM_ALL ${SOURCE_FILE} ${ADDER_TREE} ${COST_FUNCTION})
+add_executable(${FPGA_TARGET} EXCLUDE_FROM_ALL ${SOURCE_FILE})
 add_custom_target(fpga DEPENDS ${FPGA_TARGET})
 set_target_properties(${FPGA_TARGET} PROPERTIES COMPILE_FLAGS "${HARDWARE_COMPILE_FLAGS}")
 set_target_properties(${FPGA_TARGET} PROPERTIES LINK_FLAGS "${HARDWARE_LINK_FLAGS}")

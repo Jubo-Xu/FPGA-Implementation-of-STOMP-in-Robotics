@@ -7,7 +7,7 @@
 #include "pipe_utils.hpp"
 #include "unrolled_loop.hpp"
 
-#define N_determine     16
+#define N_determine     5
 #define DoF_determine   3
 #define k_determine     4
 #define Threshold       0.5
