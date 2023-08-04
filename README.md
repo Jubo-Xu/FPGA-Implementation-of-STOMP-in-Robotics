@@ -44,7 +44,7 @@ Additionally, a CPU version has also been developed for Benchmarking purposes, t
 In the long term, our ambition is to setup an open-source platform for the public to develop their projects for the FPGA implementation in robotics.
 
 ### Functionality of branches 
-There are three main branches in our repo right now, each has different funcitonality and purpose with corresponding code, as explained below:
+There are five main branches in our repo right now, each has different funcitonality and purpose with corresponding code, as explained below:
 * master ---> contains the introduction and explanation for FPGA architecture and SYCL code independently
 * sycl-ros-package ---> contains the explanation of connection between ROS2 and SYCL and the code
 * STOMP_CPU_VERSION ---> contains the CPU version code of STOMP tested in our case
