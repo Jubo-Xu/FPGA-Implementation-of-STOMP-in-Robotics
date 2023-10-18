@@ -1,0 +1,3044 @@
+{
+  "columns":
+  ["", "ALUTs", "FFs", "RAMs", "DSPs", "MLABs", "Details"]
+  , "debug_enabled":"true"
+  , "type":"module"
+  , "total_percent":
+  [4.86093, 2.74087, 2.32102, 1.42053, 1.66297]
+  , "total":
+  [23987, 45232, 101, 75, 136]
+  , "name":"Kernel System"
+  , "max_resources":
+  [974400, 1948800, 7110, 4510, 48720]
+  , "children":
+  [
+    {
+      "name":"Global interconnect"
+      , "type":"resource"
+      , "data":
+      [874, 1406, 5, 0, 0]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Global interconnect for 5 global loads and 7 global stores. Reduce number of global loads and stores to simplify global interconnect."
+        }
+        , {
+          "type":"brief"
+          , "text":"For 5 global loads and 7 global stores."
+        }
+        , {
+          "type":"text"
+          , "text":"See %L for more information"
+          , "links":
+          [
+            {
+              "guide":"Best Practices Guide : Global Memory Interconnect"
+              , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/hnj1476724450050.html"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"Pipe resources"
+      , "type":"group"
+      , "children":
+      [
+        {
+          "name":"Pipe (sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_in_MMUL_ID, float, 5ul, 3ul>)"
+          , "type":"resource"
+          , "data":
+          [27, 206, 0, 0, 0]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Pipe is implemented 32 bits wide by 5 deep."
+            }
+            , {
+              "type":"brief"
+              , "text":"32b wide by 5 deep."
+            }
+            , {
+              "type":"text"
+              , "text":"See %L for more information"
+              , "links":
+              [
+                {
+                  "guide":"Best Practices Guide : Channels"
+                  , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"Pipe (sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_out1_MMUL_ID, float, 5ul, 3ul>)"
+          , "type":"resource"
+          , "data":
+          [27, 206, 0, 0, 0]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Pipe is implemented 32 bits wide by 5 deep."
+            }
+            , {
+              "type":"brief"
+              , "text":"32b wide by 5 deep."
+            }
+            , {
+              "type":"text"
+              , "text":"See %L for more information"
+              , "links":
+              [
+                {
+                  "guide":"Best Practices Guide : Channels"
+                  , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"Pipe (sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_out2_MMUL_ID, float, 5ul, 3ul>)"
+          , "type":"resource"
+          , "data":
+          [11, 102, 1, 0, 0]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Pipe is implemented 32 bits wide by 160 deep."
+            }
+            , {
+              "type":"brief"
+              , "text":"32b wide by 160 deep."
+            }
+            , {
+              "type":"text"
+              , "text":"Requested depth was 5."
+            }
+            , {
+              "type":"text"
+              , "text":"Pipe depth was changed for the following reasons:"
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"instruction scheduling requirements"
+                }
+                , {
+                  "type":"text"
+                  , "text":"nature of underlying FIFO implementation"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"See %L for more information"
+              , "links":
+              [
+                {
+                  "guide":"Best Practices Guide : Channels"
+                  , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"ARMMUL_kernel_ID"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [2.11351, 1.17139, 1.02473, 0.7173, 0.997783]
+      , "total_kernel_resources":
+      [10274, 19970, 51, 45, 57]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+        , {
+          "type":"brief"
+          , "text":"1 compute unit."
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1463, 1467, 0, 0, 6]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+            , {
+              "type":"brief"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'A_out' (CostSmooth.hpp:37)"
+          , "type":"resource"
+          , "data":
+          [360, 960, 0, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"CostSmooth.hpp"
+                , "line":37
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"15 registers of width 32 bits"
+            }
+            , {
+              "type":"brief"
+              , "text":"Register,\n15 regs, 32 width"
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'Delta_theta_in' (CostSmooth.hpp:39)"
+          , "type":"resource"
+          , "data":
+          [195, 3360, 0, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"CostSmooth.hpp"
+                , "line":39
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"15 registers of width 32 bits"
+            }
+            , {
+              "type":"brief"
+              , "text":"Register,\n15 regs, 32 width"
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'i' (CostSmooth.hpp:52)"
+          , "type":"resource"
+          , "data":
+          [26, 252, 0, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"CostSmooth.hpp"
+                , "line":52
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 4 bits"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 bits"
+            }
+            , {
+              "type":"brief"
+              , "text":"Register,\n1 reg, 4 width,\n1 reg, 32 width"
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'i' (CostSmooth.hpp:94)"
+          , "type":"resource"
+          , "data":
+          [16, 72, 0, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"CostSmooth.hpp"
+                , "line":94
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 4 bits"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 bits"
+            }
+            , {
+              "type":"brief"
+              , "text":"Register,\n1 reg, 4 width,\n1 reg, 32 width"
+            }
+          ]
+        }
+        , {
+          "name":"ARMMUL_kernel_ID.B1"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [5, 14, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [5, 14, 0, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [16, 9, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Loop-carried dependencies"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:31"
+                  , "type":"resource"
+                  , "data":
+                  [9, 2, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":31
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:37"
+                  , "type":"resource"
+                  , "data":
+                  [7, 7, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":37
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [16, 13, 1, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:31"
+                  , "type":"resource"
+                  , "data":
+                  [1, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":31
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"1-bit And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"ARMMUL_kernel_ID.B2"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [369, 1155, 15, 0, 24]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [369, 1155, 15, 0, 24]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [280, 516, 3, 0, 21]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [432, 864, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"llvm.fpga.reg"
+                      , "type":"resource"
+                      , "count":30
+                      , "data":
+                      [432, 864, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:78"
+                  , "type":"resource"
+                  , "data":
+                  [720, 1440, 0, 15, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":78
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Floating-point Multiply"
+                      , "type":"resource"
+                      , "count":15
+                      , "data":
+                      [720, 1440, 0, 15, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:85"
+                  , "type":"resource"
+                  , "data":
+                  [720, 1440, 0, 15, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":85
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Floating-point Add"
+                      , "type":"resource"
+                      , "count":15
+                      , "data":
+                      [720, 1440, 0, 15, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:90 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nCostSmooth.hpp:91 > pipes.hpp:82"
+                  , "type":"resource"
+                  , "data":
+                  [9, 6, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":90
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":91
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                        , "line":82
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Pipe Write"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [9, 6, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"ARMMUL_kernel_ID.B3"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [370, 1461, 2, 0, 6]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [370, 1461, 2, 0, 6]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [1017, 14, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Loop-carried dependencies"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:39"
+                  , "type":"resource"
+                  , "data":
+                  [404, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":39
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:52"
+                  , "type":"resource"
+                  , "data":
+                  [53, 14, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":52
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:55 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nCostSmooth.hpp:56 > pipes.hpp:67"
+                  , "type":"resource"
+                  , "data":
+                  [80, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":55
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                        , "line":67
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:68"
+                  , "type":"resource"
+                  , "data":
+                  [480, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":68
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [515, 992, 26, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [1078, 485, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [22, 2, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Select"
+                      , "type":"resource"
+                      , "count":15
+                      , "data":
+                      [480, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"llvm.fpga.case"
+                      , "type":"resource"
+                      , "count":5
+                      , "data":
+                      [333, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"llvm.fpga.fanout"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [3, 3, 0, 0, 0]
+                    }
+                    , {
+                      "name":"llvm.fpga.reg"
+                      , "type":"resource"
+                      , "count":15
+                      , "data":
+                      [240, 480, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:52"
+                  , "type":"resource"
+                  , "data":
+                  [23.3333, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":52
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"1-bit And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [21.3333, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"4-bit Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:55 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nCostSmooth.hpp:56 > pipes.hpp:67"
+                  , "type":"resource"
+                  , "data":
+                  [3, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":55
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                        , "line":67
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Pipe Read"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [3, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:68"
+                  , "type":"resource"
+                  , "data":
+                  [970.667, 1920, 0, 15, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":68
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Floating-point Multiply-Add"
+                      , "type":"resource"
+                      , "count":15
+                      , "data":
+                      [960, 1920, 0, 15, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":5
+                      , "data":
+                      [10.6667, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"ARMMUL_kernel_ID.B5"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [513, 2025, 1, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [513, 2025, 1, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [788, 1385, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Loop-carried dependencies"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [600, 1152, 0, 0, 0]
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:68"
+                  , "type":"resource"
+                  , "data":
+                  [136, 224, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":68
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:94"
+                  , "type":"resource"
+                  , "data":
+                  [52, 9, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":94
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [65, 110, 3, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [99, 3, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"llvm.fpga.case"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [96, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"llvm.fpga.fanout"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [3, 3, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:94"
+                  , "type":"resource"
+                  , "data":
+                  [3, 1, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":94
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"1-bit And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"1-bit Xor"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1, 1, 0, 0, 0]
+                    }
+                    , {
+                      "name":"4-bit Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:97 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nCostSmooth.hpp:98"
+                  , "type":"resource"
+                  , "data":
+                  [192, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":97
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":98
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"llvm.fpga.case"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [192, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > CostSmooth.hpp:97 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nCostSmooth.hpp:98 > pipes.hpp:82"
+                  , "type":"resource"
+                  , "data":
+                  [9, 6, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":97
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                        , "line":98
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                        , "line":82
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Pipe Write"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [9, 6, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"ARConsumeKernel_MMUL_ID"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [0.645616, 0.368432, 0.304906, 0.182841, 0]
+      , "total_kernel_resources":
+      [2910, 5942, 13, 0, 34]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+        , {
+          "type":"brief"
+          , "text":"1 compute unit."
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1463, 1467, 0, 0, 6]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+            , {
+              "type":"brief"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'i' (vector-add-usm.cpp:402)"
+          , "type":"resource"
+          , "data":
+          [16, 72, 0, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"vector-add-usm.cpp"
+                , "line":402
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 4 bits"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 bits"
+            }
+            , {
+              "type":"brief"
+              , "text":"Register,\n1 reg, 4 width,\n1 reg, 32 width"
+            }
+          ]
+        }
+        , {
+          "name":"ARConsumeKernel_MMUL_ID.B0"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [0, 128, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [0, 128, 0, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [13, 12, 1, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"ARConsumeKernel_MMUL_ID.B1"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [37, 210, 1, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [37, 210, 1, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [52, 9, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Loop-carried dependencies"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"handler.hpp:1166 > vector-add-usm.cpp:402"
+                  , "type":"resource"
+                  , "data":
+                  [52, 9, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":402
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [127, 219, 6, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"handler.hpp:1166 > vector-add-usm.cpp:402"
+                  , "type":"resource"
+                  , "data":
+                  [2, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":402
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"1-bit And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"4-bit Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > vector-add-usm.cpp:404 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nvector-add-usm.cpp:405"
+                  , "type":"resource"
+                  , "data":
+                  [276, 816, 0, 0, 12]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":404
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":405
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [276, 816, 0, 0, 12]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > vector-add-usm.cpp:404 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nvector-add-usm.cpp:405 > pipes.hpp:67"
+                  , "type":"resource"
+                  , "data":
+                  [3, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":404
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":405
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                        , "line":67
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Pipe Read"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [3, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"ARConsumeKernel_MMUL_ID.B2"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [26, 88, 1, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [26, 88, 1, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [128, 221, 4, 0, 5]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"handler.hpp:1166 > vector-add-usm.cpp:416 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nvector-add-usm.cpp:417"
+                  , "type":"resource"
+                  , "data":
+                  [763, 2700, 0, 0, 11]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":416
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":417
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [763, 2700, 0, 0, 11]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Burst-coalesced non-aligned LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Store uses a Burst-coalesced non-aligned LSU.  Use Dynamic Profiler to determine performance impact of this LSU."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > vector-add-usm.cpp:416 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nvector-add-usm.cpp:417 > pipes.hpp:67"
+                  , "type":"resource"
+                  , "data":
+                  [3, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":416
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":417
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                        , "line":67
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Pipe Read"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [3, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1170"
+                  , "type":"resource"
+                  , "data":
+                  [1, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1170
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"1-bit Or"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"ARProduceKernel_MMUL_ID"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [0.397013, 0.29259, 0.136956, 0.0984529, 0]
+      , "total_kernel_resources":
+      [2431, 2669, 7, 0, 21]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+        , {
+          "type":"brief"
+          , "text":"1 compute unit."
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1463, 1467, 0, 0, 6]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+            , {
+              "type":"brief"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'i' (vector-add-usm.cpp:384)"
+          , "type":"resource"
+          , "data":
+          [16, 72, 0, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"vector-add-usm.cpp"
+                , "line":384
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 4 bits"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 bits"
+            }
+            , {
+              "type":"brief"
+              , "text":"Register,\n1 reg, 4 width,\n1 reg, 32 width"
+            }
+          ]
+        }
+        , {
+          "name":"ARProduceKernel_MMUL_ID.B0"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [0, 128, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [0, 128, 0, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [13, 12, 1, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"ARProduceKernel_MMUL_ID.B1"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [33, 171, 1, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [33, 171, 1, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [52, 9, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Loop-carried dependencies"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"handler.hpp:1166 > vector-add-usm.cpp:384"
+                  , "type":"resource"
+                  , "data":
+                  [52, 9, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":384
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [113, 206, 5, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"handler.hpp:1166 > vector-add-usm.cpp:384"
+                  , "type":"resource"
+                  , "data":
+                  [3, 1, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":384
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"1-bit And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"1-bit Xor"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1, 1, 0, 0, 0]
+                    }
+                    , {
+                      "name":"4-bit Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > vector-add-usm.cpp:386 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nvector-add-usm.cpp:388"
+                  , "type":"resource"
+                  , "data":
+                  [33, 33, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":386
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":388
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Add: unsigned 32-bit + unsigned 4-bit -> 33-bit "
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 33, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > vector-add-usm.cpp:386 > \nunrolled_loop.hpp:74 > unrolled_loop.hpp:56 > \nvector-add-usm.cpp:388 > pipes.hpp:82"
+                  , "type":"resource"
+                  , "data":
+                  [705, 570, 0, 0, 15]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":386
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":74
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                        , "line":56
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                        , "line":388
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                        , "line":82
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [696, 564, 0, 0, 15]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined LSU"
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Pipe Write"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [9, 6, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"'lambda'()"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [0.699617, 0.372434, 0.350934, 0.154712, 0.288248]
+      , "total_kernel_resources":
+      [3429, 6839, 11, 13, 10]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+        , {
+          "type":"brief"
+          , "text":"1 compute unit."
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1463, 1467, 0, 0, 6]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+            , {
+              "type":"brief"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"'lambda'().B0"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [149, 1428, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [149, 1428, 0, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [119, 196, 5, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"handler.hpp:1164 > accessor.hpp:1099 > \naccessor.hpp:2136 > accessor.hpp:251 > \naccessor.hpp:247 > accessor.hpp:2137"
+                  , "type":"resource"
+                  , "data":
+                  [485, 579, 0, 8, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1164
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":1099
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":2136
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":251
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":247
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":2137
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [485, 579, 0, 8, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1164 > accessor.hpp:1099 > \naccessor.hpp:2136 > accessor.hpp:251 > \naccessor.hpp:247 > accessor.hpp:2140"
+                  , "type":"resource"
+                  , "data":
+                  [62, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1164
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":1099
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":2136
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":251
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":247
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":2140
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [62, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > Adder_Tree.cpp:25"
+                  , "type":"resource"
+                  , "data":
+                  [776, 2718, 6, 1, 4]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                        , "line":25
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Floating-point Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [48, 96, 0, 1, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [636, 2350, 6, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"brief"
+                          , "text":"Burst-coalesced non-aligned LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned LSU.  Use Dynamic Profiler to determine performance impact of this LSU."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [92, 272, 0, 0, 4]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1166 > Adder_Tree.cpp:25 > \naccessor.hpp:350 > accessor.hpp:1991 > \naccessor.hpp:1025 > accessor.hpp:251 > \naccessor.hpp:247 > accessor.hpp:1026"
+                  , "type":"resource"
+                  , "data":
+                  [375, 451, 0, 4, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1166
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                        , "line":25
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":350
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":1991
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":1025
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":251
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":247
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":1026
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [375, 451, 0, 4, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"id<1>)"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [0.815654, 0.439655, 0.404967, 0.182841, 0.37694]
+      , "total_kernel_resources":
+      [4004, 7892, 13, 17, 14]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+        , {
+          "type":"brief"
+          , "text":"1 compute unit."
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1463, 1467, 0, 0, 6]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+            , {
+              "type":"brief"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"id<1>).B0"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [236, 2042, 2, 0, 4]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [236, 2042, 2, 0, 4]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [106, 184, 5, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"handler.hpp:1200 > accessor.hpp:1099 > \naccessor.hpp:2136 > accessor.hpp:251 > \naccessor.hpp:247 > accessor.hpp:2137"
+                  , "type":"resource"
+                  , "data":
+                  [485, 579, 0, 8, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1200
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":1099
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":2136
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":251
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":247
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":2137
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [485, 579, 0, 8, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1200 > accessor.hpp:1099 > \naccessor.hpp:2136 > accessor.hpp:251 > \naccessor.hpp:247 > accessor.hpp:2140"
+                  , "type":"resource"
+                  , "data":
+                  [62, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1200
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":1099
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":2136
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":251
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":247
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":2140
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [62, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1202 > Adder_Tree.cpp:18"
+                  , "type":"resource"
+                  , "data":
+                  [776, 2718, 6, 1, 4]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1202
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                        , "line":18
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Floating-point Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [48, 96, 0, 1, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [636, 2350, 6, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"brief"
+                          , "text":"Burst-coalesced non-aligned LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned LSU.  Use Dynamic Profiler to determine performance impact of this LSU."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [92, 272, 0, 0, 4]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"handler.hpp:1202 > Adder_Tree.cpp:18 > \naccessor.hpp:350 > accessor.hpp:1991 > \naccessor.hpp:1025 > accessor.hpp:251 > \naccessor.hpp:247 > accessor.hpp:1026"
+                  , "type":"resource"
+                  , "data":
+                  [876, 902, 0, 8, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                        , "line":1202
+                      }
+                      , {
+                        "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                        , "line":18
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":350
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":1991
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":1025
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":251
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":247
+                      }
+                      , {
+                        "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/accessor.hpp"
+                        , "line":1026
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":4
+                      , "data":
+                      [126, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":4
+                      , "data":
+                      [750, 902, 0, 8, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

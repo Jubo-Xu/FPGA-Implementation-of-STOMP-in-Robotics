@@ -1,0 +1,587 @@
+{
+  "nodes":
+  [
+    {
+      "name":"0"
+      , "id":582
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Interleaving":"No"
+          , "Channels":"1 channel"
+          , "Maximum bandwidth the BSP can deliver":"0.00 MB/s<br><small><i> Note: Realistic maximum bandwidth is about 90% of the above due to loss from interconnect and memory controller.</i></small>"
+          , "Channel 0 Width (bits)":"64"
+        }
+      ]
+      , "type":"memsys"
+      , "children":
+      [
+        {
+          "name":"0"
+          , "id":584
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Data Width":"64"
+              , "Address Width":"35"
+              , "Latency":"1"
+              , "ReadWrite Mode":"Read/Write"
+              , "Maximum Burst":"1"
+              , "Wait Request":"0"
+              , "Start Address":"0x0"
+            }
+          ]
+          , "type":"bb"
+        }
+      ]
+    }
+    , {
+      "name":"Memory Controller"
+      , "id":583
+      , "parent":"582"
+      , "bw":"0.00"
+      , "num_channels":"1"
+      , "interleave":"0"
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Maximum bandwidth the BSP can deliver":"0.00 MB/s<br><small><i> Note: Realistic maximum bandwidth is about 90% of the above due to loss from interconnect and memory controller.</i></small>"
+        }
+      ]
+      , "type":"bb"
+    }
+    , {
+      "name":"Global Memory Interconnect"
+      , "id":585
+      , "parent":"582"
+      , "type":"bb"
+      , "children":
+      [
+        {
+          "name":"SHARE"
+          , "id":586
+          , "type":"arb"
+        }
+        , {
+          "name":"Write Interconnect"
+          , "id":589
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Name":"0"
+              , "Interconnect Style":"tree"
+              , "Writes":"7"
+              , "User specified force-single-store-ring flag":"False"
+              , "Store Rings":"1"
+            }
+          ]
+          , "type":"bb"
+        }
+        , {
+          "name":"Read Interconnect"
+          , "id":587
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Name":"0"
+              , "Interconnect Style":"tree"
+              , "Reads":"5"
+            }
+          ]
+          , "type":"bb"
+        }
+        , {
+          "name":"Read Interconnect Router"
+          , "id":588
+          , "details":
+          [
+            {
+              "type":"table"
+              , "User specified num-reorder flag":"Unset"
+            }
+          ]
+          , "type":"memsys"
+          , "children":
+          [
+            {
+              "name":"Bus 0"
+              , "id":604
+              , "type":"memsys"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"Global Memory Loads"
+      , "id":590
+      , "parent":"582"
+      , "type":"bb"
+      , "children":
+      [
+        {
+          "name":"LD"
+          , "id":591
+          , "kwidth":"32"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"36"
+              , "Latency":"31 cycles"
+              , "Width":"32 bits"
+              , "0 Width":"64 bits"
+              , "Uses Caching":"No"
+              , "LSU Style":"PIPELINED"
+              , "Kernel":"ARProduceKernel_MMUL_ID"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                , "line":82
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"LD"
+          , "id":592
+          , "kwidth":"32"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"36"
+              , "Latency":"31 cycles"
+              , "Width":"32 bits"
+              , "0 Width":"64 bits"
+              , "Uses Caching":"No"
+              , "LSU Style":"PIPELINED"
+              , "Kernel":"ARProduceKernel_MMUL_ID"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                , "line":82
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"LD"
+          , "id":593
+          , "kwidth":"32"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"36"
+              , "Latency":"31 cycles"
+              , "Width":"32 bits"
+              , "0 Width":"64 bits"
+              , "Uses Caching":"No"
+              , "LSU Style":"PIPELINED"
+              , "Kernel":"ARProduceKernel_MMUL_ID"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                , "line":82
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"LD"
+          , "id":600
+          , "kwidth":"64"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"47"
+              , "Latency":"1 cycle"
+              , "Width":"64 bits"
+              , "0 Width":"64 bits"
+              , "Uses Caching":"No"
+              , "LSU Style":"BURST-NON-ALIGNED"
+              , "Kernel":"'lambda'()"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":25
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"LD"
+          , "id":602
+          , "kwidth":"64"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"47"
+              , "Latency":"25 cycles"
+              , "Width":"64 bits"
+              , "0 Width":"64 bits"
+              , "Uses Caching":"No"
+              , "LSU Style":"BURST-NON-ALIGNED"
+              , "Kernel":"id<1>)"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":18
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"Global Memory Stores"
+      , "id":594
+      , "parent":"582"
+      , "type":"bb"
+      , "children":
+      [
+        {
+          "name":"ST"
+          , "id":595
+          , "kwidth":"32"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"71"
+              , "Latency":"31 cycles"
+              , "Width":"32 bits"
+              , "0 Width":"64 bits"
+              , "Uses Write Ack":"No"
+              , "LSU Style":"PIPELINED"
+              , "Kernel":"ARConsumeKernel_MMUL_ID"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                , "line":405
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"ST"
+          , "id":596
+          , "kwidth":"32"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"71"
+              , "Latency":"31 cycles"
+              , "Width":"32 bits"
+              , "0 Width":"64 bits"
+              , "Uses Write Ack":"No"
+              , "LSU Style":"PIPELINED"
+              , "Kernel":"ARConsumeKernel_MMUL_ID"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                , "line":405
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"ST"
+          , "id":597
+          , "kwidth":"32"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"71"
+              , "Latency":"31 cycles"
+              , "Width":"32 bits"
+              , "0 Width":"64 bits"
+              , "Uses Write Ack":"No"
+              , "LSU Style":"PIPELINED"
+              , "Kernel":"ARConsumeKernel_MMUL_ID"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                , "line":405
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"ST"
+          , "id":598
+          , "kwidth":"32"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"55"
+              , "Latency":"31 cycles"
+              , "Width":"32 bits"
+              , "0 Width":"64 bits"
+              , "Uses Write Ack":"Yes"
+              , "LSU Style":"PIPELINED"
+              , "Kernel":"ARConsumeKernel_MMUL_ID"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                , "line":417
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"ST"
+          , "id":599
+          , "kwidth":"64"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"55"
+              , "Latency":"1 cycle"
+              , "Width":"64 bits"
+              , "0 Width":"64 bits"
+              , "Uses Write Ack":"Yes"
+              , "LSU Style":"BURST-NON-ALIGNED"
+              , "Kernel":"ARConsumeKernel_MMUL_ID"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                , "line":417
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"ST"
+          , "id":601
+          , "kwidth":"32"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"84"
+              , "Latency":"31 cycles"
+              , "Width":"32 bits"
+              , "0 Width":"64 bits"
+              , "Uses Write Ack":"Yes"
+              , "LSU Style":"PIPELINED"
+              , "Kernel":"'lambda'()"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":25
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"ST"
+          , "id":603
+          , "kwidth":"32"
+          , "mwidth":"64"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Start Cycle":"108"
+              , "Latency":"31 cycles"
+              , "Width":"32 bits"
+              , "0 Width":"64 bits"
+              , "Uses Write Ack":"No"
+              , "LSU Style":"PIPELINED"
+              , "Kernel":"id<1>)"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":18
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":584
+      , "to":583
+    }
+    , {
+      "from":583
+      , "to":584
+    }
+    , {
+      "from":587
+      , "to":586
+    }
+    , {
+      "from":589
+      , "to":586
+    }
+    , {
+      "from":586
+      , "to":583
+    }
+    , {
+      "from":591
+      , "to":587
+    }
+    , {
+      "from":592
+      , "to":587
+    }
+    , {
+      "from":593
+      , "to":587
+    }
+    , {
+      "from":595
+      , "to":589
+    }
+    , {
+      "from":596
+      , "to":589
+    }
+    , {
+      "from":597
+      , "to":589
+    }
+    , {
+      "from":598
+      , "to":589
+    }
+    , {
+      "from":599
+      , "to":589
+    }
+    , {
+      "from":600
+      , "to":587
+    }
+    , {
+      "from":601
+      , "to":589
+    }
+    , {
+      "from":602
+      , "to":587
+    }
+    , {
+      "from":603
+      , "to":589
+    }
+    , {
+      "from":583
+      , "to":604
+    }
+    , {
+      "from":604
+      , "to":591
+      , "reverse":1
+    }
+    , {
+      "from":604
+      , "to":592
+      , "reverse":1
+    }
+    , {
+      "from":604
+      , "to":593
+      , "reverse":1
+    }
+    , {
+      "from":604
+      , "to":600
+      , "reverse":1
+    }
+    , {
+      "from":604
+      , "to":602
+      , "reverse":1
+    }
+  ]
+}

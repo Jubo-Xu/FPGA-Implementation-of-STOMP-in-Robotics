@@ -1,0 +1,3764 @@
+{
+  "nodes":
+  [
+    {
+      "type":"kernel"
+      , "id":2
+      , "name":"ARMMUL_kernel_ID"
+      , "children":
+      [
+        {
+          "type":"bb"
+          , "id":3
+          , "name":"ARMMUL_kernel_ID.B0"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"17"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":4
+          , "name":"ARMMUL_kernel_ID.B1"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"35"
+              , "II":"1"
+              , "Subloops":"Yes"
+              , "Pipelined":"Yes"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":"Entry to loop. "
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":5
+          , "name":"ARMMUL_kernel_ID.B2"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":9
+              , "name":"Pipe Write"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"160"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"71"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":11
+              , "name":"Pipe Write"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"160"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"71"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":13
+              , "name":"Pipe Write"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"191"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"71"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":27
+              , "name":"Begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":28
+              , "name":"End"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"95"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"95"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":6
+          , "name":"ARMMUL_kernel_ID.B3"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":15
+              , "name":"Pipe Read"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":67
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"35"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":17
+              , "name":"Pipe Read"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":67
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"35"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":19
+              , "name":"Pipe Read"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":67
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"35"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":29
+              , "name":"Loop Input"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":52
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                  , "Loops To":"30"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":30
+              , "name":"Loop End"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"102"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"102"
+              , "II":"6"
+              , "Subloops":"No"
+              , "Pipelined":"Yes"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":"Loop is pipelined with II of 6. See Loops Analysis for more information."
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":7
+          , "name":"ARMMUL_kernel_ID.B4"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"0"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":8
+          , "name":"ARMMUL_kernel_ID.B5"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":21
+              , "name":"Pipe Write"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"36"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":23
+              , "name":"Pipe Write"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"36"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":25
+              , "name":"Pipe Write"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"36"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":31
+              , "name":"Loop Input"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":94
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                  , "Loops To":"32"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":32
+              , "name":"Loop End"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"60"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"60"
+              , "II":"1"
+              , "Subloops":"No"
+              , "Pipelined":"Yes"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":""
+            }
+          ]
+        }
+        , {
+          "type":"csr"
+          , "id":33
+          , "name":"Register Map"
+          , "debug":
+          [
+            [
+              {
+                "filename":"do_test_report.prj/ZTS16ARMMUL_kernel_ID_csr.hpp"
+                , "line":1
+              }
+            ]
+          ]
+          , "children":
+          [
+            {
+              "type":"interface"
+              , "id":34
+              , "name":"start"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":21
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":35
+              , "name":"done"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":21
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":36
+              , "name":"busy"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":21
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"kernel"
+      , "id":37
+      , "name":"ARProduceKernel_MMUL_ID"
+      , "children":
+      [
+        {
+          "type":"bb"
+          , "id":38
+          , "name":"ARProduceKernel_MMUL_ID.B0"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"32"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":39
+          , "name":"ARProduceKernel_MMUL_ID.B1"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":41
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"_arg_IN"
+                  , "Start Cycle":"36"
+                  , "Latency":"31"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":42
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"_arg_IN"
+                  , "Start Cycle":"36"
+                  , "Latency":"31"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":43
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Loads from":"_arg_IN"
+                  , "Start Cycle":"36"
+                  , "Latency":"31"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":44
+              , "name":"Pipe Write"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"67"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":45
+              , "name":"Pipe Write"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"67"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":46
+              , "name":"Pipe Write"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"67"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":47
+              , "name":"Loop Input"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":384
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                  , "Loops To":"48"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":48
+              , "name":"Loop End"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"91"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"91"
+              , "II":"1"
+              , "Subloops":"No"
+              , "Pipelined":"Yes"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":""
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":40
+          , "name":"ARProduceKernel_MMUL_ID.B2"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"0"
+            }
+          ]
+        }
+        , {
+          "type":"csr"
+          , "id":49
+          , "name":"Register Map"
+          , "debug":
+          [
+            [
+              {
+                "filename":"do_test_report.prj/ZTS23ARProduceKernel_MMUL_ID_csr.hpp"
+                , "line":1
+              }
+            ]
+          ]
+          , "children":
+          [
+            {
+              "type":"interface"
+              , "id":50
+              , "name":"start"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":383
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":51
+              , "name":"done"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":383
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":52
+              , "name":"busy"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":383
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":53
+              , "name":"arg_IN"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":383
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Kernel":"ZTS23ARProduceKernel_MMUL_ID"
+                  , "Alignment":"4"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":54
+              , "name":"arg_IN1"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":383
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"ZTS23ARProduceKernel_MMUL_ID"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":55
+              , "name":"arg_IN2"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":383
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"ZTS23ARProduceKernel_MMUL_ID"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":56
+              , "name":"arg_IN3"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":383
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"ZTS23ARProduceKernel_MMUL_ID"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"kernel"
+      , "id":58
+      , "name":"ARConsumeKernel_MMUL_ID"
+      , "children":
+      [
+        {
+          "type":"bb"
+          , "id":59
+          , "name":"ARConsumeKernel_MMUL_ID.B0"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"32"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":60
+          , "name":"ARConsumeKernel_MMUL_ID.B1"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":62
+              , "name":"Pipe Read"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":67
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"47"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":63
+              , "name":"Pipe Read"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":67
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"47"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":64
+              , "name":"Pipe Read"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":67
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"5"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"47"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":65
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":405
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"_arg_OUT1"
+                  , "Start Cycle":"71"
+                  , "Latency":"31"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":66
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":405
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"_arg_OUT1"
+                  , "Start Cycle":"71"
+                  , "Latency":"31"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":67
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":405
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"_arg_OUT1"
+                  , "Start Cycle":"71"
+                  , "Latency":"31"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":73
+              , "name":"Loop Input"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":402
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                  , "Loops To":"74"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":74
+              , "name":"Loop End"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"102"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"102"
+              , "II":"1"
+              , "Subloops":"No"
+              , "Pipelined":"Yes"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":""
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":61
+          , "name":"ARConsumeKernel_MMUL_ID.B2"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":68
+              , "name":"Pipe Read"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":67
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"160"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"0"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":69
+              , "name":"Pipe Read"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":67
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"160"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"0"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":70
+              , "name":"Pipe Read"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                    , "line":67
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"191"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"31"
+                  , "Latency":"24"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Channels"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/qah1476410829821.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":71
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":417
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"_arg_OUT2"
+                  , "Start Cycle":"55"
+                  , "Latency":"31"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":72
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":417
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"64 bits"
+                  , "Type":"Burst-coalesced non-aligned"
+                  , "Stall-free":"No"
+                  , "Stores to":"_arg_OUT2"
+                  , "Start Cycle":"55"
+                  , "Latency":"1"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":75
+              , "name":"Begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":76
+              , "name":"End"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"86"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"86"
+            }
+          ]
+        }
+        , {
+          "type":"csr"
+          , "id":77
+          , "name":"Register Map"
+          , "debug":
+          [
+            [
+              {
+                "filename":"do_test_report.prj/ZTS23ARConsumeKernel_MMUL_ID_csr.hpp"
+                , "line":1
+              }
+            ]
+          ]
+          , "children":
+          [
+            {
+              "type":"interface"
+              , "id":78
+              , "name":"start"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":79
+              , "name":"done"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":80
+              , "name":"busy"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":81
+              , "name":"arg_OUT1"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Kernel":"ZTS23ARConsumeKernel_MMUL_ID"
+                  , "Alignment":"4"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":82
+              , "name":"arg_OUT11"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"ZTS23ARConsumeKernel_MMUL_ID"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":83
+              , "name":"arg_OUT12"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"ZTS23ARConsumeKernel_MMUL_ID"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":84
+              , "name":"arg_OUT13"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"ZTS23ARConsumeKernel_MMUL_ID"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":85
+              , "name":"arg_OUT2"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Kernel":"ZTS23ARConsumeKernel_MMUL_ID"
+                  , "Alignment":"4"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":86
+              , "name":"arg_OUT24"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"ZTS23ARConsumeKernel_MMUL_ID"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":87
+              , "name":"arg_OUT25"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"ZTS23ARConsumeKernel_MMUL_ID"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":88
+              , "name":"arg_OUT26"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"ZTS23ARConsumeKernel_MMUL_ID"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"kernel"
+      , "id":89
+      , "name":"'lambda'()"
+      , "children":
+      [
+        {
+          "type":"bb"
+          , "id":90
+          , "name":"'lambda'().B0"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":91
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":25
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"64 bits"
+                  , "Type":"Burst-coalesced non-aligned"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"47"
+                  , "Latency":"1"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":92
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":25
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Stores to":"_arg_bf_out"
+                  , "Start Cycle":"84"
+                  , "Latency":"31"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":93
+              , "name":"Begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":94
+              , "name":"End"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"115"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"115"
+            }
+          ]
+        }
+        , {
+          "type":"csr"
+          , "id":95
+          , "name":"Register Map"
+          , "debug":
+          [
+            [
+              {
+                "filename":"do_test_report.prj/k1_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a_csr.hpp"
+                , "line":1
+              }
+            ]
+          ]
+          , "children":
+          [
+            {
+              "type":"interface"
+              , "id":96
+              , "name":"start"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":97
+              , "name":"done"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":98
+              , "name":"busy"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":99
+              , "name":"arg_bf_out"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Kernel":"k1_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                  , "Alignment":"4"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":100
+              , "name":"arg_bf_out1"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"k1_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":101
+              , "name":"arg_bf_out2"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"k1_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":102
+              , "name":"arg_bf_out3"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"64 bits"
+                  , "Kernel":"k1_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":103
+              , "name":"arg_bf"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Kernel":"k1_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                  , "Alignment":"4"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":104
+              , "name":"arg_bf4"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"128 bits"
+                  , "Kernel":"k1_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":105
+              , "name":"arg_bf5"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"128 bits"
+                  , "Kernel":"k1_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":106
+              , "name":"arg_bf6"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"128 bits"
+                  , "Kernel":"k1_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":107
+              , "name":"arg_LOG_N"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"32 bits"
+                  , "Kernel":"k1_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"kernel"
+      , "id":108
+      , "name":"id<1>)"
+      , "children":
+      [
+        {
+          "type":"bb"
+          , "id":109
+          , "name":"id<1>).B0"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":110
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":18
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"64 bits"
+                  , "Type":"Burst-coalesced non-aligned"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"47"
+                  , "Latency":"25"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":111
+              , "name":"Store"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":18
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Type":"Pipelined"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"108"
+                  , "Latency":"31"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Load-Store Units"
+                          , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/yeo1491314105959.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":112
+              , "name":"Begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":113
+              , "name":"End"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"139"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"139"
+            }
+          ]
+        }
+        , {
+          "type":"csr"
+          , "id":114
+          , "name":"Register Map"
+          , "debug":
+          [
+            [
+              {
+                "filename":"do_test_report.prj/k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a_csr.hpp"
+                , "line":1
+              }
+            ]
+          ]
+          , "children":
+          [
+            {
+              "type":"interface"
+              , "id":115
+              , "name":"start"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":17
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":116
+              , "name":"done"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":17
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":117
+              , "name":"busy"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":17
+                  }
+                ]
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":118
+              , "name":"arg_bf"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":17
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                  , "Alignment":"4"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":119
+              , "name":"arg_bf1"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":17
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"128 bits"
+                  , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":120
+              , "name":"arg_bf2"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":17
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"128 bits"
+                  , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":121
+              , "name":"arg_bf3"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":17
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"128 bits"
+                  , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+            , {
+              "type":"interface"
+              , "id":122
+              , "name":"arg_j"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":17
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Stable":"No"
+                  , "Width":"32 bits"
+                  , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "type":"interface"
+          , "id":123
+          , "name":"__acl_global_size_0"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":17
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Stable":"No"
+              , "Width":"64 bits"
+              , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+              , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_size_0"
+            }
+          ]
+        }
+        , {
+          "type":"interface"
+          , "id":124
+          , "name":"__acl_global_size_1"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":17
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Stable":"No"
+              , "Width":"64 bits"
+              , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+              , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_size_1"
+            }
+          ]
+        }
+        , {
+          "type":"interface"
+          , "id":125
+          , "name":"__acl_global_size_2"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":17
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Stable":"No"
+              , "Width":"64 bits"
+              , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+              , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_size_2"
+            }
+          ]
+        }
+        , {
+          "type":"interface"
+          , "id":126
+          , "name":"__acl_global_id_0"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":17
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Stable":"No"
+              , "Width":"64 bits"
+              , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+              , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_id_0"
+            }
+          ]
+        }
+        , {
+          "type":"interface"
+          , "id":127
+          , "name":"__acl_global_id_1"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":17
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Stable":"No"
+              , "Width":"64 bits"
+              , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+              , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_id_1"
+            }
+          ]
+        }
+        , {
+          "type":"interface"
+          , "id":128
+          , "name":"__acl_global_id_2"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":17
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Stable":"No"
+              , "Width":"64 bits"
+              , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+              , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_id_2"
+            }
+          ]
+        }
+        , {
+          "type":"interface"
+          , "id":129
+          , "name":"__acl_global_offset_0"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":17
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Stable":"No"
+              , "Width":"64 bits"
+              , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+              , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_offset_0"
+            }
+          ]
+        }
+        , {
+          "type":"interface"
+          , "id":130
+          , "name":"__acl_global_offset_1"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":17
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Stable":"No"
+              , "Width":"64 bits"
+              , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+              , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_offset_1"
+            }
+          ]
+        }
+        , {
+          "type":"interface"
+          , "id":131
+          , "name":"__acl_global_offset_2"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":17
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Stable":"No"
+              , "Width":"64 bits"
+              , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+              , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_offset_2"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"memtype"
+      , "id":1
+      , "name":"Global Memory"
+      , "children":
+      [
+        {
+          "type":"memsys"
+          , "id":57
+          , "name":"0"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Number of banks":"1"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"pipe"
+      , "id":16
+      , "name":"sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_in_MMUL_ID, float, 5ul, 3ul>"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+            , "line":21
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"5"
+        }
+      ]
+    }
+    , {
+      "type":"pipe"
+      , "id":18
+      , "name":"sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_in_MMUL_ID, float, 5ul, 3ul>"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+            , "line":21
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"5"
+        }
+      ]
+    }
+    , {
+      "type":"pipe"
+      , "id":20
+      , "name":"sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_in_MMUL_ID, float, 5ul, 3ul>"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+            , "line":21
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"5"
+        }
+      ]
+    }
+    , {
+      "type":"pipe"
+      , "id":22
+      , "name":"sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_out1_MMUL_ID, float, 5ul, 3ul>"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+            , "line":21
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"5"
+        }
+      ]
+    }
+    , {
+      "type":"pipe"
+      , "id":24
+      , "name":"sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_out1_MMUL_ID, float, 5ul, 3ul>"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+            , "line":21
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"5"
+        }
+      ]
+    }
+    , {
+      "type":"pipe"
+      , "id":26
+      , "name":"sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_out1_MMUL_ID, float, 5ul, 3ul>"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+            , "line":21
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"5"
+        }
+      ]
+    }
+    , {
+      "type":"pipe"
+      , "id":10
+      , "name":"sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_out2_MMUL_ID, float, 5ul, 3ul>"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+            , "line":21
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"160"
+        }
+      ]
+    }
+    , {
+      "type":"pipe"
+      , "id":12
+      , "name":"sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_out2_MMUL_ID, float, 5ul, 3ul>"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+            , "line":21
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"160"
+        }
+      ]
+    }
+    , {
+      "type":"pipe"
+      , "id":14
+      , "name":"sycl::_V1::ext::intel::pipe<fpga_tools::PipeArray<PipeArray_out2_MMUL_ID, float, 5ul, 3ul>"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+            , "line":21
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"191"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":126
+      , "name":"__acl_global_id_0"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":17
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"64 bits"
+          , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+          , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_id_0"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":127
+      , "name":"__acl_global_id_1"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":17
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"64 bits"
+          , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+          , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_id_1"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":128
+      , "name":"__acl_global_id_2"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":17
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"64 bits"
+          , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+          , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_id_2"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":129
+      , "name":"__acl_global_offset_0"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":17
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"64 bits"
+          , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+          , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_offset_0"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":130
+      , "name":"__acl_global_offset_1"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":17
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"64 bits"
+          , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+          , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_offset_1"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":131
+      , "name":"__acl_global_offset_2"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":17
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"64 bits"
+          , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+          , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_offset_2"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":123
+      , "name":"__acl_global_size_0"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":17
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"64 bits"
+          , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+          , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_size_0"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":124
+      , "name":"__acl_global_size_1"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":17
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"64 bits"
+          , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+          , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_size_1"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":125
+      , "name":"__acl_global_size_2"
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":17
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"64 bits"
+          , "Kernel":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a"
+          , "Port Name":"k0_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_a___acl_global_size_2"
+        }
+      ]
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":9
+      , "to":10
+    }
+    , {
+      "from":11
+      , "to":12
+    }
+    , {
+      "from":13
+      , "to":14
+    }
+    , {
+      "from":16
+      , "to":15
+    }
+    , {
+      "from":18
+      , "to":17
+    }
+    , {
+      "from":20
+      , "to":19
+    }
+    , {
+      "from":21
+      , "to":22
+    }
+    , {
+      "from":23
+      , "to":24
+    }
+    , {
+      "from":25
+      , "to":26
+    }
+    , {
+      "from":34
+      , "to":3
+    }
+    , {
+      "from":3
+      , "to":36
+      , "reverse":2
+    }
+    , {
+      "from":3
+      , "to":4
+    }
+    , {
+      "from":30
+      , "to":27
+    }
+    , {
+      "from":9
+      , "to":28
+    }
+    , {
+      "from":11
+      , "to":28
+    }
+    , {
+      "from":13
+      , "to":28
+    }
+    , {
+      "from":4
+      , "to":29
+    }
+    , {
+      "from":15
+      , "to":30
+    }
+    , {
+      "from":17
+      , "to":30
+    }
+    , {
+      "from":19
+      , "to":30
+    }
+    , {
+      "from":32
+      , "to":7
+    }
+    , {
+      "from":28
+      , "to":31
+    }
+    , {
+      "from":21
+      , "to":32
+    }
+    , {
+      "from":23
+      , "to":32
+    }
+    , {
+      "from":25
+      , "to":32
+    }
+    , {
+      "from":27
+      , "to":9
+    }
+    , {
+      "from":27
+      , "to":11
+    }
+    , {
+      "from":27
+      , "to":13
+    }
+    , {
+      "from":29
+      , "to":15
+    }
+    , {
+      "from":29
+      , "to":17
+    }
+    , {
+      "from":29
+      , "to":19
+    }
+    , {
+      "from":31
+      , "to":21
+    }
+    , {
+      "from":31
+      , "to":23
+    }
+    , {
+      "from":31
+      , "to":25
+    }
+    , {
+      "from":44
+      , "to":16
+    }
+    , {
+      "from":45
+      , "to":18
+    }
+    , {
+      "from":46
+      , "to":20
+    }
+    , {
+      "from":50
+      , "to":38
+    }
+    , {
+      "from":40
+      , "to":51
+    }
+    , {
+      "from":38
+      , "to":52
+      , "reverse":2
+    }
+    , {
+      "from":53
+      , "to":38
+    }
+    , {
+      "from":56
+      , "to":38
+    }
+    , {
+      "from":38
+      , "to":47
+    }
+    , {
+      "from":41
+      , "to":48
+    }
+    , {
+      "from":42
+      , "to":48
+    }
+    , {
+      "from":43
+      , "to":48
+    }
+    , {
+      "from":44
+      , "to":48
+    }
+    , {
+      "from":45
+      , "to":48
+    }
+    , {
+      "from":46
+      , "to":48
+    }
+    , {
+      "from":48
+      , "to":40
+    }
+    , {
+      "from":47
+      , "to":41
+    }
+    , {
+      "from":47
+      , "to":42
+    }
+    , {
+      "from":47
+      , "to":43
+    }
+    , {
+      "from":41
+      , "to":44
+    }
+    , {
+      "from":42
+      , "to":45
+    }
+    , {
+      "from":43
+      , "to":46
+    }
+    , {
+      "from":57
+      , "to":41
+    }
+    , {
+      "from":57
+      , "to":42
+    }
+    , {
+      "from":57
+      , "to":43
+    }
+    , {
+      "from":22
+      , "to":62
+    }
+    , {
+      "from":24
+      , "to":63
+    }
+    , {
+      "from":26
+      , "to":64
+    }
+    , {
+      "from":10
+      , "to":68
+    }
+    , {
+      "from":12
+      , "to":69
+    }
+    , {
+      "from":14
+      , "to":70
+    }
+    , {
+      "from":78
+      , "to":59
+    }
+    , {
+      "from":76
+      , "to":79
+    }
+    , {
+      "from":59
+      , "to":80
+      , "reverse":2
+    }
+    , {
+      "from":81
+      , "to":59
+    }
+    , {
+      "from":84
+      , "to":59
+    }
+    , {
+      "from":85
+      , "to":75
+    }
+    , {
+      "from":88
+      , "to":75
+    }
+    , {
+      "from":59
+      , "to":73
+    }
+    , {
+      "from":62
+      , "to":74
+    }
+    , {
+      "from":63
+      , "to":74
+    }
+    , {
+      "from":64
+      , "to":74
+    }
+    , {
+      "from":65
+      , "to":74
+    }
+    , {
+      "from":66
+      , "to":74
+    }
+    , {
+      "from":67
+      , "to":74
+    }
+    , {
+      "from":74
+      , "to":75
+    }
+    , {
+      "from":68
+      , "to":76
+    }
+    , {
+      "from":69
+      , "to":76
+    }
+    , {
+      "from":70
+      , "to":76
+    }
+    , {
+      "from":71
+      , "to":76
+    }
+    , {
+      "from":72
+      , "to":76
+    }
+    , {
+      "from":73
+      , "to":62
+    }
+    , {
+      "from":73
+      , "to":63
+    }
+    , {
+      "from":73
+      , "to":64
+    }
+    , {
+      "from":62
+      , "to":65
+    }
+    , {
+      "from":63
+      , "to":66
+    }
+    , {
+      "from":64
+      , "to":67
+    }
+    , {
+      "from":75
+      , "to":68
+    }
+    , {
+      "from":75
+      , "to":69
+    }
+    , {
+      "from":75
+      , "to":70
+    }
+    , {
+      "from":70
+      , "to":71
+    }
+    , {
+      "from":68
+      , "to":72
+    }
+    , {
+      "from":69
+      , "to":72
+    }
+    , {
+      "from":65
+      , "to":57
+    }
+    , {
+      "from":66
+      , "to":57
+    }
+    , {
+      "from":67
+      , "to":57
+    }
+    , {
+      "from":71
+      , "to":57
+    }
+    , {
+      "from":72
+      , "to":57
+    }
+    , {
+      "from":96
+      , "to":93
+    }
+    , {
+      "from":94
+      , "to":97
+    }
+    , {
+      "from":93
+      , "to":98
+      , "reverse":2
+    }
+    , {
+      "from":99
+      , "to":93
+    }
+    , {
+      "from":102
+      , "to":93
+    }
+    , {
+      "from":103
+      , "to":93
+    }
+    , {
+      "from":105
+      , "to":93
+    }
+    , {
+      "from":106
+      , "to":93
+    }
+    , {
+      "from":107
+      , "to":93
+    }
+    , {
+      "from":91
+      , "to":94
+    }
+    , {
+      "from":92
+      , "to":94
+    }
+    , {
+      "from":93
+      , "to":91
+    }
+    , {
+      "from":91
+      , "to":92
+    }
+    , {
+      "from":57
+      , "to":91
+    }
+    , {
+      "from":92
+      , "to":57
+    }
+    , {
+      "from":115
+      , "to":112
+    }
+    , {
+      "from":113
+      , "to":116
+    }
+    , {
+      "from":112
+      , "to":117
+      , "reverse":2
+    }
+    , {
+      "from":118
+      , "to":112
+    }
+    , {
+      "from":120
+      , "to":112
+    }
+    , {
+      "from":121
+      , "to":112
+    }
+    , {
+      "from":122
+      , "to":112
+    }
+    , {
+      "from":126
+      , "to":112
+    }
+    , {
+      "from":110
+      , "to":113
+    }
+    , {
+      "from":111
+      , "to":113
+    }
+    , {
+      "from":112
+      , "to":110
+    }
+    , {
+      "from":110
+      , "to":111
+    }
+    , {
+      "from":57
+      , "to":110
+    }
+    , {
+      "from":111
+      , "to":57
+    }
+  ]
+}

@@ -1,0 +1,569 @@
+{
+  "bottlenecks":
+  [
+    {
+      "name":"'A_out'"
+      , "id":557
+      , "src":"242"
+      , "dst":"296"
+      , "type":"fMAX/II"
+      , "brief":"Data dependency"
+      , "loop":"ARMMUL_kernel_ID.B3"
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Variable on critical loop carried feedback path: ":"'A_out'"
+          , "Declared at: ":
+          [
+            {
+              "type":"text"
+              , "text":"%L"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"37"
+                }
+              ]
+            }
+          ]
+          , "Dependency: ":"Data dependency"
+          , "Estimated fmax reduced to: ":"480.0"
+          , "Loop feedback path that raised II and/or lowered fMAX: ":
+          [
+            {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"f32 FP *+(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                  , "line":"68"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      , "nodes":
+      [
+        {
+          "name":"'A_out'"
+          , "id":242
+          , "start":"64.00"
+          , "parent":"_ZTS16ARMMUL_kernel_ID.B3"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":243
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":248
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":253
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":258
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":263
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":266
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":269
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":272
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":275
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":278
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":281
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":284
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":287
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":290
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"f32 FP *+"
+          , "id":293
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Feedback"
+          , "id":296
+          , "end":"64.00"
+          , "parent":"_ZTS16ARMMUL_kernel_ID.B3"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":68
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+      , "links":
+      [
+        {
+          "from":242
+          , "to":243
+        }
+        , {
+          "from":243
+          , "to":296
+        }
+        , {
+          "from":242
+          , "to":296
+          , "reverse":1
+        }
+      ]
+    }
+    , {
+      "name":"Global variable"
+      , "id":558
+      , "src":"104"
+      , "dst":"110"
+      , "concurrency":"0"
+      , "type":"Occupancy limiter"
+      , "brief":"Data dependency"
+      , "loop":"'lambda'().B0"
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Variable on critical loop carried feedback path: ":"Global variable"
+          , "Declared at: ":
+          [
+            {
+              "type":"text"
+              , "text":"%L"
+              , "links":
+              [
+                {
+                  "filename":"Unknown location"
+                  , "line":"0"
+                }
+              ]
+            }
+          ]
+          , "Dependency: ":"Data dependency"
+          , "Concurrency value: ":"0"
+          , "Loop feedback path that lowered occupancy: ":
+          [
+            {
+              "type":"text"
+              , "text":"LD(%L)"
+              , "links":
+              [
+                {
+                  "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                  , "line":"25"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      , "nodes":
+      [
+        {
+          "name":"Global variable"
+          , "id":104
+          , "start":"30.00"
+          , "parent":"_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_allocatorIfEEvEEiiENKUlRNS1_7handlerEE0_clESB_EUlvE_.B0"
+          , "type":"inst"
+        }
+        , {
+          "name":"LD"
+          , "id":107
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                , "line":25
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Feedback"
+          , "id":110
+          , "end":"132.00"
+          , "parent":"_ZTSZZN10Adder_Tree18Adder_Tree_ExecuteERN4sycl3_V15queueERNS1_6bufferIfLi2ENS1_6detail17aligned_allocatorIfEEvEEiiENKUlRNS1_7handlerEE0_clESB_EUlvE_.B0"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                , "line":1170
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+      , "links":
+      [
+        {
+          "from":104
+          , "to":107
+        }
+        , {
+          "from":109
+          , "to":110
+        }
+        , {
+          "from":104
+          , "to":110
+          , "reverse":1
+        }
+      ]
+    }
+  ]
+}

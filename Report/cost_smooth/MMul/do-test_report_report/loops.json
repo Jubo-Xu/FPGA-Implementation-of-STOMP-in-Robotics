@@ -1,0 +1,1564 @@
+{
+  "columns":
+  ["", "Pipelined", "II", "Speculated iterations", "Details"]
+  , "children":
+  [
+    {
+      "name":"Kernel: ARMMUL_kernel_ID"
+      , "data":
+      ["", "", ""]
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+            , "line":21
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"brief"
+          , "text":"Single work-item execution"
+        }
+        , {
+          "type":"text"
+          , "text":"Single work-item execution"
+        }
+        , {
+          "type":"text"
+          , "text":"fMAX bottleneck block: None"
+        }
+        , {
+          "type":"text"
+          , "text":"See %L for more information"
+          , "links":
+          [
+            {
+              "guide":"Best Practices Guide : Kernels"
+              , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/ipp1476408832230.html"
+            }
+          ]
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"ARMMUL_kernel_ID.B1"
+          , "data":
+          ["Yes", ">=1", "1"]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                , "line":31
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Stallable instruction: n/a"
+            }
+            , {
+              "type":"text"
+              , "text":"Maximum concurrent iterations: Capacity of loop"
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Use the %L viewer to estimate capacity"
+                  , "links":
+                  [
+                    {
+                      "view":"Fmax II Report"
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"See %L for more information"
+              , "links":
+              [
+                {
+                  "guide":"Best Practices Guide : Nested Loops"
+                  , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/rfr1469543500580.html"
+                }
+              ]
+            }
+          ]
+          , "children":
+          [
+            {
+              "name":"Fully unrolled loop"
+              , "data":
+              ["n/a", "n/a", "n/a"]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"CostSmooth.hpp"
+                    , "line":42
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Unrolled by #pragma unroll"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Unrolled by #pragma unroll"
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"Fully unrolled loop"
+                  , "data":
+                  ["n/a", "n/a", "n/a"]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"CostSmooth.hpp"
+                        , "line":45
+                      }
+                    ]
+                  ]
+                  , "details":
+                  [
+                    {
+                      "type":"brief"
+                      , "text":"Unrolled by #pragma unroll"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Unrolled by #pragma unroll"
+                    }
+                  ]
+                  , "children":
+                  [
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Fully unrolled loop"
+              , "data":
+              ["n/a", "n/a", "n/a"]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"CostSmooth.hpp"
+                    , "line":75
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Unrolled by #pragma unroll"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Unrolled by #pragma unroll"
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"Fully unrolled loop"
+                  , "data":
+                  ["n/a", "n/a", "n/a"]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"CostSmooth.hpp"
+                        , "line":77
+                      }
+                    ]
+                  ]
+                  , "details":
+                  [
+                    {
+                      "type":"brief"
+                      , "text":"Unrolled by #pragma unroll"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Unrolled by #pragma unroll"
+                    }
+                  ]
+                  , "children":
+                  [
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Fully unrolled loop"
+              , "data":
+              ["n/a", "n/a", "n/a"]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"CostSmooth.hpp"
+                    , "line":82
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Unrolled by #pragma unroll"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Unrolled by #pragma unroll"
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"Fully unrolled loop"
+                  , "data":
+                  ["n/a", "n/a", "n/a"]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"CostSmooth.hpp"
+                        , "line":84
+                      }
+                    ]
+                  ]
+                  , "details":
+                  [
+                    {
+                      "type":"brief"
+                      , "text":"Unrolled by #pragma unroll"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Unrolled by #pragma unroll"
+                    }
+                  ]
+                  , "children":
+                  [
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"ARMMUL_kernel_ID.B3"
+              , "data":
+              ["Yes", "~6", "0"]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":52
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Accumulator with Initiation Interval 1 not used"
+                }
+                , {
+                  "type":"text"
+                  , "text":"To allow the compiler to use an accumulator with Initiation Interval 1, try applying the attribute intel::initiation_interval(1) to the loop."
+                }
+                , {
+                  "type":"brief"
+                  , "text":"Data dependency"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Compiler failed to schedule this loop with smaller II due to data dependency on variable(s):"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"A_out (%L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"37"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Most critical loop feedback path during scheduling:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"6.00 clock cycles 32-bit Floating-point Multiply-Add Operation (%L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"68"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"II is an approximation due to the following stallable instructions:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"Pipe Read Operation (%L > %L > %L > %L > %L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"55"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"74"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"56"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"56"
+                        }
+                        , {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                          , "line":"67"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Pipe Read Operation (%L > %L > %L > %L > %L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"55"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"74"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"56"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"56"
+                        }
+                        , {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                          , "line":"67"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Pipe Read Operation (%L > %L > %L > %L > %L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"55"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"74"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"56"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"56"
+                        }
+                        , {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                          , "line":"67"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Maximum concurrent iterations: Capacity of loop"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"Use the %L viewer to estimate capacity"
+                      , "links":
+                      [
+                        {
+                          "view":"Fmax II Report"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Average Trip count: 5 (exact)"
+                }
+                , {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Loops in a Single Work-Item Kernel"
+                      , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/wfa1476380079940.html"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"Fully unrolled loop"
+                  , "data":
+                  ["n/a", "n/a", "n/a"]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"CostSmooth.hpp"
+                        , "line":59
+                      }
+                    ]
+                  ]
+                  , "details":
+                  [
+                    {
+                      "type":"brief"
+                      , "text":"Unrolled by #pragma unroll"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Unrolled by #pragma unroll"
+                    }
+                  ]
+                  , "children":
+                  [
+                  ]
+                }
+                , {
+                  "name":"Fully unrolled loop"
+                  , "data":
+                  ["n/a", "n/a", "n/a"]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"CostSmooth.hpp"
+                        , "line":64
+                      }
+                    ]
+                  ]
+                  , "details":
+                  [
+                    {
+                      "type":"brief"
+                      , "text":"Unrolled by #pragma unroll"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Unrolled by #pragma unroll"
+                    }
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Fully unrolled loop"
+                      , "data":
+                      ["n/a", "n/a", "n/a"]
+                      , "debug":
+                      [
+                        [
+                          {
+                            "filename":"CostSmooth.hpp"
+                            , "line":66
+                          }
+                        ]
+                      ]
+                      , "details":
+                      [
+                        {
+                          "type":"brief"
+                          , "text":"Unrolled by #pragma unroll"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Unrolled by #pragma unroll"
+                        }
+                      ]
+                      , "children":
+                      [
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"ARMMUL_kernel_ID.B5"
+              , "data":
+              ["Yes", "~1", "4"]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":94
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"II is an approximation due to the following stallable instructions:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"Pipe Write Operation (%L > %L > %L > %L > %L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"97"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"74"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"56"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"98"
+                        }
+                        , {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                          , "line":"82"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Pipe Write Operation (%L > %L > %L > %L > %L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"97"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"74"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"56"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"98"
+                        }
+                        , {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                          , "line":"82"
+                        }
+                      ]
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"Pipe Write Operation (%L > %L > %L > %L > %L > %L)"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                          , "line":"1166"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"97"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"74"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                          , "line":"56"
+                        }
+                        , {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"98"
+                        }
+                        , {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                          , "line":"82"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Maximum concurrent iterations: Capacity of loop"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"Use the %L viewer to estimate capacity"
+                      , "links":
+                      [
+                        {
+                          "view":"Fmax II Report"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Average Trip count: 5 (exact)"
+                }
+                , {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Loops in a Single Work-Item Kernel"
+                      , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/wfa1476380079940.html"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"Kernel: ARProduceKernel_MMUL_ID"
+      , "data":
+      ["", "", ""]
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+            , "line":383
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"brief"
+          , "text":"Single work-item execution"
+        }
+        , {
+          "type":"text"
+          , "text":"Single work-item execution"
+        }
+        , {
+          "type":"text"
+          , "text":"fMAX bottleneck block: None"
+        }
+        , {
+          "type":"text"
+          , "text":"See %L for more information"
+          , "links":
+          [
+            {
+              "guide":"Best Practices Guide : Kernels"
+              , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/ipp1476408832230.html"
+            }
+          ]
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"ARProduceKernel_MMUL_ID.B1"
+          , "data":
+          ["Yes", "~1", "4"]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                , "line":384
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"II is an approximation due to the following stallable instructions:"
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Load Operation (%L > %L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"386"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"388"
+                    }
+                    , {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                      , "line":"82"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Load Operation (%L > %L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"386"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"388"
+                    }
+                    , {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                      , "line":"82"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Load Operation (%L > %L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"386"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"388"
+                    }
+                    , {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                      , "line":"82"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Pipe Write Operation (%L > %L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"386"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"388"
+                    }
+                    , {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                      , "line":"82"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Pipe Write Operation (%L > %L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"386"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"388"
+                    }
+                    , {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                      , "line":"82"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Pipe Write Operation (%L > %L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"386"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"388"
+                    }
+                    , {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                      , "line":"82"
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"Maximum concurrent iterations: Capacity of loop"
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Use the %L viewer to estimate capacity"
+                  , "links":
+                  [
+                    {
+                      "view":"Fmax II Report"
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"Average Trip count: 5 (exact)"
+            }
+            , {
+              "type":"text"
+              , "text":"See %L for more information"
+              , "links":
+              [
+                {
+                  "guide":"Best Practices Guide : Loops in a Single Work-Item Kernel"
+                  , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/wfa1476380079940.html"
+                }
+              ]
+            }
+          ]
+          , "children":
+          [
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"Kernel: ARConsumeKernel_MMUL_ID"
+      , "data":
+      ["", "", ""]
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+            , "line":401
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"brief"
+          , "text":"Single work-item execution"
+        }
+        , {
+          "type":"text"
+          , "text":"Single work-item execution"
+        }
+        , {
+          "type":"text"
+          , "text":"fMAX bottleneck block: None"
+        }
+        , {
+          "type":"text"
+          , "text":"See %L for more information"
+          , "links":
+          [
+            {
+              "guide":"Best Practices Guide : Kernels"
+              , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/ipp1476408832230.html"
+            }
+          ]
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"ARConsumeKernel_MMUL_ID.B1"
+          , "data":
+          ["Yes", "~1", "4"]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                , "line":402
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"II is an approximation due to the following stallable instructions:"
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Pipe Read Operation (%L > %L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"404"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"405"
+                    }
+                    , {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                      , "line":"67"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Pipe Read Operation (%L > %L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"404"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"405"
+                    }
+                    , {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                      , "line":"67"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Pipe Read Operation (%L > %L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"404"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"405"
+                    }
+                    , {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/ext/intel/pipes.hpp"
+                      , "line":"67"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Store Operation (%L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"404"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"405"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Store Operation (%L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"404"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"405"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"Store Operation (%L > %L > %L > %L > %L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/handler.hpp"
+                      , "line":"1166"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"404"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"74"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/unrolled_loop.hpp"
+                      , "line":"56"
+                    }
+                    , {
+                      "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                      , "line":"405"
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"Maximum concurrent iterations: Capacity of loop"
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Use the %L viewer to estimate capacity"
+                  , "links":
+                  [
+                    {
+                      "view":"Fmax II Report"
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"Average Trip count: 5 (exact)"
+            }
+            , {
+              "type":"text"
+              , "text":"See %L for more information"
+              , "links":
+              [
+                {
+                  "guide":"Best Practices Guide : Loops in a Single Work-Item Kernel"
+                  , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/wfa1476380079940.html"
+                }
+              ]
+            }
+          ]
+          , "children":
+          [
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"Kernel: 'lambda'()"
+      , "data":
+      ["", "", ""]
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":24
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"brief"
+          , "text":"Single work-item execution"
+        }
+        , {
+          "type":"text"
+          , "text":"Single work-item execution"
+        }
+        , {
+          "type":"text"
+          , "text":"fMAX bottleneck block: None"
+        }
+        , {
+          "type":"text"
+          , "text":"See %L for more information"
+          , "links":
+          [
+            {
+              "guide":"Best Practices Guide : Kernels"
+              , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/ipp1476408832230.html"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"Kernel: id<1>)"
+      , "data":
+      ["", "", ""]
+      , "debug":
+      [
+        [
+          {
+            "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+            , "line":17
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"brief"
+          , "text":"ND-Range"
+        }
+        , {
+          "type":"text"
+          , "text":"ND-Range"
+        }
+        , {
+          "type":"text"
+          , "text":"fMAX bottleneck block: None"
+        }
+        , {
+          "type":"text"
+          , "text":"See %L for more information"
+          , "links":
+          [
+            {
+              "guide":"Best Practices Guide : Kernels"
+              , "link":"file:////opt/intel/oneapi/compiler/2023.1.0/linux/lib/oclfpga/aoc_help_pages/ipp1476408832230.html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

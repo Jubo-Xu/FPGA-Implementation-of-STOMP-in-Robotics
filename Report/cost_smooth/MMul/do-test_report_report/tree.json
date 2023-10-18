@@ -1,0 +1,256 @@
+{
+  "nodes":
+  [
+    {
+      "name":"ARMMUL_kernel_ID"
+      , "id":1
+      , "type":"kernel"
+      , "children":
+      [
+        {
+          "name":"ARMMUL_kernel_ID.B0"
+          , "id":6
+          , "type":"bb"
+        }
+        , {
+          "name":"ARMMUL_kernel_ID.B1"
+          , "id":7
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 0"
+              , "id":22
+              , "type":"cluster"
+            }
+          ]
+        }
+        , {
+          "name":"ARMMUL_kernel_ID.B2"
+          , "id":8
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 1"
+              , "id":53
+              , "type":"cluster"
+            }
+            , {
+              "name":"Cluster 2"
+              , "id":54
+              , "type":"cluster"
+            }
+            , {
+              "name":"Cluster 3"
+              , "id":55
+              , "type":"cluster"
+            }
+            , {
+              "name":"Cluster 4"
+              , "id":56
+              , "type":"cluster"
+            }
+          ]
+        }
+        , {
+          "name":"ARMMUL_kernel_ID.B3"
+          , "id":9
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 5"
+              , "id":60
+              , "type":"cluster"
+            }
+            , {
+              "name":"Cluster 6"
+              , "id":64
+              , "type":"cluster"
+            }
+          ]
+        }
+        , {
+          "name":"ARMMUL_kernel_ID.B4"
+          , "id":10
+          , "type":"bb"
+        }
+        , {
+          "name":"ARMMUL_kernel_ID.B5"
+          , "id":11
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 7"
+              , "id":71
+              , "type":"cluster"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"ARProduceKernel_MMUL_ID"
+      , "id":2
+      , "type":"kernel"
+      , "children":
+      [
+        {
+          "name":"ARProduceKernel_MMUL_ID.B0"
+          , "id":12
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 8"
+              , "id":76
+              , "type":"cluster"
+            }
+          ]
+        }
+        , {
+          "name":"ARProduceKernel_MMUL_ID.B1"
+          , "id":13
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 9"
+              , "id":77
+              , "type":"cluster"
+            }
+          ]
+        }
+        , {
+          "name":"ARProduceKernel_MMUL_ID.B2"
+          , "id":14
+          , "type":"bb"
+        }
+      ]
+    }
+    , {
+      "name":"ARConsumeKernel_MMUL_ID"
+      , "id":3
+      , "type":"kernel"
+      , "children":
+      [
+        {
+          "name":"ARConsumeKernel_MMUL_ID.B0"
+          , "id":15
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 10"
+              , "id":86
+              , "type":"cluster"
+            }
+          ]
+        }
+        , {
+          "name":"ARConsumeKernel_MMUL_ID.B1"
+          , "id":16
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 11"
+              , "id":87
+              , "type":"cluster"
+            }
+            , {
+              "name":"Cluster 12"
+              , "id":91
+              , "type":"cluster"
+            }
+          ]
+        }
+        , {
+          "name":"ARConsumeKernel_MMUL_ID.B2"
+          , "id":17
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 13"
+              , "id":95
+              , "type":"cluster"
+            }
+            , {
+              "name":"Cluster 14"
+              , "id":99
+              , "type":"cluster"
+            }
+            , {
+              "name":"Cluster 15"
+              , "id":102
+              , "type":"cluster"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"'lambda'()"
+      , "id":4
+      , "type":"kernel"
+      , "children":
+      [
+        {
+          "name":"'lambda'().B0"
+          , "id":18
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 16"
+              , "id":105
+              , "type":"cluster"
+            }
+            , {
+              "name":"Cluster 17"
+              , "id":106
+              , "type":"cluster"
+            }
+            , {
+              "name":"Cluster 18"
+              , "id":108
+              , "type":"cluster"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"id<1>)"
+      , "id":5
+      , "type":"kernel"
+      , "children":
+      [
+        {
+          "name":"id<1>).B0"
+          , "id":19
+          , "type":"bb"
+          , "children":
+          [
+            {
+              "name":"Cluster 19"
+              , "id":111
+              , "type":"cluster"
+            }
+            , {
+              "name":"Cluster 20"
+              , "id":113
+              , "type":"cluster"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  , "links":
+  [
+  ]
+}

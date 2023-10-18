@@ -1,0 +1,543 @@
+{
+  "nodes":
+  [
+    {
+      "name":"ARMMUL_kernel_ID"
+      , "id":559
+      , "type":"kernel"
+      , "children":
+      [
+        {
+          "name":"On-chip Memory"
+          , "id":560
+          , "type":"memtype"
+          , "children":
+          [
+            {
+              "name":"F_matrix"
+              , "id":561
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"24"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+            , {
+              "name":"A_out"
+              , "id":562
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"37"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":37
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+            , {
+              "name":"B_out"
+              , "id":563
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"38"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":38
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+            , {
+              "name":"Delta_theta_in"
+              , "id":564
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"39"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":39
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+            , {
+              "name":"Out_add"
+              , "id":565
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"40"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":40
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+            , {
+              "name":"val"
+              , "id":566
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                          , "line":"51"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/CostSmooth.hpp"
+                    , "line":51
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"ARProduceKernel_MMUL_ID"
+      , "id":567
+      , "type":"kernel"
+      , "children":
+      [
+        {
+          "name":"On-chip Memory"
+          , "id":568
+          , "type":"memtype"
+          , "children":
+          [
+            {
+              "name":"__SYCLKernel"
+              , "id":569
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                          , "line":"383"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":383
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"ARConsumeKernel_MMUL_ID"
+      , "id":570
+      , "type":"kernel"
+      , "children":
+      [
+        {
+          "name":"On-chip Memory"
+          , "id":571
+          , "type":"memtype"
+          , "children":
+          [
+            {
+              "name":"__SYCLKernel"
+              , "id":572
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                          , "line":"401"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/vector-add-usm.cpp"
+                    , "line":401
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"'lambda'()"
+      , "id":573
+      , "type":"kernel"
+      , "children":
+      [
+        {
+          "name":"On-chip Memory"
+          , "id":574
+          , "type":"memtype"
+          , "children":
+          [
+            {
+              "name":"__SYCLKernel"
+              , "id":575
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                          , "line":"24"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":24
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"id<1>)"
+      , "id":576
+      , "type":"kernel"
+      , "children":
+      [
+        {
+          "name":"On-chip Memory"
+          , "id":577
+          , "type":"memtype"
+          , "children":
+          [
+            {
+              "name":"__SYCLKernel"
+              , "id":578
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                          , "line":"17"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/home/zsz/stomp_test/vector-add/src/Adder_Tree.cpp"
+                    , "line":17
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+            , {
+              "name":"GlobalId"
+              , "id":579
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/detail/helpers.hpp"
+                          , "line":"152"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/detail/helpers.hpp"
+                    , "line":152
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+            , {
+              "name":"GlobalSize"
+              , "id":580
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/detail/helpers.hpp"
+                          , "line":"153"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/detail/helpers.hpp"
+                    , "line":153
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+            , {
+              "name":"GlobalOffset"
+              , "id":581
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Declared at":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"%L"
+                      , "links":
+                      [
+                        {
+                          "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/detail/helpers.hpp"
+                          , "line":"154"
+                        }
+                      ]
+                    }
+                  ]
+                  , "Additional information":"This variable is carried through the pipeline in registers (rather than being stored in RAM)"
+                }
+              ]
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/opt/intel/oneapi/compiler/2023.1.0/linux/bin-llvm/../include/sycl/detail/helpers.hpp"
+                    , "line":154
+                  }
+                ]
+              ]
+              , "type":"reg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  , "links":
+  [
+  ]
+}
